@@ -125,7 +125,7 @@ class BaseController extends Controller
         if(sizeof($segments)<2)$segments[1] = "";
         if(sizeof($segments)<3)$segments[2] = "";
 
-        $this->THEME = "webs01"; //-- 테스트용 스킨 강제 지정
+        $this->THEME = "webs03"; //-- 스킨 강제 지정
 
         // 관리자 로그인여부 체크 (사용자 페이지에 별도 출력/처리를 위함)
         if($this->SS_Mlevel>=90)$this->isMaster = true;

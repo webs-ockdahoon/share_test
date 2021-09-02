@@ -1,8 +1,0 @@
-@for $i from 2 through 10 {
-  .border-#{$i} {
-    border-width: #{$i}px !important;
-  }
-  .border-bottom-#{$i} {
-    border-bottom-width: #{$i}px !important;
-  }
-}
