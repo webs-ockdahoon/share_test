@@ -1,0 +1,38 @@
+.btn-xs {
+  padding: 0.125rem 0.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.25;
+}
+
+.btn-toggler {
+  &[data-toggle="collapse"] {
+    > [class*="material-icons"] {
+      transition: transform 0.2s ease-out;
+    }
+
+    &[aria-expanded="true"] [class*="material-icons"] {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+$wide-ratio: 2.5;
+
+.btn-wide {
+  padding-left: $btn-padding-x*$wide-ratio;
+  padding-right: $btn-padding-x*$wide-ratio;
+
+  &.btn-sm {
+    padding-left: $btn-padding-x-sm*$wide-ratio;
+    padding-right: $btn-padding-x-sm*$wide-ratio;
+  }
+
+  &.btn-lg {
+    padding-left: $btn-padding-x-lg*$wide-ratio;
+    padding-right: $btn-padding-x-lg*$wide-ratio;
+  }
+}
+
+.btn-action {
+  padding: $btn-padding-y*$wide-ratio*0.85 $btn-padding-x*$wide-ratio;
+}

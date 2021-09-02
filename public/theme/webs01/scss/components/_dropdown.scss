@@ -1,0 +1,22 @@
+.dropdown-menu--v1 {
+  visibility: hidden;
+  opacity: 0;
+  display: block;
+  padding: 1rem 0;
+  box-shadow: $box-shadow;
+  border: 0;
+  border-radius: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out 0.05s;
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .dropdown-item {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

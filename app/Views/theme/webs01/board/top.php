@@ -1,0 +1,1 @@
+<div class="text-center">테마 게시판 상단</div>

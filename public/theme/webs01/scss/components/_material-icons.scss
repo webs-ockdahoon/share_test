@@ -1,0 +1,65 @@
+/* Rules for sizing the icon. */
+[class*="material-icons"] {
+  opacity: 0.8;
+
+  &.md-18 { font-size: 18px; }
+  &.md-24 { font-size: 24px; }
+  &.md-32 { font-size: 32px; }
+  &.md-48 { font-size: 48px; }
+
+  /* Rules for using icons as black on a light background. */
+  &.md-dark { color: rgba(0, 0, 0, 0.54); }
+  &.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+  /* Rules for using icons as white on a dark background. */
+  &.md-light { color: rgba(255, 255, 255, 1); }
+  &.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+}
+
+.mi {
+  &--before::before,
+  &--after::after {
+    @extend  %material-icons-round;
+    @extend %material-icons;
+  }
+
+  &--external-link {
+    &.mi--before::before,
+    &.mi--after::after {
+      content: 'open_in_new'
+    }
+  }
+
+  &--next-link {
+    &.mi--before::before,
+    &.mi--after::after {
+      content: 'navigate_next'
+    }
+  }
+
+  &--hover {
+    &.mi--before::before,
+    &.mi--after::after {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &.mi--before::before {
+      transform: translate(0.125rem, -0.0625rem);
+    }
+
+    &.mi--after::after {
+      transform: translate(-0.125rem, -0.0625rem);
+    }
+
+    &:hover,
+    &:focus {
+      &.mi--before::before {
+        transform: translate(0, -0.125rem);
+      }
+
+      &.mi--after::after {
+        transform: translate(0, -0.125rem);
+      }
+    }
+  }
+}

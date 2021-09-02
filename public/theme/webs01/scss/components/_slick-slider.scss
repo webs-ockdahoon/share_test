@@ -1,0 +1,66 @@
+$slick-v1-arrow-size: 48px;
+$slick-v1-border-radius: 50%;
+
+.slick-slider--v1 {
+
+  .slick-list {
+    padding-left: $slick-v1-arrow-size;
+    padding-right: $slick-v1-arrow-size;
+  }
+
+  // 이전/다음 버튼 공통
+  .slick-arrow {
+    opacity: 0.8;
+    overflow: hidden;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    width: $slick-v1-arrow-size;
+    height: $slick-v1-arrow-size;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    background-color: #fff;
+    border: 0;
+    border-radius: $slick-v1-border-radius;
+    backdrop-filter: blur(2px);
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease-out;
+
+    &:hover,
+    &:focus {
+      opacity: 0.88;
+    }
+
+    // 버튼 안 화살표 아이콘 폰트 사용
+    &::before {
+      opacity: 0.72;
+      @extend %material-icons-round;
+      font-size: 2rem;
+    }
+
+    // 이전 버튼
+    &.slick-prev {
+      left: 0;
+
+      &::before {
+        content: 'navigate_before';
+      }
+    }
+
+    // 다음 버튼
+    &.slick-next {
+      right: 0;
+
+      &::before {
+        content: 'navigate_next';
+      }
+    }
+
+    &.slick-disabled {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+}

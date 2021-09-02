@@ -1,0 +1,48 @@
+/* 게시판 전체 영역 */
+.board_wrap{width:80%;margin:0px auto;max-width:1200px;}
+.board_wrap .btn_wrap{text-align:right;margin-top:20px;}
+
+/* 버튼 정의 */
+.board_wrap .btn{border:1px solid #eee;background:#ddd;margin:0px 5px;}
+.board_wrap .btn.btn-primary{background:#2b80ff;color:#fff;border:1px solid #2b80ff;}
+.board_wrap .btn.btn-danger{background:#dc3545;color:#fff;border:1px solid #dc3545;}
+
+/**
+ * 게시판 리스트
+ */
+.board_wrap .board_list{width:100%;}
+.board_wrap .board_list thead{}
+.board_wrap .board_list thead tr th{text-align:center;background:#fff;border-top:2px solid #333;border-bottom:1px solid #d3d3d3;padding:10px;font-size:12px;}
+.board_wrap .board_list thead tr th.w100{width:100px;}
+.board_wrap .board_list tbody tr td{padding:10px 0px;border-bottom:1px solid #f3f3f3;font-size:14px;}
+.board_wrap .board_list tbody tr td a{color:#333;}
+.board_wrap .board_list tbody {border-bottom:1px solid #d3d3d3;padding:10px;}
+
+/* Pagination */
+.board_wrap .board_list_foot{overflow:hidden;}
+.board_wrap .board_list_foot .btn_wrap{width:25%;float:left;padding:20px 10px;}
+.board_wrap .board_list_foot .paging_wrap{width:50%;float:left;text-align:center;padding:20px 10px;}
+.board_wrap .board_list_foot .paging_wrap .pagination{display:inline-block;}
+.board_wrap .board_list_foot .paging_wrap .pagination li{display:inline-block;}
+.board_wrap .board_list_foot .paging_wrap .pagination li a{color:#333;border:1px solid #888;padding:3px 8px;font-size:12px;}
+.board_wrap .board_list_foot .paging_wrap .pagination li.active a,
+.board_wrap .board_list_foot .paging_wrap .pagination li a:hover{background:#2b80ff;color:#fff;border:1px solid #2b80ff;}
+
+.board_wrap .board_list_foot .search_wrap{text-align:Center;clear:both;}
+
+/**
+ * 글쓰기 페이지
+ */
+.board_wrap .board_write{width:100%;border-top:4px solid #333;}
+.board_wrap .board_write tbody tr th{background:#f9f9f9;width:10%;text-align:right;}
+.board_wrap .board_write tbody tr th,.board_wrap .board_write tbody tr td{border-bottom:1px solid #ddd;padding:10px;}
+.board_wrap .board_write tbody tr td input.wfull{width:100%;}
+.board_wrap .board_write tbody tr td textarea{width:100%;height:200px;}
+
+/**
+ * 패스워드 확인 페이지
+ */
+.board_wrap .board_pass_check{margin:50px 0px;}
+.board_wrap .board_pass_check h1{font-size:24px;text-align:center;margin-bottom:20px;}
+.board_wrap .pass_wrap{background:#f3f3f3;border:1px solid #ddd;text-align:center;width:100%;max-width:400px;padding:30px;margin:0px auto;}
+.board_wrap .pass_wrap .pass_help{font-size:12px;}

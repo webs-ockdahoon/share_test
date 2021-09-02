@@ -1,0 +1,40 @@
+%material-icons {
+  display: inline-block;
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga'; /* support IE 11 ref. https://github.com/google/material-design-icons/issues/536 */
+  -webkit-font-smoothing: antialiased;
+}
+%material-icons-round {
+  @extend %material-icons;
+  font-family: 'Material Icons Round';
+}
+
+%hover-underline {
+  &.hover-target,
+  & .hover-target {
+    position: relative;
+    display: inline;
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    text-decoration: none;
+    background: linear-gradient(to right, currentColor 0%, currentColor 100%) no-repeat 0 95%;
+    background-size: 0 2px;
+    transition: background-size 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+
+  @include hover-focus {
+    &.hover-target,
+    & .hover-target {
+      background-size: 100% 2px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.text-subtitle {
+  font-size: $h6-font-size;
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.text-base {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+.text-body2 {
+  font-size: 0.9375rem;
+  line-height: $line-height-base * 1.06667;
+}
+.text-caption {
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  line-height: 1.65;
+}
+.text-overline {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  line-height: 1.75;
+}
+.text-inherit {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+.text-through {
+  text-decoration: line-through;
+}
+
+.font-family-secondary {
+  font-family: $font-family-secondary;
+}
