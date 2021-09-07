@@ -12,6 +12,7 @@
 <meta property="og:image" content="">
 
 <link href="/assets/plugins/swiper@4.5.3/dist/css/swiper.min.css" rel="stylesheet">
+<link href="/assets/fonts/material-icons.css" rel="stylesheet">
 <link href="<?php echo $THEME_URL; ?>/css/common.min.css" rel="stylesheet">
 <link href="<?php echo $THEME_URL?>/css/theme.css" rel="stylesheet">
 
