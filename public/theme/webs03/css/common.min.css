@@ -1,9 +1,9 @@
-/* Error: Undefined variable.
+﻿/* Error: Undefined variable.
  *   ,
  * 3 |   $container-gutter-x:  $grid-gutter-width * 0.5;
  *   |                         ^^^^^^^^^^^^^^^^^^
  *   '
- *   scss\layouts\_default-layout.scss 3:25  @import
+ *   scss\layouts\_default-page-header.scss 3:25  @import
  *   scss\common.scss 4:9                    root stylesheet */
 
 body::before {
