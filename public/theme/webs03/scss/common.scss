@@ -1,4 +1,14 @@
-@import "variables";
+@import "utils";
 
 // bootstrap
-@import "../../../assets/plugins/bootstrap@4.6.0/scss/bootstrap";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/dropdown";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/input-group";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/custom-forms";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/nav";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/navbar";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/card";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/alert";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/toasts";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/modal";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/tooltip";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/popover";
