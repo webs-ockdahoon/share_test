@@ -1,0 +1,127 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  width: $icon-size;
+  height: $icon-size;
+}
+
+// icon-hamburger
+.icon-hamburger {
+  color: inherit;
+
+  &__bars {
+    display: block;
+    position: relative;
+    width: $icon-size * 0.6;
+
+    &,
+    &::before,
+    &::after {
+      height: 2px;
+      background: currentColor;
+      transition: all 0.2s ease;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: $icon-size * 0.8;
+      margin-top: -1px;
+    }
+
+    &::before {
+      transform: translateY($icon-size * 0.25 * -1);
+    }
+
+    &::after {
+      transform: translateY($icon-size * 0.25);
+    }
+  }
+
+  &.is-toggled &__bars {
+    width: 0;
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+
+// icon-toggle
+.icon-toggle {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: $icon-size * 0.5;
+    width: ($icon-size * 0.4) - 1;
+    height: 1px;
+    background-color: currentColor;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &::before {
+    left: $icon-size * 0.175;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    right: $icon-size * 0.175;
+    transform: rotate(-45deg);
+  }
+
+  [aria-expanded="true"] > &,
+  .is-active > &,
+  &.is-toggled,
+  &[aria-expanded="true"] {
+    &::before {
+      transform: rotate(-45deg);
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+
+  &--right {
+    transform: rotate(-90deg);
+  }
+
+  &--left {
+    transform: rotate(90deg);
+  }
+}
+
+$sns-icon-sprite-whole-width: 400px;
+$sns-icon-sprite-width: 200px;
+$sns-icon-sprites: (
+  'facebook', 'instagram', 'youtube'
+);
+
+// icon-sns
+.icon-sns {
+  background: url('../images/sns_icons_sprite.png') no-repeat 0 0;
+  background-size: $sns-icon-sprite-whole-width;
+
+  @each $sns in $sns-icon-sprites {
+    $icon-index: index($sns-icon-sprites, $sns) - 1;
+    $position-x: $icon-index * $icon-size;
+
+    &--#{$sns} {
+      background-position-x: $position-x;
+
+      &.is-white {
+        background-position-x: ($sns-icon-sprite-width + $position-x) * -1;
+      }
+    }
+  }
+}

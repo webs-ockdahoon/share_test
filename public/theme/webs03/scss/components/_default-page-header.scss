@@ -1,15 +1,21 @@
-
-
-$container-gutter-x:  $grid-gutter-width * 0.5;
-$brand-logo-w: 432px;
-
 // page-header
 .default-page-header {
-  .header-container {
+  overflow: hidden;
+  height: $default-page-header-h;
+  background-color: $white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  transition: height 0.45s cubic-bezier(.81,.01,.35,.99);
+
+  &__placeholder {
+    padding-top: $default-page-header-h;
+    background-color: $white;
+  }
+
+  &__container {
     position: relative;
   }
 
-  .header-brand {
+  &__brand {
     margin-bottom: 0;
 
     .brand-logo {
@@ -27,14 +33,15 @@ $brand-logo-w: 432px;
     }
   }
 
-  .header-nav-toggler,
+  .header-toggler,
   .header-search-toggler {
     position: absolute;
-    top: 0;
+    top: $default-page-header-h * 0.5;
+    transform: translateY(-50%);
     color: currentColor;
   }
 
-  .header-nav-toggler {
+  .header-toggler {
     left: $container-gutter-x;
   }
 
@@ -42,7 +49,7 @@ $brand-logo-w: 432px;
     right: $container-gutter-x;
   }
 
-  .header-info {
+  &__info {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -52,7 +59,7 @@ $brand-logo-w: 432px;
     font-size: $font-size-sm;
     background-color: $primary;
 
-    &__item {
+    &-item {
       flex: 0 0 50%;
       max-width: 50%;
       display: flex;
@@ -61,7 +68,7 @@ $brand-logo-w: 432px;
       padding-left: $container-gutter-x * 0.125;
       padding-right: $container-gutter-x * 0.125;
 
-      .info-label {
+      .item-label {
         line-height: 1;
 
         [class*="material-icons"] {
@@ -69,7 +76,7 @@ $brand-logo-w: 432px;
         }
       }
 
-      .info-text {
+      .item-text {
         margin-bottom: 0;
       }
 
@@ -81,8 +88,10 @@ $brand-logo-w: 432px;
         font-weight: $font-weight-bold;
         letter-spacing: 0.025em;
 
-        [class*="material-icons"]  {
-          display: none;
+        .item-label {
+          [class*="material-icons"] {
+            display: none;
+          }
         }
       }
     }
@@ -91,76 +100,18 @@ $brand-logo-w: 432px;
   &__navbar {
     margin-left: $container-gutter-x * -1;
     margin-right: $container-gutter-x * -1;
+    padding-top: $container-gutter-x * 0.5;
+    padding-bottom: $container-gutter-x * 0.5;
     background-color: $light;
   }
 
-  &__nav {
-    display: block;
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .nav-link {
-      padding: $container-gutter-x * 0.25 0;
-      color: inherit;
-      font-size: $body2-size;
-    }
+  .primary-nav {
 
     // 1depth 메뉴만 적용
     > .nav-item {
-      padding: $container-gutter-x * 0.25 $container-gutter-x;
       background-color: $white;
-
-      & + .nav-item {
-        margin-top: 0.5rem;
-      }
-
-      > .nav-link {
-        padding-top: $container-gutter-x * 0.5;
-        padding-bottom: $container-gutter-x * 0.5;
-        font-size: $h6-font-size;
-        font-weight: $font-weight-bold;
-      }
     }
 
-    .nav-sub0 {
-      > .nav-item {
-        & + .nav-item {
-          border-top: 1px solid $light;
-        }
-
-        > .nav-link {
-          padding-top: $container-gutter-x * 0.5;
-          padding-bottom: $container-gutter-x * 0.5;
-          font-size: $font-size-base;
-        }
-      }
-    }
-
-    .nav-sub1 {
-      padding-bottom: $container-gutter-x * 0.5;
-
-      >.nav-item {
-        position: relative;
-        padding-left: $container-gutter-x * 0.5;
-
-        &::before {
-          opacity: 0.72;
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 0;
-          width: 4px;
-          height: 4px;
-          margin-top: -2px;
-          background-color: $text-muted;
-          border-radius: 4px;
-        }
-      }
-    }
   }
 
   @include media-breakpoint-up('md') {
@@ -176,10 +127,10 @@ $brand-logo-w: 432px;
         &,
         &--tel {
           flex: 0 0 auto;
-          max-width: 100%;
+          max-width: 15rem;
         }
 
-        .info-label {
+        .item-label {
           [class*="material-icons"] {
             margin-right: 0.5rem;
           }
@@ -191,7 +142,7 @@ $brand-logo-w: 432px;
           font-weight: inherit;
           letter-spacing: inherit;
 
-          .info-label {
+          .item-label {
             [class*="material-icons"] {
               display: inline-block;
             }
@@ -202,6 +153,15 @@ $brand-logo-w: 432px;
   }
 
   @include media-breakpoint-up('lg') {
+    overflow: visible;
+    height: auto;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+
+    &__placeholder {
+      padding-top: $default-page-header-h-lg;
+    }
+
     &__container {
       display: flex;
       flex-wrap: wrap;
@@ -216,8 +176,11 @@ $brand-logo-w: 432px;
       }
     }
 
-    &__nav-toggler {
-      display: none;
+    .header-search-toggler {
+      z-index: 1;
+      top: 112px;
+      right: $container-gutter-x * 1.5;
+      color: $white;
     }
 
     &__info {
@@ -229,7 +192,7 @@ $brand-logo-w: 432px;
       color: $text-muted;
       background-color: $white;
 
-      .info-label {
+      .item-label {
         color: $primary;
 
         [class*="material-icons"] {
@@ -243,38 +206,53 @@ $brand-logo-w: 432px;
       flex: 1 1 100%;
       margin-left: 0;
       margin-right: 0;
+      padding-top: 0;
+      padding-bottom: 0;
       color: $white;
       background-color: $primary;
     }
 
-    &__nav {
-      display: flex;
-      padding-top: 0;
-      padding-bottom: 0;
-
-      .nav-link {
-        padding: $container-gutter-x * 0.25 $container-gutter-x * 0.125;
-        font-size: $font-size-sm;
-      }
-
-      > .nav-item,
-      .nav-sub0 {
-        padding: 0 $container-gutter-x * 0.75;
-      }
+    .primary-nav {
 
       // 1depth
       >.nav-item {
-        position: relative;
         background-color: inherit;
 
-        & + .nav-item {
-          margin-top: 0;
-        }
-
         > .nav-link {
-          padding-top: $container-gutter-x * 0.75;
-          padding-bottom: $container-gutter-x * 0.75;
-          font-size: $font-size-base;
+          &,
+          &-toggler .nav-link {
+            position: relative;
+
+            &::after {
+              opacity: 0;
+              content: '';
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              height: 4px;
+              background-color: $white;
+              transform: scaleY(0);
+              transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+          }
+
+          &-toggler {
+            .link-toggler {
+              .icon {
+                &::before,
+                &::after {
+                  height: 4px;
+                }
+                &::before {
+                  left: $icon-size * 0.2;
+                }
+                &::after {
+                  right: $icon-size * 0.2;
+                }
+              }
+            }
+          }
         }
       }
 
@@ -284,11 +262,15 @@ $brand-logo-w: 432px;
       }
 
       .nav-sub0 {
+        display: block;
+        visibility: hidden;
+        opacity: 0;
         position: absolute;
         left: 0;
-        min-width: 10rem;
-        padding-top: $container-gutter-x * 0.375;
-        padding-bottom: $container-gutter-x * 0.375;
+        min-width: 12rem;
+        box-shadow: $box-shadow;
+        transform: translateY(2px);
+        transition: opacity 0.3s cubic-bezier(.19,.85,.41,1), transform 0.4s ease;
 
         >.nav-item {
           & + .nav-item {
@@ -296,19 +278,98 @@ $brand-logo-w: 432px;
           }
 
           > .nav-link {
-            padding-top: $container-gutter-x * 0.375;
-            padding-bottom: $container-gutter-x * 0.375;
-            font-size: $font-size-sm;
-          }
-        }
+            &,
+            &-toggler .nav-link {
+              padding-top: $container-gutter-x * 0.375;
+              padding-bottom: $container-gutter-x * 0.375;
+              font-size: $font-size-sm;
+            }
 
-        .nav-link {
-          white-space: nowrap;
+            &-toggler {
+              .link-toggler .icon {
+                transform: scale(0.5);
+              }
+            }
+          }
         }
       }
 
-      .nav-sub1 {
-        padding-bottom: 0;
+      >.nav-item.is-open {
+        > .nav-link {
+          &,
+          &-toggler .nav-link {
+            &::after {
+              opacity: 1;
+              transform: scaleY(1);
+            }
+          }
+        }
+
+        .nav-sub0 {
+          visibility: visible;
+          opacity: 1;
+          transform: none;
+        }
+      }
+    }
+  }
+
+  // 상단 고정
+  &.is-fixed {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    @include media-breakpoint-up('lg') {
+      position: absolute;
+    }
+  }
+
+  // 상단 헤더 중 특정 영역만 보이도록 스타일링
+  &.is-folded {
+    @include media-breakpoint-up('lg') {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      transform: translateY(-80px);
+      background-color: $primary;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.16);
+      transition: box-shadow 0.5s cubic-bezier(0,.81,.61,1.02);
+    }
+  }
+}
+
+// page-header-open
+.is-page-header-open {
+  .default-page-header {
+    .header-toggler {
+      @extend .is-toggled;
+    }
+  }
+
+  @include media-breakpoint-down('md') {
+    overflow: hidden;
+
+    .default-page-header {
+      height: 100%;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0.08);
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      &__info {
+        flex: 0 0 auto;
+      }
+
+      &__navbar {
+        overflow-y: auto;
+        flex: 1 1 auto;
       }
     }
   }

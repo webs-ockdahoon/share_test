@@ -12,3 +12,14 @@
 @import "../../../assets/plugins/bootstrap@4.6.0/scss/modal";
 @import "../../../assets/plugins/bootstrap@4.6.0/scss/tooltip";
 @import "../../../assets/plugins/bootstrap@4.6.0/scss/popover";
+
+
+// custom
+@import "./components/btn";
+@import "./components/icon";
+@import "./components/bullet-list";
+
+// custom
+@import "./components/primary-nav";
+@import "./components/default-page-header";
+@import "./components/default-page-footer";

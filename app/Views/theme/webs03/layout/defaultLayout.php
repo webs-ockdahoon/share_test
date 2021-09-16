@@ -5,307 +5,169 @@
         <?php echo $this->renderSection('appendHead'); ?>
     </head>
 
-    <?php
-        // Fake data
-        $pageNavs = [
-                [
-                    'label' => '병원소개',
-                    'link' => '/',
-                    'is-active' => FALSE,
-                    'is-external-link' => FALSE,
-                    'sub' => [
-                            [
-                                'label' => '병원소개',
-                                'link' => '/',
-                                'is-active' => FALSE,
-                                'is-external-link' => FALSE,
-                            ],
-                            [
-                                'label' => '감독의 인사말',
-                                'link' => '/',
-                                'is-active' => FALSE,
-                                'is-external-link' => FALSE,
-                            ],
-                            [
-                                'label' => '기본 지연 목표',
-                                'link' => '/',
-                                'is-active' => FALSE,
-                                'is-external-link' => FALSE,
-                            ],
-                            [
-                                'label' => '병원 이력',
-                                'link' => '/',
-                                'is-active' => FALSE,
-                                'is-external-link' => FALSE,
-                            ],
-                            [
-                                'label' => '비전과 사명',
-                                'link' => '/',
-                                'is-active' => FALSE,
-                                'is-external-link' => FALSE,
-                            ],
-                            [
-                                'label' => '의료 시설 데이터',
-                                'link' => '/',
-                                'is-active' => FALSE,
-                                'is-external-link' => FALSE,
-                            ],
-                    ],
-                ],
-                [
-                    'label' => '부서',
-                    'link' => '/',
-                    'is-active' => FALSE,
-                    'is-external-link' => FALSE,
-                ],
-                [
-                    'label' => '전문센터',
-                    'link' => '/',
-                    'is-active' => FALSE,
-                    'is-external-link' => FALSE,
-                ],
-                [
-                    'label' => '병원정보',
-                    'link' => '/',
-                    'is-active' => FALSE,
-                    'is-external-link' => FALSE,
-                    'sub' => [
-                        [
-                            'label' => '국제의료센터',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                            'sub' => [
-                                [
-                                    'label' => '센터장 인사말',
-                                    'link' => '/',
-                                    'is-active' => FALSE,
-                                    'is-external-link' => FALSE,
-                                ],
-                                [
-                                    'label' => '센터에서 일하는 직원',
-                                    'link' => '/',
-                                    'is-active' => FALSE,
-                                    'is-external-link' => FALSE,
-                                ],
-                                [
-                                    'label' => '비즈니스 프로세스',
-                                    'link' => '/',
-                                    'is-active' => FALSE,
-                                    'is-external-link' => FALSE,
-                                ],
-                            ],
-                        ],
-                        [
-                            'label' => '위치',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                            'sub' => [
-                                [
-                                    'label' => '본관',
-                                    'link' => '/',
-                                    'is-active' => FALSE,
-                                    'is-external-link' => FALSE,
-                                ],
-                                [
-                                    'label' => '새 건물',
-                                    'link' => '/',
-                                    'is-active' => FALSE,
-                                    'is-external-link' => FALSE,
-                                ],
-                                [
-                                    'label' => '중앙 건물',
-                                    'link' => '/',
-                                    'is-active' => FALSE,
-                                    'is-external-link' => FALSE,
-                                ],
-                            ],
-                        ],
-                        [
-                            'label' => '컨시어지 서비스',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                        [
-                            'label' => '정보 주차에 대해',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                        [
-                            'label' => '소비자 서비스 기업',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                        [
-                            'label' => '운전 경로',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                        [
-                            'label' => '연락처',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                    ],
-                ],
-                [
-                    'label' => '게시판',
-                    'link' => '/',
-                    'is-active' => FALSE,
-                    'is-external-link' => FALSE,
-                    'sub' => [
-                        [
-                            'label' => '환자 문의',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                        [
-                            'label' => '지원서',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                        [
-                            'label' => '환자 평가',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                        [
-                            'label' => '갤러리',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                        [
-                            'label' => '병원 소식',
-                            'link' => '/',
-                            'is-active' => FALSE,
-                            'is-external-link' => FALSE,
-                        ],
-                    ],
-                ],
-        ];
-        
-        // [TEST] 단계별로 모든 하위 메뉴 만드는 재귀 함수
-        function getSubNavHtml($sub_items, $depth = 0) {
-            $sub_nav_html = "<ul class='nav-sub nav-sub{$depth}'>%sub_items%</ul>";
-
-            $sub_items_html = array_reduce($sub_items, function($carry, $item) use ($depth) {
-                $active_class = $item['is-active'] ? 'is-active' : '';
-                $link_target =  $item['is-external-link'] ? '_blank' : '_self';
-
-                $item_sub_html = isset($item['sub']) && !empty($item['sub']) ? getSubNavHtml($item['sub'], $depth + 1) : '';
-
-                $item_str = "<li class='nav-item'><a href='{$item['link']}' class='nav-link {$active_class}' target='{$link_target}'>{$item['label']}</a>{$item_sub_html}</li>";
-
-                return $carry.$item_str;
-            }, '');
-
-            return str_replace("%sub_items%", $sub_items_html, $sub_nav_html);
-        }
-    ?>
-
     <body class="default-layout page">
         <a class="sr-only sr-only-focusable" href="#content">본문 바로가기</a>
 
-        <header class="default-page-header">
-            <div class="container header-container">
-                <h1 class="header-brand">
+        <header class="default-page-header is-fixed">
+            <div class="container default-page-header__container">
+                <h1 class="default-page-header__brand">
                     <a href="/" class="brand-logo">
                         <img src="<?php echo $THEME_URL; ?>/images/logo.png" alt="동아대학교병원" width="162" height="36" class="img-fluid">
                     </a>
                 </h1>
 
-                <button type="button" class="btn header-nav-toggler" data-target="#siteNav" title="메뉴열기">
-                    <span class="material-icons-round">menu</span>
+                <button type="button" class="btn btn-icon icon icon-hamburger d-lg-none header-toggler js__header-toggler" title="메뉴열기">
+                    <span class="icon-hamburger__bars"></span>
+                </button>
+
+                <button type="button" class="btn btn-icon header-search-toggler" data-target="#siteSearch" title="검색창 열기">
+                    <span class="material-icons-round">search</span>
                 </button>
 
                 <h2 class="sr-only">병원 정보</h2>
-                <dl class="header-info">
-                    <div class="header-info__item">
-                        <dt class="header-info__label">
+                <dl class="default-page-header__info">
+                    <div class="default-page-header__info-item">
+                        <dt class="item-label">
                             <span class="material-icons-round">schedule</span>
                             <span class="sr-only">상담시간</span>
                         </dt>
-                        <dd class="header-info__text">
+                        <dd class="item-text">
                             월 – 금: 00AM - 00PM<br>
                             토 – 일: 00AM - 00PM
                         </dd>
                     </div>
 
-                    <div class="header-info__item">
-                        <dt class="header-info__label">
+                    <div class="default-page-header__info-item">
+                        <dt class="item-label">
                             <span class="material-icons-round">place</span>
                             <span class="sr-only">주소</span>
                         </dt>
-                        <dd class="header-info__text">
+                        <dd class="item-text">
                             부산광역시 서구 대신공원로 26
                         </dd>
                     </div>
 
-                    <div class="header-info__item page-header-info__item--tel">
-                        <dt class="header-info__label">
+                    <div class="default-page-header__info-item default-page-header__info-item--tel">
+                        <dt class="item-label">
                             <span class="material-icons-round">call</span>
                             <span class="sr-only">연락처</span>
                         </dt>
-                        <dd class="header-info__text">
+                        <dd class="item-text">
                             <span class="d-none d-md-block">Call Us:<br></span>(+82) 51-240-2306
                         </dd>
                     </div>
                 </dl>
 
-                <nav id="siteNav" class="header-navbar">
-                    <button type="button" class="btn btn-icon header-search-toggler" data-target="#siteSearch" title="검색창 열기">
-                        <span class="material-icons-round">search</span>
-                    </button>
-
-                    <?php if (!empty($pageNavs)): ?>
-                        <h2 class="sr-only">주 메뉴</h2>
-                        <ul class="nav header-nav">
-                            <?php foreach($pageNavs as $item): ?>
-                                <li class="nav-item">
-                                    <a href="<?php echo $item['link']; ?>" target="<?php echo $item['is-external-link'] ? '_blank' : '_self'; ?>" class="nav-link <?php echo $item['is-active'] ? 'is-active' : ''; ?>">
-                                        <?php echo $item['label']; ?>
-                                    </a>
-
-                                    <?php
-                                        if (isset($item['sub']) && !empty($item['sub'])):
-                                            echo getSubNavHtml($item['sub']);
-                                        endif;
-                                    ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endif; ?>
-
-                    <!--
-                    <form role="search" id="siteSearch" class="page-header__search">
-                        <h2 class="sr-only">검색하기</h2>
-                        <input type="text" placeholder="검색어를 입력하세요.">
-                        <button type="submit">검색하기</button>
-                    </form>
-                    -->
+                <nav id="siteNav" class="default-page-header__navbar js__page-header__navbar">
+                    <h2 class="sr-only">주 메뉴</h2>
+                    <?php echo $this->include($THEME_URL.'/_includes/primaryNavigation'); ?>
                 </nav>
             </div>
         </header>
 
         <div class="default-page-header__placeholder"></div>
 
-        <div id="content" class="page-content bg-light p-5" style="min-height: 120vh;">
+        <div id="content" class="page-content">
             <?php echo $this->renderSection('content'); ?>
         </div>
         
-        <footer class="page-footer">
-            page footer
+        <footer class="default-page-footer bg-dark text-white-50">
+            <div class="container container-lg default-page-footer__container">
+
+                <nav class="default-page-footer__nav js__page-footer__nav">
+                    <h2 class="sr-only">주 메뉴</h2>
+                    <?php echo $this->include($THEME_URL.'/_includes/primaryNavigation'); ?>
+                </nav>
+
+                <div class="default-page-footer__info">
+                    <h2 class="sr-only">정보</h2>
+                    <img src="<?php echo $THEME_URL ?>/images/logo-text-white.png" alt="" class="img-fluid default-page-footer__info-logo">
+                    <dl class="default-page-footer__info-table">
+                        <div class="default-page-footer__info-item">
+                            <dt class="item-label">
+                                <span class="material-icons-round icon">place</span>
+                                <span class="sr-only">주소</span>
+                            </dt>
+                            <dd class="item-text">49201 부산광역시 서구 대신공원로 26</dd>
+                        </div>
+
+                        <div class="default-page-footer__info-item">
+                            <dt class="item-label">
+                                <span class="material-icons-round icon">mail</span>
+                                <span class="sr-only">이메일</span>
+                            </dt>
+                            <dd class="item-text">
+                                <a href="mailto:funky293@hanmail.net">funky293@hanmail.net</a>
+                            </dd>
+                        </div>
+
+                        <div class="default-page-footer__info-item default-page-footer__info-item--tel">
+                            <dt class="sr-only">전화번호</dt>
+                            <dd class="item-text">+82 51-240-2306</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="default-page-footer__utils">
+                    <div class="default-page-footer__utils-sns">
+                        <h2 class="sr-only">소셜 미디어 바로가기</h2>
+                        <a href="https://www.facebook.com/" class="icon icon-sns icon-sns--facebook is-white" target="_blank" rel="noopener noreferrer" title="페이스북 새창 열기"></a>
+                        <a href="https://www.instagram.com/" class="icon icon-sns icon-sns--instagram is-white" target="_blank" rel="noopener noreferrer" title="인스타그램 새창 열기"></a>
+                        <a href="https://www.youtube.com/" class="icon icon-sns icon-sns--youtube is-white" target="_blank" rel="noopener noreferrer" title="유튜브 새창 열기"></a>
+                    </div>
+
+                    <div class="default-page-footer__utils-terms">
+                        <ul class="bullet-list bullet-list--inline-after term-links">
+                            <li class="text-white"><a href="">Privacy Policy</a></li>
+                        </ul>
+                        <p class="term-copyright">Copyright ⓒ DONG-A UNIVERSITY MEDICAL CENTER. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
         </footer>
+        
+        <?php /* 페이지 렌더링 속도 개선을 위해 스크립트 파일은 하단에 배치 */ ?>
+        <script src="/assets/plugins/jquery/jquery-3.6.0.min.js"></script>
+        <script src="/assets/plugins/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="<?php echo $THEME_URL; ?>/script/common.js"></script>
+
+        <script>
+            $(function() {
+               'use strict';
+
+               var $body = $('body');
+               var $pageHeader = $('.default-page-header');
+               var $siteNav = $pageHeader.find('#siteNav');
+
+               $('.js__header-toggler').on('click', function(e) {
+                   $body.toggleClass('is-page-header-open');
+               });
+
+               $('.js__page-header__navbar>.primary-nav>.nav-item').on('mouseenter mouseleave', function(e) {
+                   if (hasTouchEvent()) {
+                       return;
+                   }
+
+                   toggleTargetOpen($(this), true, e.type === 'mouseenter');
+               })
+
+               $('.js__page-header__navbar .js__item-toggler, .js__page-footer__nav .js__item-toggler').on('click', function() {
+                   var $this = $(this);
+                   var $parent = $this.closest($this.data('parent'));
+
+                   if ($parent.length) {
+                       toggleTargetOpen($parent, true);
+                   }
+               });
+
+                $(window).on('scroll', function () {
+                    var scrollTop = $(this).scrollTop();
+                    var siteNavTop = $siteNav.position().top;
+
+                    $pageHeader.toggleClass('is-folded', scrollTop > siteNavTop);
+                });
+            });
+        </script>
 
         <?php echo $this->renderSection('appendBody'); ?>
     </body>
