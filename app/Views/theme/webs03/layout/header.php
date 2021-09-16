@@ -18,7 +18,3 @@
 <link rel="preload" as="style" href="<?php echo $THEME_URL?>/css/theme.css">
 <link rel="stylesheet" href="<?php echo $THEME_URL?>/css/theme.css">
 <link rel="stylesheet" media="print" href="<?php echo $THEME_URL?>/css/print.css" >
-
-<script defer src="/assets/plugins/jquery/jquery-3.6.0.min.js"></script>
-<script defer src="/assets/plugins/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<script defer src="<?php echo $THEME_URL; ?>/script/common.js"></script>
