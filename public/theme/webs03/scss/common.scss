@@ -18,8 +18,13 @@
 @import "./components/btn";
 @import "./components/icon";
 @import "./components/bullet-list";
+@import "./components/page-breadcrumb";
 
 // custom
 @import "./components/primary-nav";
 @import "./components/default-page-header";
 @import "./components/default-page-footer";
+
+// laytous
+@import "layouts/default-layout";
+@import "layouts/sub-layout";

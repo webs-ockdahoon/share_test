@@ -1,4 +1,7 @@
 .btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: $icon-size;
   height: $icon-size;
   padding: 0;

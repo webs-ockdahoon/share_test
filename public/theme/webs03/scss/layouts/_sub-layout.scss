@@ -1,0 +1,28 @@
+.sub-layout {
+  .page-breadcrumb {
+    color: $text-muted;
+    font-size: $caption-size;
+    letter-spacing: 0.05em;
+  }
+
+  .page-content {
+    min-height: 75vh;
+  }
+
+  @include media-breakpoint-down('sm') {
+    .page-breadcrumb--responsive {
+      font-size: $font-size-base;
+      background-color: $primary--air;
+
+      .page-breadcrumb {
+        &__list {
+          >.is-current {
+            .dropdown-menu {
+              background-color: rgba($primary--air, 0.92);
+            }
+          }
+        }
+      }
+    }
+  }
+}

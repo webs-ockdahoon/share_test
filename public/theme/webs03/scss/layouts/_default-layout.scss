@@ -1,0 +1,12 @@
+.default-layout {
+  .page-content {
+    min-height: 75vh;
+  }
+
+  @include media-breakpoint-up('lg') {
+    .page-content {
+      margin-top: $default-page-nav-lg * -0.5;
+      padding-top: $default-page-nav-lg * 0.5;
+    }
+  }
+}

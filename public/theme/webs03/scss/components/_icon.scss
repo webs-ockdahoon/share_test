@@ -99,6 +99,44 @@
   &--left {
     transform: rotate(90deg);
   }
+
+  &.icon-sm {
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+
+    &::before,
+    &::after {
+      top: $icon-size-sm * 0.5;
+      width: ($icon-size-sm * 0.4) - 1;
+    }
+
+    &::before {
+      left: $icon-size-sm * 0.175;
+    }
+
+    &::after {
+      right: $icon-size-sm * 0.175;
+    }
+  }
+
+  &.icon-xs {
+    width: $icon-size-xs;
+    height: $icon-size-xs;
+
+    &::before,
+    &::after {
+      top: $icon-size-xs * 0.5;
+      width: ($icon-size-xs * 0.4) - 1;
+    }
+
+    &::before {
+      left: $icon-size-xs * 0.175;
+    }
+
+    &::after {
+      right: $icon-size-xs * 0.175;
+    }
+  }
 }
 
 $sns-icon-sprite-whole-width: 400px;
