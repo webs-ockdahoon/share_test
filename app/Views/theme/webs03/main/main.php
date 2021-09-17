@@ -1,5 +1,3 @@
-<?php echo $this->extend($THEME_URL.'/layout/defaultLayout'); ?>
+<h1>메인 페이지 내용 입니다.</h1>
 
-<?php echo $this->section('content'); ?>
-메인 페이지 내용 입니다.
-<?php echo $this->endSection(); ?>
+<a href="/template" class="btn btn-primary">사용자 화면 템플릿 보기</a>
