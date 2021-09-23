@@ -1,9 +1,25 @@
-<?php echo $this->extend($THEME_URL.'/layout/subLayout'); ?>
+<?php echo $this->extend($THEME_URL.'/layout/defaultSubLayout'); ?>
+
+<?php
+    $this->setVar('bodyClassName', 'page--template-sub');
+    $this->setVar('heroTitle', 'О больнице при университете Донг-А');
+    $this->setVar('heroText', '<p>Мы приветствуем всех, кто обратился в Международный медицинский центр больницы при университете Донг-А!!!</p>');
+?>
 
 <?php echo $this->section('content'); ?>
-<div class="container">
-    <h2>서브 페이지 내용 입니다.</h2>
+    <div class="container">
+        <p>
+            내용 영역입니다.
+        </p>
+        <br>
+        <p>
+            Для пациентов, посетивших наш центр мы предоставляем дифференцированное медицинское оборудование, приятную обстановку, качество и прочие услуги.
+        </p>
 
-    <a href="/template">메인 페이지 템플릿 보기</a>
-</div>
+        <p>
+            Центр оснащен наилучшим медицинским оборудованием и высококвалифицированным персоналом уровня университетской больницы, которые готовы предоставить Вам медицинские услуги высшего качества.
+        </p>
+        <br>
+        <a href="/template" class="btn btn-primary">메인 페이지 템플릿 보기</a>
+    </div>
 <?php echo $this->endSection(); ?>
