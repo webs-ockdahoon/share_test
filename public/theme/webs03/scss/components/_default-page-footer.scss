@@ -31,6 +31,8 @@ $default-page-footer-border-color: lighten($dark, 5);
           &,
           &-toggler .nav-link,
           &-toggler .link-toggler {
+            padding-top: $container-gutter-x * 0.25;
+            padding-bottom: $container-gutter-x * 0.25;
             color: $primary;
           }
         }
