@@ -1,4 +1,4 @@
-<div id="siteSearchModal" class="modal" tabindex="-1">
+<div id="pageSearchModal" class="modal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

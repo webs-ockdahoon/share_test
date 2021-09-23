@@ -10,7 +10,7 @@
             <span class="icon-hamburger__bars"></span>
         </button>
 
-        <button type="button" class="btn btn-icon header-search-toggler" data-toggle="modal" data-target="#siteSearchModal" title="검색창 열기">
+        <button type="button" class="btn btn-icon header-search-toggler" data-toggle="modal" data-target="#pageSearchModal" title="검색창 열기">
             <span class="material-icons-round">search</span>
         </button>
 

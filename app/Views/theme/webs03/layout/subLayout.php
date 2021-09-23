@@ -64,7 +64,7 @@
         <script src="<?php echo $THEME_URL; ?>/script/default-page-header.js"></script>
         <script src="<?php echo $THEME_URL; ?>/script/default-page-footer.js"></script>
 
-        <?php echo $this->include($THEME_URL.'/_includes/siteSearchModal'); ?>
+        <?php echo $this->include($THEME_URL.'/_includes/pageSearchModal'); ?>
 
         <?php echo $this->renderSection('appendBody'); ?>
     </body>
