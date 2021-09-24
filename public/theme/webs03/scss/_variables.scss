@@ -1,9 +1,19 @@
 // colors
 $primary: #00a0ea;
-$primary--air: #e5f0f9;
+$primary--light: #e5f0f9;
+$primary--air: #f9fbff;
 $secondary: #1d2089;
 $light: #f5f5f5;
+$air: #fafbff;
 $dark: #323232;
+
+$theme-colors: (
+  'primary--light': $primary--light,
+  'primary--air': $primary--air,
+  'air': $air
+);
+
+$border-color: #e3e2e7;
 
 
 // Paragraphs
@@ -19,6 +29,7 @@ $grid-breakpoints: (
     md: 768px,
     lg: 1024px,
     xl: 1280px,
+    wide: 1920px,
 );
 
 $container-max-widths: (
@@ -30,19 +41,41 @@ $container-max-widths: (
 
 $container-gutter-x:  $grid-gutter-width * 0.5;
 
+$border-radius: 0;
+
 
 // Typo
 $font-size-base: 1rem;
 $h6-font-size: $font-size-base * 1.125;
+$body1-size: $font-size-base * 1.0625;
 $body2-size: $font-size-base * 0.9375;
 $caption-size: $font-size-base * 0.8125;
 $overline-size: $font-size-base * 0.75;
 
+$font-weight-medium: 500;
+
 
 // icon
 $icon-size: 40px;
-$icon-size-sm: 32px;
 $icon-size-xs: 24px;
+$icon-size-sm: 32px;
+$icon-size-lg: 56px;
+$icon-size-xl: 80px;
+
+$icon-sizes: (
+  'default': 40px,
+  'xs': 24px,
+  'sm': 32px,
+  'lg': 56px,
+  'xl': 80px,
+);
+
+
+// section
+$section-gutter-y: 5rem;
+$section-gutter-y-sm: 3.75rem;
+$section-gutter-y-lg: 7.5rem;
+
 
 
 // default-page-header

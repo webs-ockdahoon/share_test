@@ -1,0 +1,13 @@
+$row-gutter-x-sm:  $container-gutter-x * 0.5;
+
+.row {
+   &-sm {
+     margin-left: $row-gutter-x-sm * -1;
+     margin-right: $row-gutter-x-sm * -1;
+
+     >[class*="col-"] {
+      padding-left: $row-gutter-x-sm;
+      padding-right: $row-gutter-x-sm;
+     }
+   }
+}

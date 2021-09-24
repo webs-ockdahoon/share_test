@@ -1,0 +1,126 @@
+@import '../utils';
+
+.page--main {
+  font-family: 'Noto Sans KR', sans-serif;
+  letter-spacing: -0.0125em;
+
+  .section {
+    &-title {
+      text-align: center;
+    }
+  }
+
+  .service-section {
+    .section-body {
+      margin-bottom: $container-gutter-x * -1;
+
+      >[class*="col-"] {
+        margin-bottom: $container-gutter-x;
+      }
+    }
+
+    @include media-breakpoint-up('md') {
+      .section-body {
+        .service-card {
+          text-align: center;
+        }
+      }
+    }
+
+    @include media-breakpoint-up('lg') {
+      .section-body {
+        >.col-lg-auto {
+          flex: 1 1 20%;
+          width: 20%;
+          max-width: 20%;
+        }
+      }
+    }
+
+    @include media-breakpoint-down('sm') {
+      .section-body {
+        .service-card {
+          overflow: hidden;
+          position: relative;
+
+          .card-sidebar {
+            opacity: 0.12;
+            position: absolute;
+            z-index: 0;
+            right: $icon-size-xl * -0.25;
+            bottom: $icon-size-xl * -0.25;
+            padding: 0;
+          }
+
+          .card-body {
+            position: relative;
+            z-index: 1;
+          }
+        }
+      }
+    }
+  } //-service-section
+
+  .member-section {
+    overflow: hidden;
+
+    >.container {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 0;
+        background-repeat: no-repeat;
+      }
+
+      &::before {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 540px;
+        background-image: url('../../images/main/bg-pattern-symbol.png');
+        background-position: 100% 0;
+        background-size: contain;
+        transform: translate(42%, 2rem);
+      }
+
+      &::after {
+        top: 0;
+        bottom: $section-gutter-y * -1;
+        left: 0;
+        width: 152px;
+        background-image: url('../../images/main/bg-pattern-ball.png');
+        background-position: 0 100%;
+        transform: translateX(-50%);
+      }
+    }
+
+    @include media-breakpoint-up('md') {
+      > .container {
+        &::before {
+          transform: translate(48%, 2rem);
+        }
+      }
+    }
+
+    @include media-breakpoint-up('xl') {
+      >.container {
+        position: relative;
+
+        &::before {
+          top: -1rem;
+          bottom: -1rem;
+          transform: translate(60%, 2rem);
+        }
+
+        &::after {
+          bottom: $section-gutter-y * -0.5;
+          left: $container-gutter-x * -2;
+          transform: translateX(-100%);
+        }
+      }
+    }
+  }
+}
