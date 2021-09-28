@@ -1,0 +1,28 @@
+.cta-card {
+  padding: $cta-gutter-y $cta-gutter-x;
+  border: 0;
+
+  .card-body {
+    padding: 0;
+  }
+
+  .card-body + .card-action {
+    margin-top: $cta-gutter-x;
+  }
+
+  .card-btn {
+    padding: 0.75rem 2.5rem;
+  }
+
+  .card-title {
+    margin-bottom: $cta-gutter-x * 0.5;
+    font-size: 1.875rem;
+    font-weight: $font-weight-medium;
+    line-height: 1.25;
+  }
+
+  .card-text {
+    font-size: $body2-size;
+    line-height: 1.7;
+  }
+}

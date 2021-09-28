@@ -1,0 +1,39 @@
+.section {
+  padding-top: $section-gutter-y * 0.625;
+  padding-bottom: $section-gutter-y * 0.625;
+
+  &-header {
+    margin-bottom: 2rem;
+  }
+
+  &-title {
+    font-size: 2rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.25;
+  }
+
+  &-sm {
+    padding-top: $section-gutter-y-sm * 0.625;
+    padding-bottom: $section-gutter-y-sm * 0.625;
+  }
+
+  &-lg {
+    padding-top: $section-gutter-y-lg * 0.625;
+    padding-bottom: $section-gutter-y-lg * 0.625;
+  }
+
+  @include media-breakpoint-up('md') {
+    padding-top: $section-gutter-y;
+    padding-bottom: $section-gutter-y;
+
+    &-sm {
+      padding-top: $section-gutter-y-sm;
+      padding-bottom: $section-gutter-y-sm;
+    }
+
+    &-lg {
+      padding-top: $section-gutter-y-lg;
+      padding-bottom: $section-gutter-y-lg;
+    }
+  }
+}

@@ -1,3 +1,17 @@
-/**
- *  해당 테마에서만 사용되는 스타일을 작성해 주세요.
- */
+html {
+    font-size: 14px;
+}
+body {
+    min-width: 375px;
+    overflow-x: auto;
+}
+@media (min-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+}
+@media (min-width: 1280px) {
+    html {
+        font-size: 16px;
+    }
+}

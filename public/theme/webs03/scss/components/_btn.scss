@@ -1,0 +1,20 @@
+.btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $icon-size;
+  height: $icon-size;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+
+  &,
+  &:hover {
+    color: inherit;
+  }
+
+  [class*="material-icons"] {
+    font-size: 32px;
+  }
+}

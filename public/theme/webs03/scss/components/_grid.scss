@@ -1,0 +1,21 @@
+.row {
+   &-sm {
+     margin-left: $row-gutter-x-sm * -1;
+     margin-right: $row-gutter-x-sm * -1;
+
+     >[class*="col-"] {
+      padding-left: $row-gutter-x-sm;
+      padding-right: $row-gutter-x-sm;
+     }
+   }
+
+  &-xs {
+    margin-left: $row-gutter-x-xs * -1;
+    margin-right: $row-gutter-x-xs * -1;
+
+    >[class*="col-"] {
+      padding-left: $row-gutter-x-xs;
+      padding-right: $row-gutter-x-xs;
+    }
+  }
+}
