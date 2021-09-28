@@ -43,6 +43,9 @@ $container-gutter-x:  $grid-gutter-width * 0.5;
 
 $border-radius: 0;
 
+$row-gutter-x-sm:  $container-gutter-x * 0.5;
+$row-gutter-x-xs:  $container-gutter-x * 0.25;
+
 
 // Typo
 $font-size-base: 1rem;
@@ -53,6 +56,12 @@ $caption-size: $font-size-base * 0.8125;
 $overline-size: $font-size-base * 0.75;
 
 $font-weight-medium: 500;
+
+
+// form
+$input-border-radius: 0;
+$input-border-radius-sm: 0;
+$input-border-radius-lg: 0;
 
 
 // icon
@@ -76,6 +85,12 @@ $section-gutter-y: 5rem;
 $section-gutter-y-sm: 3.75rem;
 $section-gutter-y-lg: 7.5rem;
 
+
+// card
+$cta-gutter-x: 2.25rem;
+$cta-gutter-y: 3rem;
+
+$news-card-gutter: 1rem;
 
 
 // default-page-header

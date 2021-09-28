@@ -4,6 +4,12 @@
   font-family: 'Noto Sans KR', sans-serif;
   letter-spacing: -0.0125em;
 
+  @include media-breakpoint-up('lg') {
+    .page-content {
+      padding-top: 0;
+    }
+  }
+
   .section {
     &-title {
       text-align: center;
@@ -97,6 +103,14 @@
       }
     }
 
+    .member-swiper {
+      padding-bottom: $section-gutter-y * 0.5;
+
+      .swiper-pagination {
+        bottom: 0;
+      }
+    }
+
     @include media-breakpoint-up('md') {
       > .container {
         &::before {
@@ -122,5 +136,109 @@
         }
       }
     }
-  }
+  } //-member-section
+
+  .counselling-section {
+    padding-top: 0;
+    padding-bottom: 0;
+    background: url('../../images/main/counselling-bg.jpg') no-repeat 50% 50%;
+    background-size: cover;
+
+    .cta-card {
+      background-color: rgba($white, 0.92);
+      backdrop-filter: blur(2px);
+    }
+
+    @include media-breakpoint-up('md') {
+      padding-top: $section-gutter-y;
+      padding-bottom: $section-gutter-y;
+
+      .cta-card {
+        max-width: 29rem;
+        margin-left: auto;
+      }
+    }
+  } //-counselling-section
+
+  .news-section {
+    .section-content {
+      margin-bottom: $section-gutter-y * 0.5;
+    }
+
+    .section-sidebar {
+      margin-left: $container-gutter-x * -1;
+      margin-right: $container-gutter-x * -1;
+    }
+
+    .media-frame {
+      border: 0.5rem solid $secondary;
+    }
+
+    @include media-breakpoint-up('lg') {
+      >.container {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+      }
+      .section-content,
+      .section-sidebar {
+        flex: 1 1 50%;
+        width: 50%;
+        max-width: 50%;
+        margin: 0;
+      }
+
+      .section-sidebar {
+        padding-right: $section-gutter-y;
+      }
+    }
+  } //-news-section
+
+  .network-section {
+      .network-list {
+        margin-bottom: $row-gutter-x-xs * -2;
+
+        >li {
+          margin-bottom: $row-gutter-x-xs * 2;
+        }
+      }
+  } //-network-section
+
+  .faq-section {
+    .accordion {
+      border-top: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+    }
+
+    @include media-breakpoint-up('lg') {
+      .accordion {
+        border-top: none;
+        border-bottom: none;
+      }
+
+      >.container {
+        display: flex;
+        flex-direction: row-reverse;
+        min-height: 24rem;
+
+        .section-content,
+        .section-sidebar {
+          flex: 1 1 50%;
+          width: 50%;
+          max-width: 50%;
+        }
+
+        .section-sidebar {
+          padding-right: $section-gutter-y;
+        }
+
+        .section-background {
+          width: 100%;
+          height: 100%;
+          background: url('../../images/main/faq-img.jpg') no-repeat 50% 50%;
+          background-size: 100% auto;
+        }
+      }
+    }
+  } //-faq-section
 }

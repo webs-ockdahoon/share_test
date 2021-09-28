@@ -1,0 +1,102 @@
+.collapse-card {
+    border: 0;
+
+    .card-header {
+      position: relative;
+      padding: 0;
+      background-color: transparent;
+      border-bottom: 1px solid rgba($border-color, 0.4);
+    }
+
+    .card-body {
+      padding-left: 0;
+      padding-right: 0;
+      font-weight: $font-weight-light;
+      line-height: 1.6;
+    }
+
+    .card-title {
+      font-size: $h4-font-size;
+      font-weight: $font-weight-medium;
+
+      &__toggler {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: $card-spacer-x 0;
+        font-size: inherit;
+        font-weight: inherit;
+        text-align: left;
+
+        &:focus {
+          box-shadow: none;
+        }
+
+        .icon {
+          opacity: 0.72;
+          margin-right: $card-spacer-x * 0.5;
+          border-radius: 50%;
+          box-shadow: 0 0 12px rgba($dark, 0.15);
+          transform: rotate(-90deg) scale(0.75);
+          transition: transform 0.2s ease;
+
+          &::before,
+          &::after {
+            width: 12px;
+            height: 2px;
+          }
+
+          &::before {
+            left: 10px;
+          }
+
+          &::after {
+            right: 10px;
+          }
+        }
+
+        &[aria-expanded="true"] {
+          .icon {
+            opacity: 1;
+            color: $white;
+            background-color: $primary;
+            transform: rotate(0) scale(0.75);
+            box-shadow: none;
+
+            &::before {
+              transform: rotate(45deg);
+            }
+
+            &::after {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+
+  @include media-breakpoint-up('md') {
+    .card-title {
+      &__toggler {
+        .icon {
+          margin-right: $card-spacer-x;
+          transform: rotate(-90deg);
+        }
+
+        &[aria-expanded="true"] {
+          .icon {
+            transform: rotate(0);
+          }
+        }
+      }
+    }
+  }
+}
+
+.accordion {
+  >.collapse-card {
+    & + .collapse-card {
+      border-top: 1px solid $border-color;
+    }
+  }
+}
