@@ -3,10 +3,14 @@
     <head>
         <?php echo $header?>
         <link href="/assets/fonts/notosanskr.css" rel="stylesheet">
+        <?php echo $this->include($THEME_URL.'/_includes/ieBrowserDetection'); ?>
         <?php echo $this->renderSection('appendHead'); ?>
     </head>
 
     <body class="default-layout page <?php echo $bodyClassName ?? ''; ?>">
+
+        <?php echo $this->include($THEME_URL.'/_includes/ieBrowserUpgradeNotification'); ?>
+
         <a class="sr-only sr-only-focusable" href="#content">본문 바로가기</a>
 
         <header class="default-page-header is-fixed">

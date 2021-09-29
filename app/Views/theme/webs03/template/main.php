@@ -37,12 +37,15 @@
 
 <main>
     <div class="section py-0 hero-section bg-light">
-        <div class="swiper-container js__hero-swiper">
+        <div class="swiper-container hero-swiper js__hero-swiper">
             <div class="swiper-wrapper">
                 <?php foreach(range(0, 2) as $t): ?>
-                    <div class="swiper-slide">
-                        <img src="<?php echo $THEME_URL; ?>/images/main/hero-slide001.jpg" alt="" class="img-fluid">
-                        <div class="container"></div>
+                    <div class="swiper-slide hero-card" style="background-image: url('<?php echo $THEME_URL; ?>/images/main/hero-slide001.jpg');">
+                        <div class="container container--max-md">
+                            <div class="card-body">
+                                <p class="card-text text-dark">사랑과 인술로 늘 함께하는 동아대학교병원</p>
+                            </div>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>

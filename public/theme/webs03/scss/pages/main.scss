@@ -16,6 +16,47 @@
     }
   }
 
+  .hero-section {
+    .hero-swiper {
+      .swiper-pagination {
+        bottom: 1rem;
+      }
+    }
+
+    .hero-card {
+      overflow: hidden;
+      position: relative;
+      height: 75vh;
+      min-height: 400px;
+      background: no-repeat 50% 50%;
+      background-size: cover;
+
+      >.container {
+        position: absolute;
+        bottom: 3.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .card-body {
+        text-align: center;
+        background-color: rgba($white, 0.64);
+        backdrop-filter: blur(2px);
+      }
+
+      .card-text {
+        font-size: $h6-font-size;
+        font-weight: $font-weight-medium;
+      }
+    }
+
+    @include media-breakpoint-up('lg') {
+      .hero-card {
+        height: 580px;
+      }
+    }
+  }
+
   .service-section {
     .section-body {
       margin-bottom: $container-gutter-x * -1;
