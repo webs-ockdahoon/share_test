@@ -6,12 +6,12 @@
   }
 
   .content-hero {
-    margin-bottom: 2rem * 0.875;
+    margin-bottom: 2rem;
     padding-top: 2rem;
 
     &__title {
       margin-bottom: 0;
-      font-size: 1.75rem;
+      font-size: 1.875rem;
       font-weight: $font-weight-bold;
       line-height: 1.25;
     }
@@ -28,7 +28,7 @@
 
   @include media-breakpoint-up('md') {
     .content-hero {
-      margin-bottom: 2.5rem * 0.875;
+      margin-bottom: 2.5rem;
       padding-top: 2.5rem;
 
       &__title {
@@ -45,6 +45,12 @@
     .page-content {
       margin-top: 0;
       padding-top: 0;
+    }
+
+    .content-hero {
+      &__title {
+        font-size: 2.125rem;
+      }
     }
   }
 
