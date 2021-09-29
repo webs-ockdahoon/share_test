@@ -129,3 +129,7 @@ nb-configuration.xml
 /app/Config/Database.php
 /public/data/*
 /writable/session/
+
+# 특정 폴더는 버젼 관리에 포함하기
+!/public/assets/plugins/bootstrap@4.6.0/dist/
+!/public/assets/plugins/swiper@4.5.3/dist/
