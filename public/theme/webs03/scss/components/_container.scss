@@ -1,0 +1,9 @@
+.container {
+
+  @include media-breakpoint-up('md') {
+    &--max-md {
+      max-width: map-get($grid-breakpoints, 'md');
+    }
+  }
+
+}
