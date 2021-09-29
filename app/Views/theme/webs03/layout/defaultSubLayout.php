@@ -59,7 +59,7 @@
             <h2 class="content-hero__title"><?php echo $heroTitle; ?></h2>
 
             <?php if($heroText): ?>
-                <div class="content-hero__text">
+                <div class="content-hero__text text-muted">
                     <?php echo $heroText; ?>
                 </div>
             <?php endif; ?>
