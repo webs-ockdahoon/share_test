@@ -1,13 +1,13 @@
 .section {
-  margin-top: $section-gutter-y * 0.625;
-  margin-bottom: $section-gutter-y;
+  margin-top: $section-gutter-y-sm * 0.75;
+  margin-bottom: $section-gutter-y-sm;
 
   &-divider {
     margin-bottom: $section-gutter-y-sm;
   }
 
   &-header {
-    margin-bottom: $section-gutter-y * 0.375;
+    margin-bottom: $section-gutter-y-sm * 0.3125;
   }
 
   &-title {
@@ -16,9 +16,21 @@
     line-height: 1.25;
   }
 
+  &-subtitle {
+    font-size: 1.125rem;
+    font-weight: $font-weight-normal;
+  }
+
   @include media-breakpoint-up('md') {
+    margin-top: $section-gutter-y * 0.75;
+    margin-bottom: $section-gutter-y;
+
     &-divider {
       margin-bottom: $section-gutter-y;
+    }
+
+    &-header {
+      margin-bottom: $section-gutter-y * 0.3125;
     }
 
     &-title {

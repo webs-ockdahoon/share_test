@@ -1,7 +1,15 @@
-.text-sm {
+.font-inherit {
+  font-size: inherit;
+}
+
+.font-base {
+  font-size: $font-size-base;
+}
+
+.font-sm {
   font-size: $font-size-sm;
 }
 
-.text-lg {
+.font-lg {
   font-size: $font-size-lg;
 }
