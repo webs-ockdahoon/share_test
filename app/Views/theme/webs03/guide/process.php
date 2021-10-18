@@ -1,7 +1,7 @@
 <?php echo $this->extend($THEME_URL.'/layout/defaultSubLayout'); ?>
 
 <?php
-    $this->setVar('bodyClassName', 'page--guide page--guide-treatment');
+    $this->setVar('bodyClassName', 'page--guide page--guide-process');
     $this->setVar('heroTitle', '진료 절차');
 ?>
 
