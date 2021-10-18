@@ -116,8 +116,13 @@
     }
 
     .content-hero {
+      padding-top: 4.25rem;
+      margin-bottom: 2.55rem;
+      text-align: center;
+
       &__title {
-        font-size: 2.125rem;
+        font-size: 2.75rem;
+        font-weight: $font-weight-medium;
       }
     }
   }
