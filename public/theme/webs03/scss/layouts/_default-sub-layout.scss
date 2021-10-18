@@ -3,6 +3,7 @@
     color: $text-muted;
     font-size: $caption-size;
     letter-spacing: 0.05em;
+    background-color: $light;
   }
 
   .content-hero {
@@ -42,13 +43,59 @@
   }
 
   @include media-breakpoint-up('lg') {
+    .page-breadcrumb {
+      margin-top: $default-page-nav-lg * -0.5;
+      padding-top: $default-page-nav-lg * 0.5;
+      padding-bottom: 0;
+
+      &__list {
+        >li {
+          & + li {
+            position: relative;
+            margin-left: 0;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: $container-gutter-x * 0.5;
+              bottom: $container-gutter-x * 0.5;
+              left: 0;
+              width: 1px;
+              margin: 0;
+              background-color: darken($light, 7);
+            }
+          }
+
+          > a {
+            padding: $container-gutter-x * 0.5 $container-gutter-x * 0.75;
+
+            &.btn-icon {
+              width: $icon-size + $container-gutter-x * 0.75 * 0.5;
+            }
+          }
+        }
+
+        >.is-current,
+        >.is-current> .page-breadcrumb__toggler,
+        .page-breadcrumb__toggler[aria-expanded=true] {
+            font-weight: $font-weight-base;
+        }
+      }
+
+      .dropdown-menu {
+        margin-top: 0;
+        margin-left: 0;
+        padding-left: $container-gutter-x * 0.75;
+        padding-right: $container-gutter-x * 0.75;
+        background-color: rgba($white, 0.92);
+        backdrop-filter: blur(2px);
+        border-color: darken($light, 10);
+      }
+    }
+
     .page-content {
       margin-top: 0;
       padding-top: 0;
-    }
-
-    .page-breadcrumb {
-      padding-bottom: 0;
     }
 
     .content-hero {
@@ -61,13 +108,12 @@
   @include media-breakpoint-down('sm') {
     .page-breadcrumb--responsive {
       font-size: $font-size-base;
-      background-color: $primary--air;
 
       .page-breadcrumb {
         &__list {
           >.is-current {
             .dropdown-menu {
-              background-color: rgba($primary--air, 0.92);
+              background-color: rgba($light, 0.92);
             }
           }
         }
