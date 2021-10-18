@@ -47,30 +47,45 @@
       margin-top: $default-page-nav-lg * -0.5;
       padding-top: $default-page-nav-lg * 0.5;
       padding-bottom: 0;
+      color: $dark;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      letter-spacing: -0.025em;
 
       &__list {
         >li {
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: $container-gutter-x * 0.5;
+            bottom: $container-gutter-x * 0.5;
+            right: 0;
+            width: 1px;
+            margin: 0;
+            background-color: darken($light, 7);
+          }
+
+          &:not(.is-home) {
+            min-width: 12rem;
+          }
+
           & + li {
-            position: relative;
             margin-left: 0;
 
             &::before {
               content: '';
-              position: absolute;
-              top: $container-gutter-x * 0.5;
-              bottom: $container-gutter-x * 0.5;
-              left: 0;
-              width: 1px;
-              margin: 0;
-              background-color: darken($light, 7);
             }
           }
 
           > a {
+            width: 100%;
             padding: $container-gutter-x * 0.5 $container-gutter-x * 0.75;
 
             &.btn-icon {
-              width: $icon-size + $container-gutter-x * 0.75 * 0.5;
+              width: $icon-size + $container-gutter-x * 0.75;
+              height: $icon-size + $container-gutter-x * 0.5 * 0.5;
             }
           }
         }
@@ -78,11 +93,12 @@
         >.is-current,
         >.is-current> .page-breadcrumb__toggler,
         .page-breadcrumb__toggler[aria-expanded=true] {
-            font-weight: $font-weight-base;
+            font-weight: inherit;
         }
       }
 
       .dropdown-menu {
+        min-width: 12rem;
         margin-top: 0;
         margin-left: 0;
         padding-left: $container-gutter-x * 0.75;
