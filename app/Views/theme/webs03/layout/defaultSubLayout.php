@@ -13,7 +13,7 @@
     <nav class="page-breadcrumb page-breadcrumb--responsive">
         <div class="container container-lg">
             <ol class="page-breadcrumb__list">
-                <li>
+                <li class="is-home">
                     <a href="/template" class="btn btn-icon page-breadcrumb__link-home" title="홈으로 이동하기">
                         <span class="material-icons-round">home</span>
                     </a>
