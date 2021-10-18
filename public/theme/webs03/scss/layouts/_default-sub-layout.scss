@@ -105,7 +105,8 @@
         padding-right: $container-gutter-x * 0.75;
         background-color: rgba($white, 0.92);
         backdrop-filter: blur(2px);
-        border-color: darken($light, 10);
+        border-color: darken($light, 7);
+        border-top: 0;
       }
     }
 
