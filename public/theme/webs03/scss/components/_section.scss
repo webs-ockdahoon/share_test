@@ -1,39 +1,28 @@
 .section {
-  padding-top: $section-gutter-y * 0.625;
-  padding-bottom: $section-gutter-y * 0.625;
+  margin-top: $section-gutter-y * 0.625;
+  margin-bottom: $section-gutter-y;
+
+  &-divider {
+    margin-bottom: $section-gutter-y-sm;
+  }
 
   &-header {
-    margin-bottom: 2rem;
+    margin-bottom: $section-gutter-y * 0.375;
   }
 
   &-title {
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: $font-weight-bold;
     line-height: 1.25;
   }
 
-  &-sm {
-    padding-top: $section-gutter-y-sm * 0.625;
-    padding-bottom: $section-gutter-y-sm * 0.625;
-  }
-
-  &-lg {
-    padding-top: $section-gutter-y-lg * 0.625;
-    padding-bottom: $section-gutter-y-lg * 0.625;
-  }
-
   @include media-breakpoint-up('md') {
-    padding-top: $section-gutter-y;
-    padding-bottom: $section-gutter-y;
-
-    &-sm {
-      padding-top: $section-gutter-y-sm;
-      padding-bottom: $section-gutter-y-sm;
+    &-divider {
+      margin-bottom: $section-gutter-y;
     }
 
-    &-lg {
-      padding-top: $section-gutter-y-lg;
-      padding-bottom: $section-gutter-y-lg;
+    &-title {
+      font-size: 1.5rem;
     }
   }
 }
