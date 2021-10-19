@@ -54,7 +54,7 @@ $faqs = [
         </div>
     </div>
 
-    <article class="section section-lg service-section">
+    <article class="section section-gutter service-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">병원 <strong class="text-primary">진료과목</strong></h2>
@@ -125,7 +125,7 @@ $faqs = [
         </div>
     </article>
 
-    <article class="section bg-air member-section">
+    <article class="section section-gutter my-0 bg-air member-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">병원 <strong class="text-primary">의료진 소개</strong></h2>
@@ -161,7 +161,7 @@ $faqs = [
         </div>
     </article>
 
-    <article class="section counselling-section">
+    <article class="section section-gutter my-0 counselling-section">
         <div class="container">
             <div class="card cta-card">
                 <div class="card-body">
@@ -216,7 +216,7 @@ $faqs = [
         </div>
     </article>
 
-    <article class="section network-section bg-light">
+    <article class="section section-gutter my-0 network-section bg-light">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">건강 <strong class="text-primary">네트워크</strong></h2>
@@ -234,7 +234,7 @@ $faqs = [
         </div>
     </article>
 
-    <article class="section section-lg section-column2 faq-section">
+    <article class="section section-gutter section-column2 faq-section">
         <div class="container">
             <div class="section-content">
                 <div class="section-header">
