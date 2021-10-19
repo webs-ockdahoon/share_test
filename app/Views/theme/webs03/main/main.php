@@ -36,7 +36,7 @@ $faqs = [
 <?php echo $this->section('content'); ?>
 
 <main>
-    <div class="section py-0 hero-section bg-light">
+    <div class="section my-0 hero-section bg-light">
         <div class="swiper-container hero-swiper js__hero-swiper">
             <div class="swiper-wrapper">
                 <?php foreach(range(0, 2) as $t): ?>
