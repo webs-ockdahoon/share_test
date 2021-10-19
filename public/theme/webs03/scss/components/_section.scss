@@ -6,6 +6,12 @@
     margin-bottom: $section-gutter-y-sm;
   }
 
+  &-box {
+    & + .section-box {
+      margin-top: $section-gutter-y-sm;
+    }
+  }
+
   &-header {
     margin-bottom: $section-gutter-y-sm * 0.3125;
   }
@@ -21,6 +27,10 @@
     font-weight: $font-weight-normal;
   }
 
+  &-text {
+    font-size: $body1-size;
+  }
+
   @include media-breakpoint-up('md') {
     margin-top: $section-gutter-y * 0.75;
     margin-bottom: $section-gutter-y;
@@ -29,12 +39,22 @@
       margin-bottom: $section-gutter-y;
     }
 
+    &-box {
+      & + .section-box {
+        margin-top: $section-gutter-y;
+      }
+    }
+
     &-header {
       margin-bottom: $section-gutter-y * 0.3125;
     }
 
     &-title {
       font-size: 1.5rem;
+    }
+
+    &-text {
+      font-size: $h6-font-size;
     }
   }
 }

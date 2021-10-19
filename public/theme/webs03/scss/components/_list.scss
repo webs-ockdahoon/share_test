@@ -1,5 +1,3 @@
-$list-bullet-size: 4px;
-
 .list-bullet {
   &,
   >li {
@@ -8,7 +6,8 @@ $list-bullet-size: 4px;
     list-style: none;
   }
 
-  >li {
+  &:not(.is-non-list)>li,
+  &.is-non-list {
     position: relative;
     padding-left: $list-bullet-size * 4;
 
@@ -23,9 +22,9 @@ $list-bullet-size: 4px;
       background-color: $primary;
       border-radius: 50%;
     }
+  }
 
-    &+li {
-      margin-top: $list-bullet-size * 2;
-    }
+  >li+li {
+    margin-top: $list-bullet-size * 2;
   }
 }
