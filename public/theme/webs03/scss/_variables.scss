@@ -1,16 +1,20 @@
 // colors
+$gray-100: #f6f6f6;
 $primary: #00a0ea;
 $primary--light: #e5f0f9;
 $primary--air: #f9fbff;
 $secondary: #1d2089;
 $light: #f0f1f6;
 $air: #fafbff;
+$gray: $gray-100;
 $dark: #323232;
+$danger: #ed2626;
 
 $theme-colors: (
   'primary--light': $primary--light,
   'primary--air': $primary--air,
-  'air': $air
+  'air': $air,
+  'gray': $gray,
 );
 
 $border-color: #e3e2e7;
@@ -79,10 +83,13 @@ $icon-sizes: (
   'xl': 80px,
 );
 
+// list
+$list-bullet-size: 4px;
+
 
 // section
-$section-gutter-y: 5rem;
-$section-gutter-y-sm: 3.75rem;
+$section-gutter-y: 4.5rem;
+$section-gutter-y-sm: 3rem;
 $section-gutter-y-lg: 7.5rem;
 
 

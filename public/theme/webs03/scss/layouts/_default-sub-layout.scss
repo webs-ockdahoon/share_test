@@ -7,14 +7,16 @@
   }
 
   .content-hero {
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
     padding-top: 2rem;
+    text-align: center;
 
     &__title {
       margin-bottom: 0;
       font-size: 1.875rem;
       font-weight: $font-weight-bold;
       line-height: 1.25;
+      letter-spacing: 0.025em;
     }
 
     &__text {
@@ -27,9 +29,16 @@
     }
   }
 
+  .content-bg {
+    height: 8rem;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
   @include media-breakpoint-up('md') {
     .content-hero {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       padding-top: 2.5rem;
 
       &__title {
@@ -39,6 +48,11 @@
       &__text {
         margin-top: 0.5rem;
       }
+    }
+
+
+    .content-bg {
+      height: 14rem;
     }
   }
 
@@ -116,9 +130,23 @@
     }
 
     .content-hero {
+      margin-bottom: 2.55rem;
+      padding-top: 4.25rem;
+
       &__title {
-        font-size: 2.125rem;
+        font-size: 2.5rem;
       }
+    }
+
+    .content-bg {
+      height: 20rem;
+    }
+  }
+
+  @include media-breakpoint-up('wide') {
+    .content-bg {
+      height: 400px;
+      background-size: contain;
     }
   }
 
