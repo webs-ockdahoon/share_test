@@ -1,0 +1,17 @@
+.badge {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  line-height: 1.15;
+  background-color: $light;
+
+  &-orange {
+    color: $white;
+    background-color: $orange;
+  }
+
+  &-success {
+    color: $white;
+    background-color: $success;
+  }
+}

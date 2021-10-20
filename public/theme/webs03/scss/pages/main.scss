@@ -11,7 +11,12 @@
   }
 
   .section {
+    &-header {
+      margin-bottom: 2rem;
+    }
+
     &-title {
+      font-size: 2rem;
       text-align: center;
     }
   }
