@@ -157,13 +157,61 @@
             <div class="tab-pane" id="shop" role="tabpanel" aria-labelledby="shop-tab">
                 <h3 class="sr-only">편의시설</h3>
 
-                편의시설 내용
+                <ul class="list-unstyled row convenience-list">
+                    <?php foreach(range(1, 6) as $i): ?>
+                    <li class="col-12 col-sm-12 col-lg-4">
+                        <section class="card gallery-card gallery-card--responsive">
+                            <div class="card-box card-thumbnail">
+                                <img src="<?php echo $THEME_URL; ?>/images/guide/convenience-eat01.jpg" class="img-fluid" alt="">
+                            </div>
+
+                            <div class="card-box card-header">
+                                <h4 class="card-title mb-0">편의시설 이름</h4>
+                            </div>
+
+                            <div class="card-box card-body">
+                                <ul class="list-bullet">
+                                    <li>편의시설 설명</li>
+                                    <li>위치 : -</li>
+                                    <li>
+                                        이용시간: -
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
 
             <div class="tab-pane" id="etc" role="tabpanel" aria-labelledby="etc-tab">
                 <h3 class="sr-only">기타시설</h3>
 
-                기타시설 내용
+                <ul class="list-unstyled row convenience-list">
+                    <?php foreach(range(1, 6) as $i): ?>
+                        <li class="col-12 col-sm-12 col-lg-4">
+                            <section class="card gallery-card gallery-card--responsive">
+                                <div class="card-box card-thumbnail">
+                                    <img src="<?php echo $THEME_URL; ?>/images/guide/convenience-eat01.jpg" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="card-box card-header">
+                                    <h4 class="card-title mb-0">기타시설 이름</h4>
+                                </div>
+
+                                <div class="card-box card-body">
+                                    <ul class="list-bullet">
+                                        <li>기타시설 설명</li>
+                                        <li>위치 : -</li>
+                                        <li>
+                                            이용시간: -
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>
     </div>
