@@ -11,10 +11,6 @@
         margin-bottom: $section-gutter-y * 0.375;
       }
     }
-
-    @include media-breakpoint-up('lg') {
-      font-size: $h6-font-size;
-    }
   }
 
 }
