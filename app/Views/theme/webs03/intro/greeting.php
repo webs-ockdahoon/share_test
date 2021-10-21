@@ -21,7 +21,7 @@
             </h3>
         </div>
 
-        <div class="section-body text-muted">
+        <div class="section-body section-text text-muted">
             <p>
                 현재 36개 진료과, 30여개의 전문센터, 100여개의 특수클리닉, 1000여 병상수를 갖추고 시사저널에서 선정한 「전국 10대 우수병원」, 산업자원통상부가 인정한
                 「의료서비스품질우수병원」으로서 부산지역의 대표적 대학병원으로 자리매김하였습니다.
