@@ -1,4 +1,13 @@
-<div class="board_wrap">
+<?php echo $this->extend($THEME_URL.'/layout/defaultSubLayout'); ?>
+
+<?php
+    $this->setVar('bodyClassName', 'page--board page--board-'.$boc_code);
+    $this->setVar('heroTitle', $bod_title);
+    $this->setVar('heroText', $boc_title);
+?>
+
+<?php echo $this->section('content'); ?>
+
     <form method="post" enctype="multipart/form-data" onsubmit="return fnBoardSubmit();">
 
         <input type="hidden" name="qstr" id="qstr" value="<?php echo $qstr;?>">
@@ -42,4 +51,5 @@
 
     </form>
 
-</div>
+<?php echo $this->endSection(); ?>
+

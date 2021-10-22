@@ -1,4 +1,11 @@
-<div class="board_wrap">
+<?php echo $this->extend($THEME_URL.'/layout/defaultSubLayout'); ?>
+
+<?php
+    $this->setVar('bodyClassName', 'page--board page--board-'.$boc_code);
+    $this->setVar('heroTitle', $boc_title);
+?>
+
+<?php echo $this->section('content'); ?>
 
     <table class="board_list">
         <thead>
@@ -63,4 +70,5 @@
         </div>
     </div>
 
-</div>
+<?php echo $this->endSection(); ?>
+
