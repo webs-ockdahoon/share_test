@@ -1,0 +1,23 @@
+@mixin material-icons-base($size: 24px) {
+  display: inline-block;
+  font-weight: normal;
+  font-style: normal;
+  font-size: $size;
+  font-feature-settings: 'liga';
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+@mixin material-icons-default($size: 24px) {
+  font-family: 'Material Icons';
+  @include material-icons-base($size);
+}
+
+@mixin material-icons-round($size: 24px) {
+  font-family: 'Material Icons Round';
+  @include material-icons-base($size);
+}
