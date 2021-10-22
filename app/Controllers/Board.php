@@ -36,6 +36,7 @@ class Board extends BaseController
             if($this->isMasterMode && $this->isBoardMode)$this->cont_url = "/master/board".$this->cont_url;
         }
 
+        $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
 
     }
 
