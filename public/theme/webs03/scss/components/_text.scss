@@ -13,3 +13,15 @@
 .font-lg {
   font-size: $font-size-lg;
 }
+
+.text-caption {
+  font-size: $caption-size;
+  letter-spacing: 0.025em;
+  line-height: 1.6;
+}
+.text-overline {
+  font-size: $overline-size;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.03125em;
+  line-height: 1.75;
+}

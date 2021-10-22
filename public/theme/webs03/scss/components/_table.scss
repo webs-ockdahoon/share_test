@@ -123,3 +123,42 @@
     }
   }
 }
+
+.table--v2 {
+  border-top: 2px solid $primary;
+
+  th,
+  td {
+    vertical-align: middle;
+    padding: 1rem;
+    border-top: 0;
+    border-bottom: 1px solid $border-color;
+  }
+
+  thead {
+
+    th,
+    td {
+      padding-top: 1.125rem;
+      padding-bottom: 1.125rem;
+      color: $dark;
+      font-size: 0.875em;
+      font-weight: $font-weight-medium;
+      background-color: $air;
+    }
+
+    th {
+      border-bottom-width: 1px;
+    }
+  }
+
+  @include media-breakpoint-up('md') {
+    thead {
+      th,
+      td {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+      }
+    }
+  }
+}
