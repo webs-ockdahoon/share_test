@@ -142,7 +142,6 @@
       padding-top: 1.125rem;
       padding-bottom: 1.125rem;
       color: $dark;
-      font-size: 0.875em;
       font-weight: $font-weight-medium;
       background-color: $air;
     }
@@ -150,6 +149,11 @@
     th {
       border-bottom-width: 1px;
     }
+  }
+
+  .empty-cell {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 
   @include media-breakpoint-up('md') {
