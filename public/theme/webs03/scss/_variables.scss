@@ -8,6 +8,7 @@ $secondary: #1d2089;
 $light: #f0f1f6;
 $air: #fafbff;
 $gray: $gray-100;
+$gray--dark: #777;
 $dark: #323232;
 $success: #50a332;
 $danger: #ed2626;
@@ -17,6 +18,7 @@ $theme-colors: (
   'primary--air': $primary--air,
   'air': $air,
   'gray': $gray,
+  'gray--dark': $gray--dark,
 );
 
 $border-color: #e3e2e7;
