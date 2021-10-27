@@ -19,7 +19,7 @@
             </div>
 
             <div class="searchform-control-submit">
-                <input type="text" name="s2" id="s2" value="<?php echo $s2?>" class="form-control" placeholder="검색어를 입력하세요.">
+                <input type="text" name="s2" id="s2" value="<?php echo $s2?>" class="form-control" placeholder="검색어를 입력하세요." required>
                 <button type="submit" class="btn btn-primary form-submit">
                     <span class="sr-only">검색</span>
                     <span class="material-icons-round">search</span>
@@ -30,7 +30,13 @@
 
     <div class="container section">
 
-        <table class="table table--v2 text-center text-muted">
+        <?php if (isset($_GET['s2']) && !empty($_GET['s2'])): ?>
+            <div class="mb-3 text-center">
+                <a href="<?php echo $list_page; ?>" class="btn btn-outline-dark">전체 목록 페이지로 돌아가기</a>
+            </div>
+        <?php endif; ?>
+
+        <table class="table table--v2 text-center text-muted section-divider-sm">
             <thead>
                 <tr>
                 <th class="d-none d-md-table-cell w-num">번호</th>
@@ -59,21 +65,33 @@
                 foreach($list as $row){
 
                     $reply = "";
-                    for($k=1;$k<$row["bod_level"];$k++){
-                        $reply.= "&nbsp;&nbsp;&nbsp;&nbsp;";
+                    if ($row["bod_level"] > 1) {
+                        $reply_margin_left = ((int)$row["bod_level"] - 1) * 0.625;
+                        $reply = '<span class="material-icons-round icon icon-reply mr-1" style="margin-left: '.$reply_margin_left.'rem">subdirectory_arrow_right</span>';
                     }
-                    if($reply)$reply = $reply . '└&nbsp;&nbsp;';
 
                     $secret = "";
                     if($row["bod_secret"]){
-                        $secret = "[비밀글] ";
+                        $secret = "<span class='material-icons-round icon icon-sm icon-secret mr-1'>lock</span>";
                     }
                     ?>
                     <tr>
                         <td class="d-none d-md-table-cell w-num"><?php echo $row["bod_group"]?></td>
                         <td class="text-left w-title">
-                            <?php echo $reply . $secret?>
-                            <a href="<?php echo $read_page."/".$row["bod_idx"].$qstr?>" class="section-text text-dark"><?php echo $row["bod_title"]?></a>
+                            <div class="d-flex align-items-center text-reply">
+                                <?php echo $reply;?>
+                                <?php echo $secret; ?>
+
+                                <a href="<?php echo $read_page."/".$row["bod_idx"].$qstr?>" class="section-text text-dark d-inline-flex flex-wrap align-items-center link--hover-text-underline">
+                                    <?php if($row['bod_category']): ?>
+                                        <span class="flex-auto text-caption text-primary mr-2" style="line-height: 1"><?php echo $row['bod_category']; ?></span>
+                                    <?php endif; ?>
+
+                                    <span class="link-text">
+                                        <?php echo $row["bod_title"]?>
+                                    </span>
+                                </a>
+                            </div>
                         </td>
                         <td class="d-none d-md-table-cell w-author"><?php echo $row["bod_writer_name"]?></td>
                         <td class="w-date"><?php echo substr($row["bod_created_at"],0,10)?></td>
@@ -88,11 +106,11 @@
             </tbody>
         </table>
 
-        <div class="pagination-wrapper">
+        <div class="section-divider-sm pagination-wrapper">
             <?php echo $links?>
         </div>
 
-        <div>
+        <div class="text-right">
             <a href="<?php echo $write_page.$qstr?>" class="btn btn-primary">작성하기</a>
         </div>
     </div>
