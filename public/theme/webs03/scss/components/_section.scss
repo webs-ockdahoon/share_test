@@ -4,6 +4,10 @@
 
   &-divider {
     margin-bottom: $section-gutter-y-sm;
+
+    &-sm {
+      margin-bottom: $section-gutter-y-sm * 0.75;
+    }
   }
 
   &-gutter {
@@ -43,6 +47,10 @@
 
     &-divider {
       margin-bottom: $section-gutter-y;
+
+      &-sm {
+        margin-bottom: $section-gutter-y * 0.5;
+      }
     }
 
     &-gutter {

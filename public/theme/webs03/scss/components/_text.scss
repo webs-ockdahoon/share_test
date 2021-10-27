@@ -25,3 +25,14 @@
   letter-spacing: 0.03125em;
   line-height: 1.75;
 }
+
+.text-reply {
+  .icon-reply {
+    width: 18px;
+    height: 18px;
+
+    &[class*="material-icons"] {
+      font-size: 14px;
+    }
+  }
+}
