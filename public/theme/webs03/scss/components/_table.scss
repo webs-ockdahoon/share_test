@@ -135,6 +135,10 @@
     border-bottom: 1px solid $border-color;
   }
 
+  th {
+    font-weight: $font-weight-medium;
+  }
+
   thead {
 
     th,
@@ -162,6 +166,32 @@
       td {
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;
+      }
+    }
+  }
+
+  &.table--responsive-column2 {
+
+    tbody {
+      th {
+        width: 14rem;
+        background-color: $air;
+      }
+    }
+
+    @include media-breakpoint-down('sm') {
+      table,
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+        width: 100% !important;
+      }
+
+      th {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
       }
     }
   }
