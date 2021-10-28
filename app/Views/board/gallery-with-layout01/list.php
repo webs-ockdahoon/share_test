@@ -14,7 +14,6 @@
                 <select name="s1" id="s1" class="custom-select">
                     <option value="bod_title" <?php if($s1=="bod_title")echo "selected";?>>제목</option>
                     <option value="bod_content" <?php if($s1=="bod_content")echo "selected";?>>내용</option>
-                    <option value="bod_writer_name" <?php if($s1=="bod_writer_name")echo "selected";?>>작성자</option>
                 </select>
             </div>
 
@@ -36,82 +35,52 @@
             </div>
         <?php endif; ?>
 
-        <table class="table table--v2 text-center text-muted section-divider-sm">
-            <thead>
-                <tr>
-                <th class="d-none d-md-table-cell w-num">번호</th>
-                <th class="text-left">제목</th>
-                <th class="d-none d-md-table-cell w-author">작성자</th>
-                <th class="w-date">작성일</th>
-                <th class="d-none d-lg-table-cell w-hit">조회수</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            <tr>
-                <td class="d-none d-md-table-cell w-num">
-                    <span class="text-overline badge badge-sm badge-primary">공지</span>
-                </td>
-                <td class="text-left">
-                    <a href="" class="section-text text-dark">공지사항 제목 입니다.</a>
-                </td>
-                <td class="d-none d-md-table-cell w-author">관리자</td>
-                <td class="w-date">2021-10-22</td>
-                <td class="d-none d-lg-table-cell w-hit">1,234</td>
-            </tr>
-
+        <ul class="list-unstyled row row-sm section-divider-sm gallery-card-row">
             <?php if ($total_count>0){
 
                 foreach($list as $row){
 
-                    $reply = "";
-                    if ($row["bod_level"] > 1) {
-                        $reply_margin_left = ((int)$row["bod_level"] - 1) * 0.625;
-                        $reply = '<span class="material-icons-round icon icon-reply mr-1" style="margin-left: '.$reply_margin_left.'rem">subdirectory_arrow_right</span>';
-                    }
-
                     $secret = "";
                     if($row["bod_secret"]){
-                        $secret = "<span class='material-icons-round icon icon-sm icon-secret mr-1'>lock</span>";
+                        $secret = "<span class='material-icons-round material-icons-20'>lock</span>";
                     }
                     ?>
-                    <tr>
-                        <td class="d-none d-md-table-cell w-num"><?php echo $row["bod_group"]?></td>
-                        <td class="text-left w-title">
-                            <div class="d-flex align-items-center text-reply">
-                                <?php echo $reply;?>
-                                <?php echo $secret; ?>
-
-                                <a href="<?php echo $read_page."/".$row["bod_idx"].$qstr?>" class="section-text text-dark d-inline-flex flex-wrap align-items-center link--hover-text-underline">
-                                    <?php if($row['bod_category']): ?>
-                                        <span class="flex-auto text-caption text-primary mr-2" style="line-height: 1"><?php echo $row['bod_category']; ?></span>
-                                    <?php endif; ?>
-
-                                    <span class="link-text">
-                                        <?php echo $row["bod_title"]?>
-                                    </span>
-                                </a>
+                    <li class="col-12 col-sm-12 col-lg-4 mb-3 mb-md-4">
+                        <a href="<?php echo $read_page."/".$row["bod_idx"].$qstr?>" class="card gallery-card gallery-card--responsive gallery-card--link-hover">
+                            <div class="card-thumbnail card-box">
+                                <div class="card-thumbnail__frame">
+                                    <span class="card-thumbnail__frame-img bg-light" style="background-image:url('');"></span>
+                                </div>
                             </div>
-                        </td>
-                        <td class="d-none d-md-table-cell w-author"><?php echo $row["bod_writer_name"]?></td>
-                        <td class="w-date"><?php echo substr($row["bod_created_at"],0,10)?></td>
-                        <td class="d-none d-lg-table-cell w-hit"><?php echo $row["bod_read"]?></td>
-                    </tr>
+
+                            <div class="card-content card-box text-lg-center">
+                                <h4 class="card-title mb-2"><?php echo $secret; ?> <?php echo $row["bod_title"]?></h4>
+                                <time class="text-caption text-muted"><?php echo substr($row["bod_created_at"],0,10)?></time>
+
+                                <?php if(true || $row['bod_category']): ?>
+                                    <p class="text-caption text-primary mt-3" style="line-height: 1"><?php echo $row['bod_category']; ?> 분류입니다</p>
+                                <?php endif; ?>
+                            </div>
+                        </a>
+                    </li>
                 <?php }
             }else{?>
-                <tr>
-                    <td class="empty-cell" colspan="5">등록된 글이 없습니다.</td>
-                </tr>
+                <li class="col-12">
+                    <section class="gallery-card text-center border-top border-bottom">
+                        <div class="card-box">
+                            <h3 class="h6 mb-0 py-5">등록된 글이 없습니다.</h3>
+                        </div>
+                    </section>
+                </li>
             <?php }?>
-            </tbody>
-        </table>
+        </ul>
 
         <div class="section-divider-sm pagination-wrapper">
             <?php echo $links?>
         </div>
 
-        <div class="text-right">
-            <a href="<?php echo $write_page.$qstr?>" class="btn btn-primary">작성하기</a>
+        <div class="px-3 text-right">
+            <a href="<?php echo $write_page.$qstr?>" class="btn btn-lg btn-primary">작성하기</a>
         </div>
     </div>
 <?php echo $this->endSection(); ?>

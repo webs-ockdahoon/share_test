@@ -6,6 +6,12 @@ $gallery-card-title-sm: $h4-font-size * 0.85;
 
 .gallery-card {
 
+  &-row {
+    .gallery-card {
+      height: 100%;
+    }
+  }
+
   .card-box {
     padding: $gallery-card-gutter;
 
