@@ -23,9 +23,7 @@
                     <input type="password" name="bod_password" id="bod_password" class="form-control" placeholder="비밀번호를 입력해 주세요." required>
                 </div>
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-secondary btn-block btn-lg">게시물 확인하기</button>
-                </div>
+                <button type="submit" class="btn btn-secondary btn-block btn-lg">게시물 확인하기</button>
             </div>
 
             <div class="section-box text-center">
