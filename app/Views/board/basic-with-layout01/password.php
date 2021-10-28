@@ -14,7 +14,13 @@
 
             <div class="section-box section-card border shadow-sm">
                 <div class="section-divider-sm">
-                    <h3 class="section-title">비밀글 기능으로 보호하고 있습니다.</h3>
+                    <h3 class="section-title">
+                        <?php if ($bod_secret == '1'): ?>
+                            비밀글 기능으로 보호되고 있습니다.
+                        <?php else: ?>
+                            보안을 위해 비밀번호를 확인 합니다.
+                        <?php endif; ?>
+                    </h3>
                     <p class="section-subtitle text-secondary">글 작성시 입력한 비밀번호를 입력해 주세요.</p>
                 </div>
 
@@ -23,7 +29,7 @@
                     <input type="password" name="bod_password" id="bod_password" class="form-control" placeholder="비밀번호를 입력해 주세요." required>
                 </div>
 
-                <button type="submit" class="btn btn-secondary btn-block btn-lg">게시물 확인하기</button>
+                <button type="submit" class="btn btn-secondary btn-block btn-lg">확인하기</button>
             </div>
 
             <div class="section-box text-center">
