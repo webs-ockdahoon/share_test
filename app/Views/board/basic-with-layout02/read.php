@@ -44,20 +44,6 @@
                         </ul>
                     </section>
                 <?php }?>
-                
-                <section class="section-card section-card--sidebar border-bottom">
-                    <h4 class="section-card__sidebar section-subtitle text-dark">관련 링크</h4>
-
-                    <ul class="list-bullet section-card__body font-base">
-                        <?php foreach(range(0, 1) as $link_index): ?>
-                        <li>
-                            <a href="." class="text-break text-reset text-underline" target="_blank" title="새창열기" rel="noreferrer noopener" >
-                                링크 라벨 또는 링크 주소 표시
-                            </a>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </section>
 
                 <section class="section-card border-bottom">
                     <h4 class="sr-only">내용</h4>

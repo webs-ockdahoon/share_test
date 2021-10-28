@@ -14,7 +14,6 @@
                 <select name="s1" id="s1" class="custom-select">
                     <option value="bod_title" <?php if($s1=="bod_title")echo "selected";?>>제목</option>
                     <option value="bod_content" <?php if($s1=="bod_content")echo "selected";?>>내용</option>
-                    <option value="bod_writer_name" <?php if($s1=="bod_writer_name")echo "selected";?>>작성자</option>
                 </select>
             </div>
 
@@ -41,7 +40,6 @@
                 <tr>
                 <th class="d-none d-md-table-cell w-num">번호</th>
                 <th class="text-left">제목</th>
-                <th class="d-none d-md-table-cell w-author">작성자</th>
                 <th class="w-date">작성일</th>
                 <th class="d-none d-lg-table-cell w-hit">조회수</th>
             </tr>
@@ -55,7 +53,6 @@
                 <td class="text-left">
                     <a href="" class="section-text text-dark">공지사항 제목 입니다.</a>
                 </td>
-                <td class="d-none d-md-table-cell w-author">관리자</td>
                 <td class="w-date">2021-10-22</td>
                 <td class="d-none d-lg-table-cell w-hit">1,234</td>
             </tr>
@@ -93,25 +90,26 @@
                                 </a>
                             </div>
                         </td>
-                        <td class="d-none d-md-table-cell w-author"><?php echo $row["bod_writer_name"]?></td>
                         <td class="w-date"><?php echo substr($row["bod_created_at"],0,10)?></td>
                         <td class="d-none d-lg-table-cell w-hit"><?php echo $row["bod_read"]?></td>
                     </tr>
                 <?php }
             }else{?>
                 <tr>
-                    <td class="empty-cell" colspan="5">등록된 글이 없습니다.</td>
+                    <td class="empty-cell" colspan="4">등록된 글이 없습니다.</td>
                 </tr>
             <?php }?>
             </tbody>
         </table>
 
-        <div class="section-divider-sm pagination-wrapper">
-            <?php echo $links?>
-        </div>
+        <?php if (!empty($links)): ?>
+            <div class="section-divider-sm pagination-wrapper">
+                <?php echo $links?>
+            </div>
+        <?php endif; ?>
 
-        <div class="text-right">
-            <a href="<?php echo $write_page.$qstr?>" class="btn btn-primary">작성하기</a>
+        <div class="text-right px-3">
+            <a href="<?php echo $write_page.$qstr?>" class="btn btn-lg btn-primary">작성하기</a>
         </div>
     </div>
 <?php echo $this->endSection(); ?>
