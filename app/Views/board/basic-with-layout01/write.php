@@ -120,6 +120,45 @@
                         </td>
                     </tr>
                 <?php }?>
+
+                <tr>
+                    <th>관련 링크</th>
+                    <td>
+                        <div class="mb-3">
+                            <h4 class="font-sm font-weight-bold">링크</h4>
+                            <div class="input-group">
+                                <label for="link1Label" class="input-group-prepend mb-0">
+                                    <span class="input-group-text">이름</span>
+                                </label>
+                                <input type="url" id="link1Label" class="form-control" placeholder="예) 링크 이름">
+                            </div>
+                            <div class="input-group">
+                                <label for="link1URL" class="input-group-prepend mb-0">
+                                    <span class="input-group-text">주소</span>
+                                </label>
+                                <input type="url" id="link1URL" class="form-control" placeholder="예) https://url.com">
+                            </div>
+                            <p class="mt-1 text-caption text-muted">* 입력된 링크는 페이지에서 새창으로 열립니다.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-sm font-weight-bold">링크</h4>
+                            <div class="input-group">
+                                <label for="link2Label" class="input-group-prepend mb-0">
+                                    <span class="input-group-text">이름</span>
+                                </label>
+                                <input type="url" id="link2Label" class="form-control" placeholder="예) 링크 이름">
+                            </div>
+                            <div class="input-group">
+                                <label for="link2URL" class="input-group-prepend mb-0">
+                                    <span class="input-group-text">주소</span>
+                                </label>
+                                <input type="url" id="link2URL" class="form-control" placeholder="예) https://url.com">
+                            </div>
+                            <p class="mt-1 text-caption text-muted">* 입력된 링크는 페이지에서 새창으로 열립니다.</p>
+                        </div>
+                    </td>
+                </tr>
                 </tbody>
             </table>
 
