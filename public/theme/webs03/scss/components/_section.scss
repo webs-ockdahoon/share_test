@@ -77,3 +77,33 @@
     }
   }
 }
+
+.section-card {
+  padding: $section-gutter-y-sm * 0.375 $section-gutter-y-sm * 0.25;
+
+  @include media-breakpoint-up('md') {
+    padding: $section-gutter-y * 0.375 $section-gutter-y* 0.3125;
+  }
+
+  &--sidebar {
+    display: flex;
+    flex-direction: column;
+
+    .section-card__sidebar {
+      margin-bottom: 0.5rem;
+    }
+
+    @include media-breakpoint-up('md') {
+      flex-direction: row;
+
+      .section-card__sidebar {
+        width: 6rem;
+        margin-bottom: 0;
+      }
+
+      .section-card__body {
+        flex: auto;
+      }
+    }
+  }
+}

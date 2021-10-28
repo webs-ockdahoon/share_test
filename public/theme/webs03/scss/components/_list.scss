@@ -24,7 +24,26 @@
     }
   }
 
-  >li+li {
+  &:not(.is-inline)>li+li {
     margin-top: $list-bullet-size * 2;
+  }
+
+  &.is-inline {
+    display: flex;
+    flex-wrap: wrap;
+
+    >li {
+      margin-right: $list-bullet-size * 4;
+    }
+  }
+
+  // color variants
+  &--reset {
+    &:not(.is-non-list)>li,
+    &.is-non-list {
+      &::before {
+        background-color: currentColor;
+      }
+    }
   }
 }
