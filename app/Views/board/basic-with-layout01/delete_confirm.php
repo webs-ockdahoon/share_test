@@ -11,7 +11,7 @@ $this->setVar('heroTitle', '글 삭제하기');
             <input type="hidden" name="<?php echo $primaryKey?>" id="<?php echo $primaryKey?>" value="<?php echo $idx?>">
             <input type="hidden" name="qstr" id="qstr" value="<?php echo $qstr;?>">
 
-            <div class="section-box section-card border">
+            <div class="section-box section-card border shadow-sm">
                 <div class="section-divider-sm">
                     <h3 class="section-title">글 삭제 후 절대 복구할 수 없습니다.</h3>
                     <p class="section-subtitle text-secondary">해당 글을 정말 삭제하시겠습니까?</p>
