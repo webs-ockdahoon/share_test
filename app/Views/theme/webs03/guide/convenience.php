@@ -40,14 +40,13 @@
                     <li class="col-12 col-sm-12 col-lg-4">
                         <section class="card gallery-card gallery-card--responsive">
                             <div class="card-box card-thumbnail">
-                                <img src="<?php echo $THEME_URL; ?>/images/guide/convenience-eat01.jpg" class="img-fluid" alt="">
+                                <div class="card-thumbnail__frame bg-light">
+                                    <span class="card-thumbnail__frame-img" style="background-image: url('<?php echo $THEME_URL; ?>/images/guide/convenience-eat01.jpg')"></span>
+                                </div>
                             </div>
 
-                            <div class="card-box card-header">
-                                <h4 class="card-title mb-0">동백죽</h4>
-                            </div>
-
-                            <div class="card-box card-body">
+                            <div class="card-box card-content">
+                                <h4 class="card-title mb-3 text-lg-center">동백죽</h4>
                                 <ul class="list-bullet">
                                     <li>죽, 국수</li>
                                     <li>위치 : 중앙관 1층</li>
@@ -63,14 +62,13 @@
                     <li class="col-12 col-sm-12 col-lg-4">
                         <section class="card gallery-card gallery-card--responsive">
                             <div class="card-box card-thumbnail">
-                                <img src="<?php echo $THEME_URL; ?>/images/guide/convenience-eat02.jpg" class="img-fluid" alt="">
+                                <div class="card-thumbnail__frame">
+                                    <span class="card-thumbnail__frame-img" style="background-image: url('<?php echo $THEME_URL; ?>/images/guide/convenience-eat02.jpg');"></span>
+                                </div>
                             </div>
 
-                            <div class="card-box card-header">
-                                <h4 class="card-title mb-0">앤티앤스프레즐</h4>
-                            </div>
-
-                            <div class="card-box card-body">
+                            <div class="card-box card-content">
+                                <h4 class="card-title mb-3 text-lg-center">앤티앤스프레즐</h4>
                                 <ul class="list-bullet">
                                     <li>프레즐, 커피</li>
                                     <li>위치 : 중앙관 1층</li>
@@ -86,14 +84,13 @@
                     <li class="col-12 col-sm-12 col-lg-4">
                         <section class="card gallery-card gallery-card--responsive">
                             <div class="card-box card-thumbnail">
-                                <img src="<?php echo $THEME_URL; ?>/images/guide/convenience-eat03.jpg" class="img-fluid" alt="">
+                                <div class="card-thumbnail__frame">
+                                    <span class="card-thumbnail__frame-img" style="background-image: url('<?php echo $THEME_URL; ?>/images/guide/convenience-eat03.jpg');"></span>
+                                </div>
                             </div>
 
-                            <div class="card-box card-header">
-                                <h4 class="card-title mb-0 text-truncate">커피지연(세가프레도)</h4>
-                            </div>
-
-                            <div class="card-box card-body">
+                            <div class="card-box card-content">
+                                <h4 class="card-title mb-3 text-lg-center">커피지연(세가프레도)</h4>
                                 <ul class="list-bullet">
                                     <li>커피 및 음료, 다과 등</li>
                                     <li>위치 :  본관 1층 아뜨리움</li>
@@ -109,14 +106,13 @@
                     <li class="col-12 col-sm-12 col-lg-4">
                         <section class="card gallery-card gallery-card--responsive">
                             <div class="card-box card-thumbnail">
-                                <img src="<?php echo $THEME_URL; ?>/images/guide/convenience-eat04.jpg" class="img-fluid" alt="">
+                                <div class="card-thumbnail__frame">
+                                    <span class="card-thumbnail__frame-img" style="background-image: url('<?php echo $THEME_URL; ?>/images/guide/convenience-eat04.jpg');"></span>
+                                </div>
                             </div>
 
-                            <div class="card-box card-header">
-                                <h4 class="card-title mb-0">WINGO(윙고)</h4>
-                            </div>
-
-                            <div class="card-box card-body">
+                            <div class="card-box card-content">
+                                <h4 class="card-title mb-3 text-lg-center">WINGO(윙고)</h4>
                                 <ul class="list-bullet">
                                     <li>커피, 유기농 아이스크림, 유기농 요구르트</li>
                                     <li>위치 : 중앙관 1층</li>
@@ -132,14 +128,13 @@
                     <li class="col-12 col-sm-12 col-lg-4">
                         <section class="card gallery-card gallery-card--responsive">
                             <div class="card-box card-thumbnail">
-                                <img src="<?php echo $THEME_URL; ?>/images/guide/convenience-eat05.jpg" class="img-fluid" alt="">
+                                <div class="card-thumbnail__frame">
+                                    <span class="card-thumbnail__frame-img" style="background-image: url('<?php echo $THEME_URL; ?>/images/guide/convenience-eat05.jpg');"></span>
+                                </div>
                             </div>
 
-                            <div class="card-box card-header">
-                                <h4 class="card-title mb-0">FOOD O CLOCK(푸드코트)</h4>
-                            </div>
-
-                            <div class="card-box card-body">
+                            <div class="card-box card-content">
+                                <h4 class="card-title mb-3 text-lg-center">FOOD O CLOCK(푸드코트)</h4>
                                 <ul class="list-bullet">
                                     <li>한식, 분식, 양식, cafe오가다</li>
                                     <li>위치 : 중앙관 1층</li>
@@ -162,16 +157,15 @@
                     <li class="col-12 col-sm-12 col-lg-4">
                         <section class="card gallery-card gallery-card--responsive">
                             <div class="card-box card-thumbnail">
-                                <img src="<?php echo $THEME_URL; ?>/images/guide/convenience-eat01.jpg" class="img-fluid" alt="">
+                                <div class="card-thumbnail__frame bg-light">
+                                    <span class="card-thumbnail__frame-img" style="background-image: url('<?php echo $THEME_URL; ?>/images/guide/convenience-eat01.jpg');"></span>
+                                </div>
                             </div>
 
-                            <div class="card-box card-header">
-                                <h4 class="card-title mb-0">편의시설 이름</h4>
-                            </div>
-
-                            <div class="card-box card-body">
+                            <div class="card-box card-content">
+                                <h4 class="card-title mb-3 text-lg-center">편의시설 이름</h4>
                                 <ul class="list-bullet">
-                                    <li>편의시설 설명</li>
+                                    <li>기타시설 설명</li>
                                     <li>위치 : -</li>
                                     <li>
                                         이용시간: -
@@ -192,14 +186,13 @@
                         <li class="col-12 col-sm-12 col-lg-4">
                             <section class="card gallery-card gallery-card--responsive">
                                 <div class="card-box card-thumbnail">
-                                    <img src="<?php echo $THEME_URL; ?>/images/guide/convenience-eat01.jpg" class="img-fluid" alt="">
+                                    <div class="card-thumbnail__frame bg-light">
+                                        <span class="card-thumbnail__frame-img" style="background-image: url('<?php echo $THEME_URL; ?>/images/guide/convenience-eat01.jpg');"></span>
+                                    </div>
                                 </div>
 
-                                <div class="card-box card-header">
-                                    <h4 class="card-title mb-0">기타시설 이름</h4>
-                                </div>
-
-                                <div class="card-box card-body">
+                                <div class="card-box card-content">
+                                    <h4 class="card-title mb-3 text-lg-center">기타시설 이름</h4>
                                     <ul class="list-bullet">
                                         <li>기타시설 설명</li>
                                         <li>위치 : -</li>
