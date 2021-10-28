@@ -17,3 +17,13 @@
     }
   }
 }
+
+.link--hover-text-underline {
+  &:hover {
+    text-decoration: none;
+
+    .link-text {
+      text-decoration: underline;
+    }
+  }
+}

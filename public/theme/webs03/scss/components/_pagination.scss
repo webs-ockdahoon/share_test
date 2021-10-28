@@ -1,0 +1,97 @@
+.pagination-wrapper {
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 -0.25rem;
+    padding: 0;
+    list-style: none;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      min-width: 2rem;
+      height: 2rem;
+      min-height: 2rem;
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
+      padding: 0.125rem 0.25rem;
+      color: inherit;
+      line-height: 1;
+      border: 1px solid $border-color;
+
+      &:hover {
+        text-decoration: none;
+        background-color: $air;
+        border-color: $primary;
+      }
+
+      // 현재 마크업 구조상 처음, 이전, 다음, 마지막을 구별할 수 있는 방법이 aria-label 유무 밖에 없어,
+      // aria-label가 있고, 위치에 따라 스타일을 구분한다.
+      // 추후 마크업 변경시 같이 변경이 필요하다.
+      &[aria-label] {
+        [aria-hidden="true"] {
+          @include sr-only;
+        }
+
+        &::before {
+          @include material-icons-round();
+          opacity: 0.72;
+          display: block;
+        }
+      }
+    }
+
+    >li {
+
+      // 처음 링크
+      &:nth-child(1) {
+        >a[aria-label] {
+          margin-right: 0;
+          &::before {
+            content: 'first_page';
+          }
+        }
+      }
+
+      // 이전 링크
+      &:nth-child(2) {
+        >a[aria-label] {
+          &::before {
+            content: 'navigate_before';
+          }
+        }
+      }
+
+      // 마지막 링크
+      &:nth-last-child(1) {
+        >a[aria-label] {
+          margin-left: 0;
+
+          &::before {
+            content: 'last_page';
+          }
+        }
+      }
+
+      // 다음 링크
+      &:nth-last-child(2) {
+        >a[aria-label] {
+          &::before {
+            content: 'navigate_next';
+          }
+        }
+      }
+    }
+
+    .active {
+      >a {
+        color: $white;
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+  }
+}

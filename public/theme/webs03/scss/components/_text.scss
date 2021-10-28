@@ -1,3 +1,7 @@
+.font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
 .font-inherit {
   font-size: inherit;
 }
@@ -12,4 +16,31 @@
 
 .font-lg {
   font-size: $font-size-lg;
+}
+
+.text-caption {
+  font-size: $caption-size;
+  letter-spacing: 0.025em;
+  line-height: 1.6;
+}
+.text-overline {
+  font-size: $overline-size;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.03125em;
+  line-height: 1.75;
+}
+
+.text-reply {
+  .icon-reply {
+    width: 18px;
+    height: 18px;
+
+    &[class*="material-icons"] {
+      font-size: 14px;
+    }
+  }
+}
+
+.text-underline {
+  text-decoration: underline;
 }
