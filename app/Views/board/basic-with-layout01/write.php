@@ -138,7 +138,7 @@
                                 </label>
                                 <input type="url" id="link1URL" class="form-control" placeholder="예) https://url.com">
                             </div>
-                            <p class="mt-1 text-caption text-muted">* 입력된 링크는 페이지에서 새창으로 열립니다.</p>
+                            <p class="mt-1 text-caption text-muted">* 입력된 링크는 새창으로 열립니다.</p>
                         </div>
 
                         <div>
@@ -155,7 +155,7 @@
                                 </label>
                                 <input type="url" id="link2URL" class="form-control" placeholder="예) https://url.com">
                             </div>
-                            <p class="mt-1 text-caption text-muted">* 입력된 링크는 페이지에서 새창으로 열립니다.</p>
+                            <p class="mt-1 text-caption text-muted">* 입력된 링크는 새창으로 열립니다.</p>
                         </div>
                     </td>
                 </tr>
