@@ -15,5 +15,17 @@
         margin-bottom: $container-gutter-x * 2;
       }
     }
+
+    @include media-breakpoint-down('sm') {
+      .gallery-card--responsive {
+         .card-thumbnail {
+           display: none;
+
+           & + .card-content {
+             margin-right: 0;
+           }
+         }
+      }
+    }
   }
 }
