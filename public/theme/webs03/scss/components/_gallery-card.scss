@@ -9,14 +9,6 @@ $gallery-card-title-sm: $h4-font-size * 0.85;
   .card-box {
     padding: $gallery-card-gutter;
 
-    &.card-thumbnail + .card-header {
-      margin-top: $gallery-card-gutter * -1.25;
-    }
-
-    &.card-header + .card-body  {
-      margin-top: $gallery-card-gutter * -1.25;
-    }
-
     &.card-thumbnail + .card-content  {
       margin-top: $gallery-card-gutter * -1.25;
     }
@@ -35,12 +27,6 @@ $gallery-card-title-sm: $h4-font-size * 0.85;
         background-size: cover;
       }
     }
-  }
-
-  .card-header {
-    text-align: center;
-    background-color: transparent;
-    border-bottom: 0;
   }
 
   .card-title {
