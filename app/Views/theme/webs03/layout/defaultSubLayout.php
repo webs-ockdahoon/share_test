@@ -52,20 +52,23 @@
 
 <?php echo $this->endSection(); ?>
 
-<?php echo $this->section('content'); ?>
-
+<?php echo $this->section('prependContent'); ?>
     <div class="content-hero">
-        <div class="container">
-            <h2 class="content-hero__title"><?php echo $heroTitle; ?></h2>
+    <div class="container">
+        <h2 class="content-hero__title"><?php echo $heroTitle; ?></h2>
 
-            <?php if($heroText): ?>
-                <div class="content-hero__text text-muted">
-                    <?php echo $heroText; ?>
-                </div>
-            <?php endif; ?>
+        <?php if($heroText): ?>
+            <div class="content-hero__text text-muted">
+                <?php echo $heroText; ?>
+            </div>
+        <?php endif; ?>
 
-        </div>
     </div>
+</div>
 
+    <?php echo $this->renderSection('prependContent'); ?>
+<?php echo $this->endSection(); ?>
+
+<?php echo $this->section('content'); ?>
     <?php echo $this->renderSection('content'); ?>
 <?php echo $this->endSection(); ?>

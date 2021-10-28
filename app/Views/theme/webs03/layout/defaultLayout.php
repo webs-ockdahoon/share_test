@@ -75,7 +75,9 @@
         <?php echo $this->renderSection('beforeContent'); ?>
 
         <div id="content" class="page-content">
+            <?php echo $this->renderSection('prependContent'); ?>
             <?php echo $this->renderSection('content'); ?>
+            <?php echo $this->renderSection('appendContent'); ?>
         </div>
 
         <footer class="default-page-footer bg-dark text-white-50">
