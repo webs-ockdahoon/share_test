@@ -57,8 +57,8 @@
                                 <h4 class="card-title mb-2"><?php echo $secret; ?> <?php echo $row["bod_title"]?></h4>
                                 <time class="text-caption text-muted"><?php echo substr($row["bod_created_at"],0,10)?></time>
 
-                                <?php if(true || $row['bod_category']): ?>
-                                    <p class="text-caption text-primary mt-3" style="line-height: 1"><?php echo $row['bod_category']; ?> 분류입니다</p>
+                                <?php if($row['bod_category']): ?>
+                                    <p class="text-caption text-primary mt-3" style="line-height: 1"><?php echo $row['bod_category']; ?></p>
                                 <?php endif; ?>
                             </div>
                         </a>
