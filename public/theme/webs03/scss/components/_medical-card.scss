@@ -1,0 +1,73 @@
+
+$medical-card-gutter: 1.5rem;
+
+.medical-card {
+  position: relative;
+
+  .card-content {
+    display: block;
+    padding: $medical-card-gutter;
+  }
+
+  .card-hover-content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(1rem);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+    .card-title {
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  .card-icon {
+    display: block;
+    width: $icon-size-xl;
+    height: $icon-size-xl;
+    margin: 0 auto 0.5rem;
+    background-repeat: no-repeat;
+    background-size: $icon-size auto;
+    background-position: 50% 50%;
+  }
+
+  .card-title {
+    font-size: $h6-font-size;
+    margin-bottom: 0;
+  }
+
+  @include media-breakpoint-up('lg') {
+    .card-content {
+      padding-top: $medical-card-gutter * 1.25;
+      padding-bottom: $medical-card-gutter * 1.25;
+    }
+
+    .card-icon {
+      margin-bottom: $medical-card-gutter;
+      background-size: $icon-size-xl auto;
+    }
+  }
+
+  &--focusable {
+    overflow: hidden;
+
+    &:hover,
+    &:focus,
+    &:active {
+      .card-hover-content {
+        opacity: 1;
+        visibility: visible;
+        z-index: 0;
+        transform: none;
+      }
+    }
+  }
+}

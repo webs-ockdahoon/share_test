@@ -1,0 +1,47 @@
+$department-row: 100% / 2;
+$department-row-md: 100% / 3;
+$department-row-lg: 100% / 4;
+$department-row-xl: 100% / 5;
+
+.medical-list {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid $border-color;
+  border-left: 1px solid $border-color;
+
+  >li {
+    flex: 1 1 $department-row;
+    width: $department-row;
+    max-width: $department-row;
+    border-right: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .medical-card {
+    height: 100%;
+  }
+
+  @include media-breakpoint-up('md') {
+    >li {
+      flex: 1 1 $department-row-md;
+      width: $department-row-md;
+      max-width: $department-row-md;
+    }
+  }
+
+  @include media-breakpoint-up('lg') {
+    >li {
+      flex: 1 1 $department-row-lg;
+      width: $department-row-lg;
+      max-width: $department-row-lg;
+    }
+  }
+
+  @include media-breakpoint-up('xl') {
+    >li {
+      flex: 1 1 $department-row-xl;
+      width: $department-row-xl;
+      max-width: $department-row-xl;
+    }
+  }
+}
