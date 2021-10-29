@@ -50,7 +50,7 @@
 
                         <div class="card-content card-hover-content bg-secondary">
                             <span class="d-block card-title text-white text-truncate"><?php echo $department; ?> <span class="sr-only">메뉴</span></span>
-                            <a href="/medical/departmentInfo?title=<?php echo $department; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
+                            <a href="/medical/departmentInfo" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
                             <a href="/medical/departmentDoctors" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
                         </div>
                     </section>
