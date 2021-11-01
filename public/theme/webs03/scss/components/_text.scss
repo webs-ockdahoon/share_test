@@ -44,3 +44,12 @@
 .text-underline {
   text-decoration: underline;
 }
+
+.text-truncate--multiple {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //원하는 라인수
+  -webkit-box-orient:vertical;
+  height: 2em * $line-height-base;
+}

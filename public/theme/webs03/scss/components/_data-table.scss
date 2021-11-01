@@ -1,0 +1,39 @@
+.data-table {
+
+  &__row {
+
+    &-label {
+      margin-bottom: 0.125rem;
+      font-weight: $font-weight-base;
+    }
+
+    &-text {
+      margin-bottom: 0;
+    }
+
+    & + .data-table__row {
+      margin-top: 0.75rem;
+    }
+  }
+
+  &--responsive-lg {
+    @include media-breakpoint-up('lg') {
+      .data-table__row {
+        display: flex;
+
+        &-label {
+          flex: 0 0 8rem;
+          max-width: 8rem;
+          width: 8rem;
+          margin-right: 0.5rem;
+          margin-bottom: 0;
+        }
+
+        &-text {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+}
