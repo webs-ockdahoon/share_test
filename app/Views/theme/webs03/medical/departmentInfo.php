@@ -29,7 +29,7 @@
 
     <div class="section-divider-sm content-bg bg-light" style="background-image: url('https://via.placeholder.com/1200x400');"></div>
 
-    <div class="section-text">
+    <div class="section-box section-text">
         <p class="mb-2">
             가정의학과는 우리 몸 전반에 관련된 병에 대해 폭 넓은 지식을 가지고, 가족 관계나 생활적인 관심까지 포함한 진정한 가족의 주치의 역할을 하는 것을 목적으로 합니다.
             이미 미국 등의 선진국에서는 이러한 주치의 제도가 정착되어 있는 상태입니다.
@@ -45,7 +45,7 @@
         </p>
     </div>
 
-    <div class="mt-5 text-right">
+    <div class="section-box text-right">
         <a href="/medical/departments" class="btn btn-lg font-base btn-outline-gray--dark">진료과 전체보기</a>
     </div>
     
