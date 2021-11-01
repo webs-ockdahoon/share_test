@@ -27,7 +27,7 @@
         </ul>
     </div>
 
-    <div class="section-divider-sm content-bg bg-light" style="background-image: url('https://via.placeholder.com/1200x320');"></div>
+    <div class="section-divider-sm content-bg bg-light" style="background-image: url('https://via.placeholder.com/1200x400');"></div>
 
     <div class="section-text">
         <p class="mb-2">
