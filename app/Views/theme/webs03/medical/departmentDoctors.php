@@ -113,7 +113,7 @@
         </div>
 
         <div class="section-box text-right">
-            <a href="/medical/departments" class="btn btn-lg font-base btn-outline-gray--dark">진료과 전체보기</a>
+            <a href="/medical/departments" class="btn btn-lg font-base btn-outline-primary--air text-muted border">전체 진료과</a>
         </div>
     </div>
 <?php echo $this->endSection(); ?>
