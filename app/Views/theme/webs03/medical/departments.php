@@ -24,7 +24,7 @@
 
 <?php echo $this->section('content'); ?>
     <div class="container section mt-0">
-        <div class="section-divider">
+        <div class="section-divider-sm">
             <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" href="/medical/departments" aria-selected="true">
