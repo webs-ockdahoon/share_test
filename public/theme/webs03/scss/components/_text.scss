@@ -18,6 +18,11 @@
   font-size: $font-size-lg;
 }
 
+.text-body2 {
+  font-size: $body2-size;
+  letter-spacing: 0.005em;
+  line-height: $line-height-base;
+}
 .text-caption {
   font-size: $caption-size;
   letter-spacing: 0.025em;
@@ -43,4 +48,13 @@
 
 .text-underline {
   text-decoration: underline;
+}
+
+.text-truncate--multiple {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //원하는 라인수
+  -webkit-box-orient:vertical;
+  height: 2em * $line-height-base;
 }

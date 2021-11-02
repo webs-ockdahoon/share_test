@@ -9,7 +9,7 @@ $light: #f0f1f6;
 $air: #fafbff;
 $gray: $gray-100;
 $gray--dark: #777;
-$dark: #323232;
+$dark: #232323;
 $success: #50a332;
 $danger: #ed2626;
 
@@ -67,9 +67,18 @@ $font-weight-medium: 500;
 
 
 // form
-$border-radius: 0;
-$border-radius-sm: 0;
-$border-radius-lg: 0;
+$border-radius: 0.125rem;
+$border-radius-sm: 0.25rem;
+$border-radius-md: 0.5rem;
+$border-radius-lg: 1rem;
+
+$btn-border-radius: 0;
+$btn-border-radius-sm: 0;
+$btn-border-radius-lg: 0;
+
+$input-border-radius: 0;
+$input-border-radius-sm: 0;
+$input-border-radius-lg: 0;
 
 
 // icon
@@ -109,3 +118,9 @@ $default-page-header-h: 60px;
 $default-page-header-h-lg: 140px;
 $default-page-nav-lg: 60px;
 $brand-logo-w: 432px;
+
+
+// doctor card
+$doctor-thumbnail-img-w-xs: 56px;
+$doctor-thumbnail-img-w-sm: 72px;
+$doctor-thumbnail-img-w: 96px;

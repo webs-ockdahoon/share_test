@@ -18,3 +18,13 @@
     font-size: 32px;
   }
 }
+
+.btn-wide {
+  padding-left: $input-btn-padding-x * 2;
+  padding-right: $input-btn-padding-x * 2;
+
+  &.btn-lg {
+    padding-left: $input-btn-padding-x-lg * 2;
+    padding-right: $input-btn-padding-x-lg * 2;
+  }
+}
