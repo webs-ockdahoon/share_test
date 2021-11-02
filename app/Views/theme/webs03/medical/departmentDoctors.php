@@ -66,7 +66,7 @@
                             <div class="card-thumbnail-body">
                                 <div class="card-thumbnail">
                                     <!-- // image size: 96px x 128px (3:4) -->
-                                    <span class="card-thumbnail__img bg-light rounded-lg" style="background-image: url('<?php echo $doctor['image_src']; ?>');"></span>
+                                    <span class="card-thumbnail__img bg-light rounded" style="background-image: url('<?php echo $doctor['image_src']; ?>');"></span>
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo $doctor['name']; ?></h4>
