@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--medical page--medical-department-info');
-    $this->setVar('heroTitle', '가정의학과');
+    $this->setVar('heroTitle', '이비인후과');
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -27,21 +27,15 @@
         </ul>
     </div>
 
-    <div class="section-divider-sm content-bg bg-light" style="background-image: url('https://via.placeholder.com/1200x400');"></div>
+    <div class="section-divider-sm content-bg bg-light" style="background-image: url('https://via.placeholder.com/1200x320');max-height: 320px;"></div>
 
     <div class="section-box section-text">
-        <p class="mb-2">
-            가정의학과는 우리 몸 전반에 관련된 병에 대해 폭 넓은 지식을 가지고, 가족 관계나 생활적인 관심까지 포함한 진정한 가족의 주치의 역할을 하는 것을 목적으로 합니다.
-            이미 미국 등의 선진국에서는 이러한 주치의 제도가 정착되어 있는 상태입니다.
+        <p class="mb-3">
+            만성중이염과 진주종의 유양동수술 및 고실성형술 만성부비동염의 비내시경수술 외비 및 비중격 성형수술 두경부종양 수술 악안면 외상의 수술을 시행하고 있으며 전정기능검사 내시경을 이용한 음성장애검사 알레르기검사 등을 시행하고 있습니다.
         </p>
 
-        <p class="mb-2">
-            가정의학과는 나이, 남녀노소, 질병의 종류에 관계없이 가족전체의 건강문제를 지속적이고 종합적으로 다루는 과입니다.
-            만약 아픈 부위나 , 병의 종류에 따라 각각을 나누어 진료 받게 되면, 상호 관련성이 있는 증상이라도 여러 과를 방문하여 많은 의사에게 나누어서 진료를 받아야 하는 불편함이 생기게 되고, 이로 인해 의료비 부담 또한 증가하게 됩니다.
-        </p>
-
-        <p class="mb-2">
-            가정의학은 이러한 문제를 개선하고 해결하기 위해 한명의 의사가 지속적으로 환자를 관리하는 과입니다.
+        <p class="mb-3">
+            난청환자를 위하여 전문화된 정밀난청검사와 보청기검사를 시행하며 전농환자의 인공와우이식술을 실시하고 언어평가 및 치료를 통하여 청각재활에 노력을 기울이고 있습니다.
         </p>
     </div>
 
