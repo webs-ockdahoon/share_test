@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--medical page--medical-departments');
-    $this->setVar('heroTitle', '진료과 및 의료진 소개');
+    $this->setVar('heroTitle', '진료과 및 의료진');
 ?>
 
 <?php
