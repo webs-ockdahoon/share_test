@@ -11,7 +11,7 @@
 
 <?php echo $this->section('content'); ?>
     <div class="container section section-text text-muted">
-        <section class="section-divider-sm section-card border-top is-2 border-dark doctor-brief">
+        <section class="section-box section-card border-top is-2 border-dark doctor-brief">
             <div class="row mb-n4">
                 <div class="col-12 col-md-6 mb-4">
                     <div class="doctor-name">
@@ -38,7 +38,7 @@
             </div>
         </section>
 
-        <section class="section-divider-sm  border-top border-dark">
+        <section class="section-box  border-top border-dark">
             <div class="section-card section-card-sm border-bottom">
                 <h4 class="section-title mb-0 text-dark">학력 및 경력</h4>
             </div>
@@ -70,7 +70,7 @@
             </div>
         </section>
 
-        <section class="section-divider-sm border-top border-dark">
+        <section class="section-box border-top border-dark">
             <div class="section-card section-card-sm border-bottom">
                 <h4 class="section-title mb-0  text-dark">학회 활동</h4>
             </div>
@@ -89,14 +89,14 @@
                     <div class="col-12 col-md-6 mb-4">
                         <h5 class="mb-3 section-subtitle  text-dark">학회 인증</h5>
                         <ul class="list-bullet list-bullet--reset">
-                            <li>-</li>
+                            <li>등록된 내용이 없습니다.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-divider-sm border-top border-dark">
+        <section class="section-box border-top border-dark">
             <div class="section-card section-card-sm border-bottom">
                 <h4 class="section-title mb-0 text-dark">수상내역 및 기타</h4>
             </div>
@@ -121,5 +121,9 @@
                 </div>
             </div>
         </section>
+
+        <div class="section-box text-right">
+            <a href="/medical/departmentDoctors" class="btn btn-lg btn-wide btn-outline-gray text-gray--dark border">진료과 의료진</a>
+        </div>
     </div>
 <?php echo $this->endSection(); ?>

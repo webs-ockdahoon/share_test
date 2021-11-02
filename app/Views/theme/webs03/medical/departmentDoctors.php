@@ -17,44 +17,24 @@
                 'department' => '이비인후과',
                 'specialized_field' => '이과, 진주종, 중이염, 난청, 안면마비',
                 'image_src' => $THEME_URL.'/images/medical/doctor01.jpg',
-                'educations' => ['서울의대졸업', '서울의대 의학박사'],
-                'experiences' => ['서울의대 전임의'],
-                'society_activities' => [],
-                'society_certifications' => [],
-                'awards' => [],
             ],
             [
                 'name' => '박헌수',
                 'department' => '이비인후과',
                 'specialized_field' => '갑상선암, 두경부암, 음성장애, 인후두 역류성질환, 안면외상, 경부림프절클리닉',
                 'image_src' => $THEME_URL.'/images/medical/doctor02.jpg',
-                'educations' => ['부산의대졸업', '동아의대 의학박사'],
-                'experiences' => ['동아대학교의료원 전임의'],
-                'society_activities' => [],
-                'society_certifications' => [],
-                'awards' => [],
             ],
             [
                 'name' => '배우용',
                 'department' => '이비인후과',
                 'specialized_field' => '축농증, 코성형술, 알레르기, 코골이, 수면무호흡, 후각장애, 비종양, 비강암, 미각장애',
                 'image_src' => $THEME_URL.'/images/medical/doctor03.jpg',
-                'educations' => ['동아대학교 의대졸업', '동아대학교 의대의학박사'],
-                'experiences' => ['2009-2010년 미국 UC San Diego 연수', '2008년 미국 스탠포드 대학 수면 센터'],
-                'society_activities' => ['대한 이비인후과학회 정회원', '대한 안면성형재건학회 정회원', '대한 천식알레르기학회 정회원', '대한 생화학분자생물학회 정회원', '한국 의료 QA 학회 정회원'],
-                'society_certifications' => [],
-                'awards' => [],
             ],
             [
                 'name' => '정성욱',
                 'department' => '이비인후과',
                 'specialized_field' => '인공와우이식, 이식형 보청기, 난청, 중이염, 진주종, 어지럼증, 두개저종양',
                 'image_src' => $THEME_URL.'/images/medical/doctor04.jpg',
-                'educations' => ['1999년 동아대학교 의과대학 졸업', '2004년 동아대학교 의과대학 의학박사'],
-                'experiences' => ['현) 동아대학교 의과대학 이비인후과학교실 교수', '대한이비인후과학회 기획위원', '대한청각학회 교육이사', '대한이과학회 학술위원', '2011 아시아 태평양 인공와우이식 학회 scientific committee', '2015 아시아 태평양 인공와우이식 학회 Faculty member', '대한청각학회 정보이사, 학술이사, 국제이사', '대한이과학회 기획위원'],
-                'society_activities' => ['대한이비인후과학회 회원', '대한청각학회 평생회원', '대한이과학회 회원'],
-                'society_certifications' => [],
-                'awards' => ['2014 대한청각학회 학술대회 우수상', '2016 한림인술상 (학술부문)', '2017 ICORL 2017, Best oral presentation award', ],
             ],
     ];
 ?>
@@ -113,7 +93,7 @@
         </div>
 
         <div class="section-box text-right">
-            <a href="/medical/departments" class="btn btn-lg font-base btn-outline-primary--air text-muted border">전체 진료과</a>
+            <a href="/medical/departments" class="btn btn-lg btn-wide btn-outline-gray text-gray--dark  border">전체 진료과</a>
         </div>
     </div>
 <?php echo $this->endSection(); ?>
