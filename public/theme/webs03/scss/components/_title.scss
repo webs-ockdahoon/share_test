@@ -1,0 +1,32 @@
+$title-underline-w: 32px;
+$title-underline-h: 3px;
+
+.title {
+  &-lined {
+    position: relative;
+    display: block;
+    margin-bottom: $title-underline-h * 3.25;
+    padding-bottom: $title-underline-h * 3.25;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: $title-underline-w;
+      height: $title-underline-h;
+      background-color: currentColor;
+    }
+
+    &--top {
+      margin-bottom: 0;
+      padding-top: $title-underline-h * 3.25;
+      padding-bottom: 0;
+
+      &::before {
+        top: 0;
+        bottom: auto;
+      }
+    }
+  }
+}

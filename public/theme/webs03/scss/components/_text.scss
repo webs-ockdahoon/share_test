@@ -18,6 +18,11 @@
   font-size: $font-size-lg;
 }
 
+.text-body2 {
+  font-size: $body2-size;
+  letter-spacing: 0.005em;
+  line-height: $line-height-base;
+}
 .text-caption {
   font-size: $caption-size;
   letter-spacing: 0.025em;
