@@ -48,21 +48,24 @@
   }
 }
 
-.custom-radio {
+
+
+.custom-radio,
+.custom-checkbox {
   &--v1 {
-    padding-left: 2rem;
+    padding-left: $custom-control-v1-size + 0.5rem;
 
     .custom-control-input {
-      width: 1.5rem;
-      height: 1.875rem;
+      width: $custom-control-v1-size;
+      height: $custom-control-v1-size * 1.25;
     }
 
     .custom-control-label {
       &::before,
       &::after {
-        left: -2rem;
-        width: 1.5rem;
-        height: 1.5rem;
+        left: -($custom-control-v1-size + 0.5rem);
+        width: $custom-control-v1-size;
+        height: $custom-control-v1-size;
         top: 50%;
         transform: translateY(-50%);
       }

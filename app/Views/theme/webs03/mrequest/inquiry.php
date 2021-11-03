@@ -103,7 +103,34 @@
                         <textarea name="content" rows="8" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="상담 내용을 입력해 주세요."></textarea>
                     </div>
                 </div>
+
+                <div class="form-group form-group--v1">
+                    <div class="agreement-card">
+                        <div class="agreement-card__control-group">
+                            <div class="custom-control custom-checkbox custom-checkbox--v1">
+                                <input type="checkbox" class="custom-control-input" id="agree">
+                                <label class="custom-control-label" for="agree"><span class="require-mark--before">개인 정보 이용 약관 동의</span></label>
+                            </div>
+
+                            <button class="agreement-card__btn-detail text-muted" type="button" data-toggle="collapse" data-target="#agreeDetail" aria-expanded="false" aria-controls="agreeDetail">
+                                자세히 보기
+                            </button>
+                        </div>
+
+                        <div class="collapse" id="agreeDetail">
+                            <div class="mt-2 section-card section-card-sm text-caption border bg-white" style="max-height: 10em; overflow-x: hidden;">
+                                개인 정보 이용 약관<br><br>
+                                이용 약관 내용을 넣어 주세요.<br>
+                                이용 약관 내용을 넣어 주세요.<br>
+                                이용 약관 내용을 넣어 주세요.<br>
+                                이용 약관 내용을 넣어 주세요.<br>
+                                이용 약관 내용을 넣어 주세요.<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </fieldset>
+
 
             <div class="row">
                 <div class="col-12 offset-md-3 col-md-9">
