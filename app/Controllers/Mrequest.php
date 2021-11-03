@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class MRequest extends BaseController
+class Mrequest extends BaseController
 {
     protected $viewPath = "mrequest";
 
