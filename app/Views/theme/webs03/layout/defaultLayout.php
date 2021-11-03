@@ -11,7 +11,7 @@
 
         <?php echo $this->include($THEME_URL.'/_includes/ieBrowserUpgradeNotification'); ?>
 
-        <a class="sr-only sr-only-focusable" href="#content">본문 바로가기</a>
+        <a class="sr-only sr-only-focusable" href="#main">본문 바로가기</a>
 
         <header class="default-page-header is-fixed">
             <div class="container default-page-header__container">
@@ -74,7 +74,7 @@
 
         <?php echo $this->renderSection('beforeContent'); ?>
 
-        <div id="content" class="page-content">
+        <div id="main" class="page-content">
             <?php echo $this->renderSection('prependContent'); ?>
             <?php echo $this->renderSection('content'); ?>
             <?php echo $this->renderSection('appendContent'); ?>
