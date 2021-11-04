@@ -100,7 +100,7 @@
                 <div class="form-group form-group--v1 form-row">
                     <label for="content" class="col-12 col-md-3 require-mark--before">상담 내용</label>
                     <div class="col-12 col-md-9">
-                        <textarea name="content" rows="8" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="상담 내용을 입력해 주세요."></textarea>
+                        <textarea name="content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="상담 내용을 입력해 주세요."></textarea>
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@
                     <div class="agreement-card">
                         <div class="agreement-card__control-group">
                             <div class="custom-control custom-checkbox custom-checkbox--v1">
-                                <input type="checkbox" class="custom-control-input" id="agree">
+                                <input type="checkbox" name="agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
                                 <label class="custom-control-label" for="agree"><span class="require-mark--before">개인 정보 이용 약관 동의</span></label>
                             </div>
 
@@ -173,7 +173,7 @@
     });
 
         function isValidForm() {
-            var emailReg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+            var emailReg = /^((\w|[\-\.\!\#\$\%\&\'\*\+\/\=\?\^\`\{\}\|\~])+)@((\w|[\-\.])+)\.([A-Za-z]+)$/;
 
             var isValid = true;
             var $invalidTarget = null;
@@ -184,8 +184,12 @@
                 // 유효성 체크
                 var $item = $(item);
                 var type = $item.attr('type');
-                var value = type === 'radio' ? $('[name='+$item.attr('name')+']:checked').length : $.trim($item.val());
                 var validatorTypes = $item.data('validatorType').split('|');
+                var value = $.trim($item.val());
+
+                if (type === 'radio' || type === 'checkbox') {
+                    value = $('[name='+$item.attr('name')+']:checked').length;
+                }
 
                 $.each(validatorTypes, function(index, validatorType) {
 
@@ -211,8 +215,17 @@
             });
 
             if (!isValid) {
-                $invalidTarget && $invalidTarget.length && $invalidTarget.focus();
+
                 alert(message);
+            
+                if ($invalidTarget && $invalidTarget.length) {
+                    // 스크롤 이동 후 포커스 주기
+                    $('html, body').animate({
+                        scrollTop: $invalidTarget.offset().top - 100
+                    }, 500, function() {
+                        $invalidTarget.focus();
+                    });
+                }
             }
 
             return isValid;
