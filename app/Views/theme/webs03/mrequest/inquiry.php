@@ -215,8 +215,17 @@
             });
 
             if (!isValid) {
-                $invalidTarget && $invalidTarget.length && $invalidTarget.focus();
+
                 alert(message);
+            
+                if ($invalidTarget && $invalidTarget.length) {
+                    // 스크롤 이동 후 포커스 주기
+                    $('html, body').animate({
+                        scrollTop: $invalidTarget.offset().top - 100
+                    }, 500, function() {
+                        $invalidTarget.focus();
+                    });
+                }
             }
 
             return isValid;
