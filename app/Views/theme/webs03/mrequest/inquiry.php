@@ -100,7 +100,7 @@
                 <div class="form-group form-group--v1 form-row">
                     <label for="content" class="col-12 col-md-3 require-mark--before">상담 내용</label>
                     <div class="col-12 col-md-9">
-                        <textarea name="content" rows="8" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="상담 내용을 입력해 주세요."></textarea>
+                        <textarea name="content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="상담 내용을 입력해 주세요."></textarea>
                     </div>
                 </div>
 
