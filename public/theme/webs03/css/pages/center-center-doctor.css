@@ -1,0 +1,10 @@
+.page--center-center-doctor .doctor-brief .doctor-name{display:flex;flex-direction:row-reverse;justify-content:space-between;width:100%}
+.page--center-center-doctor .doctor-brief .doctor-name__thumbnail{display:block;flex:0 0 72px;width:72px;max-width:72px;margin-left:1.5rem}
+.page--center-center-doctor .doctor-brief .doctor-name__thumbnail-img{display:block;width:100%;padding-bottom:133.333333%;background:no-repeat 50% 50%;background-size:cover}
+
+
+@media(min-width: 576px){
+    .page--center-center-doctor .doctor-brief .doctor-name{flex-direction:row;justify-content:flex-start}
+    .page--center-center-doctor .doctor-brief .doctor-name__thumbnail{flex:0 0 96px;width:96px;max-width:96px;margin-left:0;margin-right:1.5rem}
+}
+/*# sourceMappingURL=medical-doctor.css.map */

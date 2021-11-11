@@ -24,20 +24,20 @@
 
 <?php echo $this->section('content'); ?>
     <div class="container section mt-0">
-        <div class="section-divider">
-            <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" href="/medical/departments" aria-selected="true">
-                        진료과
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="/medical/departments" aria-selected="false">
-                        전문센터
-                    </a>
-                </li>
-            </ul>
-        </div>
+<!--        <div class="section-divider">-->
+<!--            <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">-->
+<!--                <li class="nav-item" role="presentation">-->
+<!--                    <a class="nav-link active" href="/medical/departments" aria-selected="true">-->
+<!--                        진료과-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="nav-item" role="presentation">-->
+<!--                    <a class="nav-link" href="/medical/departments" aria-selected="false">-->
+<!--                        전문센터-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
 
         <ul class="list-unstyled medical-list">
             <?php foreach($departments as $department_index => $department): ?>
