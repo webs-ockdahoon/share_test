@@ -19,17 +19,17 @@ $this->setVar('heroTitle', '병원 연혁');
             <!-- Nav tabs -->
             <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="main-building-tab" data-toggle="tab" href="#main-building" role="tab" aria-controls="main-building" aria-selected="true">
+                    <a class="nav-link active" id="history01-tab" data-toggle="tab" href="#history01" role="tab" aria-controls="history01" aria-selected="true">
                         현재~2000
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="west-building-tab" data-toggle="tab" href="#west-building" role="tab" aria-controls="west-building" aria-selected="false">
+                    <a class="nav-link" id="history02-tab" data-toggle="tab" href="#history02" role="tab" aria-controls="history02" aria-selected="false">
                         1999~1990
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="east-building-tab" data-toggle="tab" href="#east-building" role="tab" aria-controls="east-building" aria-selected="false">
+                    <a class="nav-link" id="history03-tab" data-toggle="tab" href="#history03" role="tab" aria-controls="history03" aria-selected="false">
                         1989~1985
                     </a>
                 </li>
@@ -37,14 +37,33 @@ $this->setVar('heroTitle', '병원 연혁');
         </div>
 
         <div class="tab-content">
-            <div class="tab-pane active" id="main-building" role="tabpanel" aria-labelledby="main-building-tab">
+            <div class="tab-pane active" id="history01" role="tabpanel" aria-labelledby="history01-tab">
                 <h3 class="sr-only">현재~2000</h3>
 
                     <div class="section-body section-text text-muted">
-                        <img src="<?php echo $THEME_URL ?>/images/intro/intro-history.jpg" title="">
+                        <img src="<?php echo $THEME_URL ?>/images/intro/intro-history(1).jpg" title="">
                     </div>
                 </section>
             </div>
+
+            <div class="tab-pane active" id="history02" role="tabpanel" aria-labelledby="history02-tab">
+                <h3 class="sr-only">현재~2000</h3>
+
+                <div class="section-body section-text text-muted">
+                    <img src="<?php echo $THEME_URL ?>/images/intro/intro-history(2).jpg" title="">
+                </div>
+                </section>
+            </div>
+
+            <div class="tab-pane active" id="history03" role="tabpanel" aria-labelledby="history03-tab">
+                <h3 class="sr-only">현재~2000</h3>
+
+                <div class="section-body section-text text-muted">
+                    <img src="<?php echo $THEME_URL ?>/images/intro/intro-history(3).jpg" title="">
+                </div>
+                </section>
+            </div>
+        </div>
 
 </article>
 <?php echo $this->endSection(); ?>
