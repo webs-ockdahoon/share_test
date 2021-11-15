@@ -171,7 +171,7 @@ $faqs = [
                     </p>
                 </div>
                 <div class="card-action">
-                    <a href="/" class="btn btn-primary card-btn">바로가기</a>
+                    <a href="/mrequest/inquiry" class="btn btn-primary card-btn">바로가기</a>
                 </div>
             </div>
         </div>
