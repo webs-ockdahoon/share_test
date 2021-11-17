@@ -2,7 +2,7 @@
 
 <?php
 $this->setVar('bodyClassName', 'page--intro page--intro-purpose');
-$this->setVar('heroTitle', '설립 목적');
+$this->setVar('heroTitle', 'Оснвополагающие цели');
 ?>
 
 <?php echo $this->section('appendHead'); ?>

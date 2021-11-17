@@ -2,7 +2,7 @@
 
 <?php
 $this->setVar('bodyClassName', 'page--intro page--intro-imc');
-$this->setVar('heroTitle', '국제진료센터 소개');
+$this->setVar('heroTitle', 'Международный медицинский центр');
 ?>
 
 <?php echo $this->section('appendHead'); ?>
