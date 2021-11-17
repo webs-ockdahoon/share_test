@@ -1,0 +1,29 @@
+.link-hover {
+
+  &--img-zoom {
+    display: block;
+    overflow: hidden;
+
+    >img {
+      transition: transform 0.2s ease;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      >img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.link--hover-text-underline {
+  &:hover {
+    text-decoration: none;
+
+    .link-text {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.require-mark {
+
+  &--before {
+    position: relative;
+
+    &::before {
+      content: '*';
+      position: absolute;
+      top: -0.25em;
+      left: -0.125em;
+      color: $danger;
+      font-size: 12px;
+      font-weight: $font-weight-bold;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import "utils";
+
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/root";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/reboot";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/type";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/images";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/grid";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/tables";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/forms";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/buttons";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/transitions";
+@import "../../../assets/plugins/bootstrap@4.6.0/scss/utilities";
+
+// custom
+@import "./components/reboot";
+@import "./components/grid";

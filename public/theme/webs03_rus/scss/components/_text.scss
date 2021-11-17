@@ -1,0 +1,60 @@
+.font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-inherit {
+  font-size: inherit;
+}
+
+.font-base {
+  font-size: $font-size-base;
+}
+
+.font-sm {
+  font-size: $font-size-sm;
+}
+
+.font-lg {
+  font-size: $font-size-lg;
+}
+
+.text-body2 {
+  font-size: $body2-size;
+  letter-spacing: 0.005em;
+  line-height: $line-height-base;
+}
+.text-caption {
+  font-size: $caption-size;
+  letter-spacing: 0.025em;
+  line-height: 1.6;
+}
+.text-overline {
+  font-size: $overline-size;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.03125em;
+  line-height: 1.75;
+}
+
+.text-reply {
+  .icon-reply {
+    width: 18px;
+    height: 18px;
+
+    &[class*="material-icons"] {
+      font-size: 14px;
+    }
+  }
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-truncate--multiple {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //원하는 라인수
+  -webkit-box-orient:vertical;
+  height: 2em * $line-height-base;
+}

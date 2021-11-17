@@ -1,0 +1,43 @@
+.modal-v1 {
+
+  .modal-content {
+    padding: $container-gutter-x;
+    border-radius: 0;
+  }
+
+  .modal-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .modal-header {
+    padding: 0;
+    border-bottom: 0;
+
+    &--close {
+      position: relative;
+      padding-top: $icon-size;
+
+      .modal-close {
+        opacity: 0.458;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        &:hover,
+        &:focus,
+        &:active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 1.25rem 0;
+  }
+
+  .modal-title {
+    font-size: $h3-font-size;
+  }
+}

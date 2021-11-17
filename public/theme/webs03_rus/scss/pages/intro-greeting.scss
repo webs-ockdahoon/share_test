@@ -1,0 +1,16 @@
+@import "../utils";
+
+.page--intro-greeting {
+  .content-bg {
+    background-image: url('../../images/intro/greeting-bg.jpg');
+  }
+
+  .section {
+    &-body {
+      p {
+        margin-bottom: $section-gutter-y * 0.375;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,49 @@
+.list-bullet {
+  &,
+  >li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &:not(.is-non-list)>li,
+  &.is-non-list {
+    position: relative;
+    padding-left: $list-bullet-size * 4;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.75em;
+      left: 0;
+      width: $list-bullet-size;
+      height: $list-bullet-size;
+      margin-top: $list-bullet-size * -0.5;
+      background-color: $primary;
+      border-radius: 50%;
+    }
+  }
+
+  &:not(.is-inline)>li+li {
+    margin-top: $list-bullet-size * 2;
+  }
+
+  &.is-inline {
+    display: flex;
+    flex-wrap: wrap;
+
+    >li {
+      margin-right: $list-bullet-size * 4;
+    }
+  }
+
+  // color variants
+  &--reset {
+    &:not(.is-non-list)>li,
+    &.is-non-list {
+      &::before {
+        background-color: currentColor;
+      }
+    }
+  }
+}
