@@ -92,6 +92,9 @@ class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
+    }
+
+    public function __construct(){
 
         //--------------------------------------------------------------------
         // Preload any models, libraries, etc, here.
@@ -125,7 +128,7 @@ class BaseController extends Controller
         if(sizeof($segments)<2)$segments[1] = "";
         if(sizeof($segments)<3)$segments[2] = "";
 
-        $this->THEME = "webs03"; //-- 스킨 강제 지정
+        $this->THEME = "webs03_rus"; //-- 스킨 강제 지정
 
         // 관리자 로그인여부 체크 (사용자 페이지에 별도 출력/처리를 위함)
         if($this->SS_Mlevel>=90)$this->isMaster = true;
@@ -145,6 +148,7 @@ class BaseController extends Controller
         $this->DATA_URL = "/data";
 
         // 전송방식 체크
+        $request = \Config\Services::request();
         $this->method = $request->getMethod();
 
         $this->cont_url = $this->getControllerUrl();
@@ -584,6 +588,10 @@ class BaseController extends Controller
             $email->send();
         }
 
+    }
+
+    public function setContUrl($cont_url){
+        $this->cont_url = $cont_url;
     }
 
 

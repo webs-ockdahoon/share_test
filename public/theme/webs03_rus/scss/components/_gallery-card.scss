@@ -1,0 +1,132 @@
+$gallery-card-gutter: 2rem;
+$gallery-card-gutter-sm: $gallery-card-gutter * 0.75;
+$gallery-card-title: $h4-font-size;
+$gallery-card-title-sm: $h4-font-size * 0.85;
+
+
+.gallery-card {
+
+  &-row {
+    .gallery-card {
+      height: 100%;
+    }
+  }
+
+  .card-box {
+    padding: $gallery-card-gutter;
+
+    &.card-thumbnail + .card-content  {
+      margin-top: $gallery-card-gutter * -1.25;
+    }
+  }
+
+  .card-thumbnail {
+    &__frame {
+      overflow: hidden;
+      text-align: center;
+
+      &-img {
+        display: block;
+        padding-bottom: 56.25%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+      }
+    }
+  }
+
+  .card-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: $dark;
+    font-size: $gallery-card-title-sm;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.025em;
+  }
+
+  @include media-breakpoint-up('lg') {
+    .card-title {
+      font-size: $gallery-card-title;
+      font-weight: $font-weight-medium;
+      letter-spacing: 0.001em;
+    }
+  }
+
+  &--responsive {
+    $gallery-card-thumbnail-width: 200px;
+    $gallery-card-thumbnail-width-sm: 120px;
+
+    @include media-breakpoint-down('md') {
+      flex-direction: row-reverse;
+      align-items: center;
+
+      .card-box {
+        padding: $gallery-card-gutter-sm * 0.75 $gallery-card-gutter-sm;
+
+        &.card-thumbnail + .card-content {
+          margin-top: 0;
+          margin-right: $gallery-card-gutter-sm * -1;
+        }
+      }
+
+      .card-thumbnail {
+        flex: 0 0 $gallery-card-thumbnail-width;
+        width: $gallery-card-thumbnail-width;
+      }
+
+      .card-content {
+        flex: auto;
+        max-width: 100%;
+      }
+
+      .card-title {
+        overflow: visible;
+        white-space: normal;
+        text-overflow: clip;
+      }
+    }
+
+    @include media-breakpoint-down('sm') {
+      .card-thumbnail {
+        flex: 0 0 $gallery-card-thumbnail-width-sm;
+        width: $gallery-card-thumbnail-width-sm;
+
+        &__frame {
+          &-img {
+            padding-bottom: 100%;
+          }
+        }
+      }
+    }
+  }
+
+
+  &--link-hover {
+
+    .card-thumbnail {
+      &__frame {
+        &-img {
+          transition: transform 0.2s ease-in-out;
+        }
+      }
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      .card-thumbnail {
+        &__frame {
+          &-img {
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      .card-title {
+        text-decoration: underline;
+      }
+    }
+  }
+}

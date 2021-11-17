@@ -1,0 +1,31 @@
+@import "../utils";
+
+.page--guide-convenience {
+  .convenience-list {
+    >li {
+      margin-bottom: $container-gutter-x;
+
+      .gallery-card {
+        min-height: 100%;
+      }
+    }
+
+    @include media-breakpoint-up('lg') {
+      >li {
+        margin-bottom: $container-gutter-x * 2;
+      }
+    }
+
+    @include media-breakpoint-down('sm') {
+      .gallery-card--responsive {
+         .card-thumbnail {
+           display: none;
+
+           & + .card-content {
+             margin-right: 0;
+           }
+         }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import "../utils";
+
+.page--guide-floor {
+    .content-bg {
+        background-image: url('../../images/guide/floor-img.jpg');
+    }
+    .default-sub-layout .content-bg {
+        height: 40rem;
+        border: 1px solid #eaeaea;
+    }
+}

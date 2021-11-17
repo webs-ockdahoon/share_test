@@ -1,0 +1,19 @@
+.page-search-modal {
+  .modal-dialog {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .modal-content {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+  }
+
+  .modal-container {
+    max-width: map-get($container-max-widths, 'md');
+  }
+
+
+}

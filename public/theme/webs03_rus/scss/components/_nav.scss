@@ -1,0 +1,52 @@
+.nav-tabs--v1 {
+  padding-left: 1px;
+  padding-bottom: 1px;
+
+  .nav-item {
+    flex: auto;
+    margin-left: -1px;
+    margin-bottom: -1px;
+  }
+
+  .nav-link {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: inherit;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.001em;
+    line-height: 1.2;
+    border: 1px solid $border-color;
+
+    &:hover {
+      color: $primary;
+      background-color: $air;
+    }
+
+    &.active {
+      color: $white;
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
+
+  @include media-breakpoint-up('md') {
+    .nav-link {
+      padding: 0.8125rem 2.25rem;
+    }
+  }
+
+  &-secondary {
+    .nav-link {
+      &:hover {
+        color: $secondary;
+        background-color: $air;
+      }
+
+      &.active {
+        color: $white;
+        background-color: $secondary;
+        border-color: $secondary;
+      }
+    }
+  }
+}

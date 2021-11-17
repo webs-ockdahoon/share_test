@@ -1,0 +1,220 @@
+@import "../utils";
+
+$process-step-header-width-md: 16rem;
+$process-step-header-width-lg: 24rem;
+
+.page--guide-process {
+
+  .text-tip {
+    display: block;
+    margin-top: 0.125rem;
+    margin-bottom: 0.125rem;
+    font-size: inherit;
+  }
+
+  .process--new {
+    .process-step {
+      overflow: hidden;
+      border: 1px solid $border-color;
+
+      & + .process-step {
+        border-top: 0;
+      }
+
+      &__header,
+      &__body {
+        padding: 1.5rem;
+      }
+
+      &__header {
+        position: relative;
+        margin-bottom: 0;
+        font-size: inherit;
+
+        .icon {
+          opacity: 0.32;
+          content: '';
+          position: absolute;
+          z-index: -1;
+          top: $icon-size-xl * -.2;
+          right: $icon-size-xl * -.2;
+          background-color: $light;
+          border-radius: 50%;
+        }
+
+        & + .process-step__body {
+          margin-top: -1.5em;
+        }
+      }
+
+      @for $i from 2 through 5 {
+        &:nth-child(#{$i}) {
+          .process-step__header {
+            &::before {
+              background-position: $icon-size-xl * -1 * ($i - 1) 0;
+            }
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up('md') {
+      .process-step {
+        display: flex;
+        overflow: visible;
+
+        &__header,
+        &__body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        &__header {
+          overflow: hidden;
+          flex: 0 0 $process-step-header-width-md;
+          max-width: $process-step-header-width-md;
+          font-weight: $font-weight-base;
+          border-right: 1px solid $border-color;
+
+          .icon {
+            top: auto;
+            bottom: -24px;
+          }
+
+          >small {
+            display: block;
+            margin-bottom: 0.5em;
+            font-size: 1rem;
+            letter-spacing: -0.025em;
+          }
+
+          & + .process-step__body {
+            margin-top: 0;
+          }
+        }
+
+        &__body {
+          flex: 1;
+        }
+      }
+    }
+
+    @include media-breakpoint-up('lg') {
+      .process-step {
+        &__header,
+        &__body {
+          padding: 2rem;
+        }
+
+        &__header {
+          flex: 0 0 $process-step-header-width-lg;
+          max-width: $process-step-header-width-lg;
+          min-height: calc(80px + 4rem);
+          padding-left: calc(110px + 2rem);
+
+          .icon {
+            opacity: 1;
+            top: 50%;
+            right: auto;
+            left: 2rem;
+            background-color: $gray-100;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+  }
+
+  .process--basic {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $border-color;
+
+    .process-step {
+      display: flex;
+      align-items: center;
+
+      & + .process-step {
+        position: relative;
+        border-top: 1px solid $border-color;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: $icon-size * -0.5;
+          width: $icon-size;
+          height: $icon-size;
+          background: $white url('../../images/icons/icon-arrow-circle-right.png') no-repeat 50% 50%;
+          transform: translateX(-50%) rotate(90deg);
+          border-radius: 50%;
+        }
+      }
+
+      &__header,
+      &__body {
+        padding: 1.5rem;
+      }
+    }
+
+    @include media-breakpoint-up('md') {
+      .process-step {
+
+        &+.process-step {
+          &::before {
+            left: $process-step-header-width-md;
+          }
+        }
+
+        &__header {
+          flex: 0 0 $process-step-header-width-md;
+          max-width: $process-step-header-width-md;
+          text-align: center;
+          border-right: 1px solid $border-color;
+        }
+
+        &__body {
+          flex: 1;
+        }
+      }
+    }
+
+    @include media-breakpoint-up('lg') {
+      flex-direction: row;
+      justify-content: center;
+
+      .process-step {
+        flex-direction: column;
+        text-align: center;
+
+        & + .process-step {
+          border-top: 0;
+
+          &::before {
+            top: 50%;
+            left: 0;
+            width: $icon-size;
+            height: $icon-size;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        &__header,
+        &__body {
+          flex: none;
+          max-width: 100%;
+          padding: 2rem 3rem;
+        }
+
+        &__header {
+          border-right: 0;
+
+          & + .process-step__body {
+            margin-top: -3rem;
+          }
+        }
+      }
+    }
+  }
+}

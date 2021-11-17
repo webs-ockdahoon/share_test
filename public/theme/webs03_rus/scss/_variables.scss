@@ -1,0 +1,128 @@
+// colors
+$orange: #f77636;
+$gray-100: #f6f6f6;
+$primary: #00a0ea;
+$primary--light: #e5f0f9;
+$primary--air: #f9fbff;
+$secondary: #1d2089;
+$light: #f0f1f6;
+$air: #fafbff;
+$gray: $gray-100;
+$gray--dark: #777;
+$dark: #232323;
+$success: #50a332;
+$warning: $orange;
+$danger: #ed2626;
+
+$theme-colors: (
+  'primary--light': $primary--light,
+  'primary--air': $primary--air,
+  'air': $air,
+  'gray': $gray,
+  'gray--dark': $gray--dark,
+);
+
+$border-color: #e3e2e7;
+
+
+// Paragraphs
+$paragraph-margin-bottom: 0;
+
+
+// Grid containers
+$grid-gutter-width: 48px;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    wide: 1920px,
+);
+
+$container-max-widths: (
+    sm: 520px + $grid-gutter-width,
+    md: 720px + $grid-gutter-width,
+    lg: 960px + $grid-gutter-width,
+    xl: 1200px + $grid-gutter-width
+);
+
+$container-gutter-x:  $grid-gutter-width * 0.5;
+
+$border-radius: 0;
+
+$row-gutter-x-sm:  $container-gutter-x * 0.5;
+$row-gutter-x-xs:  $container-gutter-x * 0.25;
+
+
+// Typo
+$font-size-base: 1rem;
+$h6-font-size: $font-size-base * 1.125;
+$body1-size: $font-size-base * 1.0625;
+$body2-size: $font-size-base * 0.9375;
+$caption-size: $font-size-base * 0.8125;
+$overline-size: $font-size-base * 0.75;
+
+$font-weight-medium: 500;
+
+
+// form
+$border-radius: 0.125rem;
+$border-radius-sm: 0.25rem;
+$border-radius-md: 0.5rem;
+$border-radius-lg: 1rem;
+
+$btn-border-radius: 0;
+$btn-border-radius-sm: 0;
+$btn-border-radius-lg: 0;
+
+$input-border-radius: 0;
+$input-border-radius-sm: 0;
+$input-border-radius-lg: 0;
+
+$custom-control-v1-size: 1.5rem;
+
+// icon
+$icon-size: 40px;
+$icon-size-xs: 24px;
+$icon-size-sm: 32px;
+$icon-size-lg: 56px;
+$icon-size-xl: 80px;
+
+$icon-sizes: (
+  'default': 40px,
+  'xs': 24px,
+  'sm': 32px,
+  'lg': 56px,
+  'xl': 80px,
+);
+
+// list
+$list-bullet-size: 4px;
+
+
+// section
+$section-gutter-y: 4.5rem;
+$section-gutter-y-sm: 3rem;
+$section-gutter-y-lg: 7.5rem;
+
+
+// card
+$cta-gutter-x: 2.25rem;
+$cta-gutter-y: 3rem;
+
+$news-card-gutter: 1rem;
+
+
+// default-page-header
+$default-page-header-h: 60px;
+$default-page-header-h-lg: 140px;
+$default-page-nav-lg: 60px;
+$brand-logo-w: 432px;
+
+
+// doctor card
+$doctor-thumbnail-img-w-xs: 56px;
+$doctor-thumbnail-img-w-sm: 72px;
+$doctor-thumbnail-img-w: 96px;

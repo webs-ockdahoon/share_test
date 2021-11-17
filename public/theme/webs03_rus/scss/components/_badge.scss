@@ -1,0 +1,27 @@
+.badge {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  line-height: 1.15;
+  background-color: $light;
+
+  &-sm {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+
+  &-primary {
+    color: $white;
+    background-color: $primary;
+  }
+
+  &-orange {
+    color: $white;
+    background-color: $orange;
+  }
+
+  &-success {
+    color: $white;
+    background-color: $success;
+  }
+}

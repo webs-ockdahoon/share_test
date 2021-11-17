@@ -1,0 +1,226 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+
+  @each $variant, $size in $icon-sizes {
+
+    @if $variant == 'default' {
+      width: $size;
+      height: $size;
+    } @else {
+      &-#{$variant} {
+        width: $size;
+        height: $size;
+      }
+    }
+
+  }
+}
+
+// icon-hamburger
+.icon-hamburger {
+  color: inherit;
+
+  &__bars {
+    display: block;
+    position: relative;
+    width: $icon-size * 0.6;
+
+    &,
+    &::before,
+    &::after {
+      height: 2px;
+      background: currentColor;
+      transition: all 0.2s ease;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: $icon-size * 0.8;
+      margin-top: -1px;
+    }
+
+    &::before {
+      transform: translateY($icon-size * 0.25 * -1);
+    }
+
+    &::after {
+      transform: translateY($icon-size * 0.25);
+    }
+  }
+
+  &.is-toggled &__bars {
+    width: 0;
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+
+// icon-toggle
+.icon-toggle {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: $icon-size * 0.5;
+    width: ($icon-size * 0.4) - 1;
+    height: 1px;
+    background-color: currentColor;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &::before {
+    left: $icon-size * 0.175;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    right: $icon-size * 0.175;
+    transform: rotate(-45deg);
+  }
+
+  [aria-expanded="true"] > &,
+  .is-active > &,
+  &.is-toggled,
+  &[aria-expanded="true"] {
+    &::before {
+      transform: rotate(-45deg);
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+
+  &--right {
+    transform: rotate(-90deg);
+  }
+
+  &--left {
+    transform: rotate(90deg);
+  }
+
+  &.icon-sm {
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+
+    &::before,
+    &::after {
+      top: $icon-size-sm * 0.5;
+      width: ($icon-size-sm * 0.4) - 1;
+    }
+
+    &::before {
+      left: $icon-size-sm * 0.175;
+    }
+
+    &::after {
+      right: $icon-size-sm * 0.175;
+    }
+  }
+
+  &.icon-xs {
+    width: $icon-size-xs;
+    height: $icon-size-xs;
+
+    &::before,
+    &::after {
+      top: $icon-size-xs * 0.5;
+      width: ($icon-size-xs * 0.4) - 1;
+    }
+
+    &::before {
+      left: $icon-size-xs * 0.175;
+    }
+
+    &::after {
+      right: $icon-size-xs * 0.175;
+    }
+  }
+}
+
+$sns-icon-sprite-whole-width: 400px;
+$sns-icon-sprite-width: 200px;
+$sns-icon-sprites: (
+  'facebook', 'instagram', 'youtube'
+);
+
+// icon-sns
+.icon-sns {
+  background: url('../images/sns_icons_sprite.png') no-repeat 0 0;
+  background-size: $sns-icon-sprite-whole-width;
+
+  @each $sns in $sns-icon-sprites {
+    $icon-index: index($sns-icon-sprites, $sns) - 1;
+    $position-x: $icon-index * $icon-size;
+
+    &--#{$sns} {
+      background-position-x: $position-x;
+
+      &.is-white {
+        background-position-x: ($sns-icon-sprite-width + $position-x) * -1;
+      }
+    }
+  }
+}
+
+// icon-design
+$design-icon-sprite-whole-width: 400px;
+$design-icon-sprite-width: 200px;
+$design-icon-sprites: (
+    'board', 'stethoscope', 'dollar', 'syringe', 'home',
+    'card', 'pay', 'inspect',
+);
+
+.icon-d {
+  width: $icon-size-xl;
+  height: $icon-size-xl;
+  background: url('../images/icons/icons_sprite_80x80.png') no-repeat 0 0;
+  background-size: $design-icon-sprite-whole-width;
+
+  @each $design in $design-icon-sprites {
+    $icon-index: index($design-icon-sprites, $design) - 1;
+    $position-x: ($icon-index % 5) * $icon-size-xl * -1;
+    $position-y: floor($icon-index/5) * $icon-size-xl * -1;
+
+    &--#{$design} {
+      background-position-x: $position-x;
+      background-position-y: $position-y;
+    }
+  }
+}
+
+// 단일 아이콘 모음
+.icon {
+  &-brain {
+    background: url('../images/icons/icon-brain-white.png') no-repeat 50% 50%;
+  }
+
+  &-dna {
+    background: url('../images/icons/icon-dna-white.png') no-repeat 50% 50%;
+  }
+
+  &-medicine {
+    background: url('../images/icons/icon-medicine-white.png') no-repeat 50% 50%;
+  }
+
+  &-microscope {
+    background: url('../images/icons/icon-microscope-white.png') no-repeat 50% 50%;
+  }
+
+  &-ribbon {
+    background: url('../images/icons/icon-ribbon-white.png') no-repeat 50% 50%;
+  }
+}

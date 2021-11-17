@@ -1,0 +1,119 @@
+.section {
+  margin-top: $section-gutter-y-sm * 0.75;
+  margin-bottom: $section-gutter-y-sm;
+
+  &-divider {
+    margin-bottom: $section-gutter-y-sm;
+
+    &-sm {
+      margin-bottom: $section-gutter-y-sm * 0.75;
+    }
+  }
+
+  &-gutter {
+    padding-top: $section-gutter-y-sm * 0.75;
+    padding-bottom: $section-gutter-y-sm;
+  }
+
+  &-box {
+    & + .section-box {
+      margin-top: $section-gutter-y-sm;
+    }
+  }
+
+  &-header {
+    margin-bottom: $section-gutter-y-sm * 0.375;
+  }
+
+  &-title {
+    font-size: 1.375rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.25;
+  }
+
+  &-subtitle {
+    font-size: 1.125rem;
+    font-weight: $font-weight-normal;
+  }
+
+  &-text {
+    font-size: $body1-size;
+    letter-spacing: -0.025em;
+  }
+
+  @include media-breakpoint-up('md') {
+    margin-top: $section-gutter-y * 0.75;
+    margin-bottom: $section-gutter-y;
+
+    &-divider {
+      margin-bottom: $section-gutter-y;
+
+      &-sm {
+        margin-bottom: $section-gutter-y * 0.5;
+      }
+    }
+
+    &-gutter {
+      padding-top: $section-gutter-y * 0.75;
+      padding-bottom: $section-gutter-y;
+    }
+
+    &-box {
+      & + .section-box {
+        margin-top: $section-gutter-y;
+      }
+    }
+
+    &-header {
+      margin-bottom: $section-gutter-y * 0.375;
+    }
+
+    &-title {
+      font-size: 1.5rem;
+    }
+
+    &-text {
+      font-size: $h6-font-size;
+    }
+  }
+}
+
+.section-card {
+  padding: $section-gutter-y-sm * 0.375 $section-gutter-y-sm * 0.25;
+
+  &-sm {
+    padding-top: $section-gutter-y-sm * 0.2;
+    padding-bottom: $section-gutter-y-sm * 0.2;
+  }
+
+  @include media-breakpoint-up('md') {
+    padding: $section-gutter-y * 0.375 $section-gutter-y* 0.3125;
+
+    &-sm {
+      padding-top: $section-gutter-y * 0.2;
+      padding-bottom: $section-gutter-y * 0.2;
+    }
+  }
+
+  &--sidebar {
+    display: flex;
+    flex-direction: column;
+
+    .section-card__sidebar {
+      margin-bottom: 0.5rem;
+    }
+
+    @include media-breakpoint-up('md') {
+      flex-direction: row;
+
+      .section-card__sidebar {
+        width: 6rem;
+        margin-bottom: 0;
+      }
+
+      .section-card__body {
+        flex: auto;
+      }
+    }
+  }
+}

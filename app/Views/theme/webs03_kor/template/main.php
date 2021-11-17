@@ -1,0 +1,1 @@
+<?php echo $this->include($THEME_URL.'/main/main'); ?>
