@@ -69,7 +69,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $defaultLocale = 'ko';
+	public $defaultLocale = 'rus';
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -83,7 +83,7 @@ class App extends BaseConfig
 	 *
 	 * @var boolean
 	 */
-	public $negotiateLocale = false;
+	public $negotiateLocale = true;
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -96,7 +96,7 @@ class App extends BaseConfig
 	 *
 	 * @var string[]
 	 */
-	public $supportedLocales = ['en'];
+	public $supportedLocales = ['rus','kor'];
 
 	/**
 	 * --------------------------------------------------------------------------

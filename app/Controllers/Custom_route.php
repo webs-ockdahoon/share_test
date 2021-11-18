@@ -7,7 +7,6 @@ class Custom_route extends Controller
 {
     public function index($class="",$method="",$args="")
     {
-
         /*****************************************************
          * URL을 언어지정 구조로 접속시 선처리 컨트롤러
          *****************************************************
@@ -22,17 +21,13 @@ class Custom_route extends Controller
         $cname = "App\\Controllers\\".ucfirst($class);
         $class_obj = new $cname;
 
-        $lang = "";
-
         if($method){
             if(method_exists($class_obj,$method)){
-
+                $lang = service('request')->getLocale();
+                // View 로 내려주는 컨트롤러 url 강제 변형처리
                 $cont_url = "/". $lang . "/" . $class;
                 $class_obj->setContUrl($cont_url);
 
-                $uri = service('uri');
-                $segments = $uri->getSegments();
-                $lang = strtolower($segments[0]);
                 if($lang == "kor"){
                     $class_obj->THEME_URL = $class_obj->THEME_ROOT = "/theme/webs03_kor";
                 }
