@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--guide page--guide-convenience');
-    $this->setVar('heroTitle', '편의시설 안내');
+    $this->setVar('heroTitle', 'Удобные услуги');
 ?>
 
 <?php echo $this->section('appendHead'); ?>

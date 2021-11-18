@@ -1,8 +1,13 @@
 
 /* imc-greeting */
-.page--intro-imc .content-bg{background-image:url("../../images/intro/imc-greeting-bg.jpg"); margin-bottom: 3.375rem; }
-.page--intro-imc .section-body p{margin-bottom:1.6875rem; }
+.page--intro-imc .content-bg{background-image:url("../../images/intro/imc-greeting-bg.jpg"); margin-bottom: 3.375rem; height: 600px; background-size: cover; }
+.page--intro-imc .section-imc-greeting .section-body p{margin-bottom:1.6875rem; }
 .page--intro-imc .section-title { color: #232323; }
+
+@media(max-width: 768px) {
+    .page--intro-imc .content-bg { height: 300px; }
+
+}
 
 
 /* imc-process */

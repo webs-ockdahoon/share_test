@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--guide page--guide-location');
-    $this->setVar('heroTitle', '주차 및 오시는 길');
+    $this->setVar('heroTitle', 'Как доехать до больницы');
 ?>
 
 <?php echo $this->section('appendHead'); ?>
