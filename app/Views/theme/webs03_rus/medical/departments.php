@@ -2,19 +2,19 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--medical page--medical-departments');
-    $this->setVar('heroTitle', '진료과 및 의료진');
+    $this->setVar('heroTitle', 'Отделения и врачебный состав');
 ?>
 
 <?php
     // 페이지 디자인 위해 데이터 임시 배열로 저장
     $departments = [
-        '가정의학과', '감염내과', '내분비내과', '류마티스내과', '마취통증의학과',
-        '방사선종양학과', '병리과', '비뇨기과', '산부인과', '성형외과',
-        '소아청소년과', '소화기내과', '순환기내과', '신경과', '신경외과',
-        '신장내과', '안과', '알레르기내과', '영상의학과', '외과',
-        '응급의학과', '이비인후과', '재활의학과', '정신과', '정형외과',
-        '직업환경의학과', '진단검사의학과', '치과', '피부과', '핵의학과',
-        '혈액종양내과', '호흡기내과', '흉부외과',
+        'Отделение семейной медицины', 'Инфекционное отделение', 'Эндокринология', 'Ревматология', 'Анестезиология',
+        'Радиационная онкология', 'Патологическое отделение', 'Урология', 'Гинекология', 'Пластическая хирургия',
+        'Педиатрия', 'Гастроэнтерология', 'Кардиология', 'Неврология', 'Нейрохирургия',
+        'Нефрология', 'Офтальмология', 'Аллергология', 'Отделение радиационной диагностики', 'Хирургия',
+        'Отделение неотложной помощи', 'Отоларионгология', 'Реабилитология', 'Психиатрическое отделение', 'Ортопедия',
+        'Отделение профессиональных заболеваний', 'Диагностическое отделение', 'Стоматология', 'Дерматология', 'Отделение ядерной медицины',
+        'Гематоонкология', 'Пульмонология', 'Торакальная хирургия',
     ]
 ?>
 
@@ -49,9 +49,9 @@
                         </div>
 
                         <div class="card-content card-hover-content bg-secondary">
-                            <span class="d-block card-title text-white text-truncate"><?php echo $department; ?> <span class="sr-only">메뉴</span></span>
-                            <a href="/medical/departmentInfo" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
-                            <a href="/medical/departmentDoctors" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
+                            <span class="d-block card-title text-white text-truncate"><?php echo $department; ?> <span class="sr-only">Меню</span></span>
+                            <a href="/medical/departmentInfo" class="btn btn-block btn-outline-gray card-btn" tabindex="0">состав</a>
+                            <a href="/medical/departmentDoctors" class="btn btn-block btn-outline-gray card-btn" tabindex="0">врачебный</a>
                         </div>
                     </section>
                 </li>
