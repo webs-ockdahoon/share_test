@@ -91,10 +91,12 @@ $routes->group("/kor/board",function($routes){
  * Language Routing
  * --------------------------------------------------------------------
  */
-$routes->group("kor",function($routes){
-    $routes->add("/","Custom_route::index");
-    $routes->add("(:alphanum)/","Custom_route::index/$1");
-    $routes->add("(:alphanum)/(:alphanum)","Custom_route::index/$1/$2");
-    $routes->add("(:alphanum)/(:alphanum)/(:alphanum)","Custom_route::index/$1/$2/$3");
-    $routes->add("(:alphanum)/(:alphanum)/(:alphanum)/(:alphanum)","Custom_route::index/$1/$2/$3/$4");
-});
+$uri = service('uri');
+$segments = $uri->getSegments();
+if($segments[0]=='kor' || $segments[0]=='rus') {
+    $routes->add("{locale}/", "Custom_route::index");
+    $routes->add("{locale}/(:alphanum)/", "Custom_route::index/$1");
+    $routes->add("{locale}/(:alphanum)/(:alphanum)", "Custom_route::index/$1/$2");
+    $routes->add("{locale}/(:alphanum)/(:alphanum)/(:alphanum)", "Custom_route::index/$1/$2/$3");
+    $routes->add("{locale}/(:alphanum)/(:alphanum)/(:alphanum)/(:alphanum)", "Custom_route::index/$1/$2/$3/$4");
+}
