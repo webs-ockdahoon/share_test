@@ -76,15 +76,6 @@ $routes->group("master/board/board",function($routes){
     $routes->add("(:alphanum)/download/(:alphanum)","Board::index/download/$1/$2");
 });
 
-$routes->group("/kor/board",function($routes){
-    $routes->add("(:alphanum)","Board::index/list/$1");
-    $routes->add("(:alphanum)/read/(:num)","Board::index/read/$1/$2");
-    $routes->add("(:alphanum)/write/","Board::index/write/$1");
-    $routes->add("(:alphanum)/write/(:num)","Board::index/write/$1/$2");
-    $routes->add("(:alphanum)/reply/(:num)","Board::index/reply/$1/$2");
-    $routes->add("(:alphanum)/delete/(:num)","Board::index/delete/$1/$2");
-    $routes->add("(:alphanum)/download/(:num)/(:num)","Board::index/download/$1/$2/$3");
-});
 
 /*
  * --------------------------------------------------------------------
@@ -94,6 +85,15 @@ $routes->group("/kor/board",function($routes){
 $uri = service('uri');
 $segments = $uri->getSegments();
 if($segments[0]=='kor' || $segments[0]=='rus') {
+
+    $routes->add("{locale}/board/(:alphanum)","Board::index/list/$1");
+    $routes->add("{locale}/board/(:alphanum)/read/(:num)","Board::index/read/$1/$2");
+    $routes->add("{locale}/board/(:alphanum)/write/","Board::index/write/$1");
+    $routes->add("{locale}/board/(:alphanum)/write/(:num)","Board::index/write/$1/$2");
+    $routes->add("{locale}/board/(:alphanum)/reply/(:num)","Board::index/reply/$1/$2");
+    $routes->add("{locale}/board/(:alphanum)/delete/(:num)","Board::index/delete/$1/$2");
+    $routes->add("{locale}/board/(:alphanum)/download/(:num)/(:num)","Board::index/download/$1/$2/$3");
+
     $routes->add("{locale}/", "Custom_route::index");
     $routes->add("{locale}/(:alphanum)/", "Custom_route::index/$1");
     $routes->add("{locale}/(:alphanum)/(:alphanum)", "Custom_route::index/$1/$2");
