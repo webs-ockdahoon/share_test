@@ -27,6 +27,11 @@ class MenuModel extends BaseModel
      * @return array
      */
     function getUsingMenu(){
+
+        // 기본 언어 설정 및 현재 사용 언어 가져오기
+        $config = config(App::class);
+        $lang = service('request')->getLocale();
+
         $this->where("mnu_deleted_at is null");
         $this->where("mnu_display","Y");
         $this->orderBy("mnu_code");
@@ -38,10 +43,14 @@ class MenuModel extends BaseModel
 
             $mnu_code_arr = str_split($rs["mnu_code"],2);
 
+            // 기본언어와 다른 언어로 설정기 강제 URL 변환처리
+            if($config->defaultLocale!=$lang && $rs['mnu_url'] && substr($rs['mnu_url'],0,1)=='/'){
+                $rs['mnu_url'] = '/' . $lang . $rs['mnu_url'];
+            }
+
             // 아이거 루프 못돌리겠다.
             if($menu_level==1){
                 $menu_list[$mnu_code_arr[0]] = $rs;
-
             }else if($menu_level==2){
                 if(!isset($menu_list[$mnu_code_arr[0]]["sub"]))$menu_list[$mnu_code_arr[0]]["sub"] = array();
                 $menu_list[$mnu_code_arr[0]]["sub"][$mnu_code_arr[1]] = $rs;

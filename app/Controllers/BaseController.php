@@ -273,6 +273,9 @@ class BaseController extends Controller
         $data["isMasterMode"] = $this->isMasterMode;
         $data["isLogin"] = $this->isLogin;
 
+        // 언어값 View 에 전달하기 (각종 링크에 사용)
+        $data["lang"] = service('request')->getLocale();
+
         //-- 검색 요소 인자값 추가
         for($k=1;$k<=$this->sch_max;$k++){
             if(isset($_GET["s".$k]))$data["s".$k] = $_GET["s".$k];
