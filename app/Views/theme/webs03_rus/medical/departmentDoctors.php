@@ -45,13 +45,13 @@
         <div class="section-divider">
             <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="/medical/departmentInfo" aria-selected="false">
-                        진료과 소개
+                    <a class="nav-link active" href="/medical/departmentInfo" aria-selected="true">
+                        Отделения
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" href="/medical/departmentDoctors" aria-selected="true">
-                        의료진 소개
+                    <a class="nav-link" href="/medical/departmentDoctors" aria-selected="false">
+                        врачебный
                     </a>
                 </li>
             </ul>
@@ -72,11 +72,11 @@
                                     <h4 class="card-title"><?php echo $doctor['name']; ?></h4>
                                     <dl class="data-table data-table--responsive-lg mb-0">
                                         <div class="data-table__row">
-                                            <dt class="data-table__row-label text-primary">진료과</dt>
+                                            <dt class="data-table__row-label text-primary">Отделение</dt>
                                             <dd class="data-table__row-text"><?php echo $doctor['department']; ?></dd>
                                         </div>
                                         <div class="data-table__row">
-                                            <dt class="data-table__row-label text-primary">전문 진료분야</dt>
+                                            <dt class="data-table__row-label text-primary">Сфера деятельности</dt>
                                             <dd class="data-table__row-text">
                                                 <div class="text-truncate--multiple"><?php echo $doctor['specialized_field']; ?></div>
                                             </dd>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
 
-                            <a href="/medical/doctor" class="card-action">의료진 정보</a>
+                            <a href="/medical/doctor" class="card-action">врачебный Сведения</a>
                         </section>
                     </li>
                 <?php endforeach; ?>
@@ -93,7 +93,7 @@
         </div>
 
         <div class="section-box text-right">
-            <a href="/medical/departments" class="btn btn-lg btn-wide btn-outline-gray text-gray--dark  border">전체 진료과</a>
+            <a href="/medical/departments" class="btn btn-lg btn-wide btn-outline-light text-gray--dark border">Всего Отделения</a>
         </div>
     </div>
 <?php echo $this->endSection(); ?>
