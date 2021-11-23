@@ -34,36 +34,6 @@
         </div>
     </section>
 
-<!--    <section class="container section section-bus">-->
-<!--        <div class="section-header">-->
-<!--            <h3 class="section-title">버스</h3>-->
-<!--        </div>-->
-<!--        <div class="section-body section-text text-muted">-->
-<!--            <table class="table-unstyled">-->
-<!--                <tbody>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">-->
-<!--                            <span class="badge badge-success">일반</span>-->
-<!--                        </th>-->
-<!--                        <td>-->
-<!--                            8, 15, 67, 161, 167, 190-->
-<!--                        </td>-->
-<!--                    </tr>-->
-<!---->
-<!--                    <tr>-->
-<!--                        <th scope="row">-->
-<!--                            <span class="badge badge-success">마을</span>-->
-<!--                        </th>-->
-<!--                        <td>-->
-<!--                            중구1<br>-->
-<!--                            <span class="text-danger">*</span> 동대신역 지하철 3번 출구(국민은행 앞)탑승 - 동아대병원 하차-->
-<!--                        </td>-->
-<!--                    </tr>-->
-<!--                </tbody>-->
-<!--            </table>-->
-<!--        </div>-->
-<!--    </section>-->
-
     <section class="container section section-circle-bus">
         <div class="section-header">
             <h3 class="section-title">2.셔틀버스</h3>
