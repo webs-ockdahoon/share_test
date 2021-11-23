@@ -8,12 +8,13 @@ use Psr\Log\LoggerInterface;
 
 class Board extends BaseController
 {
-    protected $models = array('BoardDataModel','BoardConfModel','BoardFileModel');
+    protected $models = array('BoardDataModel','BoardConfModel','BoardFileModel','MemberModel','LocalMemberModel');
     protected $viewPath = "board";
     protected $boc_code = ""; // 게시판 고유 코드
     protected $conf = ""; // 게시판 설정 정보
     protected $data_idx = ""; // 게시물 고유번호
     protected $isBoardMode = true; // 게시판모드 플래그 활성화
+    protected $mem_info = array();
 
 
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
@@ -36,8 +37,21 @@ class Board extends BaseController
             if($this->isMasterMode && $this->isBoardMode)$this->cont_url = "/master/board".$this->cont_url;
         }
 
-        $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
+        // 로그인시 회원 정보 가져오기
+        if($this->SS_MIDX) {
+            if ($rs = $this->MemberModel->find($this->SS_MIDX)) {
+                // 주요 정보만 View로 내려주기
+                $this->mem_info = array(
+                    "mem_idx" => $rs["mem_idx"],
+                    "mem_id" => $rs["mem_id"],
+                    "mem_name" => $rs["mem_name"],
+                    "mem_pass" => $rs["mem_pass"],
+                    "mem_level" => $rs["mem_level"],
+                );
+            }
+        }
 
+        $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
     }
 
     /**
@@ -72,8 +86,18 @@ class Board extends BaseController
 
     // 글 리스트
     public function list(){
-        $option["perPage"] = 10;
 
+        $page = $this->getGet("page");
+        if(!$page)$page=1;
+        $this->header_title_ext = " | " . $page . "페이지";
+
+        // 권한 검사
+        $auth = $this->board_auth_check();
+        if(!$auth["list"])alert("권한이 없습니다.");
+
+        if(!isset($this->conf["boc_list_size"]))$this->conf["boc_list_size"] = 10;
+
+        $this->model->where("bod_is_notice=0");
         if($this->sch_obj[1] && $this->sch_obj[2]) {
             $option["where"][] = array($this->sch_obj[1],$this->sch_obj[2]);
         }
@@ -82,8 +106,29 @@ class Board extends BaseController
         $option["perPage"] = $this->conf["boc_list_size"];
 
         $data = $this->model->getPager($option);
-        //echo $this->model->getLastQuery();
+
+        // 공지사항 글 가져오기
+        $this->model->where("bod_is_notice>0");
+        $this->model->where("bod_deleted_at is null");
+        $this->model->orderBy("bod_group desc,bod_sort");
+        $data["notice_list"] = $this->model->get()->getResultArray();
+
+
         $this->addData($data);
+
+        // 첨부파일 정보 구하기
+        $bod_idx = array();
+        foreach($data["list"] as $blist){
+            $bod_idx[]=$blist["bod_idx"];
+        }
+
+        $option = array(
+            "bod_code"=>$this->boc_code,
+            "bod_idx"=>$bod_idx,
+            //"only_image"=>true, // 이미지 파일만 가져오기
+        );
+        $bof_list = $this->BoardFileModel->getFileList($option);
+        $data["bof_list"] = $bof_list;
 
         $this->setView("list",$data,$this->conf["boc_skin"]);
         return $this->run();
@@ -91,16 +136,22 @@ class Board extends BaseController
 
     // 글 읽기
     public function read($idx){
+
+        // 권한 검사
+        $auth = $this->board_auth_check();
+        if(!$auth["read"])alert("권한이 없습니다.");
+
         $data = $this->model->find($this->data_idx);
         $data["idx"] = $idx;
         $this->addData($data);
 
+        $this->header_title_ext = " |  " . $data["bod_title"];
+
         // 비밀글 열람시 비밀번호 검사
-        if($data["bod_secret"] && !$this->auth_check($data["bod_mem_id"])){
+        if($data["bod_secret"] && !$this->article_auth_check($data["bod_mem_id"])){
             $pwd = $this->getPost("bod_password");
             if($pwd) {
-                $pwd = $this->model->makePassword($pwd);
-                if($pwd != $data["bod_password"]){
+                if(!$this->model->password_check($pwd,$data["bod_password"])){
                     alert("비밀번호가 일치하지 않습니다.");
                 }
             }else {
@@ -127,6 +178,26 @@ class Board extends BaseController
         );
         $data["bof_list"] = $this->BoardFileModel->getFileList($option);
 
+        if($this->conf["boc_image_view"]=="top" || $this->conf["boc_image_view"]=="bottom") {
+            $img_view = "";
+            foreach ($data["bof_list"] as $f) {
+                if(is_image_file($f["bof_file_name"])){
+                    $img_view .= "<div><img src='/uploaded/file/" . $f["bof_file_save"] . "' class='bof_image'></div>";
+                }
+            }
+
+            if($this->conf["boc_image_view"]=="top"){
+                $data["bod_content"] = $img_view . $data["bod_content"];
+            }else if($this->conf["boc_image_view"]=="bottom"){
+                $data["bod_content"].= $img_view;
+            }
+
+        }
+
+        // 내용에 하이퍼링크 걸어주기
+        $homepage_pattern = "/([^\"\'\=\>])(mms|https|HTTPS|http|HTTP|ftp|FTP|telnet|TELNET)\:\/\/(.[^ \n\<\"\']+)/";
+        $data["bod_content"] = preg_replace($homepage_pattern,"\\1<a href=\\2://\\3 target=_blank>\\2://\\3</a>", " ".$data["bod_content"]);
+
         $this->setView("read",$data,$this->conf["boc_skin"]);
         return $this->run();
     }
@@ -134,21 +205,50 @@ class Board extends BaseController
     // 글작성
     public function write($idx="",$is_reply=""){
 
+        // 권한 검사
+        $auth = $this->board_auth_check();
+        if(!$auth["write"])alert("권한이 없습니다.");
+        if($is_reply)if(!$auth["reply"])alert("권한이 없습니다.");
+
+        $this->header_title_ext = " | 새글작성";
+        if($is_reply)$this->header_title_ext = " | 답변하기";
+
         if($is_reply && !$idx){ // 고유값 없이 답변글 시도시
             alert("잘못된 접근입니다.");
             exit();
         }
 
-        $validate = $this->validate([
-            'bod_title' => [
-                'rules'=>'required|min_length[3]',
-                'errors'=> ['required'=>'제목을 입력해 주세요.','min_length'=>'제목을 3자이상 입력해 주세요.'],
-            ],
-            'bod_content' => [
-                'rules'=>'required',
-                'errors'=> ['required'=>'글 내용을 입력해 주세요.'],
-            ],
-        ]);
+        if(isset($this->mem_info["mem_id"])) {  // 회원 로그인시
+            $validate = $this->validate([
+                'bod_title' => [
+                    'rules' => 'required',
+                    'errors' => ['required' => '제목을 입력해 주세요.'],
+                ],
+                'bod_content' => [
+                    'rules' => 'required',
+                    'errors' => ['required' => '글 내용을 입력해 주세요.'],
+                ],
+            ]);
+        }else{  // 비회원시
+            $validate = $this->validate([
+                'bod_writer_name' => [
+                    'rules' => 'required',
+                    'errors' => ['required' => '작성자명을 입력해 주세요.'],
+                ],
+                'bod_password' => [
+                    'rules' => 'required',
+                    'errors' => ['required' => '비밀번호를 입력해 주세요.'],
+                ],
+                'bod_title' => [
+                    'rules' => 'required',
+                    'errors' => ['required' => '제목을 입력해 주세요.'],
+                ],
+                'bod_content' => [
+                    'rules' => 'required',
+                    'errors' => ['required' => '글 내용을 입력해 주세요.'],
+                ],
+            ]);
+        }
 
         if(!$validate) {    //-- Form 출력
 
@@ -175,11 +275,10 @@ class Board extends BaseController
                 $data = $this->model->find($idx);
                 $data["bod_origin_secret"] = false;
                 // 수정시 내글이 아닐경우. 비밀번호 체크
-                if(!$this->auth_check($data["bod_mem_id"])){
+                if(!$this->article_auth_check($data["bod_mem_id"])){
                     $pwd = $this->getPost("bod_password");
                     if($pwd){
-                        $pwd = $this->model->makePassword($pwd);
-                        if($pwd != $data["bod_password"]){
+                        if(!$this->model->password_check($pwd,$data["bod_password"])){
                             alert("비밀번호가 일치하지 않습니다.");
                         }
                         // 수정 저장처리시 체크를 위한 세션값 설정
@@ -209,6 +308,13 @@ class Board extends BaseController
                     }
                 }
 
+                // 기존글은 일반 텍스트인데 현재 설정이 에디터 사용시 강제 nl2br 처리
+                if($data["bod_use_editor"]!='t' && $this->conf["boc_use_editor"]=='t'){
+                    $data["bod_content"] = nl2br($data["bod_content"]);
+                    $data["bod_use_editor"] = $this->conf["boc_use_editor"];
+                }
+
+
             }else{  // 새글 작성시
                 $data["bod_origin_secret"] = false;
                 $fields = $this->model->getAllowedFields();
@@ -218,8 +324,9 @@ class Board extends BaseController
 
                 // 글 레벨 강제1 주기
                 $data["bod_level"] = 1;
-
                 $data["bof_list"] = array();
+
+                $data["bod_use_editor"] = $this->conf["boc_use_editor"];
             }
 
             $data["idx"] = $idx;
@@ -248,6 +355,7 @@ class Board extends BaseController
             $this->setView("write", $data, $this->conf["boc_skin"]);
             return $this->run();
         }else{  // 저장 처리
+
             $info = $this->getPost();
 
             // 파일 첨부 처리 - 게시판은 첨부파일을 별도 파일로 처리해서. 추가 커스텀
@@ -260,7 +368,7 @@ class Board extends BaseController
             );
             $bof_list = $this->BoardFileModel->getFileList($option);
 
-            for($k=1;$k<=4;$k++){   // 최대 첨부파일 4개까지
+            for($k=1;$k<=10;$k++){   // 최대 첨부파일 10개까지만
                 if(!isset($bof_list[$k])){
                     $bof_list[$k]=array(
                         "bof_file_name"=>"",
@@ -283,13 +391,22 @@ class Board extends BaseController
 
             if($is_reply) {  // 답변글일 경우
                 $origin = $this->model->find($idx);
+
+                // 추가 정보 구성
                 $info["bod_group"] = $origin["bod_group"];
                 $info["bod_level"] = $origin["bod_level"] + 1;
                 $info["bod_sort"] = $origin["bod_sort"] + 1;
-                $info["bod_mem_id"] = $this->SS_MID;
                 $info["bod_origin_mem_idx"] = $origin["bod_origin_mem_idx"];
                 $info["bod_secret"] = $origin["bod_secret"];    // 원본 글 비밀글 설정 따라가기
                 $info["bod_category"] = $origin["bod_category"]; // 원본 글 카테고리 가져가기
+
+                $info["bod_mem_id"] = "";
+
+                if($this->SS_MID){
+                    $info["bod_mem_id"] = $this->mem_info["mem_id"];
+                    $info["bod_writer_name"] = $this->mem_info["mem_name"];
+                    $info["bod_password"] = $this->mem_info["mem_pass"];
+                }
 
                 // 자리값 구하기
                 $option = array(
@@ -311,7 +428,7 @@ class Board extends BaseController
 
                 // 수정시 내글이 아닐경우. 비밀번호 체크 세션 검사
                 if(
-                    !$is_reply && !$this->auth_check($origin["bod_mem_id"])
+                    !$is_reply && !$this->article_auth_check($origin["bod_mem_id"])
                 ) {
                     // 수정 저장처리시 체크를 위한 세션값 검사
                     if(!$this->session->get("bod_password_pass")){
@@ -323,15 +440,34 @@ class Board extends BaseController
                 }
 
             }else { // 새글일 경우
+
+                // 추가 정보 구성
                 $info["bod_group"] = $this->model->getNextGroupNum();
                 $info["bod_level"] = 1;
                 $info["bod_sort"] = 1;
-                $info["bod_mem_id"] = $this->SS_MID;
-                $info["bod_origin_mem_idx"] = $this->SS_MIDX;
+                $info["bod_mem_id"] = "";
+                $info["bod_origin_mem_idx"] = "";
+
+                if($this->SS_MID){
+                    $info["bod_mem_id"] = $this->mem_info["mem_id"];
+                    $info["bod_origin_mem_idx"] = $this->mem_info["mem_idx"];
+                    $info["bod_writer_name"] = $this->mem_info["mem_name"];
+                    $info["bod_password"] = $this->mem_info["mem_pass"];
+                }
             }
 
             // 비밀번호 암호화
-            $info["bod_password"] = $this->model->makePassword($info["bod_password"]);
+            if(isset($info["bod_password"]))$info["bod_password"] = $this->model->makePassword($info["bod_password"]);
+
+
+
+            // 관리자일때에만 공지사항 설정가능
+            if(!$this->isMaster || !isset($info["bod_is_notice"]) || !$info["bod_is_notice"])$info["bod_is_notice"]=0;
+
+            // 관리자일때에만 조회수 업데이트 가능
+            if(!$this->isMaster && isset($info["bod_read"]))unset($info["bod_read"]);
+            if(isset($info["bod_read"]) && !is_numeric($info["bod_read"]))unset($info["bod_read"]);
+
 
             // 글 저장
             $bod_idx = $this->model->edit($info);
@@ -342,6 +478,8 @@ class Board extends BaseController
                 "bod_idx"=>$bod_idx,
                 "fup"=>$fup,
             );
+
+
 
             $this->BoardFileModel->edit($file_info);
 
@@ -369,15 +507,15 @@ class Board extends BaseController
             ],
         ]);
 
-        $auth_check = false;
-        if ($this->auth_check($origin["bod_mem_id"])) {
-            $auth_check = true;
+        $article_auth_check = false;
+        if ($this->article_auth_check($origin["bod_mem_id"])) {
+            $article_auth_check = true;
         }
 
         if(!$validate) {    //-- Form 출력
 
             $data["idx"] = $idx;
-            $data["auth_check"] = $auth_check;
+            $data["article_auth_check"] = $article_auth_check;
             $this->addData($data);
             $this->setView("delete_confirm", $data, $this->conf["boc_skin"]);
             return $this->run();
@@ -386,11 +524,10 @@ class Board extends BaseController
             $info = $this->getPost();
 
             // 비번 체크
-            if(!$auth_check){
+            if(!$article_auth_check){
                 $pwd = $this->getPost("bod_password");
                 if($pwd) {
-                    $pwd = $this->model->makePassword($pwd);
-                    if ($pwd != $origin["bod_password"]) {
+                    if(!$this->model->password_check($pwd,$info["bod_password"])){
                         alert("비밀번호가 일치하지 않습니다.");
                     }
                 }else{
@@ -462,11 +599,11 @@ class Board extends BaseController
     }
 
     // 공통 View 전달 값
+    // 공통 View 전달 값
     private function addData(&$data)
     {
         // 글읽기/글쓰기 페이지 지정
         $data["boc_title"]=$this->conf["boc_title"];
-        //$data["primaryKey"]=$this->model->getPrimaryKey();
         $data["boc_code"] = $this->boc_code;
         $data["list_page"] = $this->cont_url . "/" . $this->boc_code;
         $data["read_page"] = $data["list_page"] . "/read";
@@ -474,16 +611,58 @@ class Board extends BaseController
         $data["reply_page"] = $data["list_page"] . "/reply";
         $data["delete_page"] = $data["list_page"] . "/delete";
         $data["download_page"] = $data["list_page"] . "/download";
+
+        // 회원정보 전달
+        $data["mem_info"] = $this->mem_info;
+
+        // 게시판 이용 권한 전달
+        $data["board_auth"] = $this->board_auth_check();
+
+        // 리스트접근, 글쓰기, 읽기, 답변하기 권한 체크
     }
 
     // 게시물 권한 체크하기(수정,삭제,열람시 사용) - 차후 권한 수정이 이루어질 것을 대비해 함수로 분리
-    private function auth_check($bod_mem_id){
-        if($bod_mem_id == $this->SS_MID && $this->SS_MID){
+    private function article_auth_check($bod_mem_id){
+        if(($bod_mem_id == $this->SS_MID && $this->SS_MID) || $this->isMaster){
             return true;
         }else{
             return false;
         }
     }
+
+    private function board_auth_check(){
+
+        $conf = $this->conf;
+        $mem_level = 0;
+        if(isset($this->mem_info["mem_level"])) {
+            $mem_level = $this->mem_info["mem_level"];
+        }
+
+        // 게시판 관리자 체크 후 설정된 계정일 경우 관리자 권한주기
+        if(trim($conf["boc_manager"])) {
+            $mng = explode(",", $conf["boc_manager"]);
+            if (array_search($this->SS_MID, $mng) !== false) {
+                $mem_level = 99;
+                $this->isMaster = true; // 강제 관리자로 만들기
+            }
+        }
+
+        $auth = array(
+            "list"=>false,
+            "read"=>false,
+            "write"=>false,
+            "reply"=>false,
+        );
+
+        if($conf["boc_auth_list"]<=$mem_level)$auth["list"] = true;
+        if($conf["boc_auth_read"]<=$mem_level)$auth["read"] = true;
+        if($conf["boc_auth_write"]<=$mem_level)$auth["write"] = true;
+        if($conf["boc_auth_reply"]<=$mem_level)$auth["reply"] = true;
+
+        return $auth;
+    }
+
+
 
 
 

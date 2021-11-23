@@ -46,16 +46,23 @@
             </thead>
             <tbody>
 
+            <?php
+            // 공지사항 출력
+            foreach($notice_list as $row){
+            $reply = "";
+            $secret = "";
+            ?>
             <tr>
                 <td class="d-none d-md-table-cell w-num">
                     <span class="text-overline badge badge-sm badge-primary">공지</span>
                 </td>
                 <td class="text-left">
-                    <a href="" class="section-text text-dark">공지사항 제목 입니다.</a>
+                    <?php echo $reply . $secret?><a href="<?php echo $read_page."/".$row["bod_idx"].$qstr?>" class="section-text text-dark"><?php echo $row["bod_title"]?></a>
                 </td>
-                <td class="w-date">2021-10-22</td>
-                <td class="d-none d-lg-table-cell w-hit">1,234</td>
+                <td class="w-date"><?php echo substr($row["bod_created_at"],0,10)?></td>
+                <td class="d-none d-lg-table-cell w-hit"><?php echo $row["bod_read"]?></td>
             </tr>
+            <?php }?>
 
             <?php if ($total_count>0){
 
@@ -73,7 +80,7 @@
                     }
                     ?>
                     <tr>
-                        <td class="d-none d-md-table-cell w-num"><?php echo $row["bod_group"]?></td>
+                        <td class="d-none d-md-table-cell w-num"><?php echo $start_num--?></td>
                         <td class="text-left w-title">
                             <div class="d-flex align-items-center text-reply">
                                 <?php echo $reply;?>
@@ -109,7 +116,9 @@
         <?php endif; ?>
 
         <div class="text-right px-3">
-            <a href="<?php echo $write_page.$qstr?>" class="btn btn-lg btn-primary">작성하기</a>
+            <?php if($board_auth["write"]){?>
+                <a href="<?php echo $write_page.$qstr?>" class="btn btn-lg btn-primary">작성하기</a>
+            <?php }?>
         </div>
     </div>
 <?php echo $this->endSection(); ?>

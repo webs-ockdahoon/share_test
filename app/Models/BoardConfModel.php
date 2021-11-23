@@ -15,7 +15,7 @@ class BoardConfModel extends BaseModel
     protected $prefix     = 'boc';
     protected $allowedFields = ['boc_code','boc_title','boc_skin','boc_list_size','boc_file_count',
         'boc_file_size','boc_new_time','boc_secret','boc_category','boc_private',
-        'boc_auth_list','boc_auth_read','boc_auth_write','boc_auth_reply','boc_auth_comment',
+        'boc_auth_list','boc_auth_read','boc_auth_write','boc_auth_reply','boc_auth_comment','boc_use_editor','boc_manager',
         'boc_image_view','boc_fixed_title','boc_created_ip','boc_created_at','boc_updated_at','boc_deleted_at',];
 
     /** 게시판 설정 정보 구하기
