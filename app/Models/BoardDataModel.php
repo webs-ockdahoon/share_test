@@ -13,7 +13,7 @@ class BoardDataModel extends BaseModel
 {
     protected $table      = 'board';
     protected $prefix     = 'bod';
-    protected $allowedFields = ['bod_group','bod_level','bod_sort','bod_mem_id','bod_origin_mem_idx','bod_writer_name',
+    protected $allowedFields = ['bod_group','bod_level','bod_sort','bod_mem_id','bod_origin_mem_idx','bod_writer_name','bod_use_editor','bod_movie_url','bod_is_notice',
                                 'bod_password','bod_secret','bod_category','bod_title','bod_content','bod_read','bod_created_ip',];
 
     /** 게시판 코드에 따른 사용 테이블 할당

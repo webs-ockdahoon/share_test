@@ -73,10 +73,15 @@ class BoardFileModel extends BaseModel
      * @param $info
      * @return array
      */
-    public function getFileList($info){
-        $this->where("bof_bod_code",$info["bod_code"]);
-        $this->where("bof_bod_idx",$info["bod_idx"]);
-        $this->where("bof_deleted_at","");
+    public function getFileList($option){
+        $this->where("bof_bod_code",$option["bod_code"]);
+        if(is_array($option["bod_idx"])){
+            if(sizeof($option["bod_idx"]))$this->wherein("bof_bod_idx", $option["bod_idx"]);
+            else $this->where("1=2");
+        }else {
+            $this->where("bof_bod_idx", $option["bod_idx"]);
+        }
+        $this->where("bof_deleted_at is null");
         $this->orderBy("bof_num");
         $result = $this->get()->getResultArray();
 
