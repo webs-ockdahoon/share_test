@@ -17,7 +17,7 @@ $this->setVar('heroTitle', '글 삭제하기');
                     <p class="section-subtitle text-secondary">해당 글을 정말 삭제하시겠습니까?</p>
                 </div>
 
-                <?php if(!$auth_check){?>
+                <?php if(!$article_auth_check){?>
                     <div class="form-group">
                         <label for="bod_password">비밀번호</label>
                         <input type="password" name="bod_password" id="bod_password" class="form-control" required>

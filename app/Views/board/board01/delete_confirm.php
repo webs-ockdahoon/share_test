@@ -11,7 +11,7 @@
                 글 삭제 후 절대 복구할 수 없습니다.<br>
                 해당 글을 삭제하시겠습니까?
 
-                <?php if(!$auth_check){?>
+                <?php if(!$article_auth_check){?>
                 <br><br>
                 <input type="password" name="bod_password" required>
                 <br>
