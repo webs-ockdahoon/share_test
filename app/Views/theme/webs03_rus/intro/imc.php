@@ -147,7 +147,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
                         <ol class="list-unstyled process--new">
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--board"></span>
+                                    <span class="icon icon-i icon-i--board"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 01</small> Мед. запрос клиента
                                 </h5>
                                 <div class="process-step__body">
@@ -159,7 +159,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--stethoscope"></span>
+                                    <span class="icon icon-i icon-i--counseling"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 02</small> Медицинская консультация
                                 </h5>
                                 <div class="process-step__body">
@@ -170,7 +170,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--dollar"></span>
+                                    <span class="icon icon-i icon-i--estimate"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 03</small> Предоставление сметы расходов медицинских услуг
                                 </h5>
                                 <div class="process-step__body">
@@ -181,7 +181,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--syringe"></span>
+                                    <span class="icon icon-i icon-i--letter"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 04</small> Отправка приглашения
                                 </h5>
                                 <div class="process-step__body">
@@ -210,7 +210,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
                         <ol class="list-unstyled process--new">
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--board"></span>
+                                    <span class="icon icon-i icon-i--visit"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 01</small> Посещение пациента
                                 </h5>
                                 <div class="process-step__body">
@@ -223,7 +223,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--stethoscope"></span>
+                                    <span class="icon icon-i icon-i--procedure"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 02</small> Процедуры при госпитализации
                                 </h5>
                                 <div class="process-step__body">
@@ -234,7 +234,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--dollar"></span>
+                                    <span class="icon icon-i icon-i--inspection"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 03</small> Антропометрические измерения и базовые обследования
                                 </h5>
                                 <div class="process-step__body">
@@ -244,7 +244,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--syringe"></span>
+                                    <span class="icon icon-i icon-i--special-inspection"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 04</small>Специальные обследования
                                 </h5>
                                 <div class="process-step__body">
@@ -254,7 +254,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--ready-leave"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 05</small> Подготовка к выписке
                                 </h5>
                                 <div class="process-step__body">
@@ -265,7 +265,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--records"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 06</small> Разъяснение результатов диагностики и выписка
                                 </h5>
                                 <div class="process-step__body">
@@ -275,19 +275,19 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--discharge"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 07</small> Процедуры при выписке
                                 </h5>
                                 <div class="process-step__body">
                                     <p class="list-bullet is-non-list">Оплата медицинских расходов</p>
                                     <p class="list-bullet is-non-list">Подготовка рецепта</p>
-                                    <p class="list-bullet is-non-list"Передача результатов обследования и медицинской выписки</p>
+                                    <p class="list-bullet is-non-list">Передача результатов обследования и медицинской выписки</p>
                                 </div>
                             </li>
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--shopping"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 08</small> Туризм и шоппинг
                                 </h5>
                                 <div class="process-step__body">
@@ -297,7 +297,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--departure"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 09</small> Возвращение домой
                                 </h5>
                                 <div class="process-step__body">
@@ -316,7 +316,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
                         <ol class="list-unstyled process--new">
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--board"></span>
+                                    <span class="icon icon-i icon-i--out-visit"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 01</small> Запись на амбулаторный прием
                                 </h5>
                                 <div class="process-step__body">
@@ -328,7 +328,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--stethoscope"></span>
+                                    <span class="icon icon-i icon-i--out-procedure"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 02</small> Амбулаторный прием
                                 </h5>
                                 <div class="process-step__body">
@@ -338,7 +338,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--dollar"></span>
+                                    <span class="icon icon-i icon-i--out-inspection"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 03</small> Процедуры и обследования, назначенные после приема
                                 </h5>
                                 <div class="process-step__body">
@@ -349,7 +349,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--syringe"></span>
+                                    <span class="icon icon-i icon-i--out-ready"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 04</small>Подготовка амбулаторного отделения
                                 </h5>
                                 <div class="process-step__body">
@@ -360,7 +360,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--out-storage"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 05</small> Оплата
                                 </h5>
                                 <div class="process-step__body">
@@ -372,7 +372,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--out-shopping"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 06</small> Туризм и шоппинг
                                 </h5>
                                 <div class="process-step__body">
@@ -382,7 +382,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--out-departure"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 07</small> Возвращение домой
                                 </h5>
                                 <div class="process-step__body">
