@@ -60,68 +60,96 @@ $faqs = [
                 <h2 class="section-title">병원 <strong class="text-primary">진료과목</strong></h2>
             </div>
 
-            <ul class="list-unstyled row row-sm section-body">
-                <li class="col-6 col-md-4 col-lg-auto">
-                    <a href="/" class="card service-card">
-                        <div class="card-sidebar">
-                            <i class="icon icon-xl icon-brain rounded-circle card-icon bg-primary"></i>
-                        </div>
+            <div class="swiper-container service-swiper js__service-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div>
+                            <a href="/" class="card service-card">
+                                <div class="card-sidebar">
+                                    <i class="icon icon-xl icon-main-department-01 rounded-circle card-icon bg-white"></i>
+                                </div>
 
-                        <div class="card-body">
-                            <h3 class="card-title">심뇌혈관센터</h3>
-                            <span class="btn card-btn">바로가기</span>
+                                <div class="card-body">
+                                    <h3 class="card-title">류마티스내과</h3>
+                                    <span class="btn card-btn">바로가기</span>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </li>
-                <li class="col-6 col-md-4 col-lg-auto">
-                    <a href="/" class="card service-card">
-                        <div class="card-sidebar">
-                            <i class="icon icon-xl icon-microscope rounded-circle card-icon bg-primary"></i>
-                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <a href="/" class="card service-card">
+                                <div class="card-sidebar">
+                                    <i class="icon icon-xl icon-main-department-02 rounded-circle card-icon bg-white"></i>
+                                </div>
 
-                        <div class="card-body">
-                            <h3 class="card-title">건강검진</h3>
-                            <span class="btn card-btn">바로가기</span>
+                                <div class="card-body">
+                                    <h3 class="card-title">방사선종양학과</h3>
+                                    <span class="btn card-btn">바로가기</span>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </li>
-                <li class="col-6 col-md-4 col-lg-auto">
-                    <a href="/" class="card service-card">
-                        <div class="card-sidebar">
-                            <i class="icon icon-xl icon-dna rounded-circle card-icon bg-primary"></i>
-                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <a href="/" class="card service-card">
+                                <div class="card-sidebar">
+                                    <i class="icon icon-xl icon-main-department-03 rounded-circle card-icon bg-white"></i>
+                                </div>
 
-                        <div class="card-body">
-                            <h3 class="card-title">로봇수술센터</h3>
-                            <span class="btn card-btn">바로가기</span>
+                                <div class="card-body">
+                                    <h3 class="card-title">성형외과</h3>
+                                    <span class="btn card-btn">바로가기</span>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </li>
-                <li class="col-6 col-md-4 col-lg-auto">
-                    <a href="/" class="card service-card">
-                        <div class="card-sidebar">
-                            <i class="icon icon-xl icon-ribbon rounded-circle card-icon bg-primary"></i>
-                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <a href="/" class="card service-card">
+                                <div class="card-sidebar">
+                                    <i class="icon icon-xl icon-main-department-04 rounded-circle card-icon bg-white"></i>
+                                </div>
 
-                        <div class="card-body">
-                            <h3 class="card-title">심뇌혈관센터</h3>
-                            <span class="btn card-btn">바로가기</span>
+                                <div class="card-body">
+                                    <h3 class="card-title">영상의학과</h3>
+                                    <span class="btn card-btn">바로가기</span>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </li>
-                <li class="col-6 col-md-4 col-lg-auto">
-                    <a href="/" class="card service-card">
-                        <div class="card-sidebar">
-                            <i class="icon icon-xl icon-medicine rounded-circle card-icon bg-primary"></i>
-                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <a href="/" class="card service-card">
+                                <div class="card-sidebar">
+                                    <i class="icon icon-xl icon-main-department-05 rounded-circle card-icon bg-white"></i>
+                                </div>
 
-                        <div class="card-body">
-                            <h3 class="card-title">암센터</h3>
-                            <span class="btn card-btn">바로가기</span>
+                                <div class="card-body">
+                                    <h3 class="card-title">재활의학과</h3>
+                                    <span class="btn card-btn">바로가기</span>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </li>
-            </ul>
+                    </div>
+                    <div class="swiper-slide">
+                        <div>
+                            <a href="/" class="card service-card">
+                                <div class="card-sidebar">
+                                    <i class="icon icon-xl icon-main-department-06 rounded-circle card-icon bg-white"></i>
+                                </div>
+
+                                <div class="card-body">
+                                    <h3 class="card-title">정형외과</h3>
+                                    <span class="btn card-btn">바로가기</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-pagination swiper-pagination--v1 js__service-swiper__pagination"></div>
+            </div>
         </div>
     </article>
 
@@ -281,6 +309,23 @@ $faqs = [
             clickable: true,
         },
     });
+
+    new Swiper('.js__service-swiper', {
+        slidesPerView: 5,
+        spaceBetween: 24,
+        pagination: {
+            el: ".js__service-swiper__pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 3,
+            },
+            767: {
+                slidesPerView: 2,
+            },
+        },
+    })
 
     new Swiper('.js__member-swiper', {
         slidesPerView: 3,

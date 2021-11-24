@@ -54,7 +54,7 @@ $faqs = [
         </div>
     </div>
 
-    <article class="section section-gutter my-0 service-section">
+    <article class="section section-gutter service-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">병원 <strong class="text-primary">진료과목</strong></h2>
@@ -263,6 +263,20 @@ $faqs = [
         </div>
     </article>
 
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 협력업체 추가 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+
+
+
+
+
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 협력업체 기존(FAQ) @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+
     <article class="section section-gutter section-column2 faq-section">
         <div class="container">
             <div class="section-content">
@@ -297,6 +311,13 @@ $faqs = [
             </div>
         </div>
     </article>
+
+
+
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+
 </main>
 
 <?php echo $this->endSection(); ?>
