@@ -2662,6 +2662,124 @@
     background-position-y: -80px
 }
 
+.icon-i {
+    width: 80px;
+    height: 80px;
+    background: url("../images/icons/icons_process_80x80.png") no-repeat 0 0;
+    background-size: 400px
+}
+
+.icon-i--board {
+    background-position-x: 0px;
+    background-position-y: 0px
+}
+
+.icon-i--counseling {
+    background-position-x: -80px;
+    background-position-y: 0px
+}
+
+.icon-i--estimate {
+    background-position-x: -160px;
+    background-position-y: 0px
+}
+
+.icon-i--letter {
+    background-position-x: -240px;
+    background-position-y: 0px
+}
+
+.icon-i--visit {
+    background-position-x: -320px;
+    background-position-y: 0px
+}
+
+.icon-i--procedure {
+    background-position-x: 0px;
+    background-position-y: -80px
+}
+
+.icon-i--inspection {
+    background-position-x: -80px;
+    background-position-y: -80px
+}
+
+.icon-i--special-inspection {
+    background-position-x: -160px;
+    background-position-y: -80px
+}
+
+.icon-i--recovery {
+    background-position-x: -240px;
+    background-position-y: -80px
+}
+
+.icon-i--records {
+    background-position-x: -320px;
+    background-position-y: -80px
+}
+
+.icon-i--ready-leave {
+    background-position-x: 0px;
+    background-position-y: -160px
+}
+
+.icon-i--discharge {
+    background-position-x: -80px;
+    background-position-y: -160px
+}
+
+.icon-i--shopping {
+    background-position-x: -160px;
+    background-position-y: -160px
+}
+
+.icon-i--departure {
+    background-position-x: -240px;
+    background-position-y: -160px
+}
+
+.icon-i--out-visit {
+    background-position-x: -320px;
+    background-position-y: -160px
+}
+
+.icon-i--out-procedure {
+    background-position-x: 0px;
+    background-position-y: -240px
+}
+
+.icon-i--out-inspection {
+    background-position-x: -80px;
+    background-position-y: -240px
+}
+
+.icon-i--out-ready {
+    background-position-x: -160px;
+    background-position-y: -240px
+}
+
+.icon-i--out-storage {
+    background-position-x: -240px;
+    background-position-y: -240px
+}
+
+.icon-i--out-ready-leave {
+    background-position-x: -320px;
+    background-position-y: -240px
+}
+
+.icon-i--out-shopping {
+    background-position-x: 0px;
+    background-position-y: -320px
+}
+
+.icon-i--out-departure {
+    background-position-x: -80px;
+    background-position-y: -320px
+}
+
+
 .icon-brain {
     background: url("../images/icons/icon-brain-white.png") no-repeat 50% 50%
 }
