@@ -3020,8 +3020,6 @@
     }
 }
 
-.bg-w { bor}
-
 .service-card {
     justify-content: center;
     color: inherit;
@@ -5490,7 +5488,7 @@
 }
 
 .qm-wrap.hide {
-    right: -7%;
+    right: -135px;
 }
 
 .qm-wrap .qm-box {
