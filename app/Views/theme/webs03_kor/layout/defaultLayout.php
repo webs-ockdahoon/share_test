@@ -75,7 +75,7 @@
         <?php echo $this->renderSection('beforeContent'); ?>
 
         <div id="main" class="page-content">
-            <?php include "quickmenu.php"; ?>
+            <?php include "quickMenu.php"; ?>
             <?php echo $this->renderSection('prependContent'); ?>
             <?php echo $this->renderSection('content'); ?>
             <?php echo $this->renderSection('appendContent'); ?>
