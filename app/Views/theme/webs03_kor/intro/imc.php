@@ -145,7 +145,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
                             <ol class="list-unstyled process--new">
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--board"></span>
+                                        <span class="icon icon-i icon-i--board"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 01</small> 고객문의
                                     </h5>
                                     <div class="process-step__body">
@@ -157,7 +157,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--stethoscope"></span>
+                                        <span class="icon icon-i icon-i--counseling"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 02</small> 진료상담
                                     </h5>
                                     <div class="process-step__body">
@@ -168,7 +168,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--dollar"></span>
+                                        <span class="icon icon-i icon-i--estimate"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 03</small> 진료 견적서 제공
                                     </h5>
                                     <div class="process-step__body">
@@ -179,7 +179,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--syringe"></span>
+                                        <span class="icon icon-i icon-i--letter"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 04</small> 초청장 발송
                                     </h5>
                                     <div class="process-step__body">
@@ -206,7 +206,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
                             <ol class="list-unstyled process--new">
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--board"></span>
+                                        <span class="icon icon-i icon-i--visit"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 01</small> 환자 방문
                                     </h5>
                                     <div class="process-step__body">
@@ -219,7 +219,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--stethoscope"></span>
+                                        <span class="icon icon-i icon-i--procedure"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 02</small> 입원수속
                                     </h5>
                                     <div class="process-step__body">
@@ -230,17 +230,17 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--dollar"></span>
+                                        <span class="icon icon-i icon-i--inspection"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 03</small> 신체계측 및 환자<br class="d-none d-lg-block">기본검사
-                                    </h5>
-                                    <div class="process-step__body">
-                                        <p class="list-bullet is-non-list">병동 및 각 검사 부서</p>
+                                        </h5>
+                                        <div class="process-step__body">
+                                            <p class="list-bullet is-non-list">병동 및 각 검사 부서</p>
                                     </div>
                                 </li>
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--syringe"></span>
+                                        <span class="icon icon-i icon-i--special-inspection"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 04</small>환자 해당 처방<br class="d-none d-lg-block"> 특수 검사
                                     </h5>
                                     <div class="process-step__body">
@@ -250,7 +250,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--home"></span>
+                                        <span class="icon icon-i icon-i--recovery"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 05</small> 1박 및 회복
                                     </h5>
                                     <div class="process-step__body">
@@ -260,7 +260,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--home"></span>
+                                        <span class="icon icon-i icon-i--records"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 06</small> 검진 기록의 면담<br class="d-none d-lg-block"> 및 퇴원
                                     </h5>
                                     <div class="process-step__body">
@@ -270,7 +270,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--home"></span>
+                                        <span class="icon icon-i icon-i--ready-leave"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 07</small> 퇴원준비
                                     </h5>
                                     <div class="process-step__body">
@@ -281,7 +281,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--home"></span>
+                                        <span class="icon icon-i icon-i--discharge"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 08</small> 퇴원수속
                                     </h5>
                                     <div class="process-step__body">
@@ -293,7 +293,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--home"></span>
+                                        <span class="icon icon-i icon-i--shopping"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 09</small> 관광 및 쇼핑
                                     </h5>
                                     <div class="process-step__body">
@@ -303,7 +303,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                                 <li class="process-step">
                                     <h5 class="process-step__header">
-                                        <span class="icon icon-d icon-d--home"></span>
+                                        <span class="icon icon-i icon-i--departure"></span>
                                         <small class="font-weight-bold text-uppercase text-primary">step 10</small> 출국
                                     </h5>
                                     <div class="process-step__body">
@@ -322,7 +322,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
                         <ol class="list-unstyled process--new">
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--board"></span>
+                                    <span class="icon icon-i icon-i--out-visit"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 01</small> 환자 방문
                                 </h5>
                                 <div class="process-step__body">
@@ -335,7 +335,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--stethoscope"></span>
+                                    <span class="icon icon-i icon-i--out-procedure"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 02</small> 외래 접수
                                 </h5>
                                 <div class="process-step__body">
@@ -347,7 +347,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--dollar"></span>
+                                    <span class="icon icon-i icon-i--out-inspection"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 03</small> 환자 처방검사 및 시술
                                 </h5>
                                 <div class="process-step__body">
@@ -358,7 +358,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--syringe"></span>
+                                    <span class="icon icon-i icon-i--out-ready"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 04</small>외래과 준비
                                 </h5>
                                 <div class="process-step__body">
@@ -369,7 +369,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--out-storage"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 05</small> 최종 수납
                                 </h5>
                                 <div class="process-step__body">
@@ -381,7 +381,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--out-ready-leave"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 06</small> 퇴원준비
                                 </h5>
                                 <div class="process-step__body">
@@ -391,7 +391,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--out-shopping"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 07</small> 관광 및 쇼핑
                                 </h5>
                                 <div class="process-step__body">
@@ -401,7 +401,7 @@ $this->setVar('heroTitle', '국제진료센터 소개');
 
                             <li class="process-step">
                                 <h5 class="process-step__header">
-                                    <span class="icon icon-d icon-d--home"></span>
+                                    <span class="icon icon-i icon-i--out-departure"></span>
                                     <small class="font-weight-bold text-uppercase text-primary">step 08</small> 출국
                                 </h5>
                                 <div class="process-step__body">
