@@ -2779,25 +2779,34 @@
     background-position-y: -320px
 }
 
-
-.icon-brain {
-    background: url("../images/icons/icon-brain-white.png") no-repeat 50% 50%
+.icon-main-department-01 {
+    background: url("../images/icons/main-department-icon001.png") no-repeat 50% 50%;
+    background-size: 80%;
 }
 
-.icon-dna {
-    background: url("../images/icons/icon-dna-white.png") no-repeat 50% 50%
+.icon-main-department-02 {
+    background: url("../images/icons/main-department-icon002.png") no-repeat 50% 50%;
+    background-size: 80%;
 }
 
-.icon-medicine {
-    background: url("../images/icons/icon-medicine-white.png") no-repeat 50% 50%
+.icon-main-department-03 {
+    background: url("../images/icons/main-department-icon003.png") no-repeat 50% 50%;
+    background-size: 80%;
 }
 
-.icon-microscope {
-    background: url("../images/icons/icon-microscope-white.png") no-repeat 50% 50%
+.icon-main-department-04 {
+    background: url("../images/icons/main-department-icon004.png") no-repeat 50% 50%;
+    background-size: 80%;
 }
 
-.icon-ribbon {
-    background: url("../images/icons/icon-ribbon-white.png") no-repeat 50% 50%
+.icon-main-department-05  {
+    background: url("../images/icons/main-department-icon005.png") no-repeat 50% 50%;
+    background-size: 80%;
+}
+
+.icon-main-department-06  {
+    background: url("../images/icons/main-department-icon006.png") no-repeat 50% 50%;
+    background-size: 80%;
 }
 
 .link-hover--img-zoom {
@@ -3010,6 +3019,8 @@
         flex: auto
     }
 }
+
+.bg-w { bor}
 
 .service-card {
     justify-content: center;
