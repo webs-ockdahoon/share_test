@@ -157,7 +157,7 @@ $faqs = [
     <article class="section section-gutter my-0 bg-air member-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">병원 <strong class="text-primary">의료진 소개</strong></h2>
+                <h2 class="section-title">병원 <strong class="text-primary">후기</strong></h2>
             </div>
 
             <div class="swiper-container member-swiper js__member-swiper">
@@ -165,13 +165,10 @@ $faqs = [
                     <?php foreach(range(0, 4) as $t): ?>
                         <div class="swiper-slide">
                             <section class="card member-card">
-                                <div class="card-thumbnail">
-                                    <img src="<?php echo $THEME_URL ?>/images/main/member-profile001.png" alt="" loading="lazy" decoding="async" class="img-fluid">
-                                </div>
 
                                 <div class="card-header">
-                                    <h3 class="card-title text-muted">의료진 이름</h3>
-                                    <p class="card-subtitle text-primary">진료과목</p>
+                                    <h3 class="card-title text-muted">김동아</h3>
+                                    <p class="card-subtitle text-primary">재활의학과</p>
                                 </div>
 
                                 <div class="card-body">
@@ -264,13 +261,10 @@ $faqs = [
     </article>
 
 
-
-    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 협력업체 추가 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-
     <article class="section section-gutter partner-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">병원 <strong class="text-primary">파트너사</strong></h2>
+                <h2 class="section-title">병원 <strong class="text-primary">협력업체</strong></h2>
             </div>
 
             <div class="swiper-container partner-swiper js__partner-swiper">
