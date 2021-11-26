@@ -13,8 +13,8 @@ $this->setVar('heroTitle', '진료 후기');
     <div class="container container--max-md section mt-0">
         <div class="section-divider-sm section-card section-card--sidebar text-center text-md-left text-muted bg-primary--air">
             <div class="section-card__sidebar mb-0">
-                <span class="material-icons-round text-center text-primary" style="font-size: 56px;">
-                    contact_support
+                <span class="material-icons text-center text-primary" style="font-size: 56px;">
+                rate_review
                 </span>
             </div>
             <div class="section-card__body">
