@@ -35,28 +35,28 @@
                 <div class="form-group form-group--v1 form-row">
                     <label for="name" class="col-12 col-md-3 require-mark--before">이름</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="name" class="form-control form-control-lg" placeholder="예) 홍길동" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
+                        <input type="text" name="mri_name" value="" id="name" class="form-control form-control-lg" placeholder="예) 홍길동" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="nationality" class="col-12 col-md-3 require-mark--before">국적</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="nationality" class="form-control form-control-lg" placeholder="예) 한국" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
+                        <input type="text" name="mri_nationality" value="" id="nationality" class="form-control form-control-lg" placeholder="예) 한국" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="email" class="col-12 col-md-3 require-mark--before">이메일</label>
                     <div class="col-12 col-md-9">
-                        <input type="email" name="" value="" id="email" class="form-control form-control-lg" placeholder="예) honggildong@gmail.com" required data-validator data-validator-type="required|email" data-required-msg="이메일을 입력해 주세요." data-email-msg="이메일 형식으로 입력해 주세요.">
+                        <input type="email" name="mri_email" value="" id="email" class="form-control form-control-lg" placeholder="예) honggildong@gmail.com" required data-validator data-validator-type="required|email" data-required-msg="이메일을 입력해 주세요." data-email-msg="이메일 형식으로 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="tel" class="col-12 col-md-3 require-mark--before">연락처</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="tel" class="form-control form-control-lg js__cleave-input-number" placeholder="예) 01012345678" required data-validator data-validator-type="required" data-required-msg="연락처를 입력해 주세요.">
+                        <input type="text" name="mri_tel" value="" id="tel" class="form-control form-control-lg js__cleave-input-number" placeholder="예) 01012345678" required data-validator data-validator-type="required" data-required-msg="연락처를 입력해 주세요.">
                         <p class="form-text text-caption text-warning">* 숫자만 입력</p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="form-group form-group--v1 form-row">
                     <label for="birth" class="col-12 col-md-3 require-mark--before">생년월일</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="birth" class="form-control form-control-lg js__cleave-input-date" placeholder="예) 2021-11-02" required data-validator data-validator-type="required" data-required-msg="생년월일을 입력해 주세요.">
+                        <input type="text" name="mri_birth" value="" id="birth" class="form-control form-control-lg js__cleave-input-date" placeholder="예) 2021-11-02" required data-validator data-validator-type="required" data-required-msg="생년월일을 입력해 주세요.">
                         <p class="form-text text-caption text-warning">* yyyy-mm-dd 형태, 숫자만 입력</p>
                     </div>
                 </div>
@@ -73,12 +73,12 @@
                     <label for="gender" class="col-12 col-md-3 require-mark--before">성별</label>
                     <div class="col-12 col-md-9">
                         <div class="custom-control custom-control-inline custom-radio custom-radio--v1">
-                            <input type="radio" name="gender" id="male" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
+                            <input type="radio" name="mri_gender" id="male" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
                             <label for="male" class="custom-control-label">남자</label>
                         </div>
 
                         <div class="custom-control custom-control-inline custom-radio custom-radio--v1">
-                            <input type="radio" name="gender" id="female" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
+                            <input type="radio" name="mri_gender" id="female" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
                             <label for="female" class="custom-control-label">여자</label>
                         </div>
                     </div>
@@ -93,14 +93,14 @@
                 <div class="form-group form-group--v1 form-row">
                     <label for="subject" class="col-12 col-md-3 require-mark--before">주제</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="subject" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="주제를 입력해 주세요.">
+                        <input type="text" name="mri_title" value="" id="subject" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="주제를 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="content" class="col-12 col-md-3 require-mark--before">상담 내용</label>
                     <div class="col-12 col-md-9">
-                        <textarea name="content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="상담 내용을 입력해 주세요."></textarea>
+                        <textarea name="mri_content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="상담 내용을 입력해 주세요."></textarea>
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@
                     <div class="agreement-card">
                         <div class="agreement-card__control-group">
                             <div class="custom-control custom-checkbox custom-checkbox--v1">
-                                <input type="checkbox" name="agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
+                                <input type="checkbox" name="mri_agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
                                 <label class="custom-control-label" for="agree"><span class="require-mark--before">개인 정보 이용 약관 동의</span></label>
                             </div>
 
