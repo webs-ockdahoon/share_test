@@ -283,38 +283,45 @@ $faqs = [
         </div>
     </article>
 
-    <article class="section section-gutter section-column2 faq-section">
+    <article class="section section-gutter partner-section">
         <div class="container">
-            <div class="section-content">
-                <div class="section-header">
-                    <h2 class="section-title">병원 <strong class="text-primary">FAQ</strong></h2>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">병원 <strong class="text-primary">협력업체</strong></h2>
+            </div>
 
-                <div class="accordion" id="accordionFaq">
-                    <?php foreach($faqs as $faq_index => $faq): ?>
-                        <div class="card collapse-card">
-                            <div class="card-header" id="faqHeading<?php echo $faq_index; ?>">
-                                <h2 class="mb-0 card-title">
-                                    <button class="btn card-title__toggler" type="button" data-toggle="collapse" data-target="#faqContent<?php echo $faq_index; ?>" aria-expanded="<?php echo $faq_index === 0 ? 'true' : 'false'; ?>" aria-controls="faqContent<?php echo $faq_index; ?>">
-                                        <i class="icon icon-toggle"></i>
-                                        <?php echo $faq['title']; ?>
-                                    </button>
-                                </h2>
+            <div class="swiper-container partner-swiper js__partner-swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach(range(0, 4) as $t): ?>
+                        <div class="swiper-slide">
+                            <div class="swiper-box">
+                                <a href="/" class="card partner-card">
+                                    <div class="card-body">
+                                        <img src="<?php echo $THEME_URL ?>/images/main/logo01.png" alt="" loading="lazy" decoding="async" class="img-fluid">
+                                    </div>
+                                </a>
                             </div>
-
-                            <div id="faqContent<?php echo $faq_index; ?>" class="collapse <?php echo $faq_index === 0 ? 'show' : ''; ?>" aria-labelledby="faqHeading<?php echo $faq_index; ?>" data-parent="#accordionFaq">
-                                <div class="card-body">
-                                    <?php echo $faq['content']; ?>
-                                </div>
+                            <div class="swiper-box">
+                                <a href="/" class="card partner-card">
+                                    <div class="card-body">
+                                        <img src="<?php echo $THEME_URL ?>/images/main/logo02.png" alt="" loading="lazy" decoding="async" class="img-fluid">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="swiper-box">
+                                <a href="/" class="card partner-card">
+                                    <div class="card-body">
+                                        <img src="<?php echo $THEME_URL ?>/images/main/logo03.png" alt="" loading="lazy" decoding="async" class="img-fluid">
+                                    </div>
+                                </a>
                             </div>
                         </div>
+
                     <?php endforeach; ?>
                 </div>
+
+                <div class="swiper-pagination swiper-pagination--v1 js__partner-swiper__pagination"></div>
             </div>
 
-            <div class="section-sidebar">
-                <div class="section-background"></div>
-            </div>
         </div>
     </article>
 </main>
@@ -361,6 +368,26 @@ $faqs = [
             },
             767: {
                 slidesPerView: 1,
+            },
+        },
+    })
+
+    new Swiper('.js__partner-swiper', {
+        slidesPerView: 4,
+        spaceBetween: 24,
+        autoplay: true,
+        loop: true,
+
+        pagination: {
+            el: ".js__partner-swiper__pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 3,
+            },
+            767: {
+                slidesPerView: 2,
             },
         },
     })
