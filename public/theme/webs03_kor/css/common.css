@@ -3061,6 +3061,26 @@
     }
 }
 
+
+
+
+
+.partner-card .card-body {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.swiper-box {
+    margin-bottom: 24px;
+}
+
+
+
+
+
+
+
+
 .member-card {
     flex-direction: row;
     flex-wrap: wrap;
