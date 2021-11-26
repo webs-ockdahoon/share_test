@@ -124,6 +124,45 @@ class MasterController extends BaseController
 
         $menu = array();
 
+        $menu["code"] = array(
+            "name"=>"코드관리",
+            "icon"=>"fa-users",
+            "link"=>"",
+            "sub"=>array(
+                "history"=>array("name"=>"회사연혁관리","link"=>"/master/code/introHistory",),
+                "treatment"=>array("name"=>"진료과관리","link"=>"/master/code/departments",),
+                "specialized"=>array("name"=>"전문센터관리","link"=>"/master/code/specialized",),
+            ),
+        );
+
+        $menu["hospital"] = array(
+            "name"=>"병원소개관리",
+            "icon"=>"fa-users",
+            "link"=>"",
+            "sub"=>array(
+                "history"=>array("name"=>"회사연혁관리","link"=>"/master/hospital/history",),
+            ),
+        );
+
+        $menu["medical"] = array(
+            "name"=>"진료안내관리",
+            "icon"=>"fa-users",
+            "link"=>"",
+            "sub"=>array(
+                "departments"=>array("name"=>"진료과 의료진","link"=>"/master/medical/departments",),
+                "specialized"=>array("name"=>"전문센터 의료진","link"=>"/master/medical/specialized",),
+            ),
+        );
+
+        $menu["hospital"] = array(
+            "name"=>"진료안내",
+            "icon"=>"fa-users",
+            "link"=>"",
+            "sub"=>array(
+                "history"=>array("name"=>"회사연혁관리","link"=>"/master/hospital/history",),
+            ),
+        );
+
         $menu["member"] = array(
             "name"=>"회원관리",
             "icon"=>"fa-users",

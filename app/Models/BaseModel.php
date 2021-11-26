@@ -50,8 +50,14 @@ class BaseModel extends Model
                 $this->insert($data);
                 $info[$this->primaryKey] = $this->insertID();
             }catch (\Exception $e){
-                //die($e->getMessage());
-                return null;
+                if(isDev()){
+                    echo "<br>Error!<br><br>";
+                    echo $this->getLastQuery();
+
+                    exit();
+                }else{
+                    alert("오류가 발생하였습니다.");
+                }
             }
         }
 

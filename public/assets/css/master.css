@@ -313,8 +313,8 @@ body.dragging, body.dragging * {
 .category_list ol li .btn{float:right;margin-left:10px;}
 
 .header-seperation{border-bottom:1px solid #2f3c4d;}
-.header-seperation>a{display:block;text-align:center;}
-.header-seperation>a>.logo{margin:15px auto 0px;}
+/*.header-seperation>a{display:block;text-align:center;}*/
+.header-seperation>a>.logo{margin:18px 14px;}
 .header .quick-section{margin:0px;}
 .header .quick-section .quicklinks{padding:1px 20px;}
 .header .quick-section .quicklinks.staron{background:#1e3b91;}
@@ -342,3 +342,11 @@ body.dragging, body.dragging * {
 /* 마켓관리자 관리 */
 .label-item{padding:5px 10px;width:100%;display:inline-block;}
 .label-item input{margin-right:5px;}
+
+/* 공통 */
+.w-100{
+    width:100%;
+}
+.w-75p{
+    width:75px !important;
+}
