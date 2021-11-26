@@ -50,8 +50,14 @@ class BaseModel extends Model
                 $this->insert($data);
                 $info[$this->primaryKey] = $this->insertID();
             }catch (\Exception $e){
-                //die($e->getMessage());
-                return null;
+                if(isDev()){
+                    echo "<br>Error!<br><br>";
+                    echo $this->getLastQuery();
+
+                    exit();
+                }else{
+                    alert("오류가 발생하였습니다.");
+                }
             }
         }
 
@@ -98,13 +104,25 @@ class BaseModel extends Model
 
         if($this->deletedField)$this->where('('.$this->deletedField . " is null or " . $this->deletedField . " = ''" .')');
 
+        // 페이징 템플릿 처리
+        $template = "default_full";
+        if(isset($option["template"]))$template = $option["template"];
+
+        // 강제 현재 페이지 조절
+        $nowPage = null;
+        if(isset($option["nowPage"]))$nowPage = $option["nowPage"];
+
+        // 한페이지 리스트 출력 처리
         $perPage = 10;
         if(isset($option["perPage"]))$perPage = $option["perPage"];
+
+
         $pager = [
-            'list' => $this->paginate($perPage),
-            'info' => '총 ' . number_format($this->pager->gettotal()) . ' 개 데이터 / 총 ' . $this->pager->getpageCount() . ' page 중 현재 '.$this->pager->getcurrentPage().' page',
-            'links' => $this->pager->links(),
-            'total_count'=>number_format($this->pager->gettotal()),
+            'list' => $this->paginate($perPage,'group1',$nowPage),
+            'info' => '총 ' . number_format($this->pager->gettotal('group1')) . ' 개 데이터 / 총 ' . $this->pager->getpageCount() . ' page 중 현재 '.$this->pager->getcurrentPage().' page',
+            'links' => $this->pager->links('group1',$template),
+            'total_count'=>number_format($this->pager->gettotal('group1')),
+            'start_num'=>$this->pager->gettotal('group1') - (($this->pager->getcurrentPage('group1')-1)*$perPage),
         ];
 
         //echo $this->getLastQuery();

@@ -12,7 +12,7 @@ use App\Controllers\BaseController;
  * @return bool
  */
 function isDev(){
-    if($_SERVER["REMOTE_ADDR"]=="115.94.235.144" || $_SERVER["REMOTE_ADDR"]=="::1")return true;
+    if($_SERVER["REMOTE_ADDR"]=="115.94.235.144" || $_SERVER["REMOTE_ADDR"]=="125.7.222.132" || $_SERVER["REMOTE_ADDR"]=="::1")return true;
     else return false;
 }
 

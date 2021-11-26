@@ -15,50 +15,12 @@
             <table class="section-divider-sm table table--v2 table--responsive-column2">
                 <tbody>
 
-                <tr>
-                    <th>공지</th>
-                    <td>
-                        <label class="custom-control custom-control-inline custom-checkbox mb-0">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-label">공지로 설정하기</span>
-                        </label>
-                        <small class="font-sm form-text text-muted">* 설정시 목록 상단에 노출됩니다.</small>
-                    </td>
-                </tr>
-
-                <?php
-                if($bod_origin_secret){?>
-                    <tr>
-                        <th>비밀글</th>
-                        <td>
-                            <small class="font-sm text-danger">원글과 동일하게 비밀글로 작성됩니다.</small>
-                        </td>
-                    </tr>
-                <?php }else if($conf["boc_secret"]=="check"){?>
-                    <tr>
-                        <th>비밀글</th>
-                        <td>
-                            <label class="custom-control custom-checkbox">
-                                <input type="checkbox" name="bod_secret" id="bod_secret" class="custom-control-input" value="1" <?php if($bod_secret)echo "checked";?>>
-                                <span class="custom-control-label">비밀글로 설정하기</span>
-                            </label>
-                        </td>
-                    </tr>
-                <?php }else if($conf["boc_secret"]=="force"){?>
-                    <tr>
-                        <th>비밀글</th>
-                        <td>
-                            <small class="font-sm text-danger">해당 게시판은 글 작성시 자동으로 비밀글로 작성됩니다.</small>
-                        </td>
-                    </tr>
-                <?php }?>
-
                 <?php if(sizeof($category)>0 && $bod_level==1){?>
                     <tr>
                         <th>분류</th>
                         <td>
-                            <select name="bod_category" id="bod_category" class="custom-select" required>
-                                <option value="">분류를 선택해 주세요.</option>
+                            <select name="bod_category" id="bod_category" class="form-control" required>
+                                <option value="">미선택</option>
                                 <?php foreach($category as $cate){?>
                                     <option value="<?php echo $cate?>" <?php if($bod_category==$cate)echo "selected";?>><?php echo $cate?></option>
                                 <?php }?>
@@ -67,19 +29,60 @@
                     </tr>
                 <?php }?>
 
-                <tr>
-                    <th>작성자</th>
-                    <td>
-                        <input type="text" name="bod_writer_name" id="bod_writer_name" class="form-control" placeholder="작성자를 입력해 주세요." value="<?php echo $bod_writer_name?>" required>
-                    </td>
-                </tr>
+                <?php if(!isset($mem_info["mem_id"])){?>
+                    <tr>
+                        <th>작성자명</th>
+                        <td><input type="text" name="bod_writer_name" id="bod_writer_name" class="form-control" placeholder="작성자명 입력" value="<?php echo $bod_writer_name?>" required></td>
+                    </tr>
+                    <tr>
+                        <th>비밀번호</th>
+                        <td><input type="password" name="bod_password" id="bod_password" class="form-control" minlength="4" placeholder="4자 이상 입력" required></td>
+                    </tr>
+                <?php }?>
 
-                <tr>
-                    <th>비밀번호</th>
-                    <td>
-                        <input type="password" name="bod_password" id="bod_password" class="form-control" minlength="4" placeholder="4자 이상 입력해 주세요." required>
-                    </td>
-                </tr>
+                <?php
+                if($bod_origin_secret){?>
+                    <tr>
+                        <th>비밀글</th>
+                        <td>
+                            <small>원글과 동일하게 비밀글로 작성됩니다.</small>
+                        </td>
+                    </tr>
+                <?php }else if($conf["boc_secret"]=="check"){?>
+                    <tr>
+                        <th>비밀글</th>
+                        <td>
+                            <label><input type="checkbox" name="bod_secret" id="bod_secret" value="1" <?php if($bod_secret)echo "checked";?>> <span>비밀글로 설정</span></label>
+                        </td>
+                    </tr>
+                <?php }else if($conf["boc_secret"]=="force"){?>
+                    <tr>
+                        <th>비밀글</th>
+                        <td>
+                            <small>해당 게시판은 글 작성시 자동으로 비밀글로 작성됩니다.</small>
+                        </td>
+                    </tr>
+                <?php }?>
+
+                <?php if($isMaster){
+                    /* 공지사항 설정은 관리자만 가능 */
+                    ?>
+                    <tr>
+                        <th>공지사항</th>
+                        <td>
+                            <label><input type="checkbox" name="bod_is_notice" value="1" <?php if($bod_is_notice)echo "checked";?>> 공지사항으로 설정</label>
+                        </td>
+                    </tr>
+
+                    <!--
+                    <tr>
+                        <th>조회수</th>
+                        <td>
+                            <input type="text" class="form-control cleave_number" name="bod_read" id="bod_read" placeholder="조회수" value="<?php echo $bod_read?>" >
+                        </td>
+                    </tr>
+                    -->
+                <?php }?>
 
                 <tr>
                     <th >제목</th>

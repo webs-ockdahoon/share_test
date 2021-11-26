@@ -46,7 +46,9 @@
         <div class="btn_wrap"></div>
         <div class="paging_wrap"><?php echo $links?></div>
         <div class="btn_wrap text-right">
-            <a href="<?php echo $write_page.$qstr?>" class="btn">글작성</a>
+            <?php if($board_auth["write"]){?>
+                <a href="<?php echo $write_page.$qstr?>" class="btn">글작성</a>
+            <?php }?>
         </div>
         <div class="search_wrap">
             <form method="get">

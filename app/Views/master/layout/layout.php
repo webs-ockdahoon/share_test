@@ -48,6 +48,14 @@
                 <img src="/assets/webarch/img/master_logo.png" class="logo" alt="" data-src="/assets/webarch/img/master_logo.png" data-src-retina="/assets/webarch/img/master_logo.png" width="106" height="21" />
             </a>
             <!-- END LOGO -->
+
+            <ul class="nav pull-right notifcation-center">
+                <li class="dropdown hidden-xs hidden-sm">
+                    <a href="/" class="dropdown-toggle active" data-toggle="">
+                        <i class="fa fa-home"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
         <!-- END RESPONSIVE MENU TOGGLER -->
         <div class="header-quick-nav">

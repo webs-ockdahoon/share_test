@@ -15,7 +15,7 @@ class BoardConfModel extends BaseModel
     protected $prefix     = 'boc';
     protected $allowedFields = ['boc_code','boc_title','boc_skin','boc_list_size','boc_file_count',
         'boc_file_size','boc_new_time','boc_secret','boc_category','boc_private',
-        'boc_auth_list','boc_auth_read','boc_auth_write','boc_auth_reply','boc_auth_comment',
+        'boc_auth_list','boc_auth_read','boc_auth_write','boc_auth_reply','boc_auth_comment','boc_use_editor','boc_manager',
         'boc_image_view','boc_fixed_title','boc_created_ip','boc_created_at','boc_updated_at','boc_deleted_at',];
 
     /** 게시판 설정 정보 구하기
@@ -63,14 +63,17 @@ class BoardConfModel extends BaseModel
                       `bod_secret` tinyint(1) DEFAULT 0 COMMENT '비밀글 여부',
                       `bod_category` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '글 분류',
                       `bod_title` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '글 제목',
+                      `bod_use_editor` tinyint(1) DEFAULT 0 COMMENT '에디터 사용여부',
                       `bod_content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '글 내용',
                       `bod_read` tinyint(4) DEFAULT 0 COMMENT '글 조회 수',
+                      `bod_movie_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '영상주소',
+                      `bod_is_notice` tinyint(1) DEFAULT NULL COMMENT '공지여부',
                       `bod_created_ip` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                       `bod_created_at` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                       `bod_updated_at` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                       `bod_deleted_at` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                       PRIMARY KEY (`bod_idx`)
-                    ) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
+                    ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
 
             $this->query($sql);
         }
