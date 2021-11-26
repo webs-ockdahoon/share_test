@@ -283,4 +283,11 @@
     }
 }
 
+.page--main .partner-section .partner-swiper {
+    padding-bottom: 2.25rem
+}
+
+.page--main .partner-section .partner-swiper .swiper-pagination {
+    bottom: 0
+}
 /*# sourceMappingURL=main.css.map */
