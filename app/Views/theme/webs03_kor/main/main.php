@@ -174,29 +174,27 @@ $faqs = [
     <article class="section section-gutter my-0 bg-air member-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">병원 <strong class="text-primary">의료진 소개</strong></h2>
+                <h2 class="section-title">병원 <strong class="text-primary">진료후기</strong></h2>
             </div>
 
             <div class="swiper-container member-swiper js__member-swiper">
                 <div class="swiper-wrapper">
                     <?php foreach(range(0, 4) as $t): ?>
                         <div class="swiper-slide">
-                            <section class="card member-card">
-                                <div class="card-thumbnail">
-                                    <img src="<?php echo $THEME_URL ?>/images/main/member-profile001.png" alt="" loading="lazy" decoding="async" class="img-fluid">
-                                </div>
+                                <section class="card member-card">
+                                    <button type="button" class="btn member-btn" data-toggle="modal" data-target="#pageReviewModal" title="진료후기">
+                                        <div class="card-header">
+                                            <h3 class="card-title text-muted">김동아님의 후기</h3>
+                                            <p class="card-subtitle text-primary">재활의학과 방문</p>
+                                        </div>
 
-                                <div class="card-header">
-                                    <h3 class="card-title text-muted">의료진 이름</h3>
-                                    <p class="card-subtitle text-primary">진료과목</p>
-                                </div>
-
-                                <div class="card-body">
-                                    <p class="card-text text-muted">
-                                        그들은 있으며, 그들의 것은 같은 때문이다. 이상이 밝은 풀이 열락의 뿐이다. 귀는 곳으로 꽃이 어디 끝까지 산야에 봄바람이다. 없으면 바이며, 영원히 인생을 그리하였는가? 봄날의 동산에는 살 충분히 귀는 무엇을 운다.
-                                    </p>
-                                </div>
-                            </section>
+                                        <div class="card-body">
+                                            <p class="card-text text-muted">
+                                                그들은 있으며, 그들의 것은 같은 때문이다. 이상이 밝은 풀이 열락의 뿐이다. 귀는 곳으로 꽃이 어디 끝까지 산야에 봄바람이다. 없으면 바이며, 영원히 인생을 그리하였는가? 봄날의 동산에는 살 충분히 귀는 무엇을 운다.
+                                            </p>
+                                        </div>
+                                    </button>
+                                </section>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -206,6 +204,32 @@ $faqs = [
 
         </div>
     </article>
+
+
+    <div class="modal fade" id="pageReviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">진료후기</h4>
+                     <button type="button" class="btn btn-icon modal-close" data-dismiss="modal" aria-label="Close">
+                        <span class="material-icons-round">close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <section class="member-card">
+                        <h3 class="member-modal-title text-muted">김동아님의 후기</h3>
+                        <p class="member-modal-sub-title text-primary">재활의료과 방문</p>
+                        <p class="member-modal-text text-muted">
+                            그들은 있으며, 그들의 것은 같은 때문이다. 이상이 밝은 풀이 열락의 뿐이다. 귀는 곳으로 꽃이 어디 끝까지 산야에 봄바람이다. 없으면 바이며, 영원히 인생을 그리하였는가?봄날의 동산에는 살 충분히 귀는 무엇을 운다.<br>
+                            그들은 있으며, 그들의 것은 같은 때문이다. 이상이 밝은 풀이 열락의 뿐이다. 귀는 곳으로 꽃이 어디 끝까지 산야에 봄바람이다. 없으면 바이며, 영원히 인생을 그리하였는가?봄날의 동산에는 살 충분히 귀는 무엇을 운다.<br>
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <article class="section section-gutter my-0 counselling-section">
         <div class="container">
@@ -281,59 +305,47 @@ $faqs = [
     </article>
 
 
-
-<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 협력업체 추가 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-
-
-
-
-
-
-
-    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 협력업체 기존(FAQ) @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-
-
-
-    <article class="section section-gutter section-column2 faq-section">
+    <article class="section section-gutter partner-section">
         <div class="container">
-            <div class="section-content">
-                <div class="section-header">
-                    <h2 class="section-title">병원 <strong class="text-primary">FAQ</strong></h2>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">병원 <strong class="text-primary">협력업체</strong></h2>
+            </div>
 
-                <div class="accordion" id="accordionFaq">
-                    <?php foreach($faqs as $faq_index => $faq): ?>
-                        <div class="card collapse-card">
-                            <div class="card-header" id="faqHeading<?php echo $faq_index; ?>">
-                                <h2 class="mb-0 card-title">
-                                    <button class="btn card-title__toggler" type="button" data-toggle="collapse" data-target="#faqContent<?php echo $faq_index; ?>" aria-expanded="<?php echo $faq_index === 0 ? 'true' : 'false'; ?>" aria-controls="faqContent<?php echo $faq_index; ?>">
-                                        <i class="icon icon-toggle"></i>
-                                        <?php echo $faq['title']; ?>
-                                    </button>
-                                </h2>
-                            </div>
-
-                            <div id="faqContent<?php echo $faq_index; ?>" class="collapse <?php echo $faq_index === 0 ? 'show' : ''; ?>" aria-labelledby="faqHeading<?php echo $faq_index; ?>" data-parent="#accordionFaq">
+            <div class="swiper-container partner-swiper js__partner-swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach(range(0, 4) as $t): ?>
+                    <div class="swiper-slide">
+                        <div class="swiper-box">
+                            <a href="/" class="card partner-card">
                                 <div class="card-body">
-                                    <?php echo $faq['content']; ?>
+                                    <img src="<?php echo $THEME_URL ?>/images/main/logo01.png" alt="" loading="lazy" decoding="async" class="img-fluid">
                                 </div>
-                            </div>
+                            </a>
                         </div>
+                        <div class="swiper-box">
+                            <a href="/" class="card partner-card">
+                                <div class="card-body">
+                                    <img src="<?php echo $THEME_URL ?>/images/main/logo02.png" alt="" loading="lazy" decoding="async" class="img-fluid">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-box">
+                            <a href="/" class="card partner-card">
+                                <div class="card-body">
+                                    <img src="<?php echo $THEME_URL ?>/images/main/logo03.png" alt="" loading="lazy" decoding="async" class="img-fluid">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
                     <?php endforeach; ?>
                 </div>
+
+                <div class="swiper-pagination swiper-pagination--v1 js__partner-swiper__pagination"></div>
             </div>
 
-            <div class="section-sidebar">
-                <div class="section-background"></div>
-            </div>
         </div>
     </article>
-
-
-
-    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-
-
 
 </main>
 
@@ -365,6 +377,7 @@ $faqs = [
             },
         },
     })
+
     new Swiper('.js__member-swiper', {
         slidesPerView: 3,
         spaceBetween: 24,
@@ -378,6 +391,26 @@ $faqs = [
             },
             767: {
                 slidesPerView: 1,
+            },
+        },
+    })
+
+    new Swiper('.js__partner-swiper', {
+        slidesPerView: 4,
+        spaceBetween: 24,
+        autoplay: true,
+        loop: true,
+
+        pagination: {
+            el: ".js__partner-swiper__pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 3,
+            },
+            767: {
+                slidesPerView: 2,
             },
         },
     })
