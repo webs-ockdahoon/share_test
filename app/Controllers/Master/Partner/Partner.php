@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Controllers\Master\Code;
+namespace App\Controllers\Master\Partner;
 use App\Controllers\Master\MasterController;
 use App\Libraries\Uploader;
 
-class Departments extends MasterController
+class Partner extends MasterController
 {
-    protected $models = array('CodeDepartmentsModel');
-    protected $viewPath = "code/departments";
+    protected $models = array('PartnerModel');
+    protected $viewPath = "partner/partner";
 
     public function index()
     {
         /**
          * 검색 기능 구현 시작
          */
-        if($this->sch_obj[1])$this->model->like("cde_title",$this->sch_obj[1],'both');
+        if($this->sch_obj[1])$this->model->like("par_title",$this->sch_obj[1],'both');
         /* 검색 기능 구현 끝 */
 
         $data = $this->model->getPager();
@@ -26,9 +26,9 @@ class Departments extends MasterController
     public function edit($idx=""){
 
         $validate = $this->validate([
-            'cde_title' => [
+            'par_title' => [
                 'rules'=>'required',
-                'errors'=> ['required'=>'진료과를 입력해 주세요.'],
+                'errors'=> ['required'=>'파트너사를 입력해 주세요.'],
             ],
 
         ]);
@@ -58,15 +58,15 @@ class Departments extends MasterController
              */
             // 기존 업로드 파일 정보 추가
             $uploaded = array();
-            if(!isset($rs_info["cde_image"]))$rs_info["cde_image"]="";
-            $uploaded["cde_image"] = array(
+            if(!isset($rs_info["par_image"]))$rs_info["par_image"]="";
+            $uploaded["par_image"] = array(
                 "name"=>"", // 실제파일명
-                "upload"=>$rs_info["cde_image"] // 업로드된 파일명
+                "upload"=>$rs_info["par_image"] // 업로드된 파일명
             );
 
-            $up_max_width = 80;
+            $up_max_width = 190;
             $up_option = array("path"=>"departments","uploaded"=>$uploaded,"image_max_width"=>$up_max_width);
-            $uploader = new Uploader("cde_image",$up_option);
+            $uploader = new Uploader("par_image",$up_option);
             $fup = $uploader->upload();
 
             foreach($fup as $key=>$f){
@@ -75,9 +75,9 @@ class Departments extends MasterController
             // 파일 업로드 처리 끝
 
             // 원본 파일명 저장
-            if($fup['cde_image']['name'])
+            if($fup['par_image']['name'])
             {
-                $info['cde_file_name'] = $fup['cde_image']['name'];
+                $info['par_file_name'] = $fup['par_image']['name'];
             }
 
             if($this->model->edit($info)){

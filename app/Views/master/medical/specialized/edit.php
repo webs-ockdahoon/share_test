@@ -116,14 +116,16 @@
                                             <div class="controls">
                                                 <input type="text" class="form-control" name="mes_subject_<?php echo $i; ?>"  placeholder="ex) 학력 및 경력" value="<?php echo ${"mes_subject_".$i};?>" >
                                             </div>
-                                            <label class="form-label">소제목</label>
-                                            <div class="controls">
-                                                <input type="text" class="form-control" name="mes_subject_type_<?php echo $i; ?>"  placeholder="ex) 학력" value="<?php echo ${"mes_subject_type_".$i};?>" >
-                                            </div>
-                                            <label class="form-label">관련 내용</label>
-                                            <div class="controls">
-                                                <textarea name="mes_subject_content_<?php echo $i; ?>" class="w-100" placeholder="ex) - 19xx년 xxx대학교 의과대학 졸업" rows="5"><?php echo ${"mes_subject_content_".$i};?></textarea>
-                                            </div>
+                                            <?php for($j=1; $j<3; $j++){?>
+                                                <label class="form-label">소제목</label>
+                                                <div class="controls">
+                                                    <input type="text" class="form-control" name="mes_subject_type_<?php echo $i."_".$j; ?>"  placeholder="ex) 학력" value="<?php echo ${"mes_subject_type_".$i."_".$j};?>" >
+                                                </div>
+                                                <label class="form-label">관련 내용</label>
+                                                <div class="controls">
+                                                    <textarea name="mes_subject_content_<?php echo $i."_".$j; ?>" class="w-100" placeholder="ex) - 19xx년 xxx대학교 의과대학 졸업" rows="5"><?php echo ${"mes_subject_content_".$i."_".$j};?></textarea>
+                                                </div>
+                                            <?php }?>
                                         </div>
                                     <?php } ?>
 

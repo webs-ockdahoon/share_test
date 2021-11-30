@@ -163,6 +163,15 @@ class MasterController extends BaseController
             ),
         );
 
+        $menu["partner"] = array(
+            "name"=>"파트너사관리",
+            "icon"=>"fa-users",
+            "link"=>"",
+            "sub"=>array(
+                "partner"=>array("name"=>"파트너사관리","link"=>"/master/partner/partner",),
+            ),
+        );
+
         $menu["member"] = array(
             "name"=>"회원관리",
             "icon"=>"fa-users",

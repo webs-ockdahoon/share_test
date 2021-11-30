@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--medical page--medical-department-doctors');
-    $this->setVar('heroTitle', '이비인후과');
+    $this->setVar('heroTitle', $people_list[0]['med_medical_type']);
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -45,12 +45,12 @@
         <div class="section-divider">
             <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="/medical/departmentInfo" aria-selected="false">
+                    <a class="nav-link" href="/kor/medical/departmentInfo?title=<?php echo $_GET['title']; ?>" aria-selected="false">
                         진료과 소개
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" href="/medical/departmentDoctors" aria-selected="true">
+                    <a class="nav-link active" href="/kor/medical/departmentDoctors?title=<?php echo $_GET['title']; ?>" aria-selected="true">
                         의료진 소개
                     </a>
                 </li>
@@ -60,40 +60,40 @@
         <div class="section-box section-text">
             <h3 class="sr-only">의료진 소개</h3>
             <ul class="list-unstyled row row-sm mb-n4">
-                <?php foreach ($doctors as $doctor): ?>
+                <?php foreach ($people_list as $key => $val){ ?>
                     <li class="col-12 col-lg-6 mb-4">
                         <section class="card doctor-card">
                             <div class="card-thumbnail-body">
                                 <div class="card-thumbnail">
                                     <!-- // image size: 96px x 128px (3:4) -->
-                                    <span class="card-thumbnail__img bg-light rounded" style="background-image: url('<?php echo $doctor['image_src']; ?>');"></span>
+                                    <span class="card-thumbnail__img bg-light rounded" style="background-image: url('/uploaded/file/<?php echo $val["med_image"]?>');"></span>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title"><?php echo $doctor['name']; ?></h4>
+                                    <h4 class="card-title"><?php echo $val['med_name']; ?></h4>
                                     <dl class="data-table data-table--responsive-lg mb-0">
                                         <div class="data-table__row">
                                             <dt class="data-table__row-label text-primary">진료과</dt>
-                                            <dd class="data-table__row-text"><?php echo $doctor['department']; ?></dd>
+                                            <dd class="data-table__row-text"><?php echo $val['med_medical_type']; ?></dd>
                                         </div>
                                         <div class="data-table__row">
                                             <dt class="data-table__row-label text-primary">전문 진료분야</dt>
                                             <dd class="data-table__row-text">
-                                                <div class="text-truncate--multiple"><?php echo $doctor['specialized_field']; ?></div>
+                                                <div class="text-truncate--multiple"><?php echo $val['med_content']; ?></div>
                                             </dd>
                                         </div>
                                     </dl>
                                 </div>
                             </div>
 
-                            <a href="/medical/doctor" class="card-action">의료진 정보</a>
+                            <a href="/kor/medical/doctor?doctors=<?php echo $val['med_idx']; ?>" class="card-action">의료진 정보</a>
                         </section>
                     </li>
-                <?php endforeach; ?>
+                <?php } ?>
             </ul>
         </div>
 
         <div class="section-box text-right">
-            <a href="/medical/departments" class="btn btn-lg btn-wide btn-outline-gray text-gray--dark  border">전체 진료과</a>
+            <a href="/kor/medical/departments" class="btn btn-lg btn-wide btn-outline-gray text-gray--dark  border">전체 진료과</a>
         </div>
     </div>
 <?php echo $this->endSection(); ?>
