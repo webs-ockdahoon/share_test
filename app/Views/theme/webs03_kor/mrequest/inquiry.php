@@ -73,12 +73,12 @@
                     <label for="gender" class="col-12 col-md-3 require-mark--before">성별</label>
                     <div class="col-12 col-md-9">
                         <div class="custom-control custom-control-inline custom-radio custom-radio--v1">
-                            <input type="radio" name="mri_gender" id="male" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
+                            <input type="radio" name="mri_gender" id="male" value="남자" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
                             <label for="male" class="custom-control-label">남자</label>
                         </div>
 
                         <div class="custom-control custom-control-inline custom-radio custom-radio--v1">
-                            <input type="radio" name="mri_gender" id="female" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
+                            <input type="radio" name="mri_gender" id="female" value="여자" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
                             <label for="female" class="custom-control-label">여자</label>
                         </div>
                     </div>
@@ -160,6 +160,7 @@
         });
 
         $('.js__mrequest-form').on('submit', function(e) {
+            
             var $form = $(this);
             var formSuccessMsg = $form.data('successMsg') || 'submitted form.';
 

@@ -1,8 +1,8 @@
 <?php echo $this->extend($THEME_URL.'/layout/defaultSubLayout'); ?>
 
 <?php
-$this->setVar('bodyClassName', 'page--medical page--mrequest-review-inquiry');
-$this->setVar('heroTitle', '진료 후기');
+    $this->setVar('bodyClassName', 'page--medical page--mrequest-review-inquiry');
+    $this->setVar('heroTitle', '진료 후기');
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -14,7 +14,7 @@ $this->setVar('heroTitle', '진료 후기');
         <div class="section-divider-sm section-card section-card--sidebar text-center text-md-left text-muted bg-primary--air">
             <div class="section-card__sidebar mb-0">
                 <span class="material-icons text-center text-primary" style="font-size: 56px;">
-                rate_review
+                    rate_review
                 </span>
             </div>
             <div class="section-card__body">
@@ -26,7 +26,7 @@ $this->setVar('heroTitle', '진료 후기');
             </div>
         </div>
 
-        <form method="post" class="js__mrequest-form" novalidate data-success-msg="정상적으로 등록되었습니다.">
+        <form method="post" class="js__mrequest-form3" novalidate data-success-msg="정상적으로 등록되었습니다.">
             <fieldset class="section-divider-sm section-text">
                 <div class="section-header border-bottom border-dark">
                     <legend class="section-title">기본 정보 <small class="text-caption text-muted">(<strong class="text-danger">*</strong> 필수 기재)</small></legend>
@@ -35,28 +35,28 @@ $this->setVar('heroTitle', '진료 후기');
                 <div class="form-group form-group--v1 form-row">
                     <label for="name" class="col-12 col-md-3 require-mark--before">이름</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="name" class="form-control form-control-lg" placeholder="예) 홍길동" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
+                        <input type="text" name="mrr_name" value="" id="name" class="form-control form-control-lg" placeholder="예) 홍길동" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="nationality" class="col-12 col-md-3 require-mark--before">국적</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="nationality" class="form-control form-control-lg" placeholder="예) 한국" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
+                        <input type="text" name="mrr_nationality" value="" id="nationality" class="form-control form-control-lg" placeholder="예) 한국" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="email" class="col-12 col-md-3 require-mark--before">이메일</label>
                     <div class="col-12 col-md-9">
-                        <input type="email" name="" value="" id="email" class="form-control form-control-lg" placeholder="예) honggildong@gmail.com" required data-validator data-validator-type="required|email" data-required-msg="이메일을 입력해 주세요." data-email-msg="이메일 형식으로 입력해 주세요.">
+                        <input type="email" name="mrr_email" value="" id="email" class="form-control form-control-lg" placeholder="예) honggildong@gmail.com" required data-validator data-validator-type="required|email" data-required-msg="이메일을 입력해 주세요." data-email-msg="이메일 형식으로 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="tel" class="col-12 col-md-3 require-mark--before">연락처</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="tel" class="form-control form-control-lg js__cleave-input-number" placeholder="예) 01012345678" required data-validator data-validator-type="required" data-required-msg="연락처를 입력해 주세요.">
+                        <input type="text" name="mrr_tel" value="" id="tel" class="form-control form-control-lg js__cleave-input-number" placeholder="예) 01012345678" required data-validator data-validator-type="required" data-required-msg="연락처를 입력해 주세요.">
                         <p class="form-text text-caption text-warning">* 숫자만 입력</p>
                     </div>
                 </div>
@@ -70,13 +70,11 @@ $this->setVar('heroTitle', '진료 후기');
                 <div class="form-group form-group--v1 form-row">
                     <label for="subject" class="col-12 col-md-3 require-mark--before">분야 선택</label>
                     <div class="col-12 col-md-9">
-                        <select name="" value="" id="medical" class="form-control form-control-lg">
+                        <select name="mrr_medical_type" value="" id="medical" class="form-control form-control-lg">
                             <option value="">분야 선택</option>
-                            <option value="">진료1</option>
-                            <option value="">진료2</option>
-                            <option value="">진료3</option>
-                            <option value="">진료4</option>
-                            <option value="">진료5</option>
+                            <?php foreach($code_list as $key => $val){?>
+                                <option value="<?php echo $val['title']; ?>"><?php echo $val['title']; ?></option>
+                            <?php }?>
                         </select>
                     </div>
                 </div>
@@ -84,7 +82,7 @@ $this->setVar('heroTitle', '진료 후기');
                 <div class="form-group form-group--v1 form-row">
                     <label for="subject" class="col-12 col-md-3 require-mark--before">제목</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="subject" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="제목을 입력해 주세요.">
+                        <input type="text" name="mrr_title" value="" id="subject" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="제목을 입력해 주세요.">
                     </div>
                 </div>
 
@@ -92,7 +90,7 @@ $this->setVar('heroTitle', '진료 후기');
                 <div class="form-group form-group--v1 form-row">
                     <label for="content" class="col-12 col-md-3 require-mark--before">내용</label>
                     <div class="col-12 col-md-9">
-                        <textarea name="content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="내용을 입력해 주세요."></textarea>
+                        <textarea name="mrr_content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="내용을 입력해 주세요."></textarea>
                     </div>
                 </div>
 
@@ -100,7 +98,7 @@ $this->setVar('heroTitle', '진료 후기');
                     <div class="agreement-card">
                         <div class="agreement-card__control-group">
                             <div class="custom-control custom-checkbox custom-checkbox--v1">
-                                <input type="checkbox" name="agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
+                                <input type="checkbox" name="mrr_agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
                                 <label class="custom-control-label" for="agree"><span class="require-mark--before">개인 정보 이용 약관 동의</span></label>
                             </div>
 
@@ -151,7 +149,9 @@ $this->setVar('heroTitle', '진료 후기');
             datePattern: ['Y', 'm', 'd']
         });
 
-        $('.js__mrequest-form').on('submit', function(e) {
+        $('.js__mrequest-form3').on('submit', function(e) {
+            console.log('ddd');
+            return false;
             var $form = $(this);
             var formSuccessMsg = $form.data('successMsg') || 'submitted form.';
 

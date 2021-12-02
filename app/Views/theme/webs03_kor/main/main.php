@@ -179,24 +179,24 @@ $faqs = [
 
             <div class="swiper-container member-swiper js__member-swiper">
                 <div class="swiper-wrapper">
-                    <?php foreach(range(0, 4) as $t): ?>
+                    <?php foreach($mrr_list as $key => $val){ ?>
                         <div class="swiper-slide">
                                 <section class="card member-card">
                                     <button type="button" class="btn member-btn" data-toggle="modal" data-target="#pageReviewModal" title="진료후기">
                                         <div class="card-header">
-                                            <h3 class="card-title text-muted">김동아님의 후기</h3>
-                                            <p class="card-subtitle text-primary">재활의학과 방문</p>
+                                            <h3 class="card-title text-muted"><?php echo $val['mrr_name']; ?>님의 후기</h3>
+                                            <p class="card-subtitle text-primary"><?php echo $val['mrr_medical_type']; ?> 방문</p>
                                         </div>
 
                                         <div class="card-body">
                                             <p class="card-text text-muted">
-                                                그들은 있으며, 그들의 것은 같은 때문이다. 이상이 밝은 풀이 열락의 뿐이다. 귀는 곳으로 꽃이 어디 끝까지 산야에 봄바람이다. 없으면 바이며, 영원히 인생을 그리하였는가? 봄날의 동산에는 살 충분히 귀는 무엇을 운다.
+                                                <?php echo $val['mrr_content']; ?>
                                             </p>
                                         </div>
                                     </button>
                                 </section>
                         </div>
-                    <?php endforeach; ?>
+                    <?php } ?>
                 </div>
 
                 <div class="swiper-pagination swiper-pagination--v1 js__member-swiper__pagination"></div>
@@ -241,7 +241,7 @@ $faqs = [
                     </p>
                 </div>
                 <div class="card-action">
-                    <a href="/mrequest/inquiry" class="btn btn-primary card-btn">바로가기</a>
+                    <a href="/kor/mrequest/inquiry" class="btn btn-primary card-btn">바로가기</a>
                 </div>
             </div>
         </div>

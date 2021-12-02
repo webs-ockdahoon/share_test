@@ -154,6 +154,16 @@ class MasterController extends BaseController
             ),
         );
 
+        $menu["mrequest"] = array(
+            "name"=>"문의 및 후기 관리",
+            "icon"=>"fa-users",
+            "link"=>"",
+            "sub"=>array(
+                "inquiry"=>array("name"=>"진료 문의 관리","link"=>"/master/mrequest/inquiry",),
+                "reviewinquiry"=>array("name"=>"진료 후기 관리","link"=>"/master/mrequest/reviewinquiry",),
+            ),
+        );
+
         $menu["hospital"] = array(
             "name"=>"진료안내",
             "icon"=>"fa-users",
