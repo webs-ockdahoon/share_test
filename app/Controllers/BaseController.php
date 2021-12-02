@@ -179,9 +179,15 @@ class BaseController extends Controller
      */
     public function run($data=array()){
 
+        $lang = service('request')->getLocale();
+
         // header 파일 읽어들이기
         $header_file = $this->THEME_ROOT."/layout/header.php";
 
+        $config_info = model('App\Models\ConfigModel');
+        $config_company = $config_info->getConfig($lang, "company");
+        $data["config_site"] = $config_info->getConfig($lang,"site");
+        $data["config_company"] = $config_company;
         $data["header"] = $this->loadView($header_file, $data);
 
         // view 파일 읽어들이기
@@ -210,6 +216,10 @@ class BaseController extends Controller
             }
 
             $this->addCommonData($view["data"]);
+            if(!$this->useLayout) {
+                $view["data"]["config_company"] = $config_company;
+            }
+
             $views[] = view($viewPage, $view["data"]);
         }
 
@@ -231,6 +241,7 @@ class BaseController extends Controller
         $data["messageFlag"] = $this->session->getFlashdata('messageFlag');
 
         if($this->useLayout) {
+            $data["config_company"] = $config_company;
             $layout = view($this->THEME_ROOT . "/layout/layout", $data);
             return $layout;
         }else{

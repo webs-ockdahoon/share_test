@@ -293,3 +293,9 @@ function include_view($f){
         echo "<div>File Not Found : " . $f . "</div>";
     }
 }
+
+function str_nowrap($str){
+    $str = str_replace(array("</br>","<br>")," ",$str);
+    $str = strip_tags($str);
+    return $str;
+}
