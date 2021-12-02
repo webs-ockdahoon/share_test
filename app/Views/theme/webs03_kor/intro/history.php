@@ -10,32 +10,83 @@ $this->setVar('heroTitle', '병원 연혁');
 <?php echo $this->endSection(); ?>
 
 <?php echo $this->section('content'); ?>
+<?php
+//print_r($history_list);
+//echo "<br><br>".count($history_list);
+//exit;
+?>
 
     <article class="container section">
 
         <div class="container section mt-0 section-text text-muted">
             <div class="section-divider">
-                <!-- Nav tabs -->
                 <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="history01-tab" data-toggle="tab" href="#history01" role="tab" aria-controls="history01" aria-selected="true">
-                            현재~2000
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="history02-tab" data-toggle="tab" href="#history02" role="tab" aria-controls="history02" aria-selected="false">
-                            1999~1990
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="history03-tab" data-toggle="tab" href="#history03" role="tab" aria-controls="history03" aria-selected="false">
-                            1989~1985
-                        </a>
-                    </li>
-                </ul>
+                    <?php
+                    $j=0; // 배열값 출력용 변수
+                    //$code_list = array_reverse($code_list); // 배열 뒤집기
+                    for($i=1; $i<=count($code_list); $i++){
+                        if($j==0){
+                            $as = "true"; // 컨트롤요소?
+                            $ac = "active"; // 현재 탭
+                        }else{
+                            $as = "false";
+                            $ac = "";
+                        }
+                        ?>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link <?php echo $ac; ?>" id="history0<?php echo $i; ?>-tab" data-toggle="tab" href="#history0<?php echo $i; ?>" role="tab" aria-controls="history0<?php echo $i; ?>" aria-selected="<?php echo $as; ?>">
+                                <?php echo $code_list[$j]['hoh_position'];?>
+                            </a>
+                        </li>
+                    <?php
+                        $j = $j+1;
+                    } ?>
             </div>
 
+            <div class="tab-content">
+                <?php
+                $p = 1;
+                $txt = "";
+                for($i=0; $i<count($code_list); $i++){
+                    if($i==0){
+                        $ac = "active"; // 현재 탭
+                    }else{
+                        $ac = "";
+                    }
+                    ?>
+                    <div class="tab-pane <?php echo $ac; ?>" id="history0<?php echo $p; ?>" role="tabpanel" aria-labelledby="history0<?php echo $p; ?>-tab">
+                        <h3 class="sr-only"><?php echo $code_list[$i]['hoh_position'];?></h3>
+                        <div class="section-body section-text text-muted">
+                            <?php for($j=0; $j<count($history_list); $j++){
+                                if($history_list[$j]['hoh_position'] == $code_list[$i]['hoh_position']){
+                                ?>
+                                    <div class="history-wrap">
+                                        <div class="history-year"><?php echo $history_list[$j]['hoh_year'];?></div>
 
+                                        <?php for($k=1; $k<=20; $k++){
+                                            if(!empty($history_list[$j]['hoh_date_start_'.$k])){
+                                            ?>
+                                            <div class="history-flex-box">
+                                                <div class="history-box">
+                                                    <p class="history-date"><?php echo $history_list[$j]['hoh_date_start_'.$k]; ?></p>
+                                                    <div class="history-text">
+                                                        <ul class="list-bullet">
+                                                            <li class="mb-3"><?php echo $history_list[$j]['hoh_content_'.$k]; ?></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        }?>
+                                    </div>
+                            <?php }
+                            }?>
+                        </div>
+                    </div>
+                <?php $p= $p+1; }?>
+            </div>
+
+            <?php /*
             <div class="tab-content">
                 <div class="tab-pane active" id="history01" role="tabpanel" aria-labelledby="history01-tab">
                     <h3 class="sr-only">현재~2000</h3>
@@ -359,6 +410,7 @@ $this->setVar('heroTitle', '병원 연혁');
                     </div>
                 </div>
             </div>
+            */ ?>
         </div>
     </article>
 <?php echo $this->endSection(); ?>

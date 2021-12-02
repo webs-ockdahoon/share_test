@@ -40,22 +40,22 @@
 <!--        </div>-->
 
         <ul class="list-unstyled medical-list">
-            <?php foreach($departments as $department_index => $department): ?>
+            <?php foreach($code_list as $key => $val){ ?>
                 <li>
                     <section class="medical-card medical-card--focusable text-center" tabindex="0">
                         <div class="card-content">
-                            <div class="card-icon" style="background-image: url(<?php echo $THEME_URL; ?>/images/medical/department-icon<?php echo str_pad($department_index+1, 3, '0', STR_PAD_LEFT); ?>.png);"></div>
-                            <h3 class="card-title font-weight-normal"><?php echo $department; ?></h3>
+                            <div class="card-icon" style="background-image: url('/uploaded/file/<?php echo $val["cde_image"]?>');"></div>
+                            <h3 class="card-title font-weight-normal"><?php echo $val['cde_title']; ?></h3>
                         </div>
 
                         <div class="card-content card-hover-content bg-secondary">
-                            <span class="d-block card-title text-white text-truncate"><?php echo $department; ?> <span class="sr-only">메뉴</span></span>
-                            <a href="/medical/departmentInfo" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
-                            <a href="/medical/departmentDoctors" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
+                            <span class="d-block card-title text-white text-truncate"><?php echo $val['cde_title']; ?><span class="sr-only">메뉴</span></span>
+                            <a href="/kor/medical/departmentInfo?title=<?php echo $val['cde_title']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
+                            <a href="/kor/medical/departmentDoctors?title=<?php echo $val['cde_title']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
                         </div>
                     </section>
                 </li>
-            <?php endforeach; ?>
+            <?php } ?>
         </ul>
     </div>
 <?php echo $this->endSection(); ?>

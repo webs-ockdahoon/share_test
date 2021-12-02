@@ -21,22 +21,22 @@
 <?php echo $this->section('content'); ?>
     <div class="container section mt-0">
         <ul class="list-unstyled medical-list">
-            <?php foreach($specialized as $specialized_index => $specialized): ?>
+           <?php foreach($code_list as $key => $val){ ?>
                 <li>
                     <section class="medical-card medical-card--focusable text-center" tabindex="0">
                         <div class="card-content">
-                            <div class="card-icon" style="background-image: url(<?php echo $THEME_URL; ?>/images/center/specialized-icon<?php echo str_pad($specialized_index+1, 3, '0', STR_PAD_LEFT); ?>.png);"></div>
-                            <h3 class="card-title font-weight-normal"><?php echo $specialized; ?></h3>
+                            <div class="card-icon" style="background-image: url('/uploaded/file/<?php echo $val["csp_image"]?>');"></div>
+                            <h3 class="card-title font-weight-normal"><?php echo $val['csp_title']; ?></h3>
                         </div>
 
                         <div class="card-content card-hover-content bg-secondary">
-                            <span class="d-block card-title text-white text-truncate"><?php echo $specialized; ?> <span class="sr-only">메뉴</span></span>
-                            <a href="/center/specializedInfo" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
-                            <a href="/center/specializedDoctors" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
+                            <span class="d-block card-title text-white text-truncate"><?php echo $val['csp_title']; ?><span class="sr-only">메뉴</span></span>
+                            <a href="/kor/center/specializedInfo?title=<?php echo $val['csp_title']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
+                            <a href="/kor/center/specializedDoctors?title=<?php echo $val['csp_title']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
                         </div>
                     </section>
                 </li>
-            <?php endforeach; ?>
+           <?php } ?>
         </ul>
     </div>
 <?php echo $this->endSection(); ?>
