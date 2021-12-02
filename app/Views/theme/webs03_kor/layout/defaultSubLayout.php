@@ -6,6 +6,14 @@
 
     $heroTitle = $heroTitle ?? 'Dong-a University Hospital';
     $heroText = $heroText ?? NULL;
+
+    // 현재 위치한 1차 메뉴명 구하기
+    $now_menu_title = "";
+    $now_menu_sub_title = "";
+    if(isset($menu_info[$menu_active[0]]["mnu_title"])){
+        $now_menu_title = $menu_info[$menu_active[0]]["mnu_title"];
+        $now_menu_sub_title = $menu_info[$menu_active[0]]["mnu_sub_title"];
+    }
 ?>
 
 <?php echo $this->section('beforeContent'); ?>
@@ -14,13 +22,21 @@
         <div class="container container-lg">
             <ol class="page-breadcrumb__list">
                 <li class="is-home">
-                    <a href="/template" class="btn btn-icon page-breadcrumb__link-home" title="홈으로 이동하기">
+                    <a href="/kor" class="btn btn-icon page-breadcrumb__link-home" title="홈으로 이동하기">
                         <span class="material-icons-round">home</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/template/sub" class="page-breadcrumb__link">Depth 1</a>
+                    <a href="/template/sub" role="button" id="subDepth2" class="page-breadcrumb__toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Depth 2 <span class="icon icon-xs icon-toggle"></span>
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="subDepth2">
+                        <a class="dropdown-item" href="#">Depth 2 - menu 1</a>
+                        <a class="dropdown-item" href="#">Depth 2 - menu 2</a>
+                        <a class="dropdown-item" href="#">Depth 2 - menu 3</a>
+                    </div>
                 </li>
 
                 <li class="dropdown">
