@@ -17,7 +17,7 @@
             <div class="container default-page-header__container">
                 <h1 class="default-page-header__brand">
                     <a href="/kor" class="brand-logo">
-                        <img src="<?php echo $THEME_URL; ?>/images/logo.png" alt="동아대학교병원" width="162" height="36" class="img-fluid">
+                        <img src="<?php echo $THEME_URL; ?>/images/logo.png" alt="<?php echo $config_company['name']?>" width="162" height="36" class="img-fluid">
                     </a>
                 </h1>
 
@@ -37,8 +37,7 @@
                             <span class="sr-only">상담시간</span>
                         </dt>
                         <dd class="item-text">
-                            월 – 금: 00AM - 00PM<br>
-                            토 – 일: 00AM - 00PM
+                            <?php echo nl2br($config_company['work_time'])?>
                         </dd>
                     </div>
 
@@ -48,7 +47,7 @@
                             <span class="sr-only">주소</span>
                         </dt>
                         <dd class="item-text">
-                            부산광역시 서구 대신공원로 26
+                            <?php echo $config_company['addr']?>
                         </dd>
                     </div>
 
@@ -58,7 +57,7 @@
                             <span class="sr-only">연락처</span>
                         </dt>
                         <dd class="item-text">
-                            <span class="d-none d-md-block">Call Us:<br></span>(+82) 51-240-2306
+                            <span class="d-none d-md-block">Call Us:<br></span><?php echo $config_company['tel']?>
                         </dd>
                     </div>
                 </dl>
@@ -98,7 +97,7 @@
                                 <span class="material-icons-round icon">place</span>
                                 <span class="sr-only">주소</span>
                             </dt>
-                            <dd class="item-text">49201 부산광역시 서구 대신공원로 26</dd>
+                            <dd class="item-text"><?php echo $config_company['addr']?></dd>
                         </div>
 
                         <div class="default-page-footer__info-item">
@@ -107,13 +106,13 @@
                                 <span class="sr-only">이메일</span>
                             </dt>
                             <dd class="item-text">
-                                <a href="mailto:funky293@hanmail.net">funky293@hanmail.net</a>
+                                <a href="mailto:<?php echo $config_company['email']?>"><?php echo $config_company['email']?></a>
                             </dd>
                         </div>
 
                         <div class="default-page-footer__info-item default-page-footer__info-item--tel">
                             <dt class="sr-only">전화번호</dt>
-                            <dd class="item-text">+82 51-240-2306</dd>
+                            <dd class="item-text"><?php echo $config_company['tel']?></dd>
                         </div>
                     </dl>
                 </div>

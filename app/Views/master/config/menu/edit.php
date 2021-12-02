@@ -26,9 +26,16 @@
                                     <div class="col-xs-12">
 
                                         <div class="form-group">
-                                            <label class="form-label">메뉴명</label>
+                                            <label class="form-label">메뉴명(국문)</label>
                                             <div class="controls fieldText">
-                                                <?php echo $parent_info["mnu_title"]?>
+                                                <?php echo $parent_info["mnu_title_kor"]?>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">메뉴명(러시아)</label>
+                                            <div class="controls fieldText">
+                                                <?php echo $parent_info["mnu_title_rus"]?>
                                             </div>
                                         </div>
 
@@ -62,11 +69,55 @@
                                 <div class="col-xs-12">
 
                                     <div class="form-group">
-                                        <label class="form-label">메뉴명</label>
+                                        <label class="form-label">메뉴명(국문)</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" id="mnu_title" name="mnu_title"
-                                                   placeholder="메뉴명" value="<?php echo $mnu_title?>" required>
+                                            <input type="text" class="form-control" id="mnu_title_kor" name="mnu_title_kor"
+                                                   placeholder="메뉴명" value="<?php echo $mnu_title_kor?>" required>
                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">사용여부(국문) </label>
+                                        <div class="controls fieldText">
+                                            <div class='radio radio-success'>
+                                                <input type='radio' name='mnu_display_kor' value='Y' id='mnu_display_kor1'
+                                                    <?php if($mnu_display_kor!="N")echo 'checked';?>>
+                                                <label for='mnu_display_kor1'>사용</label>
+                                            </div>
+                                            <div class='radio radio-danger'>
+                                                <input type='radio' name='mnu_display_kor' value='N' id='mnu_display_kor2'
+                                                    <?php if($mnu_display_kor=="N")echo 'checked';?>>
+                                                <label for='mnu_display_kor2'>사용안함</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">메뉴명(러시아)</label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="mnu_title_rus" name="mnu_title_rus"
+                                                   placeholder="메뉴명" value="<?php echo $mnu_title_rus?>" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">사용여부(러시아) </label>
+                                        <div class="controls fieldText">
+                                            <div class='radio radio-success'>
+                                                <input type='radio' name='mnu_display_rus' value='Y' id='mnu_display_rus1'
+                                                    <?php if($mnu_display_rus!="N")echo 'checked';?>>
+                                                <label for='mnu_display_rus1'>사용</label>
+                                            </div>
+                                            <div class='radio radio-danger'>
+                                                <input type='radio' name='mnu_display_rus' value='N' id='mnu_display_rus2'
+                                                    <?php if($mnu_display_rus=="N")echo 'checked';?>>
+                                                <label for='mnu_display_rus2'>사용안함</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    ※ 메뉴명은 국문/러시아 모두 필수입력입니다.<br>특정 언어에서 사용하지 않을 경우 간단하게 입력 후 "사용안함"처리 해주세요  예) 점(.)
                                     </div>
 
                                     <?php
@@ -102,7 +153,6 @@
                                     </div>
                                     -->
                                     <input type="hidden" name="mnu_url_type" id="mnu_url_type" value="direct">
-
 
                                     <div class="form-group" id="mnu_url_direct">
                                         <label class="form-label">링크주소</label>
@@ -141,21 +191,7 @@
                                     </div>
 
 
-                                    <div class="form-group">
-                                        <label class="form-label">사용여부 </label>
-                                        <div class="controls fieldText">
-                                            <div class='radio radio-success'>
-                                                <input type='radio' name='mnu_display' value='Y' id='mnu_display1'
-                                                    <?php if($mnu_display!="N")echo 'checked';?>>
-                                                <label for='mnu_display1'>사용</label>
-                                            </div>
-                                            <div class='radio radio-danger'>
-                                                <input type='radio' name='mnu_display' value='N' id='mnu_display2'
-                                                    <?php if($mnu_display=="N")echo 'checked';?>>
-                                                <label for='mnu_display2'>사용안함</label>
-                                            </div>
-                                        </div>
-                                    </div>
+
 
                                 </div>
                             </div>

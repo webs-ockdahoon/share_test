@@ -4,8 +4,13 @@
     </div>
     <div id="container">
 
+        <a class="btn btn-lg <?php if($con_lang=="rus")echo "btn-primary";?>" href="<?php echo $cont_url?>/company/rus" >러시아</a>
+        <a class="btn btn-lg <?php if($con_lang=="kor")echo "btn-primary";?>" href="<?php echo $cont_url?>/company/kor" >국문</a>
+
         <!-- Form Box -->
         <form method="post" enctype="multipart/form-data" id="editForm">
+            <input type="hidden" name="con_lang" value="<?php echo $con_lang?>">
+
             <!-- row -->
             <div class="row">
                 <div class='col-lg-8 col-lg-offset-2'>
@@ -47,6 +52,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--
                             <div class="row mb10">
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -57,6 +63,7 @@
                                     </div>
                                 </div>
                             </div>
+                            -->
                             <div class="row mb10">
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -101,6 +108,17 @@
                             <div class="row mb10">
                                 <div class="col-xs-12">
                                     <div class="form-group">
+                                        <label for="inMaddr2" class="col-sm-2 control-label">업무시간</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" id="work_time" name="work_time" placeholder="업무시간"><?php echo $work_time?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb10">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
                                         <label for="inCTname" class="col-sm-2 control-label">개인정보책임자명</label>
                                         <div class="col-sm-10 col-md-5 col-lg-3">
                                             <input type="text" class="form-control" id="manager" name="manager" placeholder="개인정보책임자명" value="<?php echo $manager?>" >
@@ -118,6 +136,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--
                             <div class="row mb10">
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -135,6 +154,7 @@
                                     </div>
                                 </div>
                             </div>
+                            -->
                         </div>
 
                     </div>

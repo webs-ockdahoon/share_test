@@ -195,8 +195,8 @@ class BaseModel extends Model
      * @param $idx
      * @param $display
      */
-    public function set_display($idx,$display){
-        $data[$this->prefix."_display"] = $display;
+    public function set_display($idx,$field,$flag){
+        $data[$this->prefix."_".$field] = $flag;
         $this->update($idx,$data);
     }
 

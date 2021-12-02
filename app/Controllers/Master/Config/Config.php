@@ -15,7 +15,7 @@ class Config extends MasterController
         return redirect()->to($this->cont_url."/company");
     }
 
-    public function company()
+    public function company($con_lang="rus")
     {
         $group = "company";
 
@@ -26,9 +26,10 @@ class Config extends MasterController
             $data["info"] = $info;
             $this->model->edit($data);
             $this->session->setFlashdata('messageFlag', 'edit');
-            return redirect()->to($this->cont_url."/".$group);
+            return redirect()->to($this->cont_url."/".$group."/".$info['con_lang']);
         }else{
-            $data = $this->model->getConfig($group);
+            $data = $this->model->getConfig($con_lang,$group);
+            $data["con_lang"] = $con_lang;
             $this->setView($group, $data);
             return $this->run();
         }
@@ -37,7 +38,7 @@ class Config extends MasterController
 
 
 
-    public function site()
+    public function site($con_lang="rus")
     {
         $group = "site";
 
@@ -49,10 +50,10 @@ class Config extends MasterController
 
             $this->model->edit($data);
             $this->session->setFlashdata('messageFlag', 'edit');
-            return redirect()->to($this->cont_url."/".$group);
+            return redirect()->to($this->cont_url."/".$group."/".$info['con_lang']);
         }else{
-            $data = $this->model->getConfig($group);
-
+            $data = $this->model->getConfig($con_lang,$group);
+            $data["con_lang"] = $con_lang;
             $this->setView($group, $data);
             return $this->run();
         }

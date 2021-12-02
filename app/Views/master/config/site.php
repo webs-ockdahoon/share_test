@@ -4,8 +4,12 @@
     </div>
     <div id="container">
 
+            <a class="btn btn-lg <?php if($con_lang=="rus")echo "btn-primary";?>" href="<?php echo $cont_url?>/site/rus" >러시아</a>
+            <a class="btn btn-lg <?php if($con_lang=="kor")echo "btn-primary";?>" href="<?php echo $cont_url?>/site/kor" >국문</a>
+
             <!--  Form Box -->
             <form method="post" enctype="multipart/form-data" id="editForm">
+                <input type="hidden" name="con_lang" value="<?php echo $con_lang?>">
                 <!-- row -->
                 <div class="row">
                     <div class='col-lg-6'>
@@ -94,80 +98,6 @@
                     </div>
 
 
-                    <div class='col-lg-6 clear'>
-                        <div class="grid simple ">
-                            <div class="grid-title no-border">
-                                <h4>카카오 로그인 연동 설정</h4>
-                            </div>
-
-                            <div class="grid-body editForm">
-
-                                <div class="row">
-                                    <div class="col-xs-12">
-
-                                        <div class="form-group">
-                                            <label for="inCTname" class="col-xs-12 col-sm-2 control-label">카카오 로그인 사용</label>
-                                            <div class="col-xs-8 mt10">
-                                                <label class='mr20' style='display:inline-block'><input type='radio' name='kakaologin_use' value='Y'  <?php echo ($kakaologin_use!="N")?"checked":""?> > 사용</label>
-                                                <label  style='display:inline-block'><input type='radio' name='kakaologin_use' value='N'  <?php echo ($kakaologin_use=="N")?"checked":""?> > 미사용</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="inCTname" class="col-xs-12 col-sm-2 control-label">REST API키</label>
-                                            <div class="col-xs-8 col-sm-5 ">
-                                                <input type="text" class="form-control" id="kakaologin_apikey" name="kakaologin_apikey" placeholder="카카오 로그인 REST API키" value="<?php echo $kakaologin_apikey?>">
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class='col-lg-6'>
-                        <div class="grid simple ">
-                            <div class="grid-title no-border">
-                                <h4>네이버 로그인 연동 설정</h4>
-                            </div>
-
-                            <div class="grid-body editForm">
-
-                                <div class="row">
-                                    <div class="col-xs-12">
-
-                                        <div class="form-group">
-                                            <label for="inCTname" class="col-xs-12 col-sm-2 control-label">네이버로그인 사용</label>
-                                            <div class="col-xs-8 mt10">
-                                                <label class='mr20' style='display:inline-block'><input type='radio' name='naverlogin_use' value='Y' <?php echo ($naverlogin_use!="N")?"checked":""?> > 사용</label>
-                                                <label  style='display:inline-block'><input type='radio' name='naverlogin_use' value='N' <?php echo ($naverlogin_use=="N")?"checked":""?> > 미사용</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="inCTname" class="col-xs-12 col-sm-2 control-label">ClientID</label>
-                                            <div class="col-xs-8 col-sm-5 ">
-                                                <input type="text" class="form-control" id="naverlogin_clientid" name="naverlogin_clientid" placeholder="네이버 로그인 ClientID" value="<?php echo $naverlogin_clientid?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="inCTname" class="col-xs-12 col-sm-2 control-label">Secret Code</label>
-                                            <div class="col-xs-8 col-sm-5 ">
-                                                <input type="text" class="form-control" id="naverlogin_secret" name="naverlogin_secret" placeholder="네이버 로그인 Secret Code" value="<?php echo $naverlogin_secret?>">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
                 <!--/ row -->
                 <!-- row -->

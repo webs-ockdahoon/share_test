@@ -20,9 +20,13 @@ class Menu extends MasterController
     public function edit($idx=""){
 
         $validate = $this->validate([
-            'mnu_title' => [
+            'mnu_title_kor' => [
                 'rules'=>'required',
-                'errors'=> ['required'=>'메뉴명을 입력해 주세요.'],
+                'errors'=> ['required'=>'메뉴명(국문)을 입력해 주세요.'],
+            ],
+            'mnu_title_rus' => [
+                'rules'=>'required',
+                'errors'=> ['required'=>'메뉴명(러시아)을 입력해 주세요.'],
             ],
 
         ]);
