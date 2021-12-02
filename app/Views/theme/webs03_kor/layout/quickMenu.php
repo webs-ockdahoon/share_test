@@ -23,10 +23,17 @@
     <button type="button" class="btn-close">    </button>
 </div>
 
-<script src="/assets/plugins/jquery/jquery-3.6.0.min.js"></script>
-<script src="/assets/plugins/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="<?php echo $THEME_URL; ?>/script/common.js"></script>
+<?php
+/* 페이지 하단 공통으로 아래 스트립트가 삽입되어 있어 아래 부분 코멘트 처리
+ * 중복 삽입시 스크립트도 중복 동작함
+<!--<script src="/assets/plugins/jquery/jquery-3.6.0.min.js"></script>-->
+<!--<script src="/assets/plugins/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>-->
+<!--<script src="--><?php //echo $THEME_URL; ?><!--/script/common.js"></script>-->
+ */
+?>
 
+<?php /* 페이지 렌더링 속도 개선을 위해 스크립트는 $this->section('appendBody')로 정의하여 삽입 */ ?>
+<?php $this->section('appendBody'); ?>
 <script>
     $(document).ready(function(){
         $('.btn-close').on('click', function(e) {
@@ -35,3 +42,4 @@
         });
     });
 </script>
+<?php $this->endSection(); ?>
