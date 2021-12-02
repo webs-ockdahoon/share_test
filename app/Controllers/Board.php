@@ -17,11 +17,11 @@ class Board extends BaseController
     protected $mem_info = array();
 
 
-    public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
+    public function __construct()
     {
 
         // Do Not Edit This Line
-        parent::initController($request, $response, $logger);
+        parent::__construct();
 
         $uri = service('uri');
         $segments = $uri->getSegments();
@@ -65,6 +65,21 @@ class Board extends BaseController
      */
     public function index($mode,$boc_code="",$data_idx="",$args1="")
     {
+
+        /*************************************************************
+         * 언어 상태에 따른 게시판 코드 강제 변환
+         * ※ 프로젝트의 URL 규칙에 따라서 변경될 수 있음
+         *************************************************************/
+        $lang = service('request')->getLocale();
+        $config = config(App::class);
+        if($lang!=$config->defaultLocale){
+            $board_lang_code = substr($boc_code,strlen($boc_code)-strlen($lang));
+            if($board_lang_code!=$lang){
+                return redirect()->to("/".$lang."/board/".$boc_code.$lang);
+            }
+        }
+
+
         if(!$this->conf = $this->BoardConfModel->getInfo($boc_code))alert("존재하지 않는 게시판입니다.");
         $this->boc_code = $boc_code;
         $this->data_idx = $data_idx;
@@ -479,14 +494,13 @@ class Board extends BaseController
                 "fup"=>$fup,
             );
 
-
-
             $this->BoardFileModel->edit($file_info);
 
             // 기존 파일 삭제
             $uploader->clear_old_file();
 
-            return redirect()->to($this->cont_url . "/" . $this->boc_code . "?" . $info["qstr"]);
+            $this->addData($data);
+            return redirect()->to($data['list_page'] . "?" . $info["qstr"]);
         }
 
     }
@@ -560,7 +574,8 @@ class Board extends BaseController
 
             // DB에서 글 삭제
             if($this->model->delete($idx)){
-                alert("삭제되었습니다.",$this->cont_url . "/" . $this->boc_code . "?" . $info["qstr"]);
+                $this->addData($data);
+                alert("삭제되었습니다.",$data['list_page'] . "?" . $info["qstr"]);
             }
         }
     }
@@ -603,9 +618,20 @@ class Board extends BaseController
     private function addData(&$data)
     {
         // 글읽기/글쓰기 페이지 지정
+
         $data["boc_title"]=$this->conf["boc_title"];
         $data["boc_code"] = $this->boc_code;
-        $data["list_page"] = $this->cont_url . "/" . $this->boc_code;
+
+        // 언어 분기 처리 - 이동 경로 수정
+        $lang = service('request')->getLocale();
+        $config = config(App::class);
+        if($lang!=$config->defaultLocale){
+            $data["list_page"] = "/".$lang.$this->cont_url . "/" . $this->boc_code;
+        }else{
+            $data["list_page"] = $this->cont_url . "/" . $this->boc_code;
+        }
+
+
         $data["read_page"] = $data["list_page"] . "/read";
         $data["write_page"] = $data["list_page"] . "/write";
         $data["reply_page"] = $data["list_page"] . "/reply";

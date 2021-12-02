@@ -27,8 +27,8 @@ class Banner extends MasterController
 
         $validate = $this->validate([
             'ban_title' => [
-                'rules'=>'required|min_length[3]',
-                'errors'=> ['required'=>'제목을 입력해 주세요.','min_length'=>'제목을 3자이상 입력해 주세요.'],
+                'rules'=>'required',
+                'errors'=> ['required'=>'제목을 입력해 주세요.'],
             ],
             'ban_date_start' => [
                 'rules'=>'required',

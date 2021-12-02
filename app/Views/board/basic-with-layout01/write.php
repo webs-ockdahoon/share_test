@@ -67,6 +67,7 @@
                     </tr>
                 <?php }?>
 
+                <?php if(!isset($mem_info["mem_id"])){?>
                 <tr>
                     <th>작성자</th>
                     <td>
@@ -80,6 +81,7 @@
                         <input type="password" name="bod_password" id="bod_password" class="form-control" minlength="4" placeholder="4자 이상 입력해 주세요." required>
                     </td>
                 </tr>
+                <?php }?>
 
                 <tr>
                     <th >제목</th>

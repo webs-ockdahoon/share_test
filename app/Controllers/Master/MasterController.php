@@ -182,6 +182,7 @@ class MasterController extends BaseController
             ),
         );
 
+        /*
         $menu["member"] = array(
             "name"=>"회원관리",
             "icon"=>"fa-users",
@@ -191,6 +192,7 @@ class MasterController extends BaseController
                 "manager"=>array("name"=>"관리자 설정","link"=>"/master/member/manager",),
             ),
         );
+        */
 
         $menu["banner"] = array(
             "name"=>"배너관리",

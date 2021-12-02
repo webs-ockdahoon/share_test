@@ -31,8 +31,8 @@ class Category extends MasterController
 
         $validate = $this->validate([
             'cat_title' => [
-                'rules'=>'required|min_length[3]',
-                'errors'=> ['required'=>'분류명을 입력해 주세요.','min_length'=>'분류명을 3자이상 입력해 주세요.'],
+                'rules'=>'required',
+                'errors'=> ['required'=>'분류명을 입력해 주세요.'],
             ],
         ]);
 

@@ -27,8 +27,8 @@ class Popup extends MasterController
 
         $validate = $this->validate([
             'pop_title' => [
-                'rules'=>'required|min_length[3]',
-                'errors'=> ['required'=>'제목을 입력해 주세요.','min_length'=>'제목을 3자이상 입력해 주세요.'],
+                'rules'=>'required',
+                'errors'=> ['required'=>'제목을 입력해 주세요.'],
             ],
             'pop_date_start' => [
                 'rules'=>'required',
