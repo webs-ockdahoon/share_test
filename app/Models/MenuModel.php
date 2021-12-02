@@ -5,7 +5,7 @@ class MenuModel extends BaseModel
 {
     protected $table      = 'menu';
     protected $prefix     = 'mnu';
-    protected $allowedFields = ['mnu_idx','mnu_code','mnu_title','mnu_url_type','mnu_url','mnu_page_idx','mnu_display','mnu_comment',
+    protected $allowedFields = ['mnu_idx','mnu_code','mnu_title_kor','mnu_title_rus','mnu_url_type','mnu_url','mnu_page_idx','mnu_display_kor','mnu_display_rus','mnu_comment',
                                 'mnu_sub_title',
                                 'mnu_created_id','mnu_created_ip','mnu_created_at',
                                 'mnu_updated_id','mnu_updated_ip','mnu_updated_at',
@@ -33,7 +33,7 @@ class MenuModel extends BaseModel
         $lang = service('request')->getLocale();
 
         $this->where("mnu_deleted_at is null");
-        $this->where("mnu_display","Y");
+        $this->where("mnu_display_".$lang,"Y");
         $this->orderBy("mnu_code");
         $result = $this->get()->getResultArray();
         $menu_list = array();
@@ -47,6 +47,10 @@ class MenuModel extends BaseModel
             if($config->defaultLocale!=$lang && $rs['mnu_url'] && substr($rs['mnu_url'],0,1)=='/'){
                 $rs['mnu_url'] = '/' . $lang . $rs['mnu_url'];
             }
+
+            // 언어별 메뉴 처리
+            $rs["mnu_title"] = $rs["mnu_title_".$lang];
+            if(!$rs["mnu_title"])continue;  // 메뉴명 미입력시 노출안함
 
             // 아이거 루프 못돌리겠다.
             if($menu_level==1){

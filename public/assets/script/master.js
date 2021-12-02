@@ -305,15 +305,19 @@ $(function(){
 
             var idx = $(this).prop("id").replace("display_","");
 
+            // 필드값도 체크해서 전달하도록 수정
+            var idx = $(this).prop("id").substr($(this).prop("id").lastIndexOf("_")+1);
+            var display_field = $(this).prop("id").substr(0,$(this).prop("id").lastIndexOf("_"));
+
             $.ajax({
                 url:cont_url + "/set_display",
-                data:{'idx':idx,'display':n_display},
+                data:{'idx':idx,'field':display_field,'flag':n_display},
                 dataType:'JSON',
                 method:'POST',
                 async:false,
                 success:function(data){
                     if(data["result"]=="OK"){
-                        var btn_obj = $("#display_"+idx);
+                        var btn_obj = $("#"+display_field+"_"+idx);
                         btn_obj.html(n_display);
                         if(n_display=="Y")btn_obj.removeClass("btn-danger").addClass("btn-success");
                         else btn_obj.removeClass("btn-success").addClass("btn-danger");

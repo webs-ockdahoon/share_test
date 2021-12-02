@@ -21,10 +21,13 @@
                             <table class="table table-bordered no-more-tables">
                                 <thead>
                                 <tr>
-                                    <th>메뉴명</th>
+                                    <th>메뉴명(국문)</th>
+                                    <th>사용여부(국문)</th>
+                                    <th>메뉴명(러시아)</th>
+                                    <th>사용여부(러시아)</th>
                                     <th>URL</th>
 
-                                    <th>사용여부</th>
+
                                     <th>비고</th>
                                     <th>하위추가</th>
                                     <th>수정</th>
@@ -42,9 +45,14 @@
                                             if($level_space)$level_space.="┗&nbsp;&nbsp;";
                                 ?>
                                     <tr>
-                                        <td class="text-left"><?php echo $level_space.$row["mnu_title"]?></td>
+                                        <td class="text-left"><?php echo $level_space.$row["mnu_title_kor"]?></td>
+                                        <td><button class="btn toggle_display_btn btn-mini" type="button" id="display_kor_<?php echo $row["mnu_idx"]?>"><?php echo $row["mnu_display_kor"]?></button></td>
+
+                                        <td class="text-left"><?php echo $level_space.$row["mnu_title_rus"]?></td>
+                                        <td><button class="btn toggle_display_btn btn-mini" type="button" id="display_rus_<?php echo $row["mnu_idx"]?>"><?php echo $row["mnu_display_rus"]?></button></td>
+
                                         <td><?php echo $row["mnu_url"]?></td>
-                                        <td><button class="btn toggle_display_btn btn-mini" type="button" id="display_<?php echo $row["mnu_idx"]?>"><?php echo $row["mnu_display"]?></button></td>
+
                                         <td><?php echo $row["mnu_comment"]?></td>
                                         <td class='listBtn'>
                                             <?php if($row["mnu_level"]==1){?>

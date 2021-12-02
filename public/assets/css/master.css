@@ -37,9 +37,9 @@ body {
 
 .grid-body.editForm{}
 .grid-body.editForm .form-group{overflow:hidden;}
-.grid-body.editForm .form-group .form-label{width:15%;text-align:right;margin-top:15px;vertical-align:top;}
+.grid-body.editForm .form-group .form-label{width:17%;text-align:right;margin-top:15px;vertical-align:top;white-space:nowarp;}
 .grid-body.editForm .form-group .form-label.required:before{content: '*';color:#ff0000;margin-right:5px;}
-.grid-body.editForm .form-group .controls{width:75%;display:inline-block;vertical-align:middle;}
+.grid-body.editForm .form-group .controls{width:73%;display:inline-block;vertical-align:middle;}
 .grid-body.editForm .form-group .help{clear:both;width:75%;display:inline-block;margin-left:15%;padding-left:10px;}
 .grid-body.editForm .form-group .controls .radio{padding-top:0px;vertical-align:top;margin-top:0px !important;}
 

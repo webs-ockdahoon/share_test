@@ -292,7 +292,7 @@ class MasterController extends BaseController
      */
     public function set_display(){
         $info = $this->getPost();
-        $this->model->set_display($info["idx"],$info["display"]);
+        $this->model->set_display($info["idx"],$info["field"],$info["flag"]);
         $json["result"] = "OK";
         die(json_encode($json));
     }
