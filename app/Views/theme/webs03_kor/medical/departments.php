@@ -6,6 +6,7 @@
 ?>
 
 <?php
+    /* 참고용
     // 페이지 디자인 위해 데이터 임시 배열로 저장
     $departments = [
         '가정의학과', '감염내과', '내분비내과', '류마티스내과', '마취통증의학과',
@@ -16,6 +17,7 @@
         '직업환경의학과', '진단검사의학과', '치과', '피부과', '핵의학과',
         '혈액종양내과', '호흡기내과', '흉부외과',
     ]
+    */
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -24,38 +26,24 @@
 
 <?php echo $this->section('content'); ?>
     <div class="container section mt-0">
-<!--        <div class="section-divider">-->
-<!--            <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">-->
-<!--                <li class="nav-item" role="presentation">-->
-<!--                    <a class="nav-link active" href="/medical/departments" aria-selected="true">-->
-<!--                        진료과-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="nav-item" role="presentation">-->
-<!--                    <a class="nav-link" href="/medical/departments" aria-selected="false">-->
-<!--                        전문센터-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
 
         <ul class="list-unstyled medical-list">
-            <?php foreach($code_list as $key => $val){ ?>
+            <?php foreach($department_list as $department): ?>
                 <li>
                     <section class="medical-card medical-card--focusable text-center" tabindex="0">
                         <div class="card-content">
-                            <div class="card-icon" style="background-image: url('/uploaded/file/<?php echo $val["cde_image"]?>');"></div>
-                            <h3 class="card-title font-weight-normal"><?php echo $val['cde_title']; ?></h3>
+                            <div class="card-icon" style="background-image: url(/uploaded/file/<?php echo $department['dep_image']; ?>);"></div>
+                            <h3 class="card-title font-weight-normal"><?php echo $department['dep_title_'.$lang]; ?></h3>
                         </div>
 
                         <div class="card-content card-hover-content bg-secondary">
-                            <span class="d-block card-title text-white text-truncate"><?php echo $val['cde_title']; ?><span class="sr-only">메뉴</span></span>
-                            <a href="/kor/medical/departmentInfo?title=<?php echo $val['cde_title']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
-                            <a href="/kor/medical/departmentDoctors?title=<?php echo $val['cde_title']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
+                            <span class="d-block card-title text-white text-truncate"><?php echo $department['dep_title_'.$lang]; ?><span class="sr-only">메뉴</span></span>
+                            <a href="/kor/medical/departmentInfo?idx=<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
+                            <a href="/kor/medical/departmentDoctors?idx=<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
                         </div>
                     </section>
                 </li>
-            <?php } ?>
+            <?php endforeach; ?>
         </ul>
     </div>
 <?php echo $this->endSection(); ?>

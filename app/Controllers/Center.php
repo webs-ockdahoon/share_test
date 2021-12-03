@@ -4,19 +4,20 @@ namespace App\Controllers;
 
 class Center extends BaseController
 {
-    protected $models = array('CodeSpecializedModel','MedicalSpecializedModel');
+    protected $models = array('DepartmentsModel');
     protected $viewPath = "center";
 
     public function specializedCenter()
     {
         $data = array();
-        $this->CodeSpecializedModel->where("(csp_deleted_at = null or csp_deleted_at = '')"); // 삭제한 데이터는 제외
-        $this->CodeSpecializedModel->where("csp_state","Y"); // 화면 보이기/숨김
-        $this->CodeSpecializedModel->orderBy("csp_title","ASC"); // 화면 보이기/숨김
-        $data['code_list'] = $this->CodeSpecializedModel->get()->getResultArray();
+        $this->DepartmentsModel->where("dep_group='specializedcenter'");
+        $this->DepartmentsModel->where("(dep_deleted_at is null or dep_deleted_at = '')"); // 삭제한 데이터는 제외
+        $this->DepartmentsModel->where("dep_display_kor","Y"); // 화면 보이기/숨김
+        $this->DepartmentsModel->orderBy("dep_title_kor","ASC"); // 화면 보이기/숨김
+        $data['department_list'] = $this->DepartmentsModel->get()->getResultArray();
 
         $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
-        $this->setView("specializedCenter", $data);
+        $this->setView("departments", $data);
         return $this->run();
         //return view('welcome_message');
     }
