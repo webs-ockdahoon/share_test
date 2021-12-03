@@ -38,7 +38,7 @@ $this->setVar('heroTitle', $dep_title_rus);
     </div>
 
     <div class="section-box text-right">
-        <a href="/center/specializedCenter" class="btn btn-lg btn-wide btn-outline-light text-gray--dark border">전체 전문센터</a>
+        <a href="/center/department" class="btn btn-lg btn-wide btn-outline-light text-gray--dark border">전체 전문센터</a>
     </div>
 
 </div>

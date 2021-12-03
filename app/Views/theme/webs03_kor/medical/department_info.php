@@ -37,7 +37,7 @@
     </div>
 
     <div class="section-box text-right">
-        <a href="/kor/medical/departments" class="btn btn-lg btn-wide btn-outline-light text-gray--dark border">전체 진료과</a>
+        <a href="/kor/medical/department" class="btn btn-lg btn-wide btn-outline-light text-gray--dark border">전체 진료과</a>
     </div>
     
 </div>
