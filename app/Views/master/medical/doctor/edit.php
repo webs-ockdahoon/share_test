@@ -7,7 +7,7 @@
 
 <div class="content ">
     <div class="page-title">
-        <h3>의료진 관리 </h3>
+        <h3><?php echo $group_title; ?> 의료진 관리 </h3>
     </div>
     <div id="container">
 

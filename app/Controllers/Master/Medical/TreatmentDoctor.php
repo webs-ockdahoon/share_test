@@ -9,6 +9,7 @@ class TreatmentDoctor extends MasterController
     protected $models = array('DepartmentsDoctorModel','DepartmentsModel',);
     protected $viewPath = "medical/doctor";
     protected $doc_dep_group = "treatment";
+    protected $doc_dep_group_title = "진료과";
 
     public function index()
     {
@@ -29,7 +30,7 @@ class TreatmentDoctor extends MasterController
         $this->DepartmentsModel->orderBy("dep_title_kor","ASC"); // 과 제목
         $data['department_list'] = $this->DepartmentsModel->get()->getResultArray();
 
-        $data['doc_dep_group'] = $this->doc_dep_group;
+        $data['group_title'] = $this->doc_dep_group_title;
 
         $this->setView("list",$data);
         return $this->run();
@@ -64,7 +65,7 @@ class TreatmentDoctor extends MasterController
             $this->DepartmentsModel->orderBy("dep_title_kor","ASC"); // 과 제목
             $data['department_list'] = $this->DepartmentsModel->get()->getResultArray();
 
-            $data['doc_dep_group'] = $this->doc_dep_group;
+            $data['group_title'] = $this->doc_dep_group_title;
 
             $this->setView("edit", $data);
             return $this->run();

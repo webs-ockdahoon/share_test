@@ -1,12 +1,7 @@
 
 <div class="content ">
     <div class="page-title">
-        <h3>
-            <?php
-            if($doc_dep_group=='treatment')echo '진료과';
-            else if($doc_dep_group=='specializedcenter')echo '전문센터';
-            ?>
-            의료진 관리 </h3>
+        <h3><?php echo $group_title; ?> 의료진 관리 </h3>
     </div>
     <div id="container">
 
