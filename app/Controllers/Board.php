@@ -70,7 +70,7 @@ class Board extends BaseController
          * 언어 상태에 따른 게시판 코드 강제 변환
          * ※ 프로젝트의 URL 규칙에 따라서 변경될 수 있음
          *************************************************************/
-        $lang = service('request')->getLocale();
+        $lang = $this->lang;
         $config = config(App::class);
         if($lang!=$config->defaultLocale){
             $board_lang_code = substr($boc_code,strlen($boc_code)-strlen($lang));
@@ -624,7 +624,7 @@ class Board extends BaseController
         $data["boc_code"] = $this->boc_code;
 
         // 언어 분기 처리 - 이동 경로 수정
-        $lang = service('request')->getLocale();
+        $lang = $this->lang;
         $config = config(App::class);
         if($lang!=$config->defaultLocale){
             $data["list_page"] = "/".$lang.$this->cont_url . "/" . $this->boc_code;

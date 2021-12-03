@@ -38,8 +38,8 @@
 
                         <div class="card-content card-hover-content bg-secondary">
                             <span class="d-block card-title text-white text-truncate"><?php echo $department['dep_title_'.$lang]; ?><span class="sr-only">메뉴</span></span>
-                            <a href="/kor/medical/departmentInfo?idx=<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
-                            <a href="/kor/medical/departmentDoctors?idx=<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
+                            <a href="/kor/medical/departmentInfo/<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">소개</a>
+                            <a href="/kor/medical/doctor/<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">의료진</a>
                         </div>
                     </section>
                 </li>

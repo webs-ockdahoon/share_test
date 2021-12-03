@@ -2,7 +2,7 @@
 
 <?php
 $this->setVar('bodyClassName', 'page--center page--center-specializedcenter-info');
-$this->setVar('heroTitle', $code_list['csp_title']);
+$this->setVar('heroTitle', $dep_title_kor);
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -15,12 +15,12 @@ $this->setVar('heroTitle', $code_list['csp_title']);
     <div class="section-divider">
         <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" href="/center/specializedInfo?title=<?php echo $code_list['csp_title']; ?>" aria-selected="true">
+                <a class="nav-link active" href="/kor/center/departmentInfo/<?php echo $dep_idx; ?>" aria-selected="true">
                     전문센터 소개
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" href="/center/specializedDoctors?title=<?php echo $code_list['csp_title']; ?>" aria-selected="false">
+                <a class="nav-link" href="/kor/center/doctor/<?php echo $dep_idx; ?>" aria-selected="false">
                     의료진 소개
                 </a>
             </li>
@@ -31,7 +31,7 @@ $this->setVar('heroTitle', $code_list['csp_title']);
 
     <div class="section-box section-text">
         <p class="mb-3">
-            <?php echo nl2br($code_list['csp_content']); ?>
+            <?php echo nl2br($dep_content_kor); ?>
         </p>
     </div>
 

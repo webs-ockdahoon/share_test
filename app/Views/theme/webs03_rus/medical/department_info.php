@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--medical page--medical-department-info');
-    $this->setVar('heroTitle', $code_list['cde_title']);
+    $this->setVar('heroTitle', $dep_title_rus);
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -15,29 +15,30 @@
     <div class="section-divider">
         <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" href="/kor/medical/departmentInfo?title=<?php echo $code_list['cde_title']; ?>" aria-selected="true">
-                    진료과 소개
+                <a class="nav-link active" href="/medical/departmentInfo/<?php echo $dep_idx; ?>" aria-selected="true">
+                    Отделения
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" href="/kor/medical/departmentDoctors?title=<?php echo $code_list['cde_title']; ?>" aria-selected="false">
-                    의료진 소개
+                <a class="nav-link" href="/medical/doctor/<?php echo $dep_idx; ?>" aria-selected="false">
+                    врачебный
                 </a>
             </li>
         </ul>
     </div>
+
     <!--
     <div class="section-divider-sm content-bg bg-light" style="background-image: url('https://via.placeholder.com/1200x320');max-height: 320px;"></div>
     -->
 
     <div class="section-box section-text">
         <p class="mb-3">
-            <?php echo nl2br($code_list['cde_content']); ?>
+            <?php echo nl2br($dep_content_rus); ?>
         </p>
     </div>
 
     <div class="section-box text-right">
-        <a href="/kor/medical/departments" class="btn btn-lg btn-wide btn-outline-light text-gray--dark border">전체 진료과</a>
+        <a href="/medical/departments" class="btn btn-lg btn-wide btn-outline-light text-gray--dark border">Всего Отделения</a>
     </div>
     
 </div>
