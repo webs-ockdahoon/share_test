@@ -234,9 +234,9 @@ function fnGetByte(str){
     return resultSize;
 }
 
-function randomString() {
+function randomString(string_length) {
     var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-    var string_length = 15;
+    if(!string_length)string_length = 15;
     var randomstring = '';
     for (var i=0; i<string_length; i++) {
         var rnum = Math.floor(Math.random() * chars.length);

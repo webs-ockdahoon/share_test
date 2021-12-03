@@ -1,7 +1,12 @@
 
 <div class="content ">
     <div class="page-title">
-        <h3>진료과 관리 </h3>
+        <h3>
+            <?php
+            if($doc_dep_group=='treatment')echo '진료과';
+            else if($doc_dep_group=='specializedcenter')echo '전문센터';
+            ?>
+            의료진 관리 </h3>
     </div>
     <div id="container">
 
@@ -22,7 +27,7 @@
 
                                 <div class="col-sm-6 col-md-3 col-lg-2">
                                     <div class="form-group">
-                                        <label class="form-label ">진료과명</label>
+                                        <label class="form-label ">이름</label>
                                         <div class="controls">
                                             <input type="text" class="form-control" id='s1' name='s1' value='<?php echo $s1?>'>
                                         </div>
@@ -30,9 +35,14 @@
                                 </div>
                                 <div class="col-sm-6 col-md-3 col-lg-2">
                                     <div class="form-group">
-                                        <label class="form-label ">의료진</label>
+                                        <label class="form-label ">진료과</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" id='s2' name='s2' value='<?php echo $s2?>'>
+                                            <select class="form-control" id='s2' name='s2'>
+                                                <option value="">전체</option>
+                                                <?php foreach($department_list as $department){?>
+                                                    <option value="<?php echo $department["dep_idx"]?>" <?php if($s2==$department["dep_idx"])echo "selected";?>><?php echo $department["dep_title_kor"]?></option>
+                                                <?php }?>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +76,8 @@
                                     <th>진료과</th>
                                     <th>이름</th>
                                     <th>등록일</th>
-                                    <th>사용여부</th>
+                                    <th>국문 사용여부</th>
+                                    <th>러시아 사용여부</th>
                                     <th>수정</th>
                                     <th>삭제</th>
                                 </tr>
@@ -81,11 +92,12 @@
                                                     <label for='checkbox<?php echo $row[$primaryKey]?>'></label>
                                                 </div>
                                             </td>
-                                            <td><img src="/uploaded/file/<?php echo $row["med_image"]?>" class="h80" onerror="this.src='/uploaded/file/noimage.jpg'"></td>
-                                            <td><?php echo $row["med_medical_type"]?></td>
-                                            <td><?php echo $row["med_name"]?></td>
-                                            <td><?php echo $row["med_created_at"]?></td>
-                                            <td><?php echo $row["med_state"]?></td>
+                                            <td><img src="/uploaded/file/<?php echo $row["doc_image"]?>" class="h80" onerror="this.src='/uploaded/file/noimage.jpg'"></td>
+                                            <td><?php echo $row["dep_title_kor"]?></td>
+                                            <td><?php echo $row["doc_name_kor"]?></td>
+                                            <td><?php echo $row["doc_created_at"]?></td>
+                                            <td><?php echo $row["doc_display_kor"]?></td>
+                                            <td><?php echo $row["doc_display_rus"]?></td>
 
                                             <td class='listBtn'>
                                                 <a class='btn btn-small btn-primary' href='<?php echo $cont_url?>/edit/<?php echo $row[$primaryKey] . $qstr?>'><i class='fa fa-pen'></i></a>
