@@ -42,8 +42,8 @@ class Product extends MasterController
 
         $validate = $this->validate([
             'prd_title' => [
-                'rules'=>'required|min_length[3]',
-                'errors'=> ['required'=>'상품명을 입력해 주세요.','min_length'=>'상품명을 3자이상 입력해 주세요.'],
+                'rules'=>'required',
+                'errors'=> ['required'=>'상품명을 입력해 주세요.'],
             ],
             'prd_price' => [
                 'rules'=>'required|decimal',

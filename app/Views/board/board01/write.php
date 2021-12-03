@@ -19,7 +19,8 @@
                     </td>
                 </tr>
             <?php }?>
-            
+
+            <?php if(!isset($mem_info["mem_id"])){?>
             <tr>
                 <th>작성자명</th>
                 <td><input type="text" name="bod_writer_name" id="bod_writer_name" placeholder="작성자명 입력" value="<?php echo $bod_writer_name?>" required></td>
@@ -28,6 +29,7 @@
                 <th>비밀번호</th>
                 <td><input type="password" name="bod_password" id="bod_password" minlength="4" placeholder="4자 이상 입력" required></td>
             </tr>
+            <?php }?>
 
             <?php
             if($bod_origin_secret){?>

@@ -28,12 +28,12 @@ class Config extends MasterController
 
         $validate = $this->validate([
             'boc_code' => [
-                'rules'=>'required|min_length[3]',
-                'errors'=> ['required'=>'게시판코드를 입력해 주세요.','min_length'=>'제목을 3자이상 입력해 주세요.'],
+                'rules'=>'required',
+                'errors'=> ['required'=>'게시판코드를 입력해 주세요.'],
             ],
             'boc_title' => [
-                'rules'=>'required|min_length[3]',
-                'errors'=> ['required'=>'게시판명을 입력해 주세요.','min_length'=>'게시판명을 3자이상 입력해 주세요.'],
+                'rules'=>'required',
+                'errors'=> ['required'=>'게시판명을 입력해 주세요.'],
             ],
         ]);
 

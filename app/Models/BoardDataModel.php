@@ -78,6 +78,26 @@ class BoardDataModel extends BaseModel
         return $bod_sort;
     }
 
+    /**
+     * 이전글 다음글 구하기
+     * 일단 공지글도 포함. 제외시킬지 여부는 다음에 검토
+     */
+    public function getPrevNext($bod_idx){
+        $PrevNext = array();
+        $this->where("bod_deleted_at is null");
+        $this->where("bod_idx<",$bod_idx);
+        $this->orderBy("bod_group desc,bod_sort");
+        $this->limit(1);
+        $PrevNext['next'] = $this->get()->getRowArray();
+
+        $this->where("bod_deleted_at is null");
+        $this->where("bod_idx>",$bod_idx);
+        $this->orderBy("bod_group,bod_sort desc");
+        $this->limit(1);
+        $PrevNext['prev'] = $this->get()->getRowArray();
+        return $PrevNext;
+    }
+
 }
 
 

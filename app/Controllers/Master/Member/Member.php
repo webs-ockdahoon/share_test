@@ -28,8 +28,8 @@ class Member extends MasterController
 
         $validate = $this->validate([
             'mem_name' => [
-                'rules'=>'required|min_length[3]',
-                'errors'=> ['required'=>'이름을 입력해 주세요.','min_length'=>'이름을 3자이상 입력해 주세요.'],
+                'rules'=>'required',
+                'errors'=> ['required'=>'이름을 입력해 주세요.'],
             ],
         ]);
 

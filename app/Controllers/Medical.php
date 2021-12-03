@@ -4,16 +4,17 @@ namespace App\Controllers;
 
 class Medical extends BaseController
 {
-    protected $models = array('CodeDepartmentsModel','MedicalDepartmentsModel');
+    protected $models = array('DepartmentsModel');
     protected $viewPath = "medical";
 
     public function departments()
     {
         $data = array();
-        $this->CodeDepartmentsModel->where("(cde_deleted_at = null or cde_deleted_at = '')"); // 삭제한 데이터는 제외
-        $this->CodeDepartmentsModel->where("cde_state","Y"); // 화면 보이기/숨김
-        $this->CodeDepartmentsModel->orderBy("cde_title","ASC"); // 화면 보이기/숨김
-        $data['code_list'] = $this->CodeDepartmentsModel->get()->getResultArray();
+        $this->DepartmentsModel->where("dep_group='treatment'");
+        $this->DepartmentsModel->where("(dep_deleted_at is null or dep_deleted_at = '')"); // 삭제한 데이터는 제외
+        $this->DepartmentsModel->where("dep_display_kor","Y"); // 화면 보이기/숨김
+        $this->DepartmentsModel->orderBy("dep_title_kor","ASC"); // 화면 보이기/숨김
+        $data['department_list'] = $this->DepartmentsModel->get()->getResultArray();
 
         $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
         $this->setView("departments", $data);
