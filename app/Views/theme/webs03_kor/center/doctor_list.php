@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--center page--center-specialized-doctors');
-    $this->setVar('heroTitle', $people_list[0]['mes_medical_type']);
+    $this->setVar('heroTitle', $department_info['dep_title_'.$lang]);
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -10,6 +10,7 @@
 <?php echo $this->endSection(); ?>
 
 <?php
+/*
 // dummy data
 $doctors = [
     [
@@ -49,6 +50,7 @@ $doctors = [
         'image_src' => $THEME_URL.'/images/center/doctor06.jpg',
     ],
 ];
+*/
 ?>
 
 <?php echo $this->section('content'); ?>
@@ -57,12 +59,12 @@ $doctors = [
     <div class="section-divider">
         <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <a class="nav-link" href="/kor/center/specializedInfo?title=<?php echo $_GET['title']; ?>" aria-selected="false">
-                    진료과 소개
+                <a class="nav-link" href="/kor/center/departmentInfo/<?php echo $dep_idx; ?>" aria-selected="true">
+                    전문센터 소개
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" href="/kor/center/specializedDoctors?title=<?php echo $_GET['title']; ?>" aria-selected="true">
+                <a class="nav-link active" href="/kor/center/doctor/<?php echo $dep_idx; ?>" aria-selected="false">
                     의료진 소개
                 </a>
             </li>
@@ -72,32 +74,32 @@ $doctors = [
     <div class="section-box section-text">
         <h3 class="sr-only">의료진 소개</h3>
         <ul class="list-unstyled row row-sm mb-n4">
-            <?php foreach ($people_list as $key => $val){ ?>
+            <?php foreach ($doctor_list as $doctor){ ?>
                 <li class="col-12 col-lg-6 mb-4">
                     <section class="card doctor-card">
                         <div class="card-thumbnail-body">
                             <div class="card-thumbnail">
                                 <!-- // image size: 96px x 128px (3:4) -->
-                                <span class="card-thumbnail__img bg-light rounded" style="background-image: url('/uploaded/file/<?php echo $val["mes_image"]?>');"></span>
+                                <span class="card-thumbnail__img bg-light rounded" style="background-image: url('/uploaded/file/<?php echo $doctor["doc_image"]?>');"></span>
                             </div>
                             <div class="card-body">
-                                <h4 class="card-title"><?php echo $val['mes_name']; ?></h4>
+                                <h4 class="card-title"><?php echo $doctor['doc_name_'.$lang]; ?></h4>
                                 <dl class="data-table data-table--responsive-lg mb-0">
                                     <div class="data-table__row">
                                         <dt class="data-table__row-label text-primary">진료과</dt>
-                                        <dd class="data-table__row-text"><?php echo $val['mes_medical_type']; ?></dd>
+                                        <dd class="data-table__row-text"><?php echo $department_info['dep_title_'.$lang]?></dd>
                                     </div>
                                     <div class="data-table__row">
                                         <dt class="data-table__row-label text-primary">전문 진료분야</dt>
                                         <dd class="data-table__row-text">
-                                            <div class="text-truncate--multiple"><?php echo $val['mes_content']; ?></div>
+                                            <div class="text-truncate--multiple"><?php echo $doctor['doc_content_'.$lang]; ?></div>
                                         </dd>
                                     </div>
                                 </dl>
                             </div>
                         </div>
 
-                        <a href="/kor/center/centerDoctor?doctors=<?php echo $val['mes_idx']; ?>" class="card-action">의료진 정보</a>
+                        <a href="/kor/medical/doctorInfo/<?php echo $doctor['doc_idx']; ?>" class="card-action">의료진 정보</a>
                     </section>
                 </li>
             <?php } ?>

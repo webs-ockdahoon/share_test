@@ -32,8 +32,8 @@
 
                         <div class="card-content card-hover-content bg-secondary">
                             <span class="d-block card-title text-white text-truncate"><?php echo $department['dep_title_'.$lang]; ?> <span class="sr-only">Меню</span></span>
-                            <a href="/center/specializedInfo?idx=<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">состав</a>
-                            <a href="/center/specializedDoctors?idx=<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">врачебный</a>
+                            <a href="/center/departmentInfo/<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">состав</a>
+                            <a href="/center/doctor/<?php echo $department['dep_idx']; ?>" class="btn btn-block btn-outline-gray card-btn" tabindex="0">врачебный</a>
                         </div>
                     </section>
                 </li>

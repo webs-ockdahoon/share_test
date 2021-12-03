@@ -81,6 +81,9 @@ class BaseController extends Controller
     // 강제 활성 메뉴 주소. 주로 리스트 페이지 이후 상세페이지에 사용. 해당 값 지정시 현재 메뉴 검사를 해당 url 값으로 체크한다.
     protected $activeMenuUrl = "";
 
+    // 현재 이용중인 언어 저장 변수
+    protected $lang="";
+
     /**
      * Constructor.
      *
@@ -157,6 +160,8 @@ class BaseController extends Controller
             if(isset($_GET["s".$k]))$this->sch_obj[$k] = $_GET["s".$k];
             else $this->sch_obj[$k] = "";
         }
+
+        $this->lang = service('request')->getLocale();
     }
 
 
@@ -179,7 +184,7 @@ class BaseController extends Controller
      */
     public function run($data=array()){
 
-        $lang = service('request')->getLocale();
+        $lang = $this->lang;
 
         // header 파일 읽어들이기
         $header_file = $this->THEME_ROOT."/layout/header.php";
@@ -285,7 +290,7 @@ class BaseController extends Controller
         $data["isLogin"] = $this->isLogin;
 
         // 언어값 View 에 전달하기 (각종 링크에 사용)
-        $data["lang"] = service('request')->getLocale();
+        $data["lang"] = $this->lang;
 
         //-- 검색 요소 인자값 추가
         for($k=1;$k<=$this->sch_max;$k++){
