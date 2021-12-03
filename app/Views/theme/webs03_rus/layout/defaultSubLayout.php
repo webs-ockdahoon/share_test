@@ -29,7 +29,6 @@
                 </li>
 
                 <li>
-
                     <a href="javascript:;" role="button" id="subDepth2" class="page-breadcrumb__toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php echo str_nowrap($now_menu_title)?> <span class="icon icon-xs icon-toggle"></span>
                     </a>

@@ -14,6 +14,13 @@
         $now_menu_title = $menu_info[$menu_active[0]]["mnu_title"];
         $now_menu_sub_title = $menu_info[$menu_active[0]]["mnu_sub_title"];
     }
+
+    // ? common_helper 에 함수들이 호출이 안된다? Custom_route 를 타서 그런것 같음
+    function str_nowrap($str){
+        $str = str_replace(array("</br>","<br>")," ",$str);
+        $str = strip_tags($str);
+        return $str;
+    }
 ?>
 
 <?php echo $this->section('beforeContent'); ?>
@@ -28,29 +35,48 @@
                 </li>
 
                 <li>
-                    <a href="/template/sub" role="button" id="subDepth2" class="page-breadcrumb__toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Depth 2 <span class="icon icon-xs icon-toggle"></span>
+                    <a href="javascript:;" role="button" id="subDepth2" class="page-breadcrumb__toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php echo str_nowrap($now_menu_title)?> <span class="icon icon-xs icon-toggle"></span>
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="subDepth2">
-                        <a class="dropdown-item" href="#">Depth 2 - menu 1</a>
-                        <a class="dropdown-item" href="#">Depth 2 - menu 2</a>
-                        <a class="dropdown-item" href="#">Depth 2 - menu 3</a>
+                        <?php foreach ($menu_info as $mn1) {
+                            $mn_link = trim($mn1["mnu_url"]);
+                            if (!$mn_link && sizeof($mn1["sub"]) > 0) {
+                                $arr_key = array_key_first($mn1["sub"]);
+                                $mn_link = trim($mn1["sub"][$arr_key]['mnu_url']);
+                            }
+                            if (!$mn_link) $mn_link = '#';
+                            ?>
+                            <a class="dropdown-item" href="<?php echo $mn_link?>"><?php echo str_nowrap($mn1['mnu_title'])?></a>
+                        <?php }?>
                     </div>
                 </li>
 
-                <li class="dropdown">
-                    <a href="/template/sub" role="button" id="subDepth2" class="page-breadcrumb__toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Depth 2 <span class="icon icon-xs icon-toggle"></span>
-                    </a>
+                <?php if(isset($menu_info[$menu_active[0]]["sub"])){
 
-                    <div class="dropdown-menu" aria-labelledby="subDepth2">
-                        <a class="dropdown-item" href="#">Depth 2 - menu 1</a>
-                        <a class="dropdown-item" href="#">Depth 2 - menu 2</a>
-                        <a class="dropdown-item" href="#">Depth 2 - menu 3</a>
-                    </div>
-                </li>
+                    $now_menu_title = "";
+                    if(isset($menu_info[$menu_active[0]]["sub"][$menu_active[1]]["mnu_title"]))$now_menu_title = $menu_info[$menu_active[0]]["sub"][$menu_active[1]]["mnu_title"];
+                    ?>
+                    <li class="dropdown is-current">
+                        <a href="javascript:;" role="button" id="subDepth2" class="page-breadcrumb__toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?php echo str_nowrap($now_menu_title)?> <span class="icon icon-xs icon-toggle"></span>
+                        </a>
 
+                        <div class="dropdown-menu" aria-labelledby="subDepth2">
+
+                            <?php foreach($menu_info[$menu_active[0]]["sub"] as $mn2){
+                                $mn_link = trim($mn2["mnu_url"]);
+                                if (!$mn_link) $mn_link = '#';
+                                ?>
+                                <a class="dropdown-item" href="<?php echo $mn_link?>"><?php echo str_nowrap($mn2['mnu_title'])?></a>
+                            <?php }?>
+
+                        </div>
+                    </li>
+                <?php }?>
+
+                <?php /* 3차 메뉴 일단 사용안함
                 <li class="dropdown is-current">
                     <a href="/template/sub" role="button" id="subDepth3" class="page-breadcrumb__toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Depth 3 <span class="icon icon-xs icon-toggle"></span>
@@ -62,6 +88,8 @@
                         <a class="dropdown-item" href="#">Depth 3 - menu 3</a>
                     </div>
                 </li>
+                */?>
+
             </ol>
         </div>
     </nav>
