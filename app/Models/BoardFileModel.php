@@ -74,23 +74,34 @@ class BoardFileModel extends BaseModel
      * @return array
      */
     public function getFileList($option){
+        if(!$option["bod_idx"])return array();
+
         $this->where("bof_bod_code",$option["bod_code"]);
         if(is_array($option["bod_idx"])){
-            if(sizeof($option["bod_idx"]))$this->wherein("bof_bod_idx", $option["bod_idx"]);
-            else $this->where("1=2");
+            $this->wherein("bof_bod_idx", $option["bod_idx"]);
         }else {
             $this->where("bof_bod_idx", $option["bod_idx"]);
         }
-        $this->where("bof_deleted_at is null");
+        $this->where(" ( bof_deleted_at is null or bof_deleted_at='' ) ");
         $this->orderBy("bof_num");
         $result = $this->get()->getResultArray();
 
         // 키 구조 변경
         $list = array();
-        foreach($result as $rs){
-            $list[$rs["bof_num"]] = $rs;
-        }
 
+        if(is_array($option["bod_idx"])){
+            foreach ($result as $rs) {
+                if(isset($option["only_image"])){
+                    if($option["only_image"] && !is_image_file($rs["bof_file_name"]))continue;
+                }
+
+                $list[$rs["bof_bod_idx"]][$rs["bof_num"]] = $rs;
+            }
+        }else {
+            foreach ($result as $rs) {
+                $list[$rs["bof_num"]] = $rs;
+            }
+        }
         return $list;
     }
 

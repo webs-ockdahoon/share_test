@@ -44,12 +44,40 @@
                     if($row["bod_secret"]){
                         $secret = "<span class='material-icons-round material-icons-20'>lock</span>";
                     }
+
+                    $img = "";  // 첨부 이미지가 없을 경우
+
+                    $videoType = "";
+                    $thumb_width = 380;
+                    $thumb_height = 250;
+                    if(preg_match("/youtu/", $row["bod_movie_url"]) || preg_match("/youtube/", $row["bod_movie_url"])) {
+                        $videoId = get_youtubeid($row["bod_movie_url"]);
+                        $videoType = "youtu";
+                        $img = "http://img.youtube.com/vi/$videoId/hqdefault.jpg";
+                    }
+                    else if(preg_match("/vimeo/", $row["bod_movie_url"])) {
+                        $videoId = get_vimeoid($row["bod_movie_url"]);
+                        $videoType = "vimeo";
+                        $thumb_Url = get_vimeoThumb($videoId);
+                        $img = $thumb_Url;
+                    }else {
+                        for($k=1;$k<=10;$k++) {
+                            if(isset($bof_list[$row["bod_idx"]]) && isset($bof_list[$row["bod_idx"]][$k]) && $bof_list[$row["bod_idx"]][$k]){
+                                $ext = fnGetExt($bof_list[$row["bod_idx"]][$k]["bof_file_save"]);
+                                if($ext=="jpg" || $ext=="jpeg" || $ext=="gif" || $ext=="png") {
+                                    $img = "/uploaded/file/" . $bof_list[$row["bod_idx"]][$k]["bof_file_save"];
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
                     ?>
                     <li class="col-12 col-sm-12 col-lg-4 mb-3 mb-md-4">
                         <a href="<?php echo $read_page."/".$row["bod_idx"].$qstr?>" class="card gallery-card gallery-card--responsive gallery-card--link-hover">
                             <div class="card-thumbnail card-box">
                                 <div class="card-thumbnail__frame">
-                                    <span class="card-thumbnail__frame-img bg-light" style="background-image:url('');"></span>
+                                    <span class="card-thumbnail__frame-img bg-light" style="background-image:url('<?php echo $img?>');"></span>
                                 </div>
                             </div>
 

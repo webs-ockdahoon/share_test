@@ -200,13 +200,11 @@ class Board extends BaseController
                     $img_view .= "<div><img src='/uploaded/file/" . $f["bof_file_save"] . "' class='bof_image'></div>";
                 }
             }
-
             if($this->conf["boc_image_view"]=="top"){
                 $data["bod_content"] = $img_view . $data["bod_content"];
             }else if($this->conf["boc_image_view"]=="bottom"){
                 $data["bod_content"].= $img_view;
             }
-
         }
 
         // 내용에 하이퍼링크 걸어주기
@@ -687,9 +685,5 @@ class Board extends BaseController
 
         return $auth;
     }
-
-
-
-
 
 }
