@@ -9,6 +9,7 @@ class Treatment extends MasterController
     protected $models = array('DepartmentsModel');
     protected $viewPath = "medical/departments";
     protected $dep_group = "treatment";
+    protected $dep_group_title = "진료과";
 
 
     public function index()
@@ -20,8 +21,9 @@ class Treatment extends MasterController
         /* 검색 기능 구현 끝 */
 
         $this->model->where("dep_group",$this->dep_group);
-
         $data = $this->model->getPager();
+
+        $data['group_title'] = $this->dep_group_title;
 
         $this->setView("list",$data);
         return $this->run();
@@ -53,6 +55,8 @@ class Treatment extends MasterController
 
             if($this->method=="post")$data["validate_error_msg"] = $this->makeErrorMessage($this->validator->getErrors());
             else $data["validate_error_msg"] = "";
+
+            $data['group_title'] = $this->dep_group_title;
 
             $this->setView("edit", $data);
             return $this->run();

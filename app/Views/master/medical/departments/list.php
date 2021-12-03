@@ -1,7 +1,9 @@
 
 <div class="content ">
     <div class="page-title">
-        <h3>진료과 관리 </h3>
+        <h3>
+            <?php echo $group_title; ?>
+            관리 </h3>
     </div>
     <div id="container">
 
@@ -22,7 +24,7 @@
 
                             <div class="col-sm-6 col-md-3 col-lg-2">
                                 <div class="form-group">
-                                    <label class="form-label ">진료과명</label>
+                                    <label class="form-label "><?php echo $group_title; ?>명</label>
                                     <div class="controls">
                                         <input type="text" class="form-control" id='s1' name='s1' value='<?php echo $s1?>'>
                                     </div>
@@ -54,8 +56,8 @@
                                 <thead>
                                 <tr>
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
-                                    <th>진료과 로고</th>
-                                    <th>진료과 명칭</th>
+                                    <th><?php echo $group_title; ?> 로고</th>
+                                    <th><?php echo $group_title; ?> 명칭</th>
                                     <th>메인페이지 노출순서</th>
                                     <th>등록일</th>
                                     <th>국문 사용</th>

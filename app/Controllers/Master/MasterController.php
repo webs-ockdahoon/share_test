@@ -92,8 +92,13 @@ class MasterController extends BaseController
 
             if(is_array($val)){
                 foreach($val as $key2=>$v){
-                    if($data_str)$data_str.="&";
-                    $data_str.=$key."[".$key2."]=".$v;
+                    if(is_array($v)){   // 이 이상 배열은 로그 기록시 json 으로 바꿔버리자
+                        $v = json_encode($v,JSON_UNESCAPED_UNICODE);
+                    }
+
+                    if ($data_str) $data_str .= "&";
+                    $data_str .= $key . "[" . $key2 . "]=" . $v;
+
                 }
             }else{
                 // 로그인/회원비밀번호 설정시 비밀번호 값 암호화
@@ -139,7 +144,9 @@ class MasterController extends BaseController
             "link"=>"",
             "sub"=>array(
                 "departments"=>array("name"=>"진료과 관리","link"=>"/master/medical/treatment",),
+                "departmentsDoctor"=>array("name"=>"진료과 의료진 관리","link"=>"/master/medical/treatmentDoctor",),
                 "specialized"=>array("name"=>"전문센터 관리","link"=>"/master/medical/specializedcenter",),
+                "specializedDoctor"=>array("name"=>"전문센터 의료진 관리","link"=>"/master/medical/specializedcenterDoctor",),
             ),
         );
 

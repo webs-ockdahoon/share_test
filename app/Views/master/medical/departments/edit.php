@@ -1,6 +1,7 @@
 <div class="content ">
     <div class="page-title">
-        <h3>진료과 관리 </h3>
+        <h3>
+            <?php echo $group_title; ?> 관리 </h3>
     </div>
     <div id="container">
 
@@ -73,7 +74,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="form-label">명칭</label>
+                                        <label class="form-label"><?php echo $group_title; ?>명</label>
                                         <div class="controls">
                                             <input type="text" class="form-control" name="dep_title_kor"  placeholder="명칭" value="<?php echo $dep_title_kor?>" required>
                                         </div>
