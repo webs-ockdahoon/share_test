@@ -65,23 +65,29 @@
                 </section>
 
                 <ul class="list-unstyled">
-                    <li class="border-bottom">
-                        <a href="." class="section-card py-3 d-inline-flex align-items-center link--hover-text-underline text-reset">
+                    <?php if(isset($prev_next['prev']["bod_idx"])){
+                        $article = $prev_next['prev']; ?>
+                        <li class="border-bottom">
+                            <a href="<?php echo $read_page?>/<?php echo $article["bod_idx"]?>" class="section-card py-3 d-inline-flex align-items-center link--hover-text-underline text-reset">
                             <span class="mr-2 d-flex align-items-center text-dark">
                                이전글 <span class="material-icons-round font-base ml-1 text-black-50">expand_less</span>
                             </span>
-                            <span class="link-text">이전글 제목입니다.</span>
-                        </a>
-                    </li>
+                                <span class="link-text"><?php echo $article["bod_title"]?></span>
+                            </a>
+                        </li>
+                    <?php }?>
 
-                    <li class="border-bottom">
-                        <a href="." class="section-card py-3 d-inline-flex align-items-center link--hover-text-underline text-reset">
+                    <?php if(isset($prev_next['next']["bod_idx"])){
+                        $article = $prev_next['next']; ?>
+                        <li class="border-bottom">
+                            <a href="<?php echo $read_page?>/<?php echo $article["bod_idx"]?>" class="section-card py-3 d-inline-flex align-items-center link--hover-text-underline text-reset">
                             <span class="mr-2 d-flex align-items-center text-dark">
                                 다음글 <span class="material-icons-round font-base ml-1 text-black-50">expand_more</span>
                             </span>
-                            <span class="link-text">다음글 제목입니다.</span>
-                        </a>
-                    </li>
+                                <span class="link-text"><?php echo $article["bod_title"]?></span>
+                            </a>
+                        </li>
+                    <?php }?>
                 </ul>
 
                 <div class="section-card pb-0 text-center text-md-right row justify-content-md-between">

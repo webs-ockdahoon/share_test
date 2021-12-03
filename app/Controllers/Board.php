@@ -128,7 +128,6 @@ class Board extends BaseController
         $this->model->orderBy("bod_group desc,bod_sort");
         $data["notice_list"] = $this->model->get()->getResultArray();
 
-
         $this->addData($data);
 
         // 첨부파일 정보 구하기
@@ -210,6 +209,10 @@ class Board extends BaseController
         // 내용에 하이퍼링크 걸어주기
         $homepage_pattern = "/([^\"\'\=\>])(mms|https|HTTPS|http|HTTP|ftp|FTP|telnet|TELNET)\:\/\/(.[^ \n\<\"\']+)/";
         $data["bod_content"] = preg_replace($homepage_pattern,"\\1<a href=\\2://\\3 target=_blank>\\2://\\3</a>", " ".$data["bod_content"]);
+
+        // 이전글/다음글 구하기
+        $prev_next = $this->BoardDataModel->getPrevNext($idx);
+        $data["prev_next"] = $prev_next;
 
         $this->setView("read",$data,$this->conf["boc_skin"]);
         return $this->run();
