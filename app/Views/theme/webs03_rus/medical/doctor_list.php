@@ -87,7 +87,7 @@
                                 </div>
                             </div>
 
-                            <a href="/kor/medical/doctorInfo/<?php echo $doctor['doc_idx']; ?>" class="card-action">врачебный Сведения</a>
+                            <a href="/medical/doctorInfo/<?php echo $doctor['doc_idx']; ?>" class="card-action">врачебный Сведения</a>
                         </section>
                     </li>
                 <?php } ?>
