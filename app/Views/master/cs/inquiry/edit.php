@@ -31,7 +31,7 @@
                                         <label class="form-label">이름</label>
                                         <div class="controls">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="mri_name"  placeholder="이름" value="<?php echo $mri_name?>" required>
+                                                <input type="text" class="form-control" name="inq_name"  placeholder="이름" value="<?php echo $inq_name?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -39,28 +39,28 @@
                                     <div class="form-group">
                                         <label class="form-label">국적</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mri_nationality"  placeholder="국적" value="<?php echo $mri_nationality?>" >
+                                            <input type="text" class="form-control" name="inq_nationality"  placeholder="국적" value="<?php echo $inq_nationality?>" >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">이메일</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mri_email"  placeholder="이메일" value="<?php echo $mri_email?>" >
+                                            <input type="text" class="form-control" name="inq_email"  placeholder="이메일" value="<?php echo $inq_email?>" >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">연락처</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mri_tel"  placeholder="연락처" value="<?php echo $mri_tel?>" >
+                                            <input type="text" class="form-control" name="inq_tel"  placeholder="연락처" value="<?php echo $inq_tel?>" >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">생년월일</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mri_birth"  placeholder="생년월일" value="<?php echo $mri_birth?>" >
+                                            <input type="text" class="form-control" name="inq_birth"  placeholder="생년월일" value="<?php echo $inq_birth?>" >
                                         </div>
                                     </div>
 
@@ -68,11 +68,11 @@
                                         <label class="form-label">성별</label>
                                        <div class="controls">
                                             <div class="radio radio-success">
-                                                <input type="radio" name="mri_gender" id="mri_gender1" value="남자" <?php echo ($mri_gender!="여자")?"checked":""?>> <label for="mri_gender1">남자</label>
+                                                <input type="radio" name="inq_gender" id="inq_gender1" value="남자" <?php echo ($inq_gender!="여자")?"checked":""?>> <label for="inq_gender1">남자</label>
                                             </div>
 
                                             <div class="radio radio-danger">
-                                                <input type="radio" name="mri_gender" id="mri_gender2" value="여자" <?php echo ($mri_gender=="여자")?"checked":""?>> <label for="mri_gender2">여자</label>
+                                                <input type="radio" name="inq_gender" id="inq_gender2" value="여자" <?php echo ($inq_gender=="여자")?"checked":""?>> <label for="inq_gender2">여자</label>
                                             </div>
                                         </div>
                                     </div>
@@ -81,14 +81,14 @@
                                     <div class="form-group">
                                         <label class="form-label">제목</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mri_title"  placeholder="제목" value="<?php echo $mri_title?>" >
+                                            <input type="text" class="form-control" name="inq_title"  placeholder="제목" value="<?php echo $inq_title?>" >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">내용</label>
                                         <div class="controls">
-                                            <textarea name="mri_content" class="w-100" placeholder="문의 내용" rows="5"><?php echo $mri_content;?></textarea>
+                                            <textarea name="inq_content" class="w-100" placeholder="문의 내용" rows="5"><?php echo $inq_content;?></textarea>
                                         </div>
                                     </div>
 
@@ -118,7 +118,7 @@
 
 <Script>
     $(document).ready(function(){
-        $("#mri_date_start,#mri_date_end").datetimepicker({
+        $("#inq_date_start,#inq_date_end").datetimepicker({
             format: 'yyyy-MM-DD HH:mm',
         });
     });

@@ -31,7 +31,7 @@
                                         <label class="form-label">메인노출순서</label>
                                         <div class="controls">
                                             <div class="input-group">
-                                                <input type="number" class="form-control w-75p" name="mrr_main_sort"  placeholder="순서" value="<?php echo $mrr_main_sort?>" required>
+                                                <input type="number" class="form-control w-75p" name="rev_main_sort"  placeholder="순서" value="<?php echo $rev_main_sort?>" required>
                                             </div>
                                             <small>※ 0 또는 미입력 시 노출되지 않습니다.</small>
                                         </div>
@@ -41,7 +41,7 @@
                                         <label class="form-label">이름</label>
                                         <div class="controls">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="mrr_name"  placeholder="이름" value="<?php echo $mrr_name?>" required>
+                                                <input type="text" class="form-control" name="rev_name"  placeholder="이름" value="<?php echo $rev_name?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -49,42 +49,42 @@
                                     <div class="form-group">
                                         <label class="form-label">국적</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mrr_nationality"  placeholder="국적" value="<?php echo $mrr_nationality?>" >
+                                            <input type="text" class="form-control" name="rev_nationality"  placeholder="국적" value="<?php echo $rev_nationality?>" >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">이메일</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mrr_email"  placeholder="이메일" value="<?php echo $mrr_email?>" >
+                                            <input type="text" class="form-control" name="rev_email"  placeholder="이메일" value="<?php echo $rev_email?>" >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">연락처</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mrr_tel"  placeholder="연락처" value="<?php echo $mrr_tel?>" >
+                                            <input type="text" class="form-control" name="rev_tel"  placeholder="연락처" value="<?php echo $rev_tel?>" >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">진료과</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mrr_medical_type"  placeholder="진료과" value="<?php echo $mrr_medical_type?>" >
+                                            <input type="text" class="form-control" name="rev_medical_type"  placeholder="진료과" value="<?php echo $rev_medical_type?>" >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">제목</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="mrr_title"  placeholder="제목" value="<?php echo $mrr_title?>" >
+                                            <input type="text" class="form-control" name="rev_title"  placeholder="제목" value="<?php echo $rev_title?>" >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">내용</label>
                                         <div class="controls">
-                                            <textarea name="mrr_content" class="w-100" placeholder="문의 내용" rows="5"><?php echo $mrr_content;?></textarea>
+                                            <textarea name="rev_content" class="w-100" placeholder="문의 내용" rows="5"><?php echo $rev_content;?></textarea>
                                         </div>
                                     </div>
 
@@ -114,7 +114,7 @@
 
 <Script>
     $(document).ready(function(){
-        $("#mrr_date_start,#mrr_date_end").datetimepicker({
+        $("#rev_date_start,#rev_date_end").datetimepicker({
             format: 'yyyy-MM-DD HH:mm',
         });
     });

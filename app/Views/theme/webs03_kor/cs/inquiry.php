@@ -19,9 +19,9 @@
             </div>
             <div class="section-card__body">
                 <p>
-                    Здравствуйте.<br>
-                    Здесь Вы можете оставить предварительный запрос на интересующие Вас медицинские услуги в больнице при университете Донг-А.
-                    Для этого следует заполнить нижеуказанную форму и в ближайшее время мы с Вами свяжемся.
+                    안녕하세요.<br>
+                    본 서식을 통해 <strong class="text-primary">원하는 의료서비스에 대한 문의</strong>를 남겨주시기 바랍니다.<br class="d-none d-lg-block">
+                    이를 위해 아래 양식을 작성해 주시면 곧 연락드리겠습니다.
                 </p>
             </div>
         </div>
@@ -29,57 +29,57 @@
         <form method="post" class="js__mrequest-form" novalidate data-success-msg="정상적으로 등록되었습니다.">
             <fieldset class="section-divider-sm section-text">
                 <div class="section-header border-bottom border-dark">
-                    <legend class="section-title">기본 정보 <small class="text-caption text-muted">(<strong class="text-danger">*</strong> поле, обязательное для заполнения)</small></legend>
+                    <legend class="section-title">기본 정보 <small class="text-caption text-muted">(<strong class="text-danger">*</strong> 필수 기재)</small></legend>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
-                    <label for="name" class="col-12 col-md-3 require-mark--before">ФИО</label>
+                    <label for="name" class="col-12 col-md-3 require-mark--before">이름</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="name" class="form-control form-control-lg" placeholder="예) 홍길동" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
+                        <input type="text" name="inq_name" value="" id="name" class="form-control form-control-lg" placeholder="예) 홍길동" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
-                    <label for="nationality" class="col-12 col-md-3 require-mark--before">Гражданство</label>
+                    <label for="nationality" class="col-12 col-md-3 require-mark--before">국적</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="nationality" class="form-control form-control-lg" placeholder="예) 한국" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
+                        <input type="text" name="inq_nationality" value="" id="nationality" class="form-control form-control-lg" placeholder="예) 한국" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
-                    <label for="email" class="col-12 col-md-3 require-mark--before">E-mail</label>
+                    <label for="email" class="col-12 col-md-3 require-mark--before">이메일</label>
                     <div class="col-12 col-md-9">
-                        <input type="email" name="" value="" id="email" class="form-control form-control-lg" placeholder="예) honggildong@gmail.com" required data-validator data-validator-type="required|email" data-required-msg="이메일을 입력해 주세요." data-email-msg="이메일 형식으로 입력해 주세요.">
+                        <input type="email" name="inq_email" value="" id="email" class="form-control form-control-lg" placeholder="예) honggildong@gmail.com" required data-validator data-validator-type="required|email" data-required-msg="이메일을 입력해 주세요." data-email-msg="이메일 형식으로 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
-                    <label for="tel" class="col-12 col-md-3 require-mark--before">Телефон</label>
+                    <label for="tel" class="col-12 col-md-3 require-mark--before">연락처</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="tel" class="form-control form-control-lg js__cleave-input-number" placeholder="예) 01012345678" required data-validator data-validator-type="required" data-required-msg="연락처를 입력해 주세요.">
+                        <input type="text" name="inq_tel" value="" id="tel" class="form-control form-control-lg js__cleave-input-number" placeholder="예) 01012345678" required data-validator data-validator-type="required" data-required-msg="연락처를 입력해 주세요.">
                         <p class="form-text text-caption text-warning">* 숫자만 입력</p>
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
-                    <label for="birth" class="col-12 col-md-3 require-mark--before">Дата раждения</label>
+                    <label for="birth" class="col-12 col-md-3 require-mark--before">생년월일</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="birth" class="form-control form-control-lg js__cleave-input-date" placeholder="예) 2021-11-02" required data-validator data-validator-type="required" data-required-msg="생년월일을 입력해 주세요.">
+                        <input type="text" name="inq_birth" value="" id="birth" class="form-control form-control-lg js__cleave-input-date" placeholder="예) 2021-11-02" required data-validator data-validator-type="required" data-required-msg="생년월일을 입력해 주세요.">
                         <p class="form-text text-caption text-warning">* yyyy-mm-dd 형태, 숫자만 입력</p>
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
-                    <label for="gender" class="col-12 col-md-3 require-mark--before">Пол</label>
+                    <label for="gender" class="col-12 col-md-3 require-mark--before">성별</label>
                     <div class="col-12 col-md-9">
                         <div class="custom-control custom-control-inline custom-radio custom-radio--v1">
-                            <input type="radio" name="gender" id="male" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
-                            <label for="male" class="custom-control-label">Муж</label>
+                            <input type="radio" name="inq_gender" id="male" value="남자" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
+                            <label for="male" class="custom-control-label">남자</label>
                         </div>
 
                         <div class="custom-control custom-control-inline custom-radio custom-radio--v1">
-                            <input type="radio" name="gender" id="female" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
-                            <label for="female" class="custom-control-label">Жен</label>
+                            <input type="radio" name="inq_gender" id="female" value="여자" class="custom-control-input" data-validator data-validator-type="required" data-required-msg="성별을 선택해 주세요.">
+                            <label for="female" class="custom-control-label">여자</label>
                         </div>
                     </div>
                 </div>
@@ -87,20 +87,20 @@
 
             <fieldset class="section-divider-sm section-text">
                 <div class="section-header border-bottom border-dark">
-                    <label class="section-title">Тема консультации <small class="text-caption text-muted">(<strong class="text-danger">*</strong> поле, обязательное для заполнения)</small></label>
+                    <label class="section-title">진료 상담 <small class="text-caption text-muted">(<strong class="text-danger">*</strong> 필수 기재)</small></label>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
-                    <label for="subject" class="col-12 col-md-3 require-mark--before">Тема консультации</label>
+                    <label for="subject" class="col-12 col-md-3 require-mark--before">주제</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="" value="" id="subject" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="주제를 입력해 주세요.">
+                        <input type="text" name="inq_title" value="" id="subject" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="주제를 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
-                    <label for="content" class="col-12 col-md-3 require-mark--before">Содержание консультации</label>
+                    <label for="content" class="col-12 col-md-3 require-mark--before">상담 내용</label>
                     <div class="col-12 col-md-9">
-                        <textarea name="content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="상담 내용을 입력해 주세요."></textarea>
+                        <textarea name="inq_content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="상담 내용을 입력해 주세요."></textarea>
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@
                     <div class="agreement-card">
                         <div class="agreement-card__control-group">
                             <div class="custom-control custom-checkbox custom-checkbox--v1">
-                                <input type="checkbox" name="agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
+                                <input type="checkbox" name="inq_agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
                                 <label class="custom-control-label" for="agree"><span class="require-mark--before">개인 정보 이용 약관 동의</span></label>
                             </div>
 
@@ -134,7 +134,7 @@
 
             <div class="row">
                 <div class="col-12 offset-md-3 col-md-9">
-                    <button type="submit" class="btn btn-lg btn-block btn-primary">Отправить</button>
+                    <button type="submit" class="btn btn-lg btn-block btn-primary">보내기</button>
                 </div>
             </div>
         </form>
@@ -168,9 +168,29 @@
                 return false;
             }
 
+            var frm = $(this).serialize();
+
+            $.ajax({
+                url:cont_url+"/inquiry",
+                data:frm,
+                dataType:'JSON',
+                method:'POST',
+                success:function(data){
+                    if(data["result"]=="OK"){
+                        alert($('.js__mrequest-form').data("success-msg"));
+                        $('.js__mrequest-form input').val("");
+                        $('.js__mrequest-form textarea').val("");
+                        $('.js__mrequest-form select').val("");
+                    }else{
+                        alert("Error!");
+                    }
+                }
+            });
+            return false;
+
             alert(formSuccessMsg);
-            
-    });
+
+        });
 
         function isValidForm() {
             var emailReg = /^((\w|[\-\.\!\#\$\%\&\'\*\+\/\=\?\^\`\{\}\|\~])+)@((\w|[\-\.])+)\.([A-Za-z]+)$/;
@@ -217,7 +237,7 @@
             if (!isValid) {
 
                 alert(message);
-            
+
                 if ($invalidTarget && $invalidTarget.length) {
                     // 스크롤 이동 후 포커스 주기
                     $('html, body').animate({

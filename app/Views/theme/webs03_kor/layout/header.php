@@ -20,3 +20,4 @@
 <link rel="preload" as="style" href="<?php echo $THEME_URL?>/css/theme.css">
 <link rel="stylesheet" href="<?php echo $THEME_URL?>/css/theme.css">
 <link rel="stylesheet" media="print" href="<?php echo $THEME_URL?>/css/print.css" >
+<script>var cont_url="<?php echo $cont_url;?>";</script>

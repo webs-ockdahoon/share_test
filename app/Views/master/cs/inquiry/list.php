@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-sm-6 col-md-3 col-lg-2">
                                     <div class="form-group">
-                                        <label class="form-label ">진료과</label>
+                                        <label class="form-label ">연락처</label>
                                         <div class="controls">
                                             <input type="text" class="form-control" id='s2' name='s2' value='<?php echo $s2?>'>
                                         </div>
@@ -62,11 +62,10 @@
                                 <thead>
                                 <tr>
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
-                                    <th>메인노출 순서</th>
                                     <th>이름</th>
                                     <th>연락처</th>
                                     <th>이메일</th>
-                                    <th>진료과</th>
+                                    <th>생년월일</th>
                                     <th>등록일</th>
                                     <th>수정</th>
                                     <th>삭제</th>
@@ -82,12 +81,11 @@
                                                     <label for='checkbox<?php echo $row[$primaryKey]?>'></label>
                                                 </div>
                                             </td>
-                                            <td><?php echo $row["mrr_main_sort"]?></td>
-                                            <td><?php echo $row["mrr_name"]?></td>
-                                            <td><?php echo $row["mrr_tel"]?></td>
-                                            <td><?php echo $row["mrr_email"]?></td>
-                                            <td><?php echo $row["mrr_medical_type"]?></td>
-                                            <td><?php echo $row["mrr_created_at"]?></td>
+                                            <td><?php echo $row["inq_name"]?></td>
+                                            <td><?php echo $row["inq_tel"]?></td>
+                                            <td><?php echo $row["inq_email"]?></td>
+                                            <td><?php echo $row["inq_birth"]?></td>
+                                            <td><?php echo $row["inq_created_at"]?></td>
                                             <td class='listBtn'>
                                                 <a class='btn btn-small btn-primary' href='<?php echo $cont_url?>/edit/<?php echo $row[$primaryKey] . $qstr?>'><i class='fa fa-pen'></i></a>
                                             </td>
@@ -126,7 +124,7 @@
             </div>
             <div class='col-xs-12 col-md-6 text-center'><?php echo $links?></div>
             <div class='col-xs-12 col-md-3 text-right'>
-                <a class="btn btn-primary" href="<?php echo $cont_url?>/edit<?php echo $qstr?>">추가하기</a>
+<!--                <a class="btn btn-primary" href="--><?php //echo $cont_url?><!--/edit--><?php //echo $qstr?><!--">추가하기</a>-->
             </div>
         </div>
 
