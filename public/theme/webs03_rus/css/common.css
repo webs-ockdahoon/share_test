@@ -5548,7 +5548,9 @@
     }
 
     .default-sub-layout .page-breadcrumb--responsive .page-breadcrumb__list > .is-current .dropdown-menu {
-        background-color: rgba(240, 241, 246, .92)
+        background-color: rgba(240, 241, 246, .92);
+        max-height:62vh;
+        overflow-y:auto;
     }
 }
 
