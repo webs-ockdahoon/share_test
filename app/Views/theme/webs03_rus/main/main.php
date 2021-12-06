@@ -297,12 +297,13 @@ $faqs = [
 
             <div class="swiper-container partner-swiper js__partner-swiper">
                 <div class="swiper-wrapper">
-                    <?php foreach(range(0, 4) as $t): ?>
+                    <?php foreach($par_list as $par): ?>
+
                         <div class="swiper-slide">
                             <div class="swiper-box">
-                                <a href="/" class="card partner-card">
+                                <a href="<?php echo $par['par_link']?>" class="card partner-card" target="_blank">
                                     <div class="card-body">
-                                        <img src="<?php echo $THEME_URL ?>/images/main/logo01.png" alt="" loading="lazy" decoding="async" class="img-fluid">
+                                        <img src="/uploaded/file/<?php echo $par['par_image']?>" alt="" loading="lazy" decoding="async" class="img-fluid">
                                     </div>
                                 </a>
                             </div>

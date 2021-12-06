@@ -1,11 +1,6 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ko.min.js" integrity="sha512-3kMAxw/DoCOkS6yQGfQsRY1FWknTEzdiz8DOwWoqf+eGRN45AmjS2Lggql50nCe9Q6m5su5dDZylflBY2YjABQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/js/bootstrap-datetimepicker.min.js" integrity="sha512-r/mHP22LKVhxWFlvCpzqMUT4dWScZc6WRhBMVUQh+SdofvvM1BS1Hdcy94XVOod7QqQMRjLQn5w/AQOfXTPvVA==" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/css/bootstrap-datetimepicker.css" integrity="sha512-HWqapTcU+yOMgBe4kFnMcJGbvFPbgk39bm0ExFn0ks6/n97BBHzhDuzVkvMVVHTJSK5mtrXGX4oVwoQsNcsYvg==" crossorigin="anonymous" />
-
 <div class="content ">
     <div class="page-title">
-        <h3>파트너사 관리 </h3>
+        <h3>협력업체 관리 </h3>
     </div>
     <div id="container">
 
@@ -28,24 +23,35 @@
                                 <div class="col-xs-12">
 
                                     <div class="form-group">
-                                        <label class="form-label">파트너사</label>
+                                        <label class="form-label">노출순서</label>
                                         <div class="controls">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="par_title"  placeholder="진료과 명칭" value="<?php echo $par_title?>" required>
-                                            </div>
+                                            <select class="form-control-static" name="par_sort" >
+                                                <?php
+                                                if(!$par_sort)$par_sort=99; // 기본 99 - 제일 뒤로 등록시키기
+                                                for($k=1;$k<=99;$k++){?>
+                                                <option value="<?php echo $k?>" <?php if($k==$par_sort)echo "Selected";?>><?php echo $k?></option>
+                                                <?php }?>
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="form-label">파트너사 이미지</label>
+                                        <label class="form-label">업체명</label>
                                         <div class="controls">
-                                            <input type="file" class="form-control" id="par_image" name="par_image" placeholder="파트너사 이미지" value="" >
-                                            <small style="color:red;">※ 권장 사이즈 : 80x80</small>
+                                            <input type="text" class="form-control" name="par_title"  placeholder="업체명" value="<?php echo $par_title?>" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">업체 이미지</label>
+                                        <div class="controls">
+                                            <input type="file" class="form-control" id="par_image" name="par_image" placeholder="업체 이미지" value="" >
+                                            <small style="color:red;">※ 권장 사이즈 : 180x90</small>
                                             <?php if(!empty($par_image)){?>
                                                 <br>
-                                                <button class='btn btn-mini btn-info ml10 mr10' type='button' onclick='fnThumbView("<?php echo $par_image; ?>")'><i class='fa fa-eye'></i> 보기</button>
+                                                <img src="/uploaded/file/<?php echo $par_image?>">
                                                 <br>
-                                                <label style='display:inline-block;padding-top:5px;'><input type='checkbox' name='par_image_del' value='1'> 파일명 : <?php echo $par_file_name; ?> 삭제</label>
+                                                <label style='display:inline-block;padding-top:5px;'><input type='checkbox' name='par_image_del' value='1'>  삭제</label>
                                                 <br>
                                                 <small style="color:red;">※ 파일 삭제 시 에만 체크</small>
                                             <?php }?>
@@ -53,20 +59,35 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="form-label">사용여부</label>
+                                        <label class="form-label">링크주소</label>
                                         <div class="controls">
-                                            <div class="radio radio-success">
-                                                <input type="radio" name="par_state" id="par_state1" value="Y" <?php echo ($par_state!="N")?"checked":""?>> <label for="par_state1">사용</label>
-                                            </div>
-
-                                            <div class="radio radio-danger">
-                                                <input type="radio" name="par_state" id="par_state2" value="N" <?php echo ($par_state=="N")?"checked":""?>> <label for="par_state2">사용안함</label>
-                                            </div>
-                                            <br>
-                                            <small>※ '사용안함'설정시 사용년도와 상관없이 노출이 되지 않습니다.</small>
-
+                                            <input type="text" class="form-control" name="par_link"  placeholder="http:// 포함 링크주소" value="<?php echo $par_link?>">
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">사용여부(국문)</label>
+                                        <div class="controls">
+                                            <div class="radio radio-success">
+                                                <input type="radio" name="par_display_kor" id="par_display_kor1" value="Y" <?php echo ($par_display_kor!="N")?"checked":""?>> <label for="par_display_kor1">사용</label>
+                                            </div>
+                                            <div class="radio radio-danger">
+                                                <input type="radio" name="par_display_kor" id="par_display_kor2" value="N" <?php echo ($par_display_kor=="N")?"checked":""?>> <label for="par_display_kor2">사용안함</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">사용여부(러시아)</label>
+                                        <div class="controls">
+                                            <div class="radio radio-success">
+                                                <input type="radio" name="par_display_rus" id="par_display_rus1" value="Y" <?php echo ($par_display_rus!="N")?"checked":""?>> <label for="par_display_rus1">사용</label>
+                                            </div>
+                                            <div class="radio radio-danger">
+                                                <input type="radio" name="par_display_rus" id="par_display_rus2" value="N" <?php echo ($par_display_rus=="N")?"checked":""?>> <label for="par_display_rus2">사용안함</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                 </div>
                             </div>

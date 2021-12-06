@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Main extends BaseController
 {
-    protected $models = array('MrequestReviewinquiryModel','BoardConfModel','BoardDataModel');
+    protected $models = array('MrequestReviewinquiryModel','BoardConfModel','BoardDataModel','PartnerModel');
     protected $viewPath = "main";
 
     public function index()
@@ -16,11 +16,15 @@ class Main extends BaseController
             if($config->defaultLocale!=$this->lang) {
                 $boc_code = $boc_code.$this->lang;
             }
-
             $bd_info =  $this->BoardConfModel->getInfo($boc_code);
             $bd_info['article'] = $this->BoardDataModel->newArticle($boc_code,3);
             $data["bod_list"][$boc_code] = $bd_info;
         }
+
+        // 협력업체 가져오기
+        $this->PartnerModel->where("par_display_".$this->lang,'Y');
+        $this->PartnerModel->orderBy("par_sort");
+        $data['par_list'] = $this->PartnerModel->get()->getResultArray();
 
 
         // 후기 내용

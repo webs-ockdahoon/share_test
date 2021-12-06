@@ -1,7 +1,7 @@
 
 <div class="content ">
     <div class="page-title">
-        <h3>파트너사 관리 </h3>
+        <h3>협력업체 관리 </h3>
     </div>
     <div id="container">
 
@@ -22,7 +22,7 @@
 
                             <div class="col-sm-6 col-md-3 col-lg-2">
                                 <div class="form-group">
-                                    <label class="form-label ">파트너사</label>
+                                    <label class="form-label ">업체명</label>
                                     <div class="controls">
                                         <input type="text" class="form-control" id='s1' name='s1' value='<?php echo $s1?>'>
                                     </div>
@@ -54,10 +54,12 @@
                                 <thead>
                                 <tr>
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
-                                    <th>파트너 이미지</th>
-                                    <th>파트너</th>
+                                    <th>업체 이미지</th>
+                                    <th>업체명</th>
+                                    <th>노출순서</th>
                                     <th>등록일</th>
-                                    <th>사용여부</th>
+                                    <th>사용여부(국문)</th>
+                                    <th>사용여부(러시아)</th>
                                     <th>수정</th>
                                     <th>삭제</th>
                                 </tr>
@@ -81,7 +83,8 @@
                                         <td><?php echo $row["par_title"]?></td>
                                         <td><?php echo $row["par_sort"]?></td>
                                         <td><?php echo $row["par_created_at"]?></td>
-                                        <td><?php echo $row["par_state"]?></td>
+                                        <td><?php echo $row["par_display_kor"]?></td>
+                                        <td><?php echo $row["par_display_rus"]?></td>
 
                                         <td class='listBtn'>
                                             <a class='btn btn-small btn-primary' href='<?php echo $cont_url?>/edit/<?php echo $row[$primaryKey] . $qstr?>'><i class='fa fa-pen'></i></a>
@@ -119,7 +122,7 @@
                 <button class="btn btn-default" type="button" onclick="list_check_all(0)">선택해제</button>
                 <button class="btn btn-danger" type="button" onclick="list_check_del()">선택삭제</button>
             </div>
-            <div class='col-xs-12 col-md-6 text-center'><?php echo $links?></div>
+            <div class='col-xs-12 col-md-6 text-center'><?php //echo $links?></div>
             <div class='col-xs-12 col-md-3 text-right'>
                 <a class="btn btn-primary" href="<?php echo $cont_url?>/edit<?php echo $qstr?>">추가하기</a>
             </div>

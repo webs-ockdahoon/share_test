@@ -17,7 +17,11 @@ class Partner extends MasterController
         if($this->sch_obj[1])$this->model->like("par_title",$this->sch_obj[1],'both');
         /* 검색 기능 구현 끝 */
 
-        $data = $this->model->getPager();
+        $option = array(
+          "perPage"=>999, // 그냥 한페이지에 다나오게 처리
+            "orderBy"=>"par_sort",
+        );
+        $data = $this->model->getPager($option);
 
         $this->setView("list",$data);
         return $this->run();
