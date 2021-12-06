@@ -38,7 +38,7 @@
     </div>
 
     <div class="section-box text-right">
-        <a href="/medical/departments" class="btn btn-lg btn-wide btn-outline-light text-gray--dark border">Всего Отделения</a>
+        <a href="/medical/department" class="btn btn-lg btn-wide btn-outline-light text-gray--dark border">Всего Отделения</a>
     </div>
     
 </div>

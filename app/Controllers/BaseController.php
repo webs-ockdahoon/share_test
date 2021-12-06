@@ -326,6 +326,18 @@ class BaseController extends Controller
         }else {  // 사용자일 경우
             $MenuModel = model('App\Models\MenuModel');
             $menu_info = $MenuModel->getUsingMenu();
+
+            // 강제 3차 메뉴 추가 처리
+            if(isset($this->extend_menu)){
+                foreach($this->extend_menu as $key1=>$ex_mn1){
+                    if(isset($ex_mn1['sub'])) {
+                        foreach ($ex_mn1['sub'] as $key2 => $ex_mn2) {
+                            $menu_info[$key1]["sub"][$key2]["sub"] = $ex_mn2['sub'];
+                        }
+                    }
+                }
+            }
+
             $data["menu_info"] = $menu_info;
 
             $menu_active = array("","","");
@@ -336,7 +348,6 @@ class BaseController extends Controller
 
                 // 게시판 URL 별도 설정
                 if(sizeof($segments)>1 && $segments[0]=="board")$nurl = "/" . $segments[0]."/".$segments[1];
-                if(sizeof($segments)>1 && $segments[0]=="culture")$nurl = "/" . $segments[0];
 
                 // 현재 메뉴 포커스 잡기 + 헤더 타이틀 잡기
                 $header_title = "";
@@ -344,6 +355,12 @@ class BaseController extends Controller
                     if (isset($mn1["sub"])) {
 
                         foreach ($mn1["sub"] as $key2=>$mn2) {
+
+                            // 강제 3차 메뉴 추가 처리
+                            if(isset($this->extend_menu) && isset($this->extend_menu[$key1][$key2]['sub'])){
+                                $mn2["sub"] = $this->extend_menu[$key1][$key2]['sub'];
+                            }
+
                             if (isset($mn2["sub"])) {
                                 foreach ($mn2["sub"] as $key3=>$mn3) {
                                     if(substr($mn3["mnu_url"],strlen($mn3["mnu_url"])-1)=="/")$mn3["mnu_url"]=substr($mn3["mnu_url"],0,strlen($mn3["mnu_url"])-1);
@@ -355,7 +372,6 @@ class BaseController extends Controller
                                     }
                                 }
                             }
-
 
                             if(substr($mn2["mnu_url"],strlen($mn2["mnu_url"])-1)=="/")$mn2["mnu_url"]=substr($mn2["mnu_url"],0,strlen($mn2["mnu_url"])-1);
                             if($mn2["mnu_url"] == $nurl) {  // 현재 URL = 2차 메뉴 URL 일 경우
@@ -387,7 +403,9 @@ class BaseController extends Controller
                 $data["header_title_ext"] = $this->header_title_ext;
                 $data["menu_active"] = $menu_active;
             }
-
+            //echo "Set Menu";
+            //print_array($menu_active);
+            //print_array($menu_info);
         }
 
     }

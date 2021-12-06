@@ -58,7 +58,7 @@
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
                                     <th><?php echo $group_title; ?> 로고</th>
                                     <th><?php echo $group_title; ?> 명칭</th>
-                                    <th>메인페이지 노출순서</th>
+                                    <!--<th>메인페이지 노출순서</th>-->
                                     <th>등록일</th>
                                     <th>국문 사용</th>
                                     <th>러시아어 사용</th>
