@@ -29,9 +29,11 @@ class Main extends BaseController
 
         // 후기 내용
         $this->ReviewModel->where("(rev_deleted_at = null or rev_deleted_at = '')"); // 삭제한 데이터는 제외
-        $this->ReviewModel->where("rev_main_sort!=0"); // 미노출값 확인
-        $this->ReviewModel->where("rev_main_sort!=''"); // 미노출값 확인
+        $this->ReviewModel->where("rev_lang",$this->lang); // 사이트값 확인
+        $this->ReviewModel->where("rev_main_sort>0"); // 미노출값 확인
         $this->ReviewModel->orderBy("rev_main_sort","ASC"); // 정렬
+        $this->ReviewModel->select("webs_review.*,b.dep_title_".$this->lang . " as dep_title");
+        $this->ReviewModel->join("webs_departments as b","webs_review.rev_dep_idx=b.dep_idx","left");
         $data['rev_list'] = $this->ReviewModel->get()->getResultArray();
 
         $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제

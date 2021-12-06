@@ -161,18 +161,21 @@ $this->setVar('bodyClassName', 'page--main');
 
             <div class="swiper-container member-swiper js__member-swiper">
                 <div class="swiper-wrapper">
-                    <?php foreach(range(0, 4) as $t): ?>
+                    <?php foreach($rev_list as $rev):
+                        if($rev['rev_main_name'])$rev['rev_name']=$rev['rev_main_name'];
+                        if($rev['rev_main_content'])$rev['rev_content']=$rev['rev_main_content'];
+                        ?>
                         <div class="swiper-slide">
                             <section class="card member-card">
                                 <button type="button" class="btn member-btn" data-toggle="modal" data-target="#pageReviewModal" title="진료후기">
                                     <div class="card-header">
-                                        <h3 class="card-title text-muted">김동아님의 후기</h3>
-                                        <p class="card-subtitle text-primary">재활의학과 방문</p>
+                                        <h3 class="card-title text-muted"><?php echo $rev['rev_name']?>님의 후기</h3>
+                                        <p class="card-subtitle text-primary"><?php echo $rev['dep_title']?> 방문</p>
                                     </div>
 
                                     <div class="card-body">
                                         <p class="card-text text-muted">
-                                            그들은 있으며, 그들의 것은 같은 때문이다. 이상이 밝은 풀이 열락의 뿐이다. 귀는 곳으로 꽃이 어디 끝까지 산야에 봄바람이다. 없으면 바이며, 영원히 인생을 그리하였는가? 봄날의 동산에는 살 충분히 귀는 무엇을 운다.
+                                            <?php echo $rev['rev_content']?>
                                         </p>
                                     </div>
                                 </button>
@@ -198,11 +201,10 @@ $this->setVar('bodyClassName', 'page--main');
                 </div>
                 <div class="modal-body">
                     <section class="member-card">
-                        <h3 class="member-modal-title text-muted">김동아님의 후기</h3>
-                        <p class="member-modal-sub-title text-primary">재활의료과 방문</p>
+                        <h3 class="member-modal-title text-muted">name</h3>
+                        <p class="member-modal-sub-title text-primary">departent</p>
                         <p class="member-modal-text text-muted">
-                            그들은 있으며, 그들의 것은 같은 때문이다. 이상이 밝은 풀이 열락의 뿐이다. 귀는 곳으로 꽃이 어디 끝까지 산야에 봄바람이다. 없으면 바이며, 영원히 인생을 그리하였는가?봄날의 동산에는 살 충분히 귀는 무엇을 운다.<br>
-                            그들은 있으며, 그들의 것은 같은 때문이다. 이상이 밝은 풀이 열락의 뿐이다. 귀는 곳으로 꽃이 어디 끝까지 산야에 봄바람이다. 없으면 바이며, 영원히 인생을 그리하였는가?봄날의 동산에는 살 충분히 귀는 무엇을 운다.<br>
+                            content
                         </p>
                     </section>
                 </div>
@@ -382,7 +384,20 @@ $this->setVar('bodyClassName', 'page--main');
                 slidesPerView: 2,
             },
         },
-    })
+    });
+
+    function review_detail(obj){
+        var v1 = obj.find(".card-title").html();
+        var v2 = obj.find(".card-subtitle").html();
+        var v3 = obj.find(".card-text").html();
+
+        v3 = v3.replaceAll("\n","<br>");
+
+        $("#pageReviewModal .member-modal-title").html(v1);
+        $("#pageReviewModal .member-modal-sub-title").html(v2);
+        $("#pageReviewModal .member-modal-text").html(v3);
+        $("#pageReviewModal").modal("show");
+    }
 </script>
 <?php echo $this->endSection(); ?>
 
