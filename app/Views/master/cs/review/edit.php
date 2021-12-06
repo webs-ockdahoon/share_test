@@ -1,11 +1,7 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ko.min.js" integrity="sha512-3kMAxw/DoCOkS6yQGfQsRY1FWknTEzdiz8DOwWoqf+eGRN45AmjS2Lggql50nCe9Q6m5su5dDZylflBY2YjABQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/js/bootstrap-datetimepicker.min.js" integrity="sha512-r/mHP22LKVhxWFlvCpzqMUT4dWScZc6WRhBMVUQh+SdofvvM1BS1Hdcy94XVOod7QqQMRjLQn5w/AQOfXTPvVA==" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/css/bootstrap-datetimepicker.css" integrity="sha512-HWqapTcU+yOMgBe4kFnMcJGbvFPbgk39bm0ExFn0ks6/n97BBHzhDuzVkvMVVHTJSK5mtrXGX4oVwoQsNcsYvg==" crossorigin="anonymous" />
 
 <div class="content ">
     <div class="page-title">
-        <h3>진료과 관리 </h3>
+        <h3>진료 후기 관리</h3>
     </div>
     <div id="container">
 
@@ -16,7 +12,7 @@
             <!-- row -->
             <div class="row">
 
-                <div class='col-lg-6 col-lg-offset-3'>
+                <div class='col-lg-6'>
                     <div class="grid simple ">
                         <div class="grid-title no-border">
                             <h4>기본정보</h4>
@@ -27,15 +23,28 @@
                             <div class="row">
                                 <div class="col-xs-12">
 
+
                                     <div class="form-group">
-                                        <label class="form-label">메인노출순서</label>
+                                        <label class="form-label">사이트</label>
                                         <div class="controls">
                                             <div class="input-group">
-                                                <input type="number" class="form-control w-75p" name="rev_main_sort"  placeholder="순서" value="<?php echo $rev_main_sort?>" >
+                                                <?php if(isset($rev_idx)){
+
+                                                    echo '<div class="mt10">';
+                                                    if($rev_lang=='rus')echo '러시아';
+                                                    else if($rev_lang=='kor')echo '국문';
+                                                    echo '</div>';
+
+                                                }else{?>
+                                                <select class="form-control" name="rev_lang" required>
+                                                    <option value="kor">국문</option>
+                                                    <option value="rus">러시아</option>
+                                                </select>
+                                                <?php }?>
                                             </div>
-                                            <small>※ 0 또는 미입력 시 노출되지 않습니다.</small>
                                         </div>
                                     </div>
+
 
                                     <div class="form-group">
                                         <label class="form-label">이름</label>
@@ -101,6 +110,54 @@
 
                     </div>
                 </div>
+
+                <div class='col-lg-6'>
+                    <div class="grid simple ">
+                        <div class="grid-title no-border">
+                            <h4>메인 노출정보</h4>
+                        </div>
+
+                        <div class="grid-body editForm">
+
+                            <div class="row">
+                                <div class="col-xs-12">
+
+                                    <div class="form-group">
+                                        <label class="form-label">노출순서</label>
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control w-75p" name="rev_main_sort"  placeholder="순서" value="<?php echo $rev_main_sort?>" >
+                                            </div>
+                                            <small>※ 0 또는 미입력 시 노출되지 않습니다.</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">이름</label>
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="rev_main_name"  placeholder="이름" value="<?php echo $rev_main_name?>">
+                                                ※ 미입력시 기본정보의 '이름'이 표시됩니다.
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="form-label">내용</label>
+                                        <div class="controls">
+                                            <textarea name="rev_main_content" class="w-100" placeholder="문의 내용" rows="5"><?php echo $rev_main_content;?></textarea>
+                                            ※ 미입력시 기본정보의 '내용'이 표시됩니다.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
             <!--/ row -->
             <!-- row -->

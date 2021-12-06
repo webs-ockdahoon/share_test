@@ -36,10 +36,18 @@ class Cs extends BaseController
         if($this->isAjax && $this->method=="post") {    //-- Form 출력
             $info = $this->getPost();
             if($info["rev_name"]) {
-                $temp = explode("::", $info['rev_medical_type']);    // 부서번호/명칭 분리하기. - 사실 명칭은 크게 필요없을듯하나. 백업용도도로 일단 저장
+
                 $info['rev_lang'] = $this->lang;
-                $info['rev_dep_idx'] = $temp[0];
-                $info['rev_dep_title'] = $temp[1];
+
+                if($info['rev_medical_type']) {
+                    $temp = explode("::", $info['rev_medical_type']);    // 부서번호/명칭 분리하기. - 사실 명칭은 크게 필요없을듯하나. 백업용도도로 일단 저장
+                    $info['rev_dep_idx'] = $temp[0];
+                    $info['rev_dep_title'] = $temp[1];
+                }else {
+                    $info['rev_dep_idx'] = "";
+                    $info['rev_dep_title'] = "";
+                }
+
                 if ($this->ReviewModel->edit($info)) {
                     $json["result"] = "OK";
                 } else {

@@ -1,7 +1,7 @@
 
 <div class="content ">
     <div class="page-title">
-        <h3>진료 문의 관리 </h3>
+        <h3>진료 후기 관리 </h3>
     </div>
     <div id="container">
 
