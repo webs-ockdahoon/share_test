@@ -30,14 +30,18 @@ class Medical extends BaseController
             $this->activeMenuUrl = '/' . $this->lang . $this->activeMenuUrl;
         }
 
+        // 2차 메뉴 지정
+        if($this->viewPath=='medical')$lv2_code = '01';
+        if($this->viewPath=='center')$lv2_code = '02';
+
         // 3차 메뉴 셋팅하기
         $department_list = $this->get_department();
         foreach($department_list as $key=>$dep){
             $key_num = str_pad($key+1,2,"0",STR_PAD_LEFT);
             $url = '/'.$this->viewPath.'/departmentInfo/' . $dep['dep_idx'];    // 언어에 따른 URL 추가 변환 처리
             if($config->defaultLocale!=$this->lang)$url = '/' . $this->lang . $url;
-            $this->extend_menu['02']['sub']['01']['sub'][$key_num] = array(
-                'mnu_code' => '0201' . $key_num . '0000',
+            $this->extend_menu['02']['sub'][$lv2_code]['sub'][$key_num] = array(
+                'mnu_code' => '02' . $lv2_code. $key_num . '0000',
                 'mnu_title' => $dep['dep_title_' . $this->lang],
                 'mnu_sub_title' => '',
                 'mnu_url_type' => 'direct',
