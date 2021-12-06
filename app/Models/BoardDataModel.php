@@ -98,10 +98,16 @@ class BoardDataModel extends BaseModel
         return $PrevNext;
     }
 
+    /**
+     * 최신글 구하기 (사이트 메인에서 사용)
+     */
+    public function newArticle($boc_code,$limit=5){
+        $this->setDataTable($boc_code);
+
+        $this->where("bod_level",1);
+        $this->where("bod_deleted_at is null");
+        $this->orderBy("bod_group desc");
+        $this->limit($limit);
+        return $this->get()->getResultArray();
+    }
 }
-
-
-
-
-
-

@@ -234,26 +234,32 @@ $this->setVar('bodyClassName', 'page--main');
                 </div>
 
                 <ul class="list-unstyled mb-0 news-cards">
-                    <?php foreach(range(0, 2) as $t): ?>
-                        <li class="card news-card">
-                            <div class="card-sidebar">
-                                <time class="card-date">
-                                    <span class="date-day">23</span>
-                                    <span class="date-month">Aug</span>
-                                </time>
-                            </div>
+                    <?php
 
-                            <div class="card-body">
-                                <h3 class="card-title text-truncate text-dark">
-                                    <a href="/">못하다 커다란 주는 사막이다. 산야에 귀는 이상이 얼마나 것이다.</a>
-                                </h3>
+                    if(isset($bod_list['newskor']['article'])){
+                        foreach($bod_list['newskor']['article'] as $bod):
+                            $d = strtotime($bod['bod_created_at']);
+                            ?>
+                            <li class="card news-card">
+                                <div class="card-sidebar">
+                                    <time class="card-date">
+                                        <span class="date-day"><?php echo date("d",$d);?></span>
+                                        <span class="date-month"><?php echo date("M",$d);?></span>
+                                    </time>
+                                </div>
 
-                                <p class="card-text text-muted text-truncate">
-                                    간에 이상 몸이 평화스러운 이것이다. 오아이스도 풀이 목숨이 불어가 속에... 것이다. 두기 그들의 거친 대한 자신과 사람은 운다.
-                                </p>
-                            </div>
-                        </li>
-                    <?php endforeach; ?>
+                                <div class="card-body">
+                                    <h3 class="card-title text-truncate text-dark">
+                                        <a href="/board/newskor/read/<?php echo $bod['bod_idx']?>"><?php echo $bod['bod_title']?></a>
+                                    </h3>
+
+                                    <p class="card-text text-muted text-truncate">
+                                        <?php echo $bod['bod_content']?>
+                                    </p>
+                                </div>
+                            </li>
+                        <?php endforeach;
+                    }?>
                 </ul>
             </div>
 
@@ -297,20 +303,6 @@ $this->setVar('bodyClassName', 'page--main');
                                 <a href="/" class="card partner-card">
                                     <div class="card-body">
                                         <img src="<?php echo $THEME_URL ?>/images/main/logo01.png" alt="" loading="lazy" decoding="async" class="img-fluid">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-box">
-                                <a href="/" class="card partner-card">
-                                    <div class="card-body">
-                                        <img src="<?php echo $THEME_URL ?>/images/main/logo02.png" alt="" loading="lazy" decoding="async" class="img-fluid">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-box">
-                                <a href="/" class="card partner-card">
-                                    <div class="card-body">
-                                        <img src="<?php echo $THEME_URL ?>/images/main/logo03.png" alt="" loading="lazy" decoding="async" class="img-fluid">
                                     </div>
                                 </a>
                             </div>
