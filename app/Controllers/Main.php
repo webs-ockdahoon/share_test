@@ -4,13 +4,20 @@ namespace App\Controllers;
 
 class Main extends BaseController
 {
-    protected $models = array('MrequestReviewinquiryModel');
+    protected $models = array('MrequestReviewinquiryModel','BoardConfModel');
     protected $viewPath = "main";
 
     public function index()
     {
-
-
+        $config = config(App::class);
+        // 노출 게시판
+        $bod_list = array('news');
+        foreach($bod_list as $boc_code){
+            if($config->defaultLocale!=$this->lang) {
+                $boc_code = $boc_code.$this->lang;
+            }
+            $data["bod_list"][] =  $this->BoardConfModel->getInfo($boc_code);
+        }
 
         // 후기 내용
         $this->MrequestReviewinquiryModel->where("(mrr_deleted_at = null or mrr_deleted_at = '')"); // 삭제한 데이터는 제외

@@ -46,6 +46,12 @@ class MenuModel extends BaseModel
             // 기본언어와 다른 언어로 설정기 강제 URL 변환처리
             if($config->defaultLocale!=$lang && $rs['mnu_url'] && substr($rs['mnu_url'],0,1)=='/'){
                 $rs['mnu_url'] = '/' . $lang . $rs['mnu_url'];
+                if($rs['mnu_url']) {
+                    $tmp = explode("/", $rs['mnu_url']);
+                    if (isset($tmp[2]) && $tmp[2] == "board") {
+                        $rs['mnu_url'].=$lang;
+                    }
+                }
             }
 
             // 언어별 메뉴 처리

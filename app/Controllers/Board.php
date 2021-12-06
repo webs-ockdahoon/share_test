@@ -52,6 +52,11 @@ class Board extends BaseController
         }
 
         $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
+
+        if($this->lang == "kor"){
+            $this->THEME_URL = $this->THEME_ROOT = "/theme/webs03_kor";
+        }
+
     }
 
     /**

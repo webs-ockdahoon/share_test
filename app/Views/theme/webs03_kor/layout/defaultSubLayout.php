@@ -16,10 +16,12 @@
     }
 
     // ? common_helper 에 함수들이 호출이 안된다? Custom_route 를 타서 그런것 같음
-    function str_nowrap($str){
-        $str = str_replace(array("</br>","<br>")," ",$str);
-        $str = strip_tags($str);
-        return $str;
+    if(!function_exists("str_nowrap")){
+        function str_nowrap($str) {
+            $str = str_replace(array("</br>", "<br>"), " ", $str);
+            $str = strip_tags($str);
+            return $str;
+        }
     }
 ?>
 
