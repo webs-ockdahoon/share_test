@@ -30,9 +30,40 @@
                                 </div>
                                 <div class="col-sm-6 col-md-3 col-lg-2">
                                     <div class="form-group">
-                                        <label class="form-label ">진료과</label>
+                                        <label class="form-label ">연락처</label>
                                         <div class="controls">
                                             <input type="text" class="form-control" id='s2' name='s2' value='<?php echo $s2?>'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3 col-lg-2">
+                                    <div class="form-group">
+                                        <label class="form-label ">진료과</label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id='s3' name='s3' value='<?php echo $s3?>'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3 col-lg-2">
+                                    <div class="form-group">
+                                        <label class="form-label ">사이트</label>
+                                        <div class="controls">
+                                            <select class="form-control" name="s4" id="s4">
+                                                <option value="">전체</option>
+                                                <option value="rus" <?php if($s4=='rus')echo "selected";?>>러시아</option>
+                                                <option value="kor" <?php if($s4=='kor')echo "selected";?>>국문</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3 col-lg-2">
+                                    <div class="form-group">
+                                        <label class="form-label ">메인노출</label>
+                                        <div class="controls">
+                                            <select class="form-control" name="s5" id="s5">
+                                                <option value="">전체</option>
+                                                <option value="1" <?php if($s5=='1')echo "selected";?>>메인노출</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +93,8 @@
                                 <thead>
                                 <tr>
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
-                                    <th>메인노출 순서</th>
+                                    <th>사이트</th>
+                                    <th>메인노출</th>
                                     <th>이름</th>
                                     <th>연락처</th>
                                     <th>이메일</th>
@@ -74,7 +106,10 @@
                                 </thead>
                                 <tbody>
                                 <?php if ($total_count>0){
-                                    foreach($list as $row){ ?>
+                                    foreach($list as $row){
+                                        if(!$row["rev_main_sort"])$row["rev_main_sort"]="";
+                                        else $row["rev_main_sort"]="<span class='label label-primary'>" . $row["rev_main_sort"] . "번째 노출</span>";
+                                        ?>
                                         <tr>
                                             <td>
                                                 <div class="checkbox check-default">
@@ -82,11 +117,15 @@
                                                     <label for='checkbox<?php echo $row[$primaryKey]?>'></label>
                                                 </div>
                                             </td>
+                                            <td><?php
+                                                if($row['rev_lang']=='rus')echo "러시아";
+                                                else if($row['rev_lang']=='kor')echo "국문";
+                                                ?></td>
                                             <td><?php echo $row["rev_main_sort"]?></td>
                                             <td><?php echo $row["rev_name"]?></td>
                                             <td><?php echo $row["rev_tel"]?></td>
                                             <td><?php echo $row["rev_email"]?></td>
-                                            <td><?php echo $row["rev_medical_type"]?></td>
+                                            <td><?php echo $row["dep_title_kor"]?></td>
                                             <td><?php echo $row["rev_created_at"]?></td>
                                             <td class='listBtn'>
                                                 <a class='btn btn-small btn-primary' href='<?php echo $cont_url?>/edit/<?php echo $row[$primaryKey] . $qstr?>'><i class='fa fa-pen'></i></a>

@@ -31,7 +31,7 @@
                                         <label class="form-label">메인노출순서</label>
                                         <div class="controls">
                                             <div class="input-group">
-                                                <input type="number" class="form-control w-75p" name="rev_main_sort"  placeholder="순서" value="<?php echo $rev_main_sort?>" required>
+                                                <input type="number" class="form-control w-75p" name="rev_main_sort"  placeholder="순서" value="<?php echo $rev_main_sort?>" >
                                             </div>
                                             <small>※ 0 또는 미입력 시 노출되지 않습니다.</small>
                                         </div>
@@ -70,7 +70,14 @@
                                     <div class="form-group">
                                         <label class="form-label">진료과</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="rev_medical_type"  placeholder="진료과" value="<?php echo $rev_medical_type?>" >
+                                            <select name="rev_medical_type" value="" id="medical" class="form-control form-control-lg">
+                                                <option value="">분야 선택</option>
+                                                <?php
+                                                foreach($dep_list as $key => $val){?>
+                                                    <option value="<?php echo $val['dep_idx'] . "::" . $val['dep_title_kor']?>" <?php if($rev_dep_idx==$val['dep_idx'])echo "selected";?>><?php echo $val['dep_title_kor']; ?></option>
+                                                <?php }?>
+                                            </select>
+
                                         </div>
                                     </div>
 

@@ -53,23 +53,13 @@ class Cs extends BaseController
         else{
 
             // 진료과
-            $this->DepartmentsModel->select('dep_idx,dep_title_kor,dep_title_'.$this->lang.' as title');
+            $this->DepartmentsModel->select('dep_idx,dep_title_kor');
             $this->DepartmentsModel->where("(dep_deleted_at is null or dep_deleted_at = '')"); // 삭제한 데이터는 제외
-            $this->DepartmentsModel->where("dep_group","treatment"); // 진료과
+
             $this->DepartmentsModel->where("dep_display_".$this->lang,"Y"); // 화면 보이기/숨김
             $this->DepartmentsModel->orderBy('dep_title_'.$this->lang,"ASC"); // 과 제목
-            $m['dep_list1'] = $this->DepartmentsModel->get()->getResultArray();
+            $data['dep_list'] = $this->DepartmentsModel->get()->getResultArray();
 
-            //전문센터
-            $this->DepartmentsModel->select('dep_idx,dep_title_kor,dep_title_'.$this->lang.' as title');
-            $this->DepartmentsModel->where("(dep_deleted_at is null or dep_deleted_at = '')"); // 삭제한 데이터는 제외
-            $this->DepartmentsModel->where("dep_group","specializedcenter"); // 전문센터
-            $this->DepartmentsModel->where("dep_display_".$this->lang,"Y"); // 화면 보이기/숨김
-            $this->DepartmentsModel->orderBy('dep_title_'.$this->lang,"ASC"); // 과 제목
-            $m['dep_list2'] = $this->DepartmentsModel->get()->getResultArray();
-
-            //배열 합치기
-            $data['dep_list'] = array_merge($m['dep_list1'],$m['dep_list2']);
 
             $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
             $this->setView("review",$data);

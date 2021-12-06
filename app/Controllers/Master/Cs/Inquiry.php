@@ -14,11 +14,12 @@ class Inquiry extends MasterController
         /**
          * 검색 기능 구현 시작
          */
-        if($this->sch_obj[1])$this->MrequestInquiryModel->like("inq_name",$this->sch_obj[1],'both'); // 이름
-        if($this->sch_obj[2])$this->MrequestInquiryModel->like("inq_tel",$this->sch_obj[2],'both'); // 연락처
+        if($this->sch_obj[1])$this->InquiryModel->like("inq_name",$this->sch_obj[1],'both'); // 이름
+        if($this->sch_obj[2])$this->InquiryModel->like("inq_tel",$this->sch_obj[2],'both'); // 연락처
+        if($this->sch_obj[3])$this->InquiryModel->where("inq_lang",$this->sch_obj[3]); // 언어
         /* 검색 기능 구현 끝 */
 
-        $data = $this->MrequestInquiryModel->getPager();
+        $data = $this->InquiryModel->getPager();
 
         $this->setView("list",$data);
         return $this->run();
@@ -37,9 +38,9 @@ class Inquiry extends MasterController
         if(!$validate) {    //-- Form 출력
             // 데이터 불러오기
             if($idx){
-                if(!$data = $this->MrequestInquiryModel->find($idx))alert("데이터를 찾을 수 없습니다.");
+                if(!$data = $this->InquiryModel->find($idx))alert("데이터를 찾을 수 없습니다.");
             }
-            else foreach($this->MrequestInquiryModel->getAllowedFields() as $key=>$f)$data[$f]="";
+            else foreach($this->InquiryModel->getAllowedFields() as $key=>$f)$data[$f]="";
 
             $data["idx"] = $idx;
 
@@ -52,9 +53,9 @@ class Inquiry extends MasterController
             $info = $this->getPost();
 
             // 데이터 불러오기
-            if($info[$this->primaryKey])$rs_info = $this->MrequestInquiryModel->find($info[$this->primaryKey]);
+            if($info[$this->primaryKey])$rs_info = $this->InquiryModel->find($info[$this->primaryKey]);
 
-            if($this->MrequestInquiryModel->edit($info)){
+            if($this->InquiryModel->edit($info)){
                 // 기존 파일 삭제 - 중요 - 반드시 DB저장 후 기존 파일 삭제할 것.
                 //$uploader->clear_old_file();
 

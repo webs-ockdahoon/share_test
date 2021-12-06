@@ -37,6 +37,19 @@
                                     </div>
                                 </div>
 
+                                <div class="col-sm-6 col-md-3 col-lg-2">
+                                    <div class="form-group">
+                                        <label class="form-label ">사이트</label>
+                                        <div class="controls">
+                                            <select class="form-control" name="s3" id="s3">
+                                                <option value="">전체</option>
+                                                <option value="rus" <?php if($s3=='rus')echo "selected";?>>러시아</option>
+                                                <option value="kor" <?php if($s3=='kor')echo "selected";?>>국문</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-group text-center col-xs-12">
                                     <button type="submit" class="btn btn-primary">검색</button>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -62,6 +75,7 @@
                                 <thead>
                                 <tr>
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
+                                    <th>사이트</th>
                                     <th>이름</th>
                                     <th>연락처</th>
                                     <th>이메일</th>
@@ -81,6 +95,10 @@
                                                     <label for='checkbox<?php echo $row[$primaryKey]?>'></label>
                                                 </div>
                                             </td>
+                                            <td><?php
+                                                if($row['inq_lang']=='rus')echo "러시아";
+                                                else if($row['inq_lang']=='kor')echo "국문";
+                                                ?></td>
                                             <td><?php echo $row["inq_name"]?></td>
                                             <td><?php echo $row["inq_tel"]?></td>
                                             <td><?php echo $row["inq_email"]?></td>
