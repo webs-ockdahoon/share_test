@@ -1,7 +1,7 @@
 
 <div class="content ">
     <div class="page-title">
-        <h3>회사연혁 관리 </h3>
+        <h3>연혁 관리 </h3>
     </div>
     <div id="container">
 
