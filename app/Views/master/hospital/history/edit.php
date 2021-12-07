@@ -20,7 +20,7 @@
             <!-- row -->
             <div class="row">
 
-                <div class='col-lg-6 col-lg-offset-3'>
+                <div class='col-lg-8 col-lg-offset-2'>
                     <div class="grid simple ">
                         <div class="grid-title no-border">
                             <h4>기본정보</h4>
@@ -66,25 +66,44 @@
                                     </div>
 
                                     <div class="form-group history_wrap">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-3 text-center">
+                                                날짜
+                                            </div>
+                                            <div class="col-xs-12 col-md-4 text-center">
+                                                국문 내용
+                                            </div>
+                                            <div class="col-xs-12 col-md-4 text-center">
+                                                러시아 내용
+                                            </div>
+                                            <div class="col-xs-12 col-md-1 text-center">
+                                                줄추가
+                                            </div>
+                                        </div>
+
+
                                             <?php for($i=1; $i<=30; $i++){
 
                                                 if(isset($hoh_history[$i-1]) && is_array($hoh_history[$i-1])) {
                                                     $his = $hoh_history[$i-1];
                                                 }else{
-                                                    $his = array('start' => '', 'end' => '', 'content'=>'');
+                                                    $his = array('start' => '', 'end' => '', 'content_kor'=>'', 'content_rus'=>'');
                                                 }
 
                                                 ?>
                                                     <div class="row">
-                                                        <div class="col-xs-12 col-md-5">
+                                                        <div class="col-xs-12 col-md-3">
                                                             <div class="input-group">
                                                                 <input type="text" class="form-control hoh_date" name="hoh_date_start[<?php echo $i?>]"  placeholder="ex) 11.01." value="<?php echo $his['start']?>">
                                                                 <span class="input-group-addon"> ~ </span>
                                                                 <input type="text" class="form-control hoh_date" name="hoh_date_end[<?php echo $i?>]" placeholder="ex) 11.05." value="<?php echo $his['end']?>" >
                                                             </div>
                                                         </div>
-                                                        <div class="col-xs-12 col-md-6">
-                                                            <textarea name="hoh_content[<?php echo $i; ?>]" class="w-100" placeholder="내용" rows="2"><?php echo $his['content']?></textarea>
+                                                        <div class="col-xs-12 col-md-4">
+                                                            <textarea name="hoh_content_kor[<?php echo $i; ?>]" class="w-100" placeholder="내용" rows="2"><?php echo $his['content_kor']?></textarea>
+                                                        </div>
+                                                        <div class="col-xs-12 col-md-4">
+                                                            <textarea name="hoh_content_rus[<?php echo $i; ?>]" class="w-100" placeholder="내용" rows="2"><?php echo $his['content_rus']?></textarea>
                                                         </div>
                                                         <div class="col-xs-12 col-md-1">
                                                             <button class="btn" type="button" onclick="row_down($(this))"><i class="fa fa-level-down-alt"></i></button>
@@ -143,8 +162,9 @@
         var v1 = rows.eq(rows.length-1).find("input").eq(0).val();
         var v2 = rows.eq(rows.length-1).find("input").eq(1).val();
         var v3 = rows.eq(rows.length-1).find("textarea").eq(0).val();
+        var v4 = rows.eq(rows.length-1).find("textarea").eq(1).val();
 
-        if(v1 || v2 || v3){
+        if(v1 || v2 || v3 || v4){
             alert("마지막줄에 내용이 존재합니다. 더이상 아래로 이동할 수 없습니다.");
             return;
         }
@@ -157,6 +177,7 @@
             target_row.find("input").eq(0).val(target_up_row.find("input").eq(0).val());
             target_row.find("input").eq(1).val(target_up_row.find("input").eq(1).val());
             target_row.find("textarea").eq(0).val(target_up_row.find("textarea").eq(0).val());
+            target_row.find("textarea").eq(1).val(target_up_row.find("textarea").eq(1).val());
         }
 
         new_row.find("input,textarea").val("");
