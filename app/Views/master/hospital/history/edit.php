@@ -30,13 +30,17 @@
 
                             <div class="row">
                                 <div class="col-xs-12">
+                                    <!-- 문서로 받은 데이터 자동으로 넣기 객체 
+                                    <textarea id="temp_data" class="form-control h300"></textarea>
+                                    <button class="btn btn-default" type="button" onclick="temp_data_set()">Set</button>
+                                    -->
 
 
                                     <div class="form-group">
                                         <label class="form-label">년도</label>
                                         <div class="controls">
                                             <div class="input-group">
-                                                <input type="text" class="form-control cleave_number" name="hoh_year"  placeholder="ex) 2011" value="<?php echo $hoh_year?>" max-length="4" required>
+                                                <input type="text" class="form-control cleave_number" name="hoh_year" id="hoh_year" placeholder="ex) 2011" value="<?php echo $hoh_year?>" max-length="4" required>
                                             </div>
                                         </div>
                                     </div>
@@ -82,7 +86,7 @@
                                         </div>
 
 
-                                            <?php for($i=1; $i<=30; $i++){
+                                            <?php for($i=1; $i<=50; $i++){
 
                                                 if(isset($hoh_history[$i-1]) && is_array($hoh_history[$i-1])) {
                                                     $his = $hoh_history[$i-1];
@@ -100,10 +104,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-12 col-md-4">
-                                                            <textarea name="hoh_content_kor[<?php echo $i; ?>]" class="w-100" placeholder="내용" rows="2"><?php echo $his['content_kor']?></textarea>
+                                                            <textarea name="hoh_content_kor[<?php echo $i; ?>]" class="w-100" placeholder="국문 내용" rows="2"><?php echo $his['content_kor']?></textarea>
                                                         </div>
                                                         <div class="col-xs-12 col-md-4">
-                                                            <textarea name="hoh_content_rus[<?php echo $i; ?>]" class="w-100" placeholder="내용" rows="2"><?php echo $his['content_rus']?></textarea>
+                                                            <textarea name="hoh_content_rus[<?php echo $i; ?>]" class="w-100" placeholder="러시아어 내용" rows="2"><?php echo $his['content_rus']?></textarea>
                                                         </div>
                                                         <div class="col-xs-12 col-md-1">
                                                             <button class="btn" type="button" onclick="row_down($(this))"><i class="fa fa-level-down-alt"></i></button>
@@ -150,6 +154,54 @@
         })
 
     });
+
+    // 임시 데이터 셋팅 - 규칙적이어야함!
+    function temp_data_set(){
+        var v = $("#temp_data").val();
+        var r = v.split("\n");
+
+        var rows = $(".history_wrap .row");
+
+        for(var k=0;k<r.length;k++){
+            var txt = r[k];
+            console.log(txt);
+
+            var d1 = txt.substr(0,12).split(".");
+            var d2 = txt.substr(14,8).split(".");
+            var c = txt.substr(22);
+
+            if(!$("#hoh_year").val()){
+                $("#hoh_year").val(d1[0]);
+            }
+
+            // 여백 없애기
+            d1[0] = d1[0].replaceAll(" ","");
+            d1[1] = d1[1].replaceAll(" ","");
+            d2[0] = d2[0].replaceAll(" ","");
+            c = c.replaceAll(" ","");
+
+            var target_row = k+1;
+            rows.eq(target_row).find("input").eq(0).val(d1[1]+"."+d1[2]);
+            console.log(d2.length + " / " + d2[0] + " / " + (d2[0].length));
+            if(d2.length && d2[0]!="") {
+                if(d2.length==1) {
+                    rows.eq(target_row).find("input").eq(1).val(d1[1] + "." + d2[0]);
+                }else{
+                    d2[1] = d2[1].replaceAll(" ","");
+                    rows.eq(target_row).find("input").eq(1).val(d2[0] + "." + d2[1]);
+                }
+            }else{
+                rows.eq(target_row).find("input").eq(1).val("");
+            }
+
+            rows.eq(target_row).find("textarea").eq(0).val(c);
+
+
+
+        }
+
+
+    }
 
     // 한줄 내리고 위에 줄 추가하기 - 객체 변경시 좀 귀찮아 질수 있으니 내용만 내리는걸로
     function row_down(obj){
