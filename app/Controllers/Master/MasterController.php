@@ -134,7 +134,7 @@ class MasterController extends BaseController
             "icon"=>"fa-users",
             "link"=>"",
             "sub"=>array(
-                "history"=>array("name"=>"회사연혁관리","link"=>"/master/hospital/history",),
+                "history"=>array("name"=>"연혁관리","link"=>"/master/hospital/history",),
             ),
         );
 
