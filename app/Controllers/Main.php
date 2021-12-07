@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Main extends BaseController
 {
-    protected $models = array('ReviewModel','BoardConfModel','BoardDataModel','PartnerModel','DepartmentsModel');
+    protected $models = array('ReviewModel','BoardConfModel','BoardDataModel','PartnerModel','DepartmentsModel','BannerModel');
     protected $viewPath = "main";
 
     public function index()
@@ -41,6 +41,11 @@ class Main extends BaseController
         $this->DepartmentsModel->orderBy("dep_main_display_".$this->lang);
         $this->DepartmentsModel->where("dep_main_display_".$this->lang.">0");
         $data['main_dep_list'] = $this->DepartmentsModel->get()->getResultArray();
+
+        // 배너 가저오기
+        $this->BannerModel->where("ban_lang in ('all','".$this->lang."')");
+        $this->BannerModel->orderBy("ban_sort");
+        $data['slider_list'] = $this->BannerModel->get()->getResultArray();
 
         $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
         $this->setView("main" , $data);

@@ -62,6 +62,25 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label class="form-label">노출사이트</label>
+                                        <div class="controls">
+                                            <div class="radio radio-success">
+                                                <input type="radio" name="ban_lang" id="ban_lang1" value="all" <?php echo (!$ban_lang || $ban_lang=="all")?"checked":""?>> <label for="ban_lang1">전체</label>
+                                            </div>
+
+                                            <div class="radio radio-success">
+                                                <input type="radio" name="ban_lang" id="ban_lang2" value="rus" <?php echo ($ban_lang=="rus")?"checked":""?>> <label for="ban_lang2">러시아</label>
+                                            </div>
+
+                                            <div class="radio radio-success">
+                                                <input type="radio" name="ban_lang" id="ban_lang3" value="kor" <?php echo ($ban_lang=="kor")?"checked":""?>> <label for="ban_lang2">국문</label>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label class="form-label">배너위치</label>
                                         <div class="controls">
                                             <div class="input-group">
@@ -78,15 +97,31 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <label class="form-label">노출 순서</label>
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <select name="ban_sort" id="ban_sort">
+                                                    <?php
+                                                    for($k=1;$k<=99;$k++){
+                                                        $s = "";
+                                                        if($k==$ban_sort)$s = "selected";
+                                                        echo '<option value="'.$k.'" '.$s.'>'.$k.'</option>';
+                                                    }?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                         <div class="form-group">
                                             <label class="form-label">배너 이미지</label>
                                             <div class="controls">
+
                                                 <input type="file" class="form-control" id="ban_image" name="ban_image" placeholder="배너이미지" value="" >
-                                                <small></small>
                                                 <?php
                                                 if($ban_image!=''){?>
-                                                    <button class='btn btn-mini btn-info ml10 mr10' type='button' onclick='fnThumbView("<?php echo $ban_image?>")'><i class='fa fa-eye'></i> 보기</button>
                                                     <br>
+                                                    <img src="/uploaded/file/<?php echo $ban_image?>" class="img-responsive">
                                                     <label style='display:inline-block;padding-top:5px;'><input type='checkbox' name='ban_image_del' value='1'> 삭제</label>
                                                 <?php }?>
                                             </div>
