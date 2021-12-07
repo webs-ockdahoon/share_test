@@ -2,10 +2,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ko.min.js" integrity="sha512-3kMAxw/DoCOkS6yQGfQsRY1FWknTEzdiz8DOwWoqf+eGRN45AmjS2Lggql50nCe9Q6m5su5dDZylflBY2YjABQ==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/js/bootstrap-datetimepicker.min.js" integrity="sha512-r/mHP22LKVhxWFlvCpzqMUT4dWScZc6WRhBMVUQh+SdofvvM1BS1Hdcy94XVOod7QqQMRjLQn5w/AQOfXTPvVA==" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/css/bootstrap-datetimepicker.css" integrity="sha512-HWqapTcU+yOMgBe4kFnMcJGbvFPbgk39bm0ExFn0ks6/n97BBHzhDuzVkvMVVHTJSK5mtrXGX4oVwoQsNcsYvg==" crossorigin="anonymous" />
-
+<style>
+    .history_wrap{}
+    .history_wrap .row{padding:10px;}
+    .history_wrap .row:hover{background:#eee;}
+</style>
 <div class="content ">
     <div class="page-title">
-        <h3>회사연혁 관리 </h3>
+        <h3>연혁 관리 </h3>
     </div>
     <div id="container">
 
@@ -27,45 +31,13 @@
                             <div class="row">
                                 <div class="col-xs-12">
 
-                                    <div class="form-group">
-                                        <label class="form-label">대상년도</label>
-                                        <div class="controls">
-                                            <div class="input-group">
-                                                <select name="hoh_position" id="hoh_position">
-                                                    <option value="">미선택</option>
-                                                    <?php
-                                                    foreach($year_between as $key=>$year){
-                                                        echo $bew = $year['cih_date_start']."~".$year['cih_date_end'];
-                                                        $s = "";
-                                                        if($bew==$hoh_position)$s = "selected";
-                                                        echo '<option value="'.$bew.'" '.$s.'>'.$bew.'</option>';
-                                                    }?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <div class="form-group">
                                         <label class="form-label">년도</label>
                                         <div class="controls">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="hoh_year"  placeholder="ex) 2011" value="<?php echo $hoh_year?>" required>
+                                                <input type="text" class="form-control cleave_number" name="hoh_year"  placeholder="ex) 2011" value="<?php echo $hoh_year?>" max-length="4" required>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="form-label">월.일</label>
-                                        <div class="controls">
-                                            <?php for($i=1; $i<21; $i++){?>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" name="hoh_date_start_<?php echo $i; ?>"  placeholder="ex) 11.01." value="<?php echo ${"hoh_date_start_".$i}; ?>">
-                                                    <span class="input-group-addon"> ~ </span>
-                                                    <input type="text" class="form-control" name="hoh_date_end_<?php echo $i; ?>" placeholder="ex) 11.05." value="<?php echo ${"hoh_date_end_".$i};?>" >
-                                                </div>
-                                                <textarea name="hoh_content_<?php echo $i; ?>" class="w-100" placeholder="내용" rows="2"><?php echo ${"hoh_content_".$i};?></textarea>
-                                                <br><br>
-                                            <?php } ?>
                                         </div>
                                     </div>
 
@@ -84,6 +56,44 @@
 
                                         </div>
                                     </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            ※ 시작일 미입력시 해당 줄은 '미입력(무시)' 됩니다.<br>
+                                            ※ <i class="fa fa-level-down"></i> 버튼 클릭시 해당 줄에 새로운 줄이 추가됩니다.
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group history_wrap">
+                                            <?php for($i=1; $i<=30; $i++){
+
+                                                if(isset($hoh_history[$i-1]) && is_array($hoh_history[$i-1])) {
+                                                    $his = $hoh_history[$i-1];
+                                                }else{
+                                                    $his = array('start' => '', 'end' => '', 'content'=>'');
+                                                }
+
+                                                ?>
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-md-5">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control hoh_date" name="hoh_date_start[<?php echo $i?>]"  placeholder="ex) 11.01." value="<?php echo $his['start']?>">
+                                                                <span class="input-group-addon"> ~ </span>
+                                                                <input type="text" class="form-control hoh_date" name="hoh_date_end[<?php echo $i?>]" placeholder="ex) 11.05." value="<?php echo $his['end']?>" >
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-md-6">
+                                                            <textarea name="hoh_content[<?php echo $i; ?>]" class="w-100" placeholder="내용" rows="2"><?php echo $his['content']?></textarea>
+                                                        </div>
+                                                        <div class="col-xs-12 col-md-1">
+                                                            <button class="btn" type="button" onclick="row_down($(this))"><i class="fa fa-level-down-alt"></i></button>
+                                                        </div>
+                                                    </div>
+                                            <?php } ?>
+                                    </div>
+
+
 
                                 </div>
                             </div>
@@ -110,10 +120,51 @@
 </div>
 
 <Script>
-    $(document).ready(function(){
-        $("#hoh_date_start,#hoh_date_end").datetimepicker({
-            format: 'yyyy-MM-DD HH:mm',
-        });
+    $(function(){
+
+        $('.hoh_date').each(function(){
+            new Cleave($(this), {
+                date: true,
+                delimiter: '.',
+                datePattern: ['m', 'd'],
+            });
+        })
+
     });
+
+    // 한줄 내리고 위에 줄 추가하기 - 객체 변경시 좀 귀찮아 질수 있으니 내용만 내리는걸로
+    function row_down(obj){
+
+        var rows = $(".history_wrap .row");
+        var new_row = obj.closest(".row");
+        var idx = rows.index(new_row);
+
+        // 밑으로 내릴 수 있는지 검사하기
+        var v1 = rows.eq(rows.length-1).find("input").eq(0).val();
+        var v2 = rows.eq(rows.length-1).find("input").eq(1).val();
+        var v3 = rows.eq(rows.length-1).find("textarea").eq(0).val();
+
+        if(v1 || v2 || v3){
+            alert("마지막줄에 내용이 존재합니다. 더이상 아래로 이동할 수 없습니다.");
+            return;
+        }
+
+        // 아래에서 부터 역순으로 처리
+        for(var k=rows.length-1;k>idx;k--){
+            var target_up_row = rows.eq(k-1);
+            var target_row = rows.eq(k);
+
+            target_row.find("input").eq(0).val(target_up_row.find("input").eq(0).val());
+            target_row.find("input").eq(1).val(target_up_row.find("input").eq(1).val());
+            target_row.find("textarea").eq(0).val(target_up_row.find("textarea").eq(0).val());
+        }
+
+        new_row.find("input,textarea").val("");
+
+
+        //alert(idx);
+
+
+    }
 
 </Script>

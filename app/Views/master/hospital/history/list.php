@@ -54,7 +54,6 @@
                                 <thead>
                                 <tr>
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
-                                    <th>해당년도</th>
                                     <th>년도</th>
                                     <th>등록일</th>
                                     <th>사용여부</th>
@@ -73,7 +72,6 @@
                                                 <label for='checkbox<?php echo $row[$primaryKey]?>'></label>
                                             </div>
                                         </td>
-                                        <td><?php echo $row["hoh_position"]?></td>
                                         <td><?php echo $row["hoh_year"]?></td>
                                         <td><?php echo $row["hoh_created_at"]?></td>
                                         <td><?php echo $row["hoh_state"]?></td>
