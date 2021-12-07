@@ -34,34 +34,32 @@ class Intro extends BaseController
     public function history()
     {
         $data = array();
-        $this->HospitalHistoryModel->where("(hoh_deleted_at = null or hoh_deleted_at = '')"); // 삭제한 데이터는 제외
+        $this->HospitalHistoryModel->where("(hoh_deleted_at is null or hoh_deleted_at = '')"); // 삭제한 데이터는 제외
         $this->HospitalHistoryModel->where("hoh_state", "Y"); // 화면 보이기/숨김
         $this->HospitalHistoryModel->orderBy("hoh_year", "desc"); // 정렬순서
-        $data['history_list'] = $this->HospitalHistoryModel->get()->getResultArray();
+        $history = $this->HospitalHistoryModel->get()->getResultArray();
 
-        $this->HospitalHistoryModel->where("(hoh_deleted_at = null or hoh_deleted_at = '')"); // 삭제한 데이터는 제외
-        $this->HospitalHistoryModel->where("hoh_state", "Y"); // 화면 보이기/숨김
-        $this->HospitalHistoryModel->groupBy("hoh_position"); // 정렬순서
-        $this->HospitalHistoryModel->orderBy("hoh_position", "desc"); // 정렬순서
-        $data['code_list'] = $this->HospitalHistoryModel->get()->getResultArray();
+        // 년도별 그룹처리 ( 시작년도만 표기 )
+        $group = array(
+            2000,1990,1985
+        );
 
-//        $i = 0;
-//        $txt = "";
-//        foreach($data['history_list'] as $key => $val){
-//            foreach($val as $vkey => $vval) {
-//                if ($vkey['hoh_position'] != $txt) {
-//                    $data['title'] = $vkey['hoh_position'];
-//                    $txt = $vkey['hoh_position'];
-//                    $data['title'][$i] = $val;
-//                } else {
-//                    $data['title'][$i] = $val;
-//                }
-//                $i = $i + 1;
-//            }
-//        }
+        $history_list = array();
+        foreach($history as $his){
+            foreach($group as $grp){
+                if($grp<=$his['hoh_year']){
+                    // 필요한 데이터만 사용
+                    $history_list[$grp][] = array(
+                        'year'=>$his['hoh_year'],
+                        'history'=>json_decode($his['hoh_history'],true),
+                    );
+                    break;
+                }
+            }
+        }
 
-        //print_r($data['title']);
-//        exit;
+        $data['group'] = $group;
+        $data['history'] = $history_list;
 
 
         $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제

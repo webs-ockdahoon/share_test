@@ -1,7 +1,7 @@
 
 <div class="content ">
     <div class="page-title">
-        <h3>회사연혁 관리 </h3>
+        <h3>연혁 관리 </h3>
     </div>
     <div id="container">
 
@@ -55,6 +55,7 @@
                                 <tr>
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
                                     <th>년도</th>
+                                    <th>내용</th>
                                     <th>등록일</th>
                                     <th>사용여부</th>
                                     <th>수정</th>
@@ -64,6 +65,15 @@
                                 <tbody>
                                 <?php if ($total_count>0){
                                 foreach($list as $row){
+
+                                    // 연혁 건수 체크
+                                    $his_count = 0;
+                                    if($row["hoh_history"]){
+                                        $hoh_history = json_decode($row["hoh_history"],true);
+                                        $his_count = sizeof($hoh_history);
+                                    }
+                                    
+                                    
                                 ?>
                                     <tr>
                                         <td>
@@ -73,6 +83,7 @@
                                             </div>
                                         </td>
                                         <td><?php echo $row["hoh_year"]?></td>
+                                        <td><?php echo $his_count?>건</td>
                                         <td><?php echo $row["hoh_created_at"]?></td>
                                         <td><?php echo $row["hoh_state"]?></td>
 

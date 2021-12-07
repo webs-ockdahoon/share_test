@@ -120,11 +120,10 @@
                         <div class="collapse" id="agreeDetail">
                             <div class="mt-2 section-card section-card-sm text-caption border bg-white" style="max-height: 10em; overflow-x: hidden;">
                                 개인 정보 이용 약관<br><br>
-                                이용 약관 내용을 넣어 주세요.<br>
-                                이용 약관 내용을 넣어 주세요.<br>
-                                이용 약관 내용을 넣어 주세요.<br>
-                                이용 약관 내용을 넣어 주세요.<br>
-                                이용 약관 내용을 넣어 주세요.<br>
+                                1.동아대학교병원은 서비스 제공을 위해 이용자의 동의를 받아 개인정보를 수집 및 이용 목적으로 이용자의 개인정보를 수집합니다.<br>
+                                2. 환자등록번호, 성명, 성별, 외국인등록번호, 생년월일, 국적, 언어, 연락처, 이메일주소, 추가연락처, 한국주소, 영구주소, 개인보험, 증상 및 필요사항에 따라 수집되는 개인정보 항목 의료 서비스, 동의날짜 및 의견<br>
+                                <br>
+                                ※ 개인정보 수집 및 이용에 관한 규정에 동의바랍니다.
                             </div>
                         </div>
                     </div>

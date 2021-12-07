@@ -161,15 +161,6 @@ class MasterController extends BaseController
             ),
         );
 
-        $menu["hospital"] = array(
-            "name"=>"진료안내",
-            "icon"=>"fa-users",
-            "link"=>"",
-            "sub"=>array(
-                "history"=>array("name"=>"회사연혁관리","link"=>"/master/hospital/history",),
-            ),
-        );
-
         $menu["partner"] = array(
             "name"=>"협력업체관리",
             "icon"=>"fa-users",

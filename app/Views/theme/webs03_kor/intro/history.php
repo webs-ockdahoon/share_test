@@ -22,68 +22,72 @@ $this->setVar('heroTitle', '병원 연혁');
             <div class="section-divider">
                 <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
                     <?php
-                    $j=0; // 배열값 출력용 변수
-                    //$code_list = array_reverse($code_list); // 배열 뒤집기
-                    for($i=1; $i<=count($code_list); $i++){
-                        if($j==0){
-                            $as = "true"; // 컨트롤요소?
-                            $ac = "active"; // 현재 탭
+                    foreach($group as $grp_key=>$grp){
+                        $start = $grp;
+                        $active = $selected = "";
+                        if($grp_key==0){
+                            $end = "현재";
+                            $active = "active";
+                            $selected = "selected";
                         }else{
-                            $as = "false";
-                            $ac = "";
+                            $end = $group[$grp_key-1]-1;
                         }
+
                         ?>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link <?php echo $ac; ?>" id="history0<?php echo $i; ?>-tab" data-toggle="tab" href="#history0<?php echo $i; ?>" role="tab" aria-controls="history0<?php echo $i; ?>" aria-selected="<?php echo $as; ?>">
-                                <?php echo $code_list[$j]['hoh_position'];?>
+                            <a class="nav-link <?php echo $active; ?>" id="history0<?php echo $grp; ?>-tab" data-toggle="tab" href="#history0<?php echo $grp; ?>" role="tab" aria-controls="history0<?php echo $grp; ?>" aria-selected="<?php echo $selected; ?>">
+                                <?php echo $end?>~<?php echo $start?>
                             </a>
                         </li>
                     <?php
-                        $j = $j+1;
                     } ?>
             </div>
 
             <div class="tab-content">
                 <?php
-                $p = 1;
-                $txt = "";
-                for($i=0; $i<count($code_list); $i++){
-                    if($i==0){
-                        $ac = "active"; // 현재 탭
+                foreach($group as $grp_key=>$grp){
+                    $active = $selected = "";
+                    if($grp_key==0){
+                        $active = "active"; // 현재 탭
                     }else{
-                        $ac = "";
+                        $active = "";
                     }
                     ?>
-                    <div class="tab-pane <?php echo $ac; ?>" id="history0<?php echo $p; ?>" role="tabpanel" aria-labelledby="history0<?php echo $p; ?>-tab">
-                        <h3 class="sr-only"><?php echo $code_list[$i]['hoh_position'];?></h3>
+                    <div class="tab-pane <?php echo $active; ?>" id="history0<?php echo $grp; ?>" role="tabpanel" aria-labelledby="history0<?php echo $grp; ?>-tab">
+                        <h3 class="sr-only">history0<?php echo $grp; ?></h3>
                         <div class="section-body section-text text-muted">
-                            <?php for($j=0; $j<count($history_list); $j++){
-                                if($history_list[$j]['hoh_position'] == $code_list[$i]['hoh_position']){
+                            <?php foreach($history[$grp] as $his){
+
                                 ?>
                                     <div class="history-wrap">
-                                        <div class="history-year"><?php echo $history_list[$j]['hoh_year'];?></div>
+                                        <div class="history-year"><?php echo $his['year']?></div>
+                                        <div class="history-flex-box">
+                                        <?php foreach($his['history'] as $his_detail){ ?>
 
-                                        <?php for($k=1; $k<=20; $k++){
-                                            if(!empty($history_list[$j]['hoh_date_start_'.$k])){
-                                            ?>
-                                            <div class="history-flex-box">
                                                 <div class="history-box">
-                                                    <p class="history-date"><?php echo $history_list[$j]['hoh_date_start_'.$k]; ?></p>
+                                                    <p class="history-date">
+                                                        <?php echo $his_detail['start'].".";
+                                                        if($his_detail['end'])echo " ~ " . $his_detail['end'].".";
+                                                        ?>
+                                                    </p>
                                                     <div class="history-text">
                                                         <ul class="list-bullet">
-                                                            <li class="mb-3"><?php echo $history_list[$j]['hoh_content_'.$k]; ?></li>
+                                                            <li class="mb-3"><?php echo nl2br($his_detail['content_'.$lang])?></li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        <?php }
-                                        }?>
+
+                                        <?php }?>
+                                        </div>
+
                                     </div>
-                            <?php }
+                            <?php
                             }?>
                         </div>
                     </div>
-                <?php $p= $p+1; }?>
+                <?php
+                }   // end foreach
+                ?>
             </div>
 
             <?php /*

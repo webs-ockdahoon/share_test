@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--medical page--mrequest-inquiry');
-    $this->setVar('heroTitle', '진료 문의');
+    $this->setVar('heroTitle', 'Запись на прием');
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -29,20 +29,20 @@
         <form method="post" class="js__mrequest-form" novalidate data-success-msg="정상적으로 등록되었습니다.">
             <fieldset class="section-divider-sm section-text">
                 <div class="section-header border-bottom border-dark">
-                    <legend class="section-title">기본 정보 <small class="text-caption text-muted">(<strong class="text-danger">*</strong> поле, обязательное для заполнения)</small></legend>
+                    <legend class="section-title">Стандартная информация <small class="text-caption text-muted">(<strong class="text-danger">*</strong> поле, обязательное для заполнения)</small></legend>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="name" class="col-12 col-md-3 require-mark--before">ФИО</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="inq_name" value="" id="name" class="form-control form-control-lg" placeholder="예) 홍길동" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
+                        <input type="text" name="inq_name" value="" id="name" class="form-control form-control-lg" placeholder="Например. Хонг Гиль Донг" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="nationality" class="col-12 col-md-3 require-mark--before">Гражданство</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="inq_nationality" value="" id="nationality" class="form-control form-control-lg" placeholder="예) 한국" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
+                        <input type="text" name="inq_nationality" value="" id="nationality" class="form-control form-control-lg" placeholder="Например. Корея" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                     <label for="tel" class="col-12 col-md-3 require-mark--before">Телефон</label>
                     <div class="col-12 col-md-9">
                         <input type="text" name="inq_tel" value="" id="tel" class="form-control form-control-lg js__cleave-input-number" placeholder="예) 01012345678" required data-validator data-validator-type="required" data-required-msg="연락처를 입력해 주세요.">
-                        <p class="form-text text-caption text-warning">* 숫자만 입력</p>
+                        <p class="form-text text-caption text-warning">* только цифры</p>
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@
                     <label for="birth" class="col-12 col-md-3 require-mark--before">Дата раждения</label>
                     <div class="col-12 col-md-9">
                         <input type="text" name="inq_birth" value="" id="birth" class="form-control form-control-lg js__cleave-input-date" placeholder="예) 2021-11-02" required data-validator data-validator-type="required" data-required-msg="생년월일을 입력해 주세요.">
-                        <p class="form-text text-caption text-warning">* yyyy-mm-dd 형태, 숫자만 입력</p>
+                        <p class="form-text text-caption text-warning">* yyyy-mm-dd</p>
                     </div>
                 </div>
 
@@ -109,22 +109,21 @@
                         <div class="agreement-card__control-group">
                             <div class="custom-control custom-checkbox custom-checkbox--v1">
                                 <input type="checkbox" name="inq_agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
-                                <label class="custom-control-label" for="agree"><span class="require-mark--before">개인 정보 이용 약관 동의</span></label>
+                                <label class="custom-control-label" for="agree"><span class="require-mark--before">Соглашение об использовании личных данных</span></label>
                             </div>
 
                             <button class="agreement-card__btn-detail text-muted" type="button" data-toggle="collapse" data-target="#agreeDetail" aria-expanded="false" aria-controls="agreeDetail">
-                                자세히 보기
+                                Подробнее
                             </button>
                         </div>
 
                         <div class="collapse" id="agreeDetail">
                             <div class="mt-2 section-card section-card-sm text-caption border bg-white" style="max-height: 10em; overflow-x: hidden;">
-                                개인 정보 이용 약관<br><br>
-                                이용 약관 내용을 넣어 주세요.<br>
-                                이용 약관 내용을 넣어 주세요.<br>
-                                이용 약관 내용을 넣어 주세요.<br>
-                                이용 약관 내용을 넣어 주세요.<br>
-                                이용 약관 내용을 넣어 주세요.<br>
+                                Информация о сборе и использовании персональных данных<br>
+                                1.Цель сбора и использования личной информации с согласия пользователей, Больница при университете Донг-А собирает личную информацию пользователей с целью предоставления услуг.<br>
+                                2.Элементы личной информации, собранные Регистрационный Номер Пациента, Имя, Пол, Регистрационный Номер Иностранца, Дата Рождения, Национальность, Язык, Контактный Номер, Адрес электронной почты, Дополнительный контактный номер, Адрес в Корее, Постоянный адрес, Частная страховка, Симптомы и Необходимые Медицинские Услуги, Доступные даты и Комментарии.<br>
+                                <br>
+                                ※Просим согласиться с правилами сбора и использованию личной информации.
                             </div>
                         </div>
                     </div>
