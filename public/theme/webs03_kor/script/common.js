@@ -27,3 +27,11 @@ function toggleTargetOpen($target, isAccordian, isOpen) {
 
     $target.toggleClass('is-open');
 }
+
+function slider_link(url_str,target_str){
+    if(target_str=='self'){
+        document.location=url_str;
+    }else{
+        window.open(url_str);
+    }
+}

@@ -28,6 +28,18 @@
                                     </div>
                                 </div>
                             </div>
+                                <div class="col-sm-6 col-md-3 col-lg-2">
+                                    <div class="form-group">
+                                        <label class="form-label ">노출사이트</label>
+                                        <div class="controls">
+                                            <select class="form-control" id='s2' name='s2'>
+                                                <option value="">전체</option>
+                                                <option value="rus" <?php if($s2=="rus")echo "Selected";?>>러시아</option>
+                                                <option value="kor" <?php if($s2=="kor")echo "Selected";?>>국문</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
 
                             <div class="form-group text-center col-xs-12">
                                 <button type="submit" class="btn btn-primary">검색</button>
@@ -54,6 +66,8 @@
                                 <thead>
                                 <tr>
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
+                                    <th>노출사이트</th>
+                                    <th>노출순서</th>
                                     <th>배너 이미지</th>
                                     <th>배너제목</th>
                                     <th>게시일</th>
@@ -66,6 +80,9 @@
                                 <tbody>
                                 <?php if ($total_count>0){
                                 foreach($list as $row){
+                                    if($row["ban_lang"]=='all')$row["ban_lang"] = '전체';
+                                    else if($row["ban_lang"]=='kor')$row["ban_lang"] = '국문';
+                                    else if($row["ban_lang"]=='rus')$row["ban_lang"] = '러시아';
                                 ?>
                                     <tr>
                                         <td>
@@ -74,9 +91,9 @@
                                                 <label for='checkbox<?php echo $row[$primaryKey]?>'></label>
                                             </div>
                                         </td>
-
+                                        <td><?php echo $row["ban_lang"]?></td>
+                                        <td><?php echo $row["ban_sort"]?></td>
                                         <td><img src="/uploaded/file/<?php echo $row["ban_image"]?>" class="h80" onerror="this.src='/uploaded/file/noimage.jpg'"></td>
-
                                         <td><?php echo $row["ban_title"]?></td>
                                         <td><?php echo $row["ban_date_start"]?></td>
                                         <td><?php echo $row["ban_date_end"]?></td>

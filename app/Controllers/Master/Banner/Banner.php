@@ -15,6 +15,7 @@ class Banner extends MasterController
          * 검색 기능 구현 시작
          */
         if($this->sch_obj[1])$this->model->like("ban_title",$this->sch_obj[1],'both');
+        if($this->sch_obj[2])$this->model->where("ban_lang in ('all','".$this->sch_obj[2]."')");
         /* 검색 기능 구현 끝 */
 
         $data = $this->model->getPager();
@@ -74,7 +75,7 @@ class Banner extends MasterController
                 "upload"=>$rs_info["ban_image"] // 업로드된 파일명
             );
 
-            $up_option = array("path"=>"banner","uploaded"=>$uploaded);
+            $up_option = array("path"=>"banner","uploaded"=>$uploaded,"image_max_width"=>2000);
             $uploader = new Uploader("ban_image",$up_option);
             $fup = $uploader->upload();
 
