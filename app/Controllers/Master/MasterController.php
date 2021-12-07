@@ -179,18 +179,6 @@ class MasterController extends BaseController
             ),
         );
 
-        /*
-        $menu["member"] = array(
-            "name"=>"회원관리",
-            "icon"=>"fa-users",
-            "link"=>"",
-            "sub"=>array(
-                "member"=>array("name"=>"회원관리","link"=>"/master/member/member",),
-                "manager"=>array("name"=>"관리자 설정","link"=>"/master/member/manager",),
-            ),
-        );
-        */
-
         $menu["banner"] = array(
             "name"=>"배너관리",
             "icon"=>"fa-images",
@@ -214,6 +202,16 @@ class MasterController extends BaseController
             "sub"=>array(
                 "config"=>array("name"=>"게시판관리","link"=>"/master/board/config",),
 
+            ),
+        );
+
+        $menu["member"] = array(
+            "name"=>"관리자관리",
+            "icon"=>"fa-users",
+            "link"=>"",
+            "sub"=>array(
+                //"member"=>array("name"=>"회원관리","link"=>"/master/member/member",),
+                "manager"=>array("name"=>"관리자 설정","link"=>"/master/member/manager",),
             ),
         );
 
