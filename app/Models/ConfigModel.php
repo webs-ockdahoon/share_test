@@ -20,6 +20,11 @@ class ConfigModel extends BaseModel
         $conf = array();
         foreach($this->get()->getResultArray() as $rs){
             $conf[$rs["con_title"]] = $rs["con_value"];
+            
+            // Youtube 영상 주소 아이디값만 추출
+            if($rs["con_title"]=='main_movie1'){
+                $conf[$rs["con_title"]."_id"] = get_youtubeid($rs["con_value"]);
+            }
         }
         return $conf;
     }
