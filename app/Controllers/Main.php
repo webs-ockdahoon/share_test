@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Main extends BaseController
 {
-    protected $models = array('ReviewModel','BoardConfModel','BoardDataModel','PartnerModel');
+    protected $models = array('ReviewModel','BoardConfModel','BoardDataModel','PartnerModel','DepartmentsModel');
     protected $viewPath = "main";
 
     public function index()
@@ -35,6 +35,12 @@ class Main extends BaseController
         $this->ReviewModel->select("webs_review.*,b.dep_title_".$this->lang . " as dep_title");
         $this->ReviewModel->join("webs_departments as b","webs_review.rev_dep_idx=b.dep_idx","left");
         $data['rev_list'] = $this->ReviewModel->get()->getResultArray();
+
+        // 진료부서 메인 노출 항목 가져오기
+        $this->DepartmentsModel->select("dep_idx,dep_group,dep_title_" . $this->lang . " as dep_title,dep_image");
+        $this->DepartmentsModel->orderBy("dep_main_display_".$this->lang);
+        $this->DepartmentsModel->where("dep_main_display_".$this->lang.">0");
+        $data['main_dep_list'] = $this->DepartmentsModel->get()->getResultArray();
 
         $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
         $this->setView("main" , $data);

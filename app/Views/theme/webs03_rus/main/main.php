@@ -62,90 +62,27 @@ $faqs = [
 
             <div class="swiper-container service-swiper js__service-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div>
-                            <a href="/" class="card service-card">
-                                <div class="card-sidebar">
-                                    <i class="icon icon-xl icon-main-department-01 rounded-circle card-icon bg-white"></i>
-                                </div>
 
-                                <div class="card-body">
-                                    <h3 class="card-title">류마티스내과</h3>
-                                    <span class="btn card-btn">바로가기</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <a href="/" class="card service-card">
-                                <div class="card-sidebar">
-                                    <i class="icon icon-xl icon-main-department-02 rounded-circle card-icon bg-white"></i>
-                                </div>
+                    <?php foreach($main_dep_list as $dep_item){
+                        $link = "medical";
+                        if($dep_item['dep_group']=='specializedcenter')$link='center';
+                        ?>
+                        <div class="swiper-slide">
+                            <div>
+                                <a href="/<?php echo $link?>/departmentInfo/<?php echo $dep_item['dep_idx']?>" class="card service-card">
+                                    <div class="card-sidebar">
+                                        <img src="/uploaded/file/<?php echo $dep_item['dep_image']?>">
+                                    </div>
 
-                                <div class="card-body">
-                                    <h3 class="card-title">방사선종양학과</h3>
-                                    <span class="btn card-btn">바로가기</span>
-                                </div>
-                            </a>
+                                    <div class="card-body">
+                                        <h3 class="card-title"><?php echo $dep_item['dep_title']?></h3>
+                                        <span class="btn card-btn">바로가기</span>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <a href="/" class="card service-card">
-                                <div class="card-sidebar">
-                                    <i class="icon icon-xl icon-main-department-03 rounded-circle card-icon bg-white"></i>
-                                </div>
+                    <?php }?>
 
-                                <div class="card-body">
-                                    <h3 class="card-title">성형외과</h3>
-                                    <span class="btn card-btn">바로가기</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <a href="/" class="card service-card">
-                                <div class="card-sidebar">
-                                    <i class="icon icon-xl icon-main-department-04 rounded-circle card-icon bg-white"></i>
-                                </div>
-
-                                <div class="card-body">
-                                    <h3 class="card-title">영상의학과</h3>
-                                    <span class="btn card-btn">바로가기</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <a href="/" class="card service-card">
-                                <div class="card-sidebar">
-                                    <i class="icon icon-xl icon-main-department-05 rounded-circle card-icon bg-white"></i>
-                                </div>
-
-                                <div class="card-body">
-                                    <h3 class="card-title">재활의학과</h3>
-                                    <span class="btn card-btn">바로가기</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <a href="/" class="card service-card">
-                                <div class="card-sidebar">
-                                    <i class="icon icon-xl icon-main-department-06 rounded-circle card-icon bg-white"></i>
-                                </div>
-
-                                <div class="card-body">
-                                    <h3 class="card-title">정형외과</h3>
-                                    <span class="btn card-btn">바로가기</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="swiper-pagination swiper-pagination--v1 js__service-swiper__pagination"></div>
