@@ -11,6 +11,33 @@
             <form method="post" enctype="multipart/form-data" id="editForm">
                 <input type="hidden" name="con_lang" value="<?php echo $con_lang?>">
                 <!-- row -->
+
+                <div class="row">
+                    <div class='col-lg-12'>
+                        <div class="grid simple ">
+                            <div class="grid-title no-border">
+                                <h4>메인 홍보영상</h4>
+                            </div>
+
+                            <div class="grid-body editForm">
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+
+                                        <div class="form-group">
+                                            <label for="inCTname" class="col-sm-2 control-label">영상URL</label>
+                                            <div class="col-sm-10 col-md-5">
+                                                <input type="text" class="form-control" id="main_movie1" name="main_movie1" placeholder="http:// 포함 전체주소 입력" value="<?php echo $main_movie1?>" >
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class='col-lg-6'>
                         <div class="grid simple ">

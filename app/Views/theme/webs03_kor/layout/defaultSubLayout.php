@@ -15,14 +15,6 @@
         $now_menu_sub_title = $menu_info[$menu_active[0]]["mnu_sub_title"];
     }
 
-    // ? common_helper 에 함수들이 호출이 안된다? Custom_route 를 타서 그런것 같음
-    if(!function_exists("str_nowrap")){
-        function str_nowrap($str) {
-            $str = str_replace(array("</br>", "<br>"), " ", $str);
-            $str = strip_tags($str);
-            return $str;
-        }
-    }
 ?>
 
 <?php echo $this->section('beforeContent'); ?>

@@ -300,3 +300,11 @@ if(!function_exists("str_nowrap")){
         return $str;
     }
 }
+
+// 유튜브 동영상 주소에서 동영상 ID만 추출하는 함수
+function get_youtubeid($url) {
+    $regExp = '/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/';
+    preg_match($regExp, $url, $matches);
+    $youtube_id = $matches[7];
+    return $youtube_id;
+}

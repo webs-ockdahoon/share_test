@@ -5,6 +5,8 @@ use CodeIgniter\Controller;
 
 class Custom_route extends Controller
 {
+    protected $helpers = ['common','alert'];
+
     public function index($class="",$method="",$args="")
     {
         /*****************************************************

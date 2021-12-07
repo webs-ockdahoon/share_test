@@ -25,7 +25,7 @@ $faqs = [
 ?>
 
 <?php
-    $this->setVar('bodyClassName', 'page--main');
+$this->setVar('bodyClassName', 'page--main');
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -206,7 +206,7 @@ $faqs = [
 
             <div class="section-sidebar">
                 <div class="embed-responsive embed-responsive-16by9 media-frame">
-                    <iframe width="100%" height="100%" class="embed-responsive-item" src="https://www.youtube.com/embed/YlhOIzvUT0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $config_site['main_movie1_id']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
