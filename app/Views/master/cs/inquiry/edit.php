@@ -16,7 +16,7 @@
             <!-- row -->
             <div class="row">
 
-                <div class='col-lg-6 col-lg-offset-3'>
+                <div class='col-lg-6 '>
                     <div class="grid simple ">
                         <div class="grid-title no-border">
                             <h4>기본정보</h4>
@@ -26,6 +26,8 @@
 
                             <div class="row">
                                 <div class="col-xs-12">
+
+
 
                                     <div class="form-group">
                                         <label class="form-label">이름</label>
@@ -98,6 +100,47 @@
 
                     </div>
                 </div>
+
+                <div class='col-lg-6 '>
+                    <div class="grid simple ">
+                        <div class="grid-title no-border">
+                            <h4>기본정보</h4>
+                        </div>
+
+                        <div class="grid-body editForm">
+
+                            <div class="row">
+                                <div class="col-xs-12">
+
+                                    <div class="form-group">
+                                        <label class="form-label">처리상태</label>
+                                        <div class="controls">
+                                            <div class="radio radio-danger">
+                                                <input type="radio" name="inq_state" id="inq_state1" value="1" <?php echo ($inq_state!="10")?"checked":""?>> <label for="inq_state1">미처리</label>
+                                            </div>
+
+                                            <div class="radio radio-success">
+                                                <input type="radio" name="inq_state" id="inq_state2" value="10" <?php echo ($inq_state=="10")?"checked":""?>> <label for="inq_state2">처리완료</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="form-label">관리자메모</label>
+                                        <div class="controls">
+                                            <textarea name="inq_memo" class="w-100" placeholder="관리자 메모" rows="5"><?php echo $inq_memo;?></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                
             </div>
             <!--/ row -->
             <!-- row -->

@@ -17,6 +17,7 @@ class Inquiry extends MasterController
         if($this->sch_obj[1])$this->InquiryModel->like("inq_name",$this->sch_obj[1],'both'); // 이름
         if($this->sch_obj[2])$this->InquiryModel->like("inq_tel",$this->sch_obj[2],'both'); // 연락처
         if($this->sch_obj[3])$this->InquiryModel->where("inq_lang",$this->sch_obj[3]); // 언어
+        if($this->sch_obj[4])$this->InquiryModel->where("inq_state",$this->sch_obj[4]); // 언어
         /* 검색 기능 구현 끝 */
 
         $data = $this->InquiryModel->getPager();
