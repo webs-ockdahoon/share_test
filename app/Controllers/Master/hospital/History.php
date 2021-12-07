@@ -66,11 +66,14 @@ class History extends MasterController
             foreach($info['hoh_date_start'] as $key=>$start){
                 if(!$start)continue;
                 $end = $info['hoh_date_end'][$key];
-                $cont = $info['hoh_content'][$key];
+                $cont_kor = $info['hoh_content_kor'][$key];
+                $cont_rus = $info['hoh_content_rus'][$key];
                 $history[] = array(
                     'start'=>$start,
                     'end'=>$end,
-                    'content'=>$cont,
+                    'content_kor'=>$cont_kor,
+                    'content_rus'=>$cont_rus,
+
                 );
             }
 
