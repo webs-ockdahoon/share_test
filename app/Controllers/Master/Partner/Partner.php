@@ -69,7 +69,7 @@ class Partner extends MasterController
             );
 
             $up_max_width = 190;
-            $up_option = array("path"=>"departments","uploaded"=>$uploaded,"image_max_width"=>$up_max_width);
+            $up_option = array("path"=>"partner","uploaded"=>$uploaded,"image_max_width"=>$up_max_width);
             $uploader = new Uploader("par_image",$up_option);
             $fup = $uploader->upload();
 

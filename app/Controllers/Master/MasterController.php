@@ -147,16 +147,17 @@ class MasterController extends BaseController
                 "departmentsDoctor"=>array("name"=>"진료과 의료진 관리","link"=>"/master/medical/treatmentDoctor",),
                 "specialized"=>array("name"=>"전문센터 관리","link"=>"/master/medical/specializedcenter",),
                 "specializedDoctor"=>array("name"=>"전문센터 의료진 관리","link"=>"/master/medical/specializedcenterDoctor",),
+                "departments"=>array("name"=>"메인노출 관리","link"=>"/master/medical/maindisplay",),
             ),
         );
 
-        $menu["mrequest"] = array(
+        $menu["cs"] = array(
             "name"=>"문의 및 후기 관리",
             "icon"=>"fa-users",
             "link"=>"",
             "sub"=>array(
-                "inquiry"=>array("name"=>"진료 문의 관리","link"=>"/master/mrequest/inquiry",),
-                "reviewinquiry"=>array("name"=>"진료 후기 관리","link"=>"/master/mrequest/reviewinquiry",),
+                "inquiry"=>array("name"=>"진료 문의 관리","link"=>"/master/cs/inquiry",),
+                "review"=>array("name"=>"진료 후기 관리","link"=>"/master/cs/review",),
             ),
         );
 

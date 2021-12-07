@@ -87,7 +87,7 @@
                                             <br>
                                             <?php echo $row["dep_title_rus"]?>
                                         </td>
-                                        <td><?php echo $row["dep_sort"]?></td>
+
                                         <td><?php echo $row["dep_created_at"]?></td>
                                         <td><?php echo $row["dep_display_kor"]?></td>
                                         <td><?php echo $row["dep_display_rus"]?></td>

@@ -1,8 +1,8 @@
 <?php echo $this->extend($THEME_URL.'/layout/defaultSubLayout'); ?>
 
 <?php
-    $this->setVar('bodyClassName', 'page--medical page--mrequest-review-inquiry');
-    $this->setVar('heroTitle', '진료 후기');
+$this->setVar('bodyClassName', 'page--medical page--mrequest-review-inquiry');
+$this->setVar('heroTitle', '진료 후기');
 ?>
 
 <?php echo $this->section('appendHead'); ?>
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <form method="post" class="js__mrequest-form3" novalidate data-success-msg="정상적으로 등록되었습니다.">
+        <form method="post" class="js__mrequest-form3" novalidate_X data-success-msg="정상적으로 등록되었습니다." >
             <fieldset class="section-divider-sm section-text">
                 <div class="section-header border-bottom border-dark">
                     <legend class="section-title">기본 정보 <small class="text-caption text-muted">(<strong class="text-danger">*</strong> 필수 기재)</small></legend>
@@ -35,28 +35,28 @@
                 <div class="form-group form-group--v1 form-row">
                     <label for="name" class="col-12 col-md-3 require-mark--before">이름</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="mrr_name" value="" id="name" class="form-control form-control-lg" placeholder="예) 홍길동" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
+                        <input type="text" name="rev_name" value="" id="name" class="form-control form-control-lg" placeholder="예) 홍길동" required data-validator data-validator-type="required" data-required-msg="이름을 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="nationality" class="col-12 col-md-3 require-mark--before">국적</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="mrr_nationality" value="" id="nationality" class="form-control form-control-lg" placeholder="예) 한국" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
+                        <input type="text" name="rev_nationality" value="" id="nationality" class="form-control form-control-lg" placeholder="예) 한국" required data-validator data-validator-type="required" data-required-msg="국적을 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="email" class="col-12 col-md-3 require-mark--before">이메일</label>
                     <div class="col-12 col-md-9">
-                        <input type="email" name="mrr_email" value="" id="email" class="form-control form-control-lg" placeholder="예) honggildong@gmail.com" required data-validator data-validator-type="required|email" data-required-msg="이메일을 입력해 주세요." data-email-msg="이메일 형식으로 입력해 주세요.">
+                        <input type="email" name="rev_email" value="" id="email" class="form-control form-control-lg" placeholder="예) honggildong@gmail.com" required data-validator data-validator-type="required|email" data-required-msg="이메일을 입력해 주세요." data-email-msg="이메일 형식으로 입력해 주세요.">
                     </div>
                 </div>
 
                 <div class="form-group form-group--v1 form-row">
                     <label for="tel" class="col-12 col-md-3 require-mark--before">연락처</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="mrr_tel" value="" id="tel" class="form-control form-control-lg js__cleave-input-number" placeholder="예) 01012345678" required data-validator data-validator-type="required" data-required-msg="연락처를 입력해 주세요.">
+                        <input type="text" name="rev_tel" value="" id="tel" class="form-control form-control-lg js__cleave-input-number" placeholder="예) 01012345678" required data-validator data-validator-type="required" data-required-msg="연락처를 입력해 주세요.">
                         <p class="form-text text-caption text-warning">* 숫자만 입력</p>
                     </div>
                 </div>
@@ -70,10 +70,10 @@
                 <div class="form-group form-group--v1 form-row">
                     <label for="subject" class="col-12 col-md-3 require-mark--before">분야 선택</label>
                     <div class="col-12 col-md-9">
-                        <select name="mrr_medical_type" value="" id="medical" class="form-control form-control-lg">
+                        <select name="rev_medical_type" value="" id="medical" class="form-control form-control-lg">
                             <option value="">분야 선택</option>
-                            <?php foreach($code_list as $key => $val){?>
-                                <option value="<?php echo $val['title']; ?>"><?php echo $val['title']; ?></option>
+                            <?php foreach($dep_list as $key => $val){?>
+                                <option value="<?php echo $val['dep_idx'] . "::" . $val['dep_title_kor']?>"><?php echo $val['title']; ?></option>
                             <?php }?>
                         </select>
                     </div>
@@ -82,15 +82,15 @@
                 <div class="form-group form-group--v1 form-row">
                     <label for="subject" class="col-12 col-md-3 require-mark--before">제목</label>
                     <div class="col-12 col-md-9">
-                        <input type="text" name="mrr_title" value="" id="subject" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="제목을 입력해 주세요.">
+                        <input type="text" name="rev_title" value="" id="subject" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="제목을 입력해 주세요.">
                     </div>
                 </div>
 
-                
+
                 <div class="form-group form-group--v1 form-row">
                     <label for="content" class="col-12 col-md-3 require-mark--before">내용</label>
                     <div class="col-12 col-md-9">
-                        <textarea name="mrr_content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="내용을 입력해 주세요."></textarea>
+                        <textarea name="rev_content" rows="6" id="content" class="form-control form-control-lg" required data-validator data-validator-type="required" data-required-msg="내용을 입력해 주세요."></textarea>
                     </div>
                 </div>
 
@@ -98,11 +98,11 @@
                     <div class="agreement-card">
                         <div class="agreement-card__control-group">
                             <div class="custom-control custom-checkbox custom-checkbox--v1">
-                                <input type="checkbox" name="mrr_agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
+                                <input type="checkbox" name="rev_agree" class="custom-control-input" id="agree" data-validator data-validator-type="required" data-required-msg="개인 정보 이용 약관에 동의해 주세요." required>
                                 <label class="custom-control-label" for="agree"><span class="require-mark--before">개인 정보 이용 약관 동의</span></label>
                             </div>
 
-                            <button class="agreement-card__btn-detail text-muted" type="button" data-toggle="collapse" data-target="#agreeDetail" aria-expanded="false" aria-controls="agreeDetail">
+                            <button class="agreement-card__btn-detail text-muted" type="button" data-toggle="collapse" data-target="#agreeDetail" aria-expanded="false" aria-controls="agreeDetail" >
                                 자세히 보기
                             </button>
                         </div>
@@ -143,25 +143,35 @@
             stripLeadingZeroes: false,
         });
 
-        new Cleave('.js__cleave-input-date', {
-            date: true,
-            delimiter: '-',
-            datePattern: ['Y', 'm', 'd']
-        });
-
         $('.js__mrequest-form3').on('submit', function(e) {
-            console.log('ddd');
-            return false;
-            var $form = $(this);
-            var formSuccessMsg = $form.data('successMsg') || 'submitted form.';
 
             // 폼 유효성 체크 실패시 전송 중단
+            /*
             if (!isValidForm()) {
                 return false;
             }
+            */
 
-            alert(formSuccessMsg);
+            var frm = $(this).serialize();
 
+            $.ajax({
+                url:cont_url+"/review",
+                data:frm,
+                dataType:'JSON',
+                method:'POST',
+                success:function(data){
+                    if(data["result"]=="OK"){
+                        alert($('.js__mrequest-form3').data("success-msg"));
+                        $('.js__mrequest-form3 input').val("");
+                        $('.js__mrequest-form3 textarea').val("");
+                        $('.js__mrequest-form3 select').val("");
+                    }else{
+                        alert("Error!");
+                    }
+                }
+            });
+
+            return false;
         });
 
         function isValidForm() {
@@ -222,5 +232,6 @@
 
             return isValid;
         }
+
     </script>
 <?php echo $this->endSection();

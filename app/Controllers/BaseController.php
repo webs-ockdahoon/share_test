@@ -162,6 +162,8 @@ class BaseController extends Controller
         }
 
         $this->lang = service('request')->getLocale();
+
+        $this->isAjax = $request->isAJAX();
     }
 
 
