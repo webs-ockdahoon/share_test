@@ -61,13 +61,12 @@ class Cs extends BaseController
         else{
 
             // 진료과
-            $this->DepartmentsModel->select('dep_idx,dep_title_kor');
+            $this->DepartmentsModel->select('dep_idx,dep_title_kor,dep_title_'.$this->lang . " as dep_title");
             $this->DepartmentsModel->where("(dep_deleted_at is null or dep_deleted_at = '')"); // 삭제한 데이터는 제외
 
             $this->DepartmentsModel->where("dep_display_".$this->lang,"Y"); // 화면 보이기/숨김
             $this->DepartmentsModel->orderBy('dep_title_'.$this->lang,"ASC"); // 과 제목
             $data['dep_list'] = $this->DepartmentsModel->get()->getResultArray();
-
 
             $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
             $this->setView("review",$data);

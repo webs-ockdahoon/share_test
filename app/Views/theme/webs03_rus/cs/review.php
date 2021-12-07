@@ -72,8 +72,9 @@
                     <div class="col-12 col-md-9">
                         <select name="rev_medical_type" value="" id="medical" class="form-control form-control-lg">
                             <option value="">분야 선택</option>
-                            <?php foreach($dep_list as $key => $val){?>
-                                <option value="<?php echo $val['dep_idx'] . "::" . $val['dep_title_kor']?>"><?php echo $val['title']; ?></option>
+                            <?php
+                            foreach($dep_list as $key => $val){?>
+                                <option value="<?php echo $val['dep_idx'] . "::" . $val['dep_title_kor']?>"><?php echo $val['dep_title']; ?></option>
                             <?php }?>
                         </select>
                     </div>

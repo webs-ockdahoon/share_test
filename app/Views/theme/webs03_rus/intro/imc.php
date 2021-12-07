@@ -17,17 +17,17 @@ $this->setVar('heroTitle', 'Международный медицинский ц
         <ul class="nav nav-tabs--v1 nav-tabs--v1-secondary justify-content-center text-center" id="convenienceTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <a class="nav-link active" id="imc-greeting-tab" data-toggle="tab" href="#imc-greeting" role="tab" aria-controls="imc-greeting" aria-selected="true">
-                    센터소개
+                    Международный медицинский центр
                 </a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="imc-organization-tab" data-toggle="tab" href="#imc-organization" role="tab" aria-controls="imc-organization" aria-selected="false">
-                    조직도
+                    Организационная структура
                 </a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="imc-process-tab" data-toggle="tab" href="#imc-process" role="tab" aria-controls="imc-process" aria-selected="false">
-                    업무절차
+                    Информация для иностранных пациентов
                 </a>
             </li>
         </ul>
@@ -35,7 +35,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
 
     <div class="tab-content">
         <div class="tab-pane active" id="imc-greeting" role="tabpanel" aria-labelledby="imc-greeting-tab">
-            <h3 class="sr-only">센터소개</h3>
+            <h3 class="sr-only">Международный медицинский центр</h3>
 
             <div class="content-bg"></div>
 
@@ -63,7 +63,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
         </div>
 
         <div class="tab-pane" id="imc-organization" role="tabpanel" aria-labelledby="imc-organization-tab">
-            <h3 class="sr-only">조직도</h3>
+            <h3 class="sr-only">Организационная структура</h3>
 
             <section class="section section-imc-organization">
                 <div class="section-body section-text text-muted">
@@ -71,9 +71,9 @@ $this->setVar('heroTitle', 'Международный медицинский ц
                         <table class="table table--v1 table--responsive table--responsive-column3">
                             <thead>
                             <tr>
-                                <th scope="col">구분</th>
-                                <th scope="col">성명</th>
-                                <th scope="col">부가항목</th>
+                                <th scope="col">Должность</th>
+                                <th scope="col">Ф.И.О</th>
+                                <th scope="col">Информация о сотрудниках</th>
                             </tr>
                             </thead>
 
@@ -132,7 +132,7 @@ $this->setVar('heroTitle', 'Международный медицинский ц
         </div>
 
         <div class="tab-pane" id="imc-process" role="tabpanel" aria-labelledby="imc-process-tab">
-            <h3 class="sr-only">업무절차</h3>
+            <h3 class="sr-only">Информация для иностранных пациентов</h3>
 
             <section class="section section-imc-process">
                 <div class="section-header">

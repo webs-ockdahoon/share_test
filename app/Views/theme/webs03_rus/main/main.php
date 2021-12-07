@@ -85,7 +85,7 @@ $this->setVar('bodyClassName', 'page--main');
 
                                     <div class="card-body">
                                         <h3 class="card-title"><?php echo $dep_item['dep_title']?></h3>
-                                        <span class="btn card-btn">바로가기</span>
+                                        <span class="btn card-btn">Ещё</span>
                                     </div>
                                 </a>
                             </div>
@@ -164,13 +164,14 @@ $this->setVar('bodyClassName', 'page--main');
         <div class="container">
             <div class="card cta-card">
                 <div class="card-body">
-                    <h2 class="card-title">상담신청</h2>
+                    <h2 class="card-title">Консультация</h2>
                     <p class="card-text">
-                        언제나 친절하게상담하여 드립니다. 궁금하신 사항이 있으시면 상담신청을 통해 질문해주세요. 최선을 다해 답변해드리겠습니다.
+                        Спасибо за Ваш интерес к записи на прием в больница при университете Донг-А. Если вы готовы записаться на прием или у вас есть вопросы к нашим специалистам, мы готовы помочь. Используйте нашу онлайн-форму регистрации.
+                        Наш международный координатор свяжется с вами в ближайшее время.
                     </p>
                 </div>
                 <div class="card-action">
-                    <a href="/mrequest/inquiry" class="btn btn-primary card-btn">바로가기</a>
+                    <a href="/mrequest/inquiry" class="btn btn-primary card-btn">Ещё</a>
                 </div>
             </div>
         </div>
@@ -224,7 +225,7 @@ $this->setVar('bodyClassName', 'page--main');
     <article class="section section-gutter my-0 network-section bg-light">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">건강 <strong class="text-primary">네트워크</strong></h2>
+                <h2 class="section-title">SNS <strong class="text-primary">(Социальные сети)</strong></h2>
             </div>
 
             <ul class="list-unstyled mb-0 row row-xs network-list">
