@@ -49,6 +49,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-sm-6 col-md-3 col-lg-2">
+                                    <div class="form-group">
+                                        <label class="form-label ">처리상태</label>
+                                        <div class="controls">
+                                            <select class="form-control" name="s4" id="s4">
+                                                <option value="">전체</option>
+                                                <option value="1" <?php if($s4=='1')echo "selected";?>>미처리</option>
+                                                <option value="10" <?php if($s4=='10')echo "selected";?>>처리완료</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="form-group text-center col-xs-12">
                                     <button type="submit" class="btn btn-primary">검색</button>
@@ -75,19 +87,28 @@
                                 <thead>
                                 <tr>
                                     <th style="width:1%"><div class="checkbox check-default"><input id="checkall" type="checkbox" value="1" class="checkall"><label for="checkall"></label></div></th>
+
                                     <th>사이트</th>
                                     <th>이름</th>
                                     <th>연락처</th>
                                     <th>이메일</th>
                                     <th>생년월일</th>
                                     <th>등록일</th>
+                                    <th>처리상태</th>
                                     <th>수정</th>
                                     <th>삭제</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php if ($total_count>0){
-                                    foreach($list as $row){ ?>
+                                    foreach($list as $row){
+
+                                        if($row['inq_lang']=='rus')$row['inq_lang'] = "러시아";
+                                        else if($row['inq_lang']=='kor')$row['inq_lang'] =  "국문";
+
+                                        if($row['inq_state']==1)$row['inq_state'] = '<span class="label label-danger">미처리</span>';
+                                        else if($row['inq_state']==10)$row['inq_state'] = '<span class="label label-primary">처리완료</span>';
+                                        ?>
                                         <tr>
                                             <td>
                                                 <div class="checkbox check-default">
@@ -95,15 +116,13 @@
                                                     <label for='checkbox<?php echo $row[$primaryKey]?>'></label>
                                                 </div>
                                             </td>
-                                            <td><?php
-                                                if($row['inq_lang']=='rus')echo "러시아";
-                                                else if($row['inq_lang']=='kor')echo "국문";
-                                                ?></td>
+                                            <td><?php echo $row['inq_lang']?></td>
                                             <td><?php echo $row["inq_name"]?></td>
                                             <td><?php echo $row["inq_tel"]?></td>
                                             <td><?php echo $row["inq_email"]?></td>
                                             <td><?php echo $row["inq_birth"]?></td>
                                             <td><?php echo $row["inq_created_at"]?></td>
+                                            <td><?php echo $row["inq_state"]?></td>
                                             <td class='listBtn'>
                                                 <a class='btn btn-small btn-primary' href='<?php echo $cont_url?>/edit/<?php echo $row[$primaryKey] . $qstr?>'><i class='fa fa-pen'></i></a>
                                             </td>
@@ -115,7 +134,7 @@
 
                                 }else{?>
                                     <tr>
-                                        <td colspan="9" class="text-center">등록된 자료가 없습니다.</td>
+                                        <td colspan="10" class="text-center">등록된 자료가 없습니다.</td>
                                     </tr>
                                 <?php }?>
 
