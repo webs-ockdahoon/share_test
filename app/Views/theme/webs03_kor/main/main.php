@@ -35,6 +35,39 @@ $this->setVar('bodyClassName', 'page--main');
 
 <?php echo $this->section('content'); ?>
 
+<!-- 팝업 레이어 영역 -->
+<?php
+if(!empty($pop_list)){ ?>
+    <div id="hd_pop" class="hd_pop--pc">
+        <h2>팝업레이어</h2>
+        <?php
+        foreach($pop_list as $key => $val)
+        {
+            // 이미 체크 되었다면 Continue
+            if (!empty($_COOKIE["hd_pops_{$val['pop_idx']}"]))
+            {
+                continue;
+            }
+
+            // 링크가 있을 경우에만 넣어주기
+            $pop_link = empty($val['pop_link']) ? "" : "href=".$val['pop_link'];
+            ?>
+
+            <div id="hd_pops_<?php echo $val['pop_idx']; ?>" class="hd_pops" style="top:<?php echo $val['pop_pos_y'];?>px; left:<?php echo $val['pop_pos_x'];?>px">
+                <div class="hd_pops_con">
+                    <a <?php echo $pop_link; ?> target="<?php echo $val['pop_link_target']; ?>">
+                        <img src="/uploaded/file/<?php echo $val["pop_image"];?>" alt="팝업이미지">
+                    </a>
+                </div>
+                <div class="hd_pops_footer">
+                    <button class="hd_pops_reject hd_pops_<?php echo $val['pop_idx']; ?> 24"><strong>24</strong>시간 동안 보지 않기</button>
+                    <button class="hd_pops_close hd_pops_<?php echo $val['pop_idx']; ?>">닫기</button>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+<?php } ?>
+
 <main>
     <div class="section my-0 hero-section bg-light">
         <div class="swiper-container hero-swiper js__hero-swiper">
@@ -346,6 +379,31 @@ $this->setVar('bodyClassName', 'page--main');
         $("#pageReviewModal .member-modal-text").html(v3);
         $("#pageReviewModal").modal("show");
     }
+
+    // 팝업
+    $(function() {
+        $(".hd_pops_reject").click(function() {
+            var id = $(this).attr('class').split(' ');
+            var ck_name = id[1];
+            var exp_time = parseInt(id[2]);
+            $("#"+id[1]).css("display", "none");
+            setCookie(ck_name, "N",1);
+        });
+        $('.hd_pops_close').click(function() {
+            var idb = $(this).attr('class').split(' ');
+            $('#'+idb[1]).css('display','none');
+        });
+        $("#hd").css("z-index", 99999);
+    });
+
+    // 24시간동안 보지 않기 쿠키
+    function setCookie(name, value, expiredays) {
+        var date = new Date();
+        date.setDate(date.getDate() + expiredays);
+        document.cookie = escape(name) + "=" + escape(value) + "; path=/; expires=" + date.toUTCString();
+
+    }
+
 </script>
 <?php echo $this->endSection(); ?>
 

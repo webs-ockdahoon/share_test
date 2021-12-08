@@ -47,14 +47,22 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="form-label">사용여부</label>
+                                        <label class="form-label">노출</label>
                                         <div class="controls">
                                             <div class="radio radio-success">
-                                                <input type="radio" name="pop_state" id="pop_state1" value="1" <?php echo ($pop_state!="-1")?"checked":""?>> <label for="pop_state1">사용</label>
+                                                <input type="radio" name="pop_display" id="pop_state1" value="all" <?php echo (!$pop_display || $pop_display=='all')?"checked":""?>> <label for="pop_state1">전체</label>
+                                            </div>
+
+                                            <div class="radio radio-success">
+                                                <input type="radio" name="pop_display" id="pop_state2" value="kor" <?php echo ($pop_display=="kor")?"checked":""?>> <label for="pop_state2">국문</label>
+                                            </div>
+
+                                            <div class="radio radio-success">
+                                                <input type="radio" name="pop_display" id="pop_state3" value="rus" <?php echo ($pop_display=="rus")?"checked":""?>> <label for="pop_state3">러시아</label>
                                             </div>
 
                                             <div class="radio radio-danger">
-                                                <input type="radio" name="pop_state" id="pop_state2" value="-1" <?php echo ($pop_state=="-1")?"checked":""?>> <label for="pop_state2">사용안함</label>
+                                                <input type="radio" name="pop_display" id="pop_state4" value="hidden" <?php echo ($pop_display=="hidden")?"checked":""?>> <label for="pop_state4">사용안함</label>
                                             </div>
                                             <br>
                                             <small>※ '사용안함'설정시 게시기간과 상관없이 노출이 되지 않습니다.</small>
