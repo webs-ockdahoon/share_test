@@ -58,7 +58,7 @@
                                     <th>팝업제목</th>
                                     <th>게시일</th>
                                     <th>종료일</th>
-                                    <th>사용여부</th>
+                                    <th>노출</th>
                                     <th>수정</th>
                                     <th>삭제</th>
                                 </tr>
@@ -66,6 +66,11 @@
                                 <tbody>
                                 <?php if ($total_count>0){
                                 foreach($list as $row){
+                                    if($row["pop_display"]=="all")$row["pop_display"] = "전체";
+                                    else if($row["pop_display"]=="kor")$row["pop_display"] = "국문";
+                                    else if($row["pop_display"]=="rus")$row["pop_display"] = "러시아";
+                                    else $row["pop_display"] = "숨김";
+
                                 ?>
                                     <tr>
                                         <td>
@@ -80,7 +85,7 @@
                                         <td><?php echo $row["pop_title"]?></td>
                                         <td><?php echo $row["pop_date_start"]?></td>
                                         <td><?php echo $row["pop_date_end"]?></td>
-                                        <td><?php echo $row["pop_state"]?></td>
+                                        <td><?php echo $row["pop_display"]?></td>
 
                                         <td class='listBtn'>
                                             <a class='btn btn-small btn-primary' href='<?php echo $cont_url?>/edit/<?php echo $row[$primaryKey] . $qstr?>'><i class='fa fa-pen'></i></a>

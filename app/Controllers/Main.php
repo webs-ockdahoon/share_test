@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Main extends BaseController
 {
-    protected $models = array('ReviewModel','BoardConfModel','BoardDataModel','PartnerModel','DepartmentsModel','BannerModel');
+    protected $models = array('ReviewModel','BoardConfModel','BoardDataModel','PartnerModel','DepartmentsModel','BannerModel','PopupModel');
     protected $viewPath = "main";
 
     public function index()
@@ -46,6 +46,13 @@ class Main extends BaseController
         $this->BannerModel->where("ban_lang in ('all','".$this->lang."')");
         $this->BannerModel->orderBy("ban_sort");
         $data['slider_list'] = $this->BannerModel->get()->getResultArray();
+
+        // 팝업
+        $this->PopupModel->where("pop_date_start <= ",date('Y-m-d H:i', time()));
+        $this->PopupModel->where("pop_date_end >= ",date('Y-m-d H:i', time()));
+        $this->PopupModel->where("(pop_deleted_at is null or pop_deleted_at = '')"); // 삭제한 데이터는 제외
+        $this->PopupModel->where("pop_display in ('all','".$this->lang."')"); // 화면 보이기/숨김
+        $data['pop_list'] = $this->PopupModel->get()->getResultArray(); // 모든 데이터 추출
 
         $this->setUseLayout(false); // 레이아웃은 view 에서 선택하기 위해 해당 기능 해제
         $this->setView("main" , $data);
