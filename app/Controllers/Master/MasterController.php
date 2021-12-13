@@ -145,8 +145,8 @@ class MasterController extends BaseController
             "sub"=>array(
                 "departments"=>array("name"=>"진료과 관리","link"=>"/master/medical/treatment",),
                 "departmentsDoctor"=>array("name"=>"진료과 의료진 관리","link"=>"/master/medical/treatmentDoctor",),
-                "specialized"=>array("name"=>"전문센터 관리","link"=>"/master/medical/specializedcenter",),
-                "specializedDoctor"=>array("name"=>"전문센터 의료진 관리","link"=>"/master/medical/specializedcenterDoctor",),
+                "specialized"=>array("name"=>"전문센터 관리","link"=>"/master/medical/specializedCenter",),
+                "specializedDoctor"=>array("name"=>"전문센터 의료진 관리","link"=>"/master/medical/specializedCenterDoctor",),
                 "maindisplay"=>array("name"=>"메인노출 관리","link"=>"/master/medical/maindisplay",),
             ),
         );
