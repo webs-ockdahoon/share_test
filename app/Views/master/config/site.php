@@ -39,6 +39,41 @@
                 </div>
 
                 <div class="row">
+                    <div class='col-lg-12'>
+                        <div class="grid simple ">
+                            <div class="grid-title no-border">
+                                <h4>메일수신</h4>
+                            </div>
+
+                            <div class="grid-body editForm">
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+
+                                        <div class="form-group">
+                                            <label for="inCTname" class="col-sm-2 control-label">진료문의</label>
+                                            <div class="col-sm-10 col-md-5">
+                                                <input type="text" class="form-control" id="manager_email1" name="manager_email1" placeholder="쉼표(,)로 구분하여 여러 이메일 주소 입력가능" value="<?php echo $manager_email1?>" >
+                                                <small>※ 진료문의 접수시 알림을 받을 이메일주소를 입력해 주세요.<br>※ 쉼표(,)로 구분하여 여러 이메일 주소 입력가능합니다. </small>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inCTname" class="col-sm-2 control-label">진료후기</label>
+                                            <div class="col-sm-10 col-md-5">
+                                                <input type="text" class="form-control" id="manager_email2" name="manager_email2" placeholder="쉼표(,)로 여러 이메일 주소 입력가능" value="<?php echo $manager_email2?>" >
+                                                <small>※ 진료후기 접수시 알림을 받을 이메일주소를 입력해 주세요.<br>※ 쉼표(,)로 구분하여 여러 이메일 주소 입력가능합니다. </small>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class='col-lg-6'>
                         <div class="grid simple ">
                             <div class="grid-title no-border">

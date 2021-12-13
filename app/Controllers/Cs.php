@@ -17,6 +17,40 @@ class Cs extends BaseController
             if ($info["inq_name"]) {
                 $info['inq_lang'] = $this->lang;
                 if ($this->InquiryModel->edit($info)) {
+
+                    /**
+                     * 담당자 메일 발송하기
+                     */
+                    $Config = model("ConfigModel");
+                    $conf = $Config->getConfig($this->lang,"site");
+                    // 이메일 주소 정리 (쉼표로 처리)
+                    $to_mail = $conf["manager_email1"];
+
+
+                    if(trim($to_mail)) {
+
+                        $form_content = "";
+                        $form_content.= "<b>이름</b> : " . $info["inq_name"] . "<br>";
+                        $form_content.= "<b>국적</b> : " . $info["inq_nationality"] . "<br>";
+                        $form_content.= "<b>이메일</b> : " . $info["inq_email"] . "<br>";
+                        $form_content.= "<b>연락처</b> : " . $info["inq_tel"] . "<br>";
+                        $form_content.= "<b>생년월일</b> : " . $info["inq_birth"] . "<br>";
+                        $form_content.= "<b>성별</b> : " . ($info["inq_gender"]=='male')?"남자":"여자" . "<br>";
+                        $form_content.= "<b>주제</b> : " . $info["inq_title"] . "<br>";
+                        $form_content.= "<b>상담내용</b> : " . $info["inq_content"] . "<br>";
+
+                        $options = array(
+                            "form_file" => "form01",
+                            "to" => $to_mail,
+                            "mail_title" => "[국제진료센터] 진료상담 - " . $info["inq_name"],
+                            "form_title" => "진료상담",
+                            "form_writer" => $info["inq_name"],
+                            "form_content" => $form_content,
+                        );
+
+                        $this->send_mail($options);
+                    }
+
                     $json["result"] = "OK";
                 } else {
                     $json["result"] = "ERROR";
@@ -49,6 +83,43 @@ class Cs extends BaseController
                 }
 
                 if ($this->ReviewModel->edit($info)) {
+
+                    /**
+                     * 담당자 메일 발송하기
+                     */
+                    $Config = model("ConfigModel");
+                    $conf = $Config->getConfig($this->lang,"site");
+                    // 이메일 주소 정리 (쉼표로 처리)
+                    $to_mail = $conf["manager_email2"];
+
+
+                    if(trim($to_mail)) {
+
+                        $medical_type = explode("::",$info["rev_medical_type"]);
+
+                        $form_content = "";
+                        $form_content.= "<b>이름</b> : " . $info["rev_name"] . "<br>";
+                        $form_content.= "<b>국적</b> : " . $info["rev_nationality"] . "<br>";
+                        $form_content.= "<b>이메일</b> : " . $info["rev_email"] . "<br>";
+                        $form_content.= "<b>연락처</b> : " . $info["rev_tel"] . "<br>";
+
+                        $form_content.= "<b>분야</b> : " . $medical_type[1] . "<br>";
+                        $form_content.= "<b>제목</b> : " . $info["rev_title"] . "<br>";
+                        $form_content.= "<b>내용</b> : " . $info["rev_content"] . "<br>";
+
+
+                        $options = array(
+                            "form_file" => "form01",
+                            "to" => $to_mail,
+                            "mail_title" => "[국제진료센터] 진료후기 - " . $info["rev_name"],
+                            "form_title" => "진료후기",
+                            "form_writer" => $info["rev_name"],
+                            "form_content" => $form_content,
+                        );
+
+                        $this->send_mail($options);
+                    }
+
                     $json["result"] = "OK";
                 } else {
                     $json["result"] = "ERROR";
