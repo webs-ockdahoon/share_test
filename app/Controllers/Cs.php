@@ -29,15 +29,18 @@ class Cs extends BaseController
 
                     if(trim($to_mail)) {
 
+                        if($info["inq_gender"]=='male')$gender = "남자";
+                        else $gender = "여자";
+
                         $form_content = "";
                         $form_content.= "<b>이름</b> : " . $info["inq_name"] . "<br>";
                         $form_content.= "<b>국적</b> : " . $info["inq_nationality"] . "<br>";
                         $form_content.= "<b>이메일</b> : " . $info["inq_email"] . "<br>";
                         $form_content.= "<b>연락처</b> : " . $info["inq_tel"] . "<br>";
                         $form_content.= "<b>생년월일</b> : " . $info["inq_birth"] . "<br>";
-                        $form_content.= "<b>성별</b> : " . ($info["inq_gender"]=='male')?"남자":"여자" . "<br>";
+                        $form_content.= "<b>성별</b> : " . $gender . "<br>";
                         $form_content.= "<b>주제</b> : " . $info["inq_title"] . "<br>";
-                        $form_content.= "<b>상담내용</b> : " . $info["inq_content"] . "<br>";
+                        $form_content.= "<b>상담내용</b> : " . nl2br($info["inq_content"]) . "<br>";
 
                         $options = array(
                             "form_file" => "form01",
@@ -105,7 +108,7 @@ class Cs extends BaseController
 
                         $form_content.= "<b>분야</b> : " . $medical_type[1] . "<br>";
                         $form_content.= "<b>제목</b> : " . $info["rev_title"] . "<br>";
-                        $form_content.= "<b>내용</b> : " . $info["rev_content"] . "<br>";
+                        $form_content.= "<b>내용</b> : " . nl2br($info["rev_content"]) . "<br>";
 
 
                         $options = array(
