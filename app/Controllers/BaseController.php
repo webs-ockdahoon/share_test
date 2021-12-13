@@ -597,8 +597,8 @@ class BaseController extends Controller
      */
     function send_mail($options){
         // 기본값 설정
-        if(!isset($options["from"]) || !$options["from"])$options["from"] = "no-reply@staron.com";
-        if(!isset($options["from_name"]) || !$options["from_name"])$options["from_name"] = "Lotte Chemical";
+        if(!isset($options["from"]) || !$options["from"])$options["from"] = "no-reply@damc.or.kr";
+        if(!isset($options["from_name"]) || !$options["from_name"])$options["from_name"] = "동아대학교국제진료센터";
         if(!isset($options["form_content"]) || !$options["form_content"])$options["form_content"] = "";
         if(!isset($options["to"]) || !$options["to"])return;
         if(!isset($options["form_site_url"]) || $options["form_site_url"])$options["form_site_url"]=BASE_URL;
@@ -632,6 +632,7 @@ class BaseController extends Controller
     public function setContUrl($cont_url){
         $this->cont_url = $cont_url;
     }
+
 
 
 }

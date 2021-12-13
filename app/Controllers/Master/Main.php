@@ -9,9 +9,6 @@ class Main extends MasterController
 
 	public function index()
 	{
-
-
-
 	    $this->InquiryModel->where("inq_deleted_at is null");
 	    $this->InquiryModel->where("inq_state",1);
 	    $this->InquiryModel->select("count(inq_idx) as cnt");
@@ -95,4 +92,25 @@ class Main extends MasterController
 	    return $this->run();
 		//return view('welcome_message');
 	}
+
+    /*************************************************************
+     * 모든 테이블, 필드 character set 형식 통일시키기
+     *************************************************************/
+	public function set_table_type(){
+	    if(!isDev())exit();
+        $db = db_connect();
+	    $sql = "show tables";
+	    $result = $db->query($sql)->getResultArray();
+	    foreach($result as $rs){
+	        $key = array_keys($rs);
+	        $tbl = $rs[$key[0]];
+
+            $sql = "alter table " . $tbl . " convert to character set utf8mb4 COLLATE  utf8mb4_unicode_ci;";
+            $db->query($sql);
+            $sql = "alter table " . $tbl . " character set = 'utf8mb4' collate = 'utf8mb4_unicode_ci';";
+            $db->query($sql);
+        }
+	    
+	    echo "OK";
+    }
 }
