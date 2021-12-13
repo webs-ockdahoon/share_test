@@ -10,23 +10,23 @@
                     </button>
                 </div>
 
-                <form class="modal-body">
+                <form class="modal-body" action="/search" method="post">
                     <div class="form-group">
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="searchType1" name="searchType" class="custom-control-input" checked>
+                            <input type="radio" id="searchType1" name="searchType" class="custom-control-input" value="total" checked>
                             <label class="custom-control-label" for="searchType1">통합 검색</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="searchType2" name="searchType" class="custom-control-input">
+                            <input type="radio" id="searchType2" name="searchType" class="custom-control-input" value="doctor">
                             <label class="custom-control-label" for="searchType2">의료진 검색</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="searchType3" name="searchType" class="custom-control-input">
+                            <input type="radio" id="searchType3" name="searchType" class="custom-control-input" value="department">
                             <label class="custom-control-label" for="searchType3">진료과 검색</label>
                         </div>
                     </div>
                     <div class="form-group form-group--pull">
-                        <input type="search" class="form-control form-control-lg form-control--underline" placeholder="검색어를 입력해 주세요." required>
+                        <input type="search" class="form-control form-control-lg form-control--underline" name="searchKey" placeholder="검색어를 입력해 주세요." required>
 
                         <div class="form-control-pull">
                             <button type="submit" class="btn btn-icon" title="검색하기">

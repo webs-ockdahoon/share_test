@@ -20,7 +20,7 @@ class Terms extends MasterController
          * 검색 기능 구현 시작
          */
         if($this->sch_obj[1])$this->model->where("terms_group",$this->sch_obj[1]);
-        if($this->sch_obj[2])$this->model->like("terms_content",$this->sch_obj[2],'both');
+        if($this->sch_obj[2])$this->model->like("terms_content_kor",$this->sch_obj[2],'both');
         /* 검색 기능 구현 끝 */
 
         $data = $this->model->getPager();
