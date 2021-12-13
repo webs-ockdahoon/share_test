@@ -594,10 +594,15 @@ class BaseController extends Controller
     /**
      * 공통 메일 발송 처리 함수
      * @param $options
+     *
+     * 보내는사람 이메일 주소 from 은 메일발송 보안에 따라 실제 운영중인 도메인을 입력하도록 하자.
+     * 또한 DNS에도 SPF 설정이 필요할 수도 있다.
+     * 전혀 관계없는 메일 발송시 sendmail 발송 단계에서 이미 차단되어 발송 자체가 안될 수도 있다.
+     *
      */
     function send_mail($options){
         // 기본값 설정
-        if(!isset($options["from"]) || !$options["from"])$options["from"] = "no-reply@damc.or.kr";
+        if(!isset($options["from"]) || !$options["from"])$options["from"] = "no-reply@bluecomet.kr";
         if(!isset($options["from_name"]) || !$options["from_name"])$options["from_name"] = "동아대학교국제진료센터";
         if(!isset($options["form_content"]) || !$options["form_content"])$options["form_content"] = "";
         if(!isset($options["to"]) || !$options["to"])return;
