@@ -17,7 +17,9 @@
 
 ?>
 
-<?php echo $this->section('beforeContent'); ?>
+<?php
+if($now_menu_title){
+    echo $this->section('beforeContent'); ?>
 
     <nav class="page-breadcrumb page-breadcrumb--responsive">
         <div class="container container-lg">
@@ -98,7 +100,9 @@
         </div>
     </nav>
 
-<?php echo $this->endSection(); ?>
+<?php echo $this->endSection();
+}   // end echo beforeContent
+?>
 
 <?php echo $this->section('prependContent'); ?>
     <div class="content-hero">

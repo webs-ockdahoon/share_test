@@ -127,7 +127,7 @@
 
                     <div class="default-page-footer__utils-terms">
                         <ul class="bullet-list bullet-list--inline-after term-links">
-                            <li class="text-white"><a href="">Privacy Policy</a></li>
+                            <li class="text-white"><a href="/help/privacy">Privacy Policy</a></li>
                         </ul>
                         <p class="term-copyright">Copyright ⓒ DONG-A UNIVERSITY MEDICAL CENTER. All Rights Reserved.</p>
                     </div>

@@ -48,13 +48,26 @@
 
                     <div class="grid simple ">
                         <div class="grid-title no-border">
-                            <h4>내용</h4>
+                            <h4>내용(국문)</h4>
                         </div>
 
                         <div class="grid-body editForm">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <?php echo fnPrintEditor("terms_content",$terms_content,500,'term')?>
+                                    <?php echo fnPrintEditor("terms_content_kor",$terms_content_kor,500,'term')?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid simple ">
+                        <div class="grid-title no-border">
+                            <h4>내용(러시아)</h4>
+                        </div>
+
+                        <div class="grid-body editForm">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <?php echo fnPrintEditor("terms_content_rus",$terms_content_rus,500,'term')?>
                                 </div>
                             </div>
                         </div>
