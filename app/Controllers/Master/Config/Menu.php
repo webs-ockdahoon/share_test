@@ -88,6 +88,26 @@ class Menu extends MasterController
         }
     }
 
+    public function sortsave(){
+        $mnu_info = $this->getPost("mnu_info");
+
+        $code[1] = 0;
+        $code[2] = 0;
+        foreach($mnu_info as $mnu){
+            $code[$mnu[1]]++;
+            if($mnu[1]==1)$code[2]=0;
+
+            $new_code = str_pad($code[1],2,"0",STR_PAD_LEFT).str_pad($code[2],2,"0",STR_PAD_LEFT);
+            $new_code = str_pad($new_code,10,"0",STR_PAD_RIGHT);
+
+            // 메뉴 업데이트
+            $this->model->set("mnu_code",$new_code);
+            $this->model->update($mnu[0]);
+        }
+
+        $json["result"] = "OK";
+        die(json_encode($json));
+    }
 
 
 }
