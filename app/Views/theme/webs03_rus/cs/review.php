@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--medical page--mrequest-review-inquiry');
-    $this->setVar('heroTitle', '진료 후기');
+    $this->setVar('heroTitle', 'обзоры лечения');
 ?>
 
 <?php echo $this->section('appendHead'); ?>
