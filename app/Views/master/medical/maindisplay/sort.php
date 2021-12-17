@@ -78,7 +78,7 @@
 
                     <div class='row buttonWrap mb20'>
                         <div class='col-xs-12 col-md-3'>
-
+                            ※ 마우스 드래그&드랍으로 순서변경 가능합니다.
                         </div>
                         <div class='col-xs-12 col-md-6 text-center'>
                             <button class="btn btn-primary" type="submit" >설정 저장</button>
