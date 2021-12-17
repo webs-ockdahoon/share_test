@@ -99,7 +99,7 @@ if(!empty($pop_list)){ ?>
     <article class="section section-gutter service-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">병원 <strong class="text-primary">진료과목</strong></h2>
+                <h2 class="section-title">предметы <strong class="text-primary">лечения</strong></h2>
             </div>
 
             <div class="swiper-container service-swiper js__service-swiper">
@@ -135,7 +135,7 @@ if(!empty($pop_list)){ ?>
     <article class="section section-gutter my-0 bg-air member-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">병원 <strong class="text-primary">진료후기</strong></h2>
+                <h2 class="section-title">обзор больничного <strong class="text-primary">лечения</strong></h2>
             </div>
 
             <div class="swiper-container member-swiper js__member-swiper">
@@ -148,8 +148,8 @@ if(!empty($pop_list)){ ?>
                             <section class="card member-card">
                                 <button type="button" class="btn member-btn" title="진료후기" onclick="review_detail($(this))">
                                     <div class="card-header">
-                                        <h3 class="card-title text-muted"><?php echo $rev['rev_name']?>님의 후기</h3>
-                                        <p class="card-subtitle text-primary"><?php echo $rev['dep_title']?> 방문</p>
+                                        <h3 class="card-title text-muted"><?php echo $rev['rev_name']?> <?phpf /*님의 후기*/</h3>
+                                        <p class="card-subtitle text-primary"><?php echo $rev['dep_title']?> <?php /*방문*/?></p>
                                     </div>
 
                                     <div class="card-body">
@@ -173,7 +173,7 @@ if(!empty($pop_list)){ ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">진료후기</h4>
+                    <h4 class="modal-title" id="myModalLabel">обзор больничного лечения</h4>
                     <button type="button" class="btn btn-icon modal-close" data-dismiss="modal" aria-label="Close">
                         <span class="material-icons-round">close</span>
                     </button>
@@ -214,7 +214,7 @@ if(!empty($pop_list)){ ?>
         <div class="container">
             <div class="section-content">
                 <div class="section-header">
-                    <h2 class="section-title">병원 <strong class="text-primary">소식</strong></h2>
+                    <h2 class="section-title">вести <strong class="text-primary">больницы</strong></h2>
                 </div>
 
                 <ul class="list-unstyled mb-0 news-cards">
@@ -276,7 +276,7 @@ if(!empty($pop_list)){ ?>
     <article class="section section-gutter partner-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">병원 <strong class="text-primary">협력업체</strong></h2>
+                <h2 class="section-title">партнеры <strong class="text-primary">больницы</strong></h2>
             </div>
 
             <div class="swiper-container partner-swiper js__partner-swiper">

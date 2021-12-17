@@ -5,17 +5,17 @@
         <ul class="qm-list">
             <li>
                 <a href="#" target="_self">
-                    <img src="<?php echo $THEME_URL; ?>/images/main/qm-icon01.png" alt="병원소식" width="15" height="15" class="img-fluid"><span>병원소식</span>
+                    <img src="<?php echo $THEME_URL; ?>/images/main/qm-icon01.png" alt="вести больницы" width="15" height="15" class="img-fluid"><span>вести больницы</span>
                 </a>
             </li>
             <li>
                 <a href="#" target="_self">
-                    <img src="<?php echo $THEME_URL; ?>/images/main/qm-icon02.png" alt="상담신청" width="15" height="15" class="img-fluid"><span>상담신청</span>
+                    <img src="<?php echo $THEME_URL; ?>/images/main/qm-icon02.png" alt="регистрация на консультацию" width="15" height="15" class="img-fluid"><span>регистрация на консультацию</span>
                 </a>
             </li>
             <li>
                 <a href="#" target="_self">
-                    <img src="<?php echo $THEME_URL; ?>/images/main/qm-icon03.png" alt="진료절차" width="15" height="15" class="img-fluid"><span>진료절차</span>
+                    <img src="<?php echo $THEME_URL; ?>/images/main/qm-icon03.png" alt="последовательность лечения" width="15" height="15" class="img-fluid"><span>последовательность лечения</span>
                 </a>
             </li>
         </ul>
