@@ -148,7 +148,7 @@ if(!empty($pop_list)){ ?>
                             <section class="card member-card">
                                 <button type="button" class="btn member-btn" title="진료후기" onclick="review_detail($(this))">
                                     <div class="card-header">
-                                        <h3 class="card-title text-muted"><?php echo $rev['rev_name']?> <?phpf /*님의 후기*/</h3>
+                                        <h3 class="card-title text-muted"><?php echo $rev['rev_name']?> <?php /*님의 후기*/?></h3>
                                         <p class="card-subtitle text-primary"><?php echo $rev['dep_title']?> <?php /*방문*/?></p>
                                     </div>
 

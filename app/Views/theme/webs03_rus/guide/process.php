@@ -2,7 +2,7 @@
 
 <?php
     $this->setVar('bodyClassName', 'page--guide page--guide-process');
-    $this->setVar('heroTitle', '진료 절차');
+    $this->setVar('heroTitle', 'Последовательность лечения');
 ?>
 
 <?php echo $this->section('appendHead'); ?>

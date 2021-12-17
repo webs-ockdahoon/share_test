@@ -2,7 +2,7 @@
 
 <?php
 $this->setVar('bodyClassName', 'page--intro page--intro-history');
-$this->setVar('heroTitle', '병원 연혁');
+$this->setVar('heroTitle', 'История больницы');
 ?>
 
 <?php echo $this->section('appendHead'); ?>
