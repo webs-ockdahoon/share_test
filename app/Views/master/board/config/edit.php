@@ -53,7 +53,7 @@
                                         <div class="controls">
                                             <select class="form-control-static" name="boc_skin" id="boc_skin">
                                                 <?php foreach($board_skin as $skin){?>
-                                                    <option value="<?php echo $skin?>"><?php echo $skin?></option>
+                                                    <option value="<?php echo $skin?>" <?php if($skin==$boc_skin)echo "selected";?>><?php echo $skin?></option>
                                                 <?php }?>
                                             </select>
                                         </div>
