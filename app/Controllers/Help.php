@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Help extends BaseController
 {
-    protected $viewPath = "Help";
+    protected $viewPath = "help";
     protected $models = array('TermsModel');
 
     public function privacy()
