@@ -269,7 +269,7 @@ class BaseController extends Controller
         $router = service('router');
         $MODE_URL = str_replace("\App\Controllers","",$router->controllerName());
         $MODE_URL = str_replace("\\","/",$MODE_URL);
-        $MODE_URL = strtolower($MODE_URL);
+        //$MODE_URL = strtolower($MODE_URL);
         return $MODE_URL;
     }
 
