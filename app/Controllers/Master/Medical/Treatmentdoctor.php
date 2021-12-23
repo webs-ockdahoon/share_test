@@ -4,7 +4,7 @@ namespace App\Controllers\Master\Medical;
 use App\Controllers\Master\MasterController;
 use App\Libraries\Uploader;
 
-class TreatmentDoctor extends MasterController
+class Treatmentdoctor extends MasterController
 {
     protected $models = array('DepartmentsDoctorModel','DepartmentsModel',);
     protected $viewPath = "medical/doctor";
