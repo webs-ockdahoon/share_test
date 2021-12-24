@@ -70,7 +70,7 @@ class BoardDataModel extends BaseModel
         $this->where("bod_group='" . $option["bod_group"] . "' and bod_sort>='" . $option["bod_sort"] . "'");
         $this->orderBy("bod_sort","asc");
         $REresult = $this->get();
-        $bod_sort = 1;
+        $bod_sort = $option["bod_sort"];
         foreach($REresult->getResultArray() as $RErs){
             if($RErs["bod_level"]>=$option["bod_level"])$bod_sort=$RErs["bod_sort"]+1;
             else break;

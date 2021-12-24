@@ -292,6 +292,8 @@ class Board extends BaseController
                     $data["bod_origin_secret"] = true;
                 }
 
+                $data["bod_use_editor"] = $this->conf["boc_use_editor"];
+
             }else if($idx){  // 수정시
                 $data = $this->model->find($idx);
                 $data["bod_origin_secret"] = false;
