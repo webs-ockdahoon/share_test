@@ -38,8 +38,6 @@ $this->setVar('bodyClassName', 'page--main');
 <!-- 팝업 레이어 영역 -->
 <?php
 if(!empty($pop_list)){ ?>
-    <div id="hd_pop" class="hd_pop--pc">
-        <h2>팝업레이어</h2>
         <?php
         foreach($pop_list as $key => $val)
         {
@@ -65,7 +63,6 @@ if(!empty($pop_list)){ ?>
                 </div>
             </div>
         <?php } ?>
-    </div>
 <?php } ?>
 
 <main>
